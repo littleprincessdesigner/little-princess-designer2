@@ -1,9 +1,7 @@
 {
-  "name": "Blossom Everyday Frock",
-  "subcategory": "g1",
-  "addedOn": "2026-07-24T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "Blossom Dress",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
@@ -31,20 +29,23 @@
       "available": true
     }
   ],
+  "showAccessory": false,
+  "description2": "fcgtbcgbgdb",
   "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
   "specs": {
-    "fabric": "",
+    "fabric": "orgnaza",
     "occasion": "",
     "fit": "",
-    "care": ""
+    "care": "dry clean"
   },
   "images": [
     {
       "url": "",
-      "upload": "",
+      "upload": "https://ik.imagekit.io/lpdlhr/little%20princess%20website/Blossom1.jpg?updatedAt=1786257338739",
       "alt": ""
     }
-  ]
+  ],
+  "description": "descriptionnnnnnnnnnnnn",
+  "subcategory": "g3",
+  "addedOn": "2026-07-24T12:00:00.000Z"
 }
