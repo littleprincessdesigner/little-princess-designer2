@@ -1,9 +1,7 @@
 {
-  "name": "Eid Waistcoat Set",
-  "subcategory": "b2",
-  "addedOn": "2026-07-11T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "zaarish dress",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
@@ -31,9 +29,9 @@
       "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -43,8 +41,12 @@
   "images": [
     {
       "url": "",
-      "upload": "",
+      "upload": "https://ik.imagekit.io/lpdlhr/zaarish%20dress%20(1).jpg",
       "alt": ""
-    }
-  ]
+    },
+    {}
+  ],
+  "description": "",
+  "subcategory": "b2",
+  "addedOn": "2026-07-11T12:00:00.000Z"
 }
