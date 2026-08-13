@@ -1,9 +1,7 @@
 {
-  "name": "Blue Cloud Baby Shirt",
-  "subcategory": "y1",
-  "addedOn": "2026-07-13T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "Blue Cloud Baby Shirt",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
@@ -16,9 +14,9 @@
       "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -27,9 +25,12 @@
   },
   "images": [
     {
-      "url": "",
-      "upload": "",
-      "alt": ""
-    }
-  ]
+      "upload": "https://ik.imagekit.io/lpdlhr/little%20princess%20website/red%20(2).jpg"
+    },
+    {},
+    {}
+  ],
+  "description": "",
+  "subcategory": "y1",
+  "addedOn": "2026-07-13T12:00:00.000Z"
 }
