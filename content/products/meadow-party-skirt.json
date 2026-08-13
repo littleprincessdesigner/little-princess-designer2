@@ -1,9 +1,7 @@
 {
-  "name": "Meadow Party Skirt",
-  "subcategory": "g4",
-  "addedOn": "2026-07-29T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "belle",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
@@ -31,9 +29,9 @@
       "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -43,8 +41,13 @@
   "images": [
     {
       "url": "",
-      "upload": "",
+      "upload": "https://ik.imagekit.io/lpdlhr/belle.jpg",
       "alt": ""
-    }
-  ]
+    },
+    {},
+    {}
+  ],
+  "description": "",
+  "subcategory": "g4",
+  "addedOn": "2026-07-29T12:00:00.000Z"
 }
