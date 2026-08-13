@@ -1,9 +1,7 @@
 {
-  "name": "Clara Walima Gown",
-  "subcategory": "g3",
-  "addedOn": "2026-07-12T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "amna dress purple",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
@@ -31,9 +29,9 @@
       "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -42,9 +40,12 @@
   },
   "images": [
     {
-      "url": "",
-      "upload": "",
-      "alt": ""
-    }
-  ]
+      "upload": "https://ik.imagekit.io/lpdlhr/purple%20(1).jpg"
+    },
+    {},
+    {}
+  ],
+  "description": "",
+  "subcategory": "g3",
+  "addedOn": "2026-07-12T12:00:00.000Z"
 }
