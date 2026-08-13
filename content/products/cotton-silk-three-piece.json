@@ -1,9 +1,7 @@
 {
-  "name": "Cotton-Silk Three Piece",
-  "subcategory": "b2",
-  "addedOn": "2026-07-23T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "Cotton-Silk Three Piece",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
@@ -31,9 +29,9 @@
       "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -43,8 +41,13 @@
   "images": [
     {
       "url": "",
-      "upload": "",
+      "upload": "https://ik.imagekit.io/lpdlhr/blue%20btrfly%20(1).jpg",
       "alt": ""
-    }
-  ]
+    },
+    {},
+    {}
+  ],
+  "description": "",
+  "subcategory": "b2",
+  "addedOn": "2026-07-23T12:00:00.000Z"
 }
