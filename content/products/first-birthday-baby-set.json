@@ -1,9 +1,7 @@
 {
-  "name": "First Birthday Baby Set",
-  "subcategory": "y3",
-  "addedOn": "2026-08-01T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "aizal red frock",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
@@ -16,9 +14,9 @@
       "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -28,8 +26,13 @@
   "images": [
     {
       "url": "",
-      "upload": "",
+      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(2).jpg",
       "alt": ""
-    }
-  ]
+    },
+    {},
+    {}
+  ],
+  "description": "",
+  "subcategory": "y3",
+  "addedOn": "2026-08-01T12:00:00.000Z"
 }
