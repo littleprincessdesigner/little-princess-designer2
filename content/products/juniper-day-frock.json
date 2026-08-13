@@ -1,9 +1,7 @@
 {
-  "name": "Juniper Day Frock",
-  "subcategory": "g1",
-  "addedOn": "2026-06-29T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "baby shark",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
@@ -31,9 +29,9 @@
       "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -43,8 +41,12 @@
   "images": [
     {
       "url": "",
-      "upload": "",
+      "upload": "https://ik.imagekit.io/lpdlhr/bb%20shark%20(2).jpg",
       "alt": ""
-    }
-  ]
+    },
+    {}
+  ],
+  "description": "",
+  "subcategory": "g1",
+  "addedOn": "2026-06-29T12:00:00.000Z"
 }
