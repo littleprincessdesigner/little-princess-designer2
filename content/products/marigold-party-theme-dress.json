@@ -1,9 +1,7 @@
 {
-  "name": "Marigold Party Theme Dress",
-  "subcategory": "g2",
-  "addedOn": "2026-07-09T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "tuti-fruity tutu skirt",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
@@ -31,9 +29,9 @@
       "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -43,8 +41,12 @@
   "images": [
     {
       "url": "",
-      "upload": "",
+      "upload": "https://ik.imagekit.io/lpdlhr/fruity.jpg",
       "alt": ""
-    }
-  ]
+    },
+    {}
+  ],
+  "description": "",
+  "subcategory": "g2",
+  "addedOn": "2026-07-09T12:00:00.000Z"
 }
