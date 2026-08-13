@@ -1,9 +1,7 @@
 {
-  "name": "First Steps Romper",
-  "subcategory": "y2",
-  "addedOn": "2026-07-10T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "irha dress purple",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
@@ -16,9 +14,9 @@
       "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -27,9 +25,11 @@
   },
   "images": [
     {
-      "url": "",
-      "upload": "",
-      "alt": ""
-    }
-  ]
+      "upload": "https://ik.imagekit.io/lpdlhr/irha%20purple.jpg"
+    },
+    {}
+  ],
+  "description": "",
+  "subcategory": "y2",
+  "addedOn": "2026-07-10T12:00:00.000Z"
 }
