@@ -5,13 +5,18 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 4500,
+      "price": 55,
       "available": true
     },
     {
       "size": "4–6 years",
       "price": 5400,
       "available": true
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "price": 333
     }
   ],
   "showAccessory": true,
@@ -25,12 +30,16 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/rainboe%20fairy%20(1).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/rainboe%20fairy%20(2).jpg?updatedAt=1786648698504"
     },
-    {},
-    {}
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/rainboe%20fairy.jpg?updatedAt=1786648698535"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/rainboe%20fairy%20(1).jpg?updatedAt=1786648699110"
+    }
   ],
   "description": "",
-  "subcategory": "y2",
+  "subcategory": "g4",
   "addedOn": "2026-08-02T12:00:00.000Z"
 }
