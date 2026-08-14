@@ -1,13 +1,11 @@
 {
-  "name": "Peony Beaded Gown",
-  "subcategory": "g3",
-  "addedOn": "2026-07-19T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "mickey mouse dress",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 19400,
+      "price": 58,
       "available": true
     },
     {
@@ -19,21 +17,11 @@
       "size": "7–9 years",
       "price": 21200,
       "available": true
-    },
-    {
-      "size": "10–12 years",
-      "price": 22100,
-      "available": true
-    },
-    {
-      "size": "13–16 years",
-      "price": 23000,
-      "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": false,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -43,8 +31,17 @@
   "images": [
     {
       "url": "",
-      "upload": "",
+      "upload": "https://ik.imagekit.io/lpdlhr/mky%20ms%20dress%20(1).jpg",
       "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/mky%20ms%20dress%20(10).jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/mky%20ms%20dress%20(8).jpg"
     }
-  ]
+  ],
+  "description": "",
+  "subcategory": "r1",
+  "addedOn": "2026-07-19T12:00:00.000Z"
 }
