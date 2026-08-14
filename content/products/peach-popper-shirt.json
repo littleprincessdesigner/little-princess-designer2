@@ -1,9 +1,7 @@
 {
-  "name": "Peach Popper Shirt",
-  "subcategory": "y1",
-  "addedOn": "2026-07-20T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "masha dress",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
@@ -14,11 +12,26 @@
       "size": "4–6 years",
       "price": 5300,
       "available": true
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "price": 55
+    },
+    {
+      "available": true,
+      "size": "10–12 years",
+      "price": 66
+    },
+    {
+      "available": true,
+      "size": "13–16 years",
+      "price": 77
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": false,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -28,8 +41,17 @@
   "images": [
     {
       "url": "",
-      "upload": "",
+      "upload": "https://ik.imagekit.io/lpdlhr/masha.jpg",
       "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/masha%20(3).jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/masha%20(1).jpg"
     }
-  ]
+  ],
+  "description": "",
+  "subcategory": "r1",
+  "addedOn": "2026-07-20T12:00:00.000Z"
 }
