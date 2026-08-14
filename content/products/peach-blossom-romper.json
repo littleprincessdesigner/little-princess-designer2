@@ -1,9 +1,7 @@
 {
-  "name": "Peach Blossom Romper",
-  "subcategory": "y2",
-  "addedOn": "2026-07-21T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "bumble bee dress",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
@@ -16,9 +14,9 @@
       "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -28,8 +26,14 @@
   "images": [
     {
       "url": "",
-      "upload": "",
+      "upload": "https://ik.imagekit.io/lpdlhr/bmbl%20bee%20dress.jpg?updatedAt=1786739027556",
       "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/bmbl%20bee%20dress%20(1).jpg?updatedAt=1786739027588"
     }
-  ]
+  ],
+  "description": "",
+  "subcategory": "g2",
+  "addedOn": "2026-07-21T12:00:00.000Z"
 }
