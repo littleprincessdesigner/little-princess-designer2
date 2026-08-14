@@ -1,9 +1,7 @@
 {
-  "name": "Prince Arthur Suit",
-  "subcategory": "b1",
-  "addedOn": "2026-07-28T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "rameen miral dress",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
@@ -31,9 +29,9 @@
       "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "A three-piece prince suit in deep navy cotton-silk, with gold braid at the shoulder and cuff, a fully lined coat and an inner shirt with hand-stitched buttons.",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -43,8 +41,20 @@
   "images": [
     {
       "url": "",
-      "upload": "",
+      "upload": "https://ik.imagekit.io/lpdlhr/1000053509.jpg",
       "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000053513.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000053514.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000053511.jpg"
     }
-  ]
+  ],
+  "description": "A three-piece prince suit in deep navy cotton-silk, with gold braid at the shoulder and cuff, a fully lined coat and an inner shirt with hand-stitched buttons.",
+  "subcategory": "g3",
+  "addedOn": "2026-07-28T12:00:00.000Z"
 }
