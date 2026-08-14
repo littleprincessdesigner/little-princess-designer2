@@ -41,13 +41,17 @@
   "images": [
     {
       "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/belle.jpg",
+      "upload": "https://ik.imagekit.io/lpdlhr/belle%20(1).jpg?updatedAt=1786652149399",
       "alt": ""
     },
-    {},
-    {}
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/belle%20(2).jpg?updatedAt=1786652148098"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/belle.jpg?updatedAt=1786652149994"
+    }
   ],
   "description": "",
-  "subcategory": "g4",
+  "subcategory": "g2",
   "addedOn": "2026-07-29T12:00:00.000Z"
 }
