@@ -5,7 +5,7 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 8500,
+      "price": 55,
       "available": true
     },
     {
@@ -22,11 +22,6 @@
       "size": "10–12 years",
       "price": 11200,
       "available": true
-    },
-    {
-      "size": "13–16 years",
-      "price": 12100,
-      "available": true
     }
   ],
   "showAccessory": true,
@@ -41,13 +36,17 @@
   "images": [
     {
       "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/jfjfjdf.jpg",
+      "upload": "https://ik.imagekit.io/lpdlhr/sky%20blue%20lil%20dress.jpg?updatedAt=1786650315545",
       "alt": ""
     },
-    {},
-    {}
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/sky%20blue%20dress.jpg?updatedAt=1786650315337"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/jfjfjdf.jpg?updatedAt=1786650315345"
+    }
   ],
   "description": "",
-  "subcategory": "b2",
+  "subcategory": "g3",
   "addedOn": "2026-07-31T12:00:00.000Z"
 }
