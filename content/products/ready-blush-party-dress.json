@@ -1,9 +1,7 @@
 {
-  "name": "Ready Blush Party Dress",
-  "subcategory": "r1",
-  "addedOn": "2026-07-27T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "irha yellow ruffle dress",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
@@ -19,21 +17,11 @@
       "size": "7–9 years",
       "price": 6700,
       "available": true
-    },
-    {
-      "size": "10–12 years",
-      "price": 7600,
-      "available": true
-    },
-    {
-      "size": "13–16 years",
-      "price": 8500,
-      "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -43,8 +31,11 @@
   "images": [
     {
       "url": "",
-      "upload": "",
+      "upload": "https://ik.imagekit.io/lpdlhr/1000001817.jpg",
       "alt": ""
     }
-  ]
+  ],
+  "description": "",
+  "subcategory": "g3",
+  "addedOn": "2026-07-27T12:00:00.000Z"
 }
