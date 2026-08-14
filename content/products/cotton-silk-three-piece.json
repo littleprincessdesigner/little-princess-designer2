@@ -5,7 +5,7 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 9400,
+      "price": 55,
       "available": true
     },
     {
@@ -22,11 +22,6 @@
       "size": "10–12 years",
       "price": 12100,
       "available": true
-    },
-    {
-      "size": "13–16 years",
-      "price": 13000,
-      "available": true
     }
   ],
   "showAccessory": true,
@@ -41,13 +36,17 @@
   "images": [
     {
       "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/blue%20btrfly%20(1).jpg",
+      "upload": "https://ik.imagekit.io/lpdlhr/blue%20btrfly%20(2).jpg?updatedAt=1786648871361",
       "alt": ""
     },
-    {},
-    {}
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/blue%20btrfly.jpg?updatedAt=1786648871830"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/blue%20btrfly%20(1).jpg?updatedAt=1786648867953"
+    }
   ],
   "description": "",
-  "subcategory": "b2",
+  "subcategory": "g3",
   "addedOn": "2026-07-23T12:00:00.000Z"
 }
