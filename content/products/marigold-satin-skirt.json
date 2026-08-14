@@ -41,13 +41,17 @@
   "images": [
     {
       "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/peach%20butterfly%20(2).jpg",
+      "upload": "https://ik.imagekit.io/lpdlhr/peach%20butterfly%20(1).jpg?updatedAt=1786651792385",
       "alt": ""
     },
-    {},
-    {}
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/peach%20butterfly.jpg?updatedAt=1786651792843"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/peach%20butterfly%20(2).jpg?updatedAt=1786651792388"
+    }
   ],
   "description": "",
-  "subcategory": "g4",
+  "subcategory": "g3",
   "addedOn": "2026-07-08T12:00:00.000Z"
 }
