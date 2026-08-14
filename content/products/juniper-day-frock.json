@@ -5,7 +5,7 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 11100,
+      "price": 55,
       "available": true
     },
     {
@@ -41,12 +41,14 @@
   "images": [
     {
       "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/bb%20shark%20(2).jpg",
+      "upload": "https://ik.imagekit.io/lpdlhr/bb%20shark%20(1).jpg?updatedAt=1786651536910",
       "alt": ""
     },
-    {}
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/bb%20shark%20(2).jpg?updatedAt=1786651536687"
+    }
   ],
   "description": "",
-  "subcategory": "g1",
+  "subcategory": "r1",
   "addedOn": "2026-06-29T12:00:00.000Z"
 }
