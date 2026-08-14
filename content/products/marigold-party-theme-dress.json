@@ -5,7 +5,7 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 13300,
+      "price": 55,
       "available": true
     },
     {
@@ -41,12 +41,14 @@
   "images": [
     {
       "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/fruity.jpg",
+      "upload": "https://ik.imagekit.io/lpdlhr/fruity%20(1).jpg?updatedAt=1786651642601",
       "alt": ""
     },
-    {}
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/fruity.jpg?updatedAt=1786651642862"
+    }
   ],
   "description": "",
-  "subcategory": "g2",
+  "subcategory": "g4",
   "addedOn": "2026-07-09T12:00:00.000Z"
 }
