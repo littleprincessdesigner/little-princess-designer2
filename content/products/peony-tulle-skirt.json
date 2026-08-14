@@ -1,9 +1,7 @@
 {
-  "name": "Peony Tulle Skirt",
-  "subcategory": "g4",
-  "addedOn": "2026-07-17T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "peach luxury dress",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
@@ -31,9 +29,9 @@
       "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -42,9 +40,16 @@
   },
   "images": [
     {
-      "url": "",
-      "upload": "",
-      "alt": ""
+      "upload": "https://ik.imagekit.io/lpdlhr/1000053487.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000053497.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000053492.jpg"
     }
-  ]
+  ],
+  "description": "",
+  "subcategory": "g3",
+  "addedOn": "2026-07-17T12:00:00.000Z"
 }
