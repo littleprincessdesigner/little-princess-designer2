@@ -5,7 +5,7 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 10300,
+      "price": 55,
       "available": true
     },
     {
@@ -44,9 +44,11 @@
       "upload": "https://ik.imagekit.io/lpdlhr/zaarish%20dress%20(1).jpg",
       "alt": ""
     },
-    {}
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/zaarish%20dress.jpg?updatedAt=1786649023862"
+    }
   ],
   "description": "",
-  "subcategory": "b2",
+  "subcategory": "g3",
   "addedOn": "2026-07-11T12:00:00.000Z"
 }
