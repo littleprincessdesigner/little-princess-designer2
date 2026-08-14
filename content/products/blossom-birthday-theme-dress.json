@@ -29,7 +29,7 @@
       "available": true
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "description2": "",
   "accessoryPrice": 1500,
   "specs": {
