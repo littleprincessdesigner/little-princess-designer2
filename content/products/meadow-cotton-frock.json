@@ -41,12 +41,14 @@
   "images": [
     {
       "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/dumbo.jpg",
+      "upload": "https://ik.imagekit.io/lpdlhr/dumbo%20(1).jpg?updatedAt=1786651980361",
       "alt": ""
     },
-    {}
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/dumbo.jpg?updatedAt=1786651980632"
+    }
   ],
   "description": "",
-  "subcategory": "g1",
+  "subcategory": "g2",
   "addedOn": "2026-07-07T12:00:00.000Z"
 }
