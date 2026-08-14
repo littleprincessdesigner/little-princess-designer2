@@ -5,7 +5,7 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 5300,
+      "price": 55,
       "available": true
     },
     {
@@ -25,12 +25,16 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/little%20princess%20website/red%20(2).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/red.jpg"
     },
-    {},
-    {}
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/red%20(2).jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/red%20(1).jpg"
+    }
   ],
   "description": "",
-  "subcategory": "y1",
+  "subcategory": "g3",
   "addedOn": "2026-07-13T12:00:00.000Z"
 }
