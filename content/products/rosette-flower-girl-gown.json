@@ -1,13 +1,11 @@
 {
-  "name": "Rosette Flower-Girl Gown",
-  "subcategory": "g3",
-  "addedOn": "2026-06-30T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "pink faie",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 21200,
+      "price": 55,
       "available": true
     },
     {
@@ -31,9 +29,9 @@
       "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -43,8 +41,20 @@
   "images": [
     {
       "url": "",
-      "upload": "",
+      "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie%20(1).jpg",
       "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie%20(3).jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie%20(2).jpg"
     }
-  ]
+  ],
+  "description": "",
+  "subcategory": "g3",
+  "addedOn": "2026-06-30T12:00:00.000Z"
 }
