@@ -1,24 +1,32 @@
 {
-  "name": "Soft Cotton Baby Shirt",
-  "subcategory": "y1",
-  "addedOn": "2026-07-25T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "unicorn tutu dress",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 3500,
+      "price": 55,
       "available": true
     },
     {
       "size": "4–6 years",
       "price": 4400,
       "available": true
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "price": 40
+    },
+    {
+      "available": true,
+      "size": "10–12 years",
+      "price": 44
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -28,8 +36,11 @@
   "images": [
     {
       "url": "",
-      "upload": "",
+      "upload": "https://ik.imagekit.io/lpdlhr/unicorn%20tutu%20dress.jpg",
       "alt": ""
     }
-  ]
+  ],
+  "description": "",
+  "subcategory": "g3",
+  "addedOn": "2026-07-25T12:00:00.000Z"
 }
