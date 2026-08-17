@@ -1,0 +1,37 @@
+{
+  "badge": "",
+  "name": "barbie kkk",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 34
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 44
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "price": 44
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640965.png"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640968.png"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/ddd.png"
+    }
+  ],
+  "subcategory": "g3",
+  "addedOn": "2026-08-18T01:16:00.000+05:00"
+}
