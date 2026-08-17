@@ -1,0 +1,27 @@
+{
+  "badge": "",
+  "name": "sea dress  ",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 55
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641005.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641004.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641006.jpg"
+    }
+  ],
+  "subcategory": "g4",
+  "addedOn": "2026-08-18T01:58:00.000+05:00"
+}
