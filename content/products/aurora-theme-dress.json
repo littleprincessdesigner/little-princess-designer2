@@ -1,13 +1,11 @@
 {
-  "name": "Aurora Theme Dress",
-  "subcategory": "g2",
-  "addedOn": "2026-08-03T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "huda dress pink",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 11500,
+      "price": 55,
       "available": true
     },
     {
@@ -31,9 +29,9 @@
       "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -43,8 +41,20 @@
   "images": [
     {
       "url": "",
-      "upload": "",
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641168.jpg.jpeg",
       "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641167.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641156.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641157.jpg.jpeg"
     }
-  ]
+  ],
+  "description": "",
+  "subcategory": "g3",
+  "addedOn": "2026-08-03T12:00:00.000Z"
 }
