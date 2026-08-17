@@ -1,13 +1,11 @@
 {
-  "name": "Three-Piece Cotton Set",
-  "subcategory": "y3",
-  "addedOn": "2026-07-04T12:00:00.000Z",
-  "visible": true,
   "badge": "",
+  "name": "red lil riding hood",
+  "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 8300,
+      "price": 44,
       "available": true
     },
     {
@@ -16,9 +14,9 @@
       "available": true
     }
   ],
-  "accessoryPrice": 1500,
-  "description": "",
+  "showAccessory": true,
   "description2": "",
+  "accessoryPrice": 1500,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -28,8 +26,14 @@
   "images": [
     {
       "url": "",
-      "upload": "",
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641122.jpg.jpeg",
       "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/image-0.png"
     }
-  ]
+  ],
+  "description": "",
+  "subcategory": "g2",
+  "addedOn": "2026-07-04T12:00:00.000Z"
 }
