@@ -1,0 +1,30 @@
+{
+  "badge": "",
+  "name": "black sultan dress",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 55
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5765.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Photoroom-20260815_212400651.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Photoroom-20260815_210459477.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5772.jpg"
+    }
+  ],
+  "subcategory": "b1",
+  "addedOn": "2026-08-19T01:56:00.000+05:00"
+}
