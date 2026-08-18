@@ -1,0 +1,30 @@
+{
+  "badge": "",
+  "name": "rosette frock",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 98
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5741.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5743.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5736.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5739.jpg"
+    }
+  ],
+  "subcategory": "g3",
+  "addedOn": "2026-08-19T01:51:00.000+05:00"
+}
