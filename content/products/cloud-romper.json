@@ -5,18 +5,18 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 55,
+      "price": 6500,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 5400,
+      "price": 8500,
       "available": true
     },
     {
       "available": true,
       "size": "7–9 years",
-      "price": 333
+      "price": 10500
     }
   ],
   "showAccessory": true,
@@ -39,7 +39,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/rainboe%20fairy%20(1).jpg?updatedAt=1786648699110"
     }
   ],
-  "description": "",
+  "description": "wings + headband + pom-pom stick = 500 + 500 + 500",
   "subcategory": "g4",
   "addedOn": "2026-08-02T12:00:00.000Z"
 }
