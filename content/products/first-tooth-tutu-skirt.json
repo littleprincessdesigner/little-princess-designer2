@@ -1,0 +1,33 @@
+{
+  "badge": "",
+  "name": "first tooth tutu skirt",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 44
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260820_001735_Instagram.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260820_001744_Instagram.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260820_001753_Instagram.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/IMG-20241026-WA0017.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/IMG-20241026-WA0018.jpg.jpeg"
+    }
+  ],
+  "subcategory": "g4",
+  "addedOn": "2026-08-20T01:56:00.000+05:00"
+}
