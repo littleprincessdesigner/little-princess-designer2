@@ -5,13 +5,18 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 5400,
+      "price": 10000,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 6300,
+      "price": 11000,
       "available": true
+    },
+    {
+      "available": false,
+      "size": "7–9 years",
+      "price": 12500
     }
   ],
   "showAccessory": true,
@@ -33,7 +38,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/bmbl%20bee%20dress%20(1).jpg?updatedAt=1786739027588"
     }
   ],
-  "description": "",
-  "subcategory": "g2",
+  "description": "knee length dress",
+  "subcategory": "r1",
   "addedOn": "2026-07-21T12:00:00.000Z"
 }
