@@ -1,0 +1,33 @@
+{
+  "badge": "",
+  "name": "irhu faisy dress",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 44
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642304.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642306.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642308.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642305.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642307.jpg.jpeg"
+    }
+  ],
+  "subcategory": "g3",
+  "addedOn": "2026-08-20T01:50:00.000+05:00"
+}
