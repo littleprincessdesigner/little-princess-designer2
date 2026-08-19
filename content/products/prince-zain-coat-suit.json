@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "eshaal dress",
+  "name": "KS shoot dress",
   "visible": true,
   "sizes": [
     {
@@ -40,18 +40,25 @@
   },
   "images": [
     {
-      "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/1000053369.png",
-      "alt": ""
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190309_Instagram.jpg.jpeg"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000053365.jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190303_Instagram.jpg.jpeg"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641155.jpg.jpeg"
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190242_Instagram.jpg.jpeg"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000053374.jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190230_Instagram.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190319_Instagram.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190249_Instagram.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190333_Instagram.jpg.jpeg"
     }
   ],
   "description": "",
