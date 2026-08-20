@@ -1,0 +1,36 @@
+{
+  "badge": "",
+  "name": " blue purple blend frock",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 44
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260820_000757_Instagram.jpg.jpeg?updatedAt=1787174643764"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260820_000747_Instagram.jpg.jpeg?updatedAt=1787174643017"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260820_000846_Instagram.jpg.jpeg?updatedAt=1787174643341"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260820_000805_Instagram.jpg.jpeg?updatedAt=1787174643760"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260820_000817_Instagram.jpg.jpeg?updatedAt=1787174643200"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260820_000900_Instagram.jpg.jpeg?updatedAt=1787174643153"
+    }
+  ],
+  "subcategory": "g3",
+  "addedOn": "2026-08-20T02:38:00.000+05:00"
+}
