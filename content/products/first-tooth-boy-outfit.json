@@ -1,0 +1,30 @@
+{
+  "badge": "",
+  "name": "first tooth boy outfit",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 66
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/IMG_20260819_183918_861.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/IMG_20260819_183916_581.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/IMG_20260819_183913_450.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642839.jpg.jpeg"
+    }
+  ],
+  "subcategory": "b2",
+  "addedOn": "2026-08-21T01:38:00.000+05:00"
+}
