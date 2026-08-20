@@ -1,0 +1,27 @@
+{
+  "badge": "",
+  "name": "minnie mouse coustume",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 88
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641011.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641020.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641012.jpg"
+    }
+  ],
+  "subcategory": "g2",
+  "addedOn": "2026-08-21T01:19:00.000+05:00"
+}
