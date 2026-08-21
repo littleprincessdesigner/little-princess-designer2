@@ -13,6 +13,9 @@
   "accessoryPrice": 1500,
   "images": [
     {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642851.jpg.jpeg"
+    },
+    {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641018.heic"
     }
   ],
