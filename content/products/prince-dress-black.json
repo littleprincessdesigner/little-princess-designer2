@@ -1,0 +1,21 @@
+{
+  "badge": "",
+  "name": "prince dress (black)",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 44
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641018.heic"
+    }
+  ],
+  "subcategory": "b1",
+  "addedOn": "2026-08-21T15:18:00.000+05:00"
+}
