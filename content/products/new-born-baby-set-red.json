@@ -1,0 +1,37 @@
+{
+  "badge": "",
+  "name": "new born baby set (red)",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 33
+    }
+  ],
+  "showAccessory": false,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641136.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641101.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641116.heic"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641102.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641090.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641091.jpg.jpeg"
+    }
+  ],
+  "description": "along with cushion ",
+  "subcategory": "y3",
+  "addedOn": "2026-08-21T16:27:00.000+05:00"
+}
