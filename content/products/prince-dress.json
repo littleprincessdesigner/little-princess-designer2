@@ -1,0 +1,30 @@
+{
+  "badge": "",
+  "name": "prince dress",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 33
+    }
+  ],
+  "showAccessory": false,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642148.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642149.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642147.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641082.heic"
+    }
+  ],
+  "subcategory": "b1",
+  "addedOn": "2026-08-21T15:29:00.000+05:00"
+}
