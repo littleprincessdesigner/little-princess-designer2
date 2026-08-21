@@ -6,14 +6,19 @@
     {
       "available": true,
       "size": "0–3 years",
-      "price": 33
+      "price": 6200
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 6200
     }
   ],
   "showAccessory": false,
   "accessoryPrice": 1500,
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642148.jpg.jpeg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641082.heic"
     },
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000642149.jpg.jpeg"
@@ -22,7 +27,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/1000642147.jpg.jpeg"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641082.heic"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642148.jpg.jpeg"
     }
   ],
   "subcategory": "b1",
