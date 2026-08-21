@@ -1,0 +1,24 @@
+{
+  "badge": "",
+  "name": "king crown prince dress ",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 33
+    }
+  ],
+  "showAccessory": false,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641077.heic"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641023.heic"
+    }
+  ],
+  "subcategory": "b1",
+  "addedOn": "2026-08-21T14:42:00.000+05:00"
+}
