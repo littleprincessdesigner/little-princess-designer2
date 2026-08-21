@@ -5,28 +5,23 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 55,
+      "price": 15500,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 10300,
+      "price": 17500,
       "available": true
     },
     {
       "size": "7–9 years",
-      "price": 11200,
-      "available": true
-    },
-    {
-      "size": "10–12 years",
-      "price": 12100,
+      "price": 19500,
       "available": true
     }
   ],
   "showAccessory": true,
   "description2": "",
-  "accessoryPrice": 1500,
+  "accessoryPrice": 505,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -40,7 +35,7 @@
       "alt": ""
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/blue%20btrfly.jpg?updatedAt=1786648871830"
+      "upload": ""
     },
     {
       "upload": "https://ik.imagekit.io/lpdlhr/blue%20btrfly%20(1).jpg?updatedAt=1786648867953"
