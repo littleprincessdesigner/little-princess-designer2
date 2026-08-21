@@ -1,0 +1,21 @@
+{
+  "badge": "",
+  "name": "new born girl set (with wrapping sheet)",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 33
+    }
+  ],
+  "showAccessory": false,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641137.jpg.jpeg"
+    }
+  ],
+  "subcategory": "y3",
+  "addedOn": "2026-08-21T16:20:00.000+05:00"
+}
