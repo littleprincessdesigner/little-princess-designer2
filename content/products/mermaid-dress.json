@@ -1,0 +1,24 @@
+{
+  "badge": "",
+  "name": "mermaid dress",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 44
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641121.jpg%20(1).jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641134.heic"
+    }
+  ],
+  "subcategory": "g2",
+  "addedOn": "2026-08-22T01:31:00.000+05:00"
+}
