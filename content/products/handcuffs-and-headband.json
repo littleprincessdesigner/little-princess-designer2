@@ -1,0 +1,21 @@
+{
+  "badge": "",
+  "name": "handcuffs and headband",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 44
+    }
+  ],
+  "showAccessory": false,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642840.jpg.jpeg"
+    }
+  ],
+  "subcategory": "girls-accessory",
+  "addedOn": "2026-08-22T15:13:00.000+05:00"
+}
