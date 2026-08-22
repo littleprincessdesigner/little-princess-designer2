@@ -17,7 +17,9 @@ this repo.
 
 ```
 content/          ← what the admin page edits. The source of truth.
-  settings.json       contact details + wording used across the site
+  settings.json       the site itself: business name, home page, footer
+  settings-contact.json    phone, email, social links, the contact page
+  settings-products.json   the wording and prices every product falls back on
   categories/         the four shop tabs (Girls, Boys, Babies, Ready to wear)
   subcategories/      the sections inside them — one file each
   products/           one file per product

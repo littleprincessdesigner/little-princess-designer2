@@ -465,20 +465,43 @@ collections:
   # ---------------------------------------------------------------------------
   # SITE SETTINGS — contact details and the wording used across the site
   # ---------------------------------------------------------------------------
+  # ---------------------------------------------------------------------------
+  # SITE SETTINGS — three pages, one per job
+  #
+  # This was a single page holding everything from the phone number to the
+  # footer line, which meant scrolling past the hero headlines to change an
+  # email address. It is three files now, and Decap shows one page per file.
+  #
+  # The split is only an admin-side arrangement: tools/content.js reads all
+  # three and merges them into the one settings object the rest of the build
+  # has always seen, so nothing about the site knows or cares which page a
+  # value was typed on.
+  #
+  # Moving a setting from one page to another means moving it in BOTH places —
+  # the field here and the key in the JSON file. A setting declared on two
+  # pages is worse than one declared on none: each page saves the whole file it
+  # owns, so the two copies drift and only one of them reaches the site. The
+  # build warns by name if it ever finds the same key in two files.
+  # ---------------------------------------------------------------------------
   - name: settings
     label: "Site settings"
     description: >
-      Phone number, email, social links and the wording on the home and contact
-      pages. Changing the WhatsApp number here changes it everywhere on the site.
+      Three pages. Contact details is the shop's phone number, email, social
+      links and the whole contact page. Product defaults is the wording and
+      prices every product falls back on. Site & home page is everything else —
+      the hero, the carousel, the about section, the footer.
     editor:
       preview: false
     files:
-      - name: general
+      # --- 1. the shop's own details, and the page that shows them -----------
+      - name: contact
         label: "Contact details"
-        file: content/settings.json
+        file: content/settings-contact.json
+        description: >
+          Phone number, email and social links, plus the wording on the contact
+          page. Changing the WhatsApp number here changes it everywhere on the
+          site — the floating button, every product page, the contact page.
         fields:
-          - { label: "Business name", name: brandName, widget: string }
-          - { label: "Tagline", name: tagline, widget: string }
           - label: "WhatsApp number"
             name: whatsappNumber
             widget: string
@@ -489,6 +512,101 @@ collections:
           - { label: "Instagram link", name: instagram, widget: string }
           - { label: "Facebook link", name: facebook, widget: string }
           - { label: "TikTok link", name: tiktok, widget: string }
+
+          - label: "Contact page"
+            name: contact
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Heading", name: heading, widget: string }
+              - { label: "Intro", name: intro, widget: text }
+              - { label: "Steps eyebrow", name: stepsEyebrow, widget: string }
+              - label: "Ordering steps"
+                name: steps
+                widget: list
+                label_singular: "Step"
+                collapsed: false
+                summary: "{{fields.title}}"
+                hint: "Numbered automatically. Three works best on phones."
+                fields:
+                  - { label: "Title", name: title, widget: string }
+                  - { label: "Body", name: body, widget: text }
+              - { label: "FAQ heading", name: faqHeading, widget: string }
+              - label: "FAQs"
+                name: faq
+                widget: list
+                label_singular: "Question"
+                collapsed: true
+                summary: "{{fields.question}}"
+                hint: "These are also published as structured data, so Google can show them directly in search results."
+                fields:
+                  - { label: "Question", name: question, widget: string }
+                  - { label: "Answer", name: answer, widget: text }
+              - { label: "Social section heading", name: socialHeading, widget: string }
+              - label: "Social cards"
+                name: social
+                widget: object
+                collapsed: true
+                hint: "The wording on each card. The links themselves come from the contact details above."
+                fields:
+                  - label: "Instagram"
+                    name: instagram
+                    widget: object
+                    fields:
+                      - { label: "Description", name: description, widget: string }
+                      - { label: "Button label", name: button, widget: string }
+                  - label: "WhatsApp"
+                    name: whatsapp
+                    widget: object
+                    fields:
+                      - { label: "Description", name: description, widget: string }
+                      - { label: "Button label", name: button, widget: string }
+                  - label: "Facebook"
+                    name: facebook
+                    widget: object
+                    fields:
+                      - { label: "Description", name: description, widget: string }
+                      - { label: "Button label", name: button, widget: string }
+                  - label: "TikTok"
+                    name: tiktok
+                    widget: object
+                    fields:
+                      - { label: "Description", name: description, widget: string }
+                      - { label: "Button label", name: button, widget: string }
+                  - label: "Email"
+                    name: email
+                    widget: object
+                    fields:
+                      - { label: "Description", name: description, widget: string }
+                      - { label: "Button label", name: button, widget: string }
+              - label: "Feedback block"
+                name: feedback
+                widget: object
+                collapsed: true
+                fields:
+                  - { label: "Eyebrow", name: eyebrow, widget: string }
+                  - { label: "Heading", name: heading, widget: string }
+                  - { label: "Body", name: body, widget: text }
+                  - { label: "Button label", name: button, widget: string }
+                  - { label: "Pre-filled message", name: prefill, widget: string, hint: "What WhatsApp opens with when someone taps the button." }
+              - label: "Search engine listing"
+                name: seo
+                widget: object
+                collapsed: true
+                fields:
+                  - { label: "Page title", name: title, widget: string }
+                  - { label: "Description", name: description, widget: text }
+
+      # --- 2. what a product says when it says nothing of its own ------------
+      - name: products
+        label: "Product defaults"
+        file: content/settings-products.json
+        description: >
+          The wording and prices every product falls back on. A piece uses its
+          own words first, then its subcategory's, then these — so nothing here
+          shows anywhere a piece has been filled in properly, and nothing on the
+          site can end up blank.
+        fields:
 
           - label: "Prices and totals"
             name: accessoryPriceDefault
@@ -525,6 +643,17 @@ collections:
                   - { label: "Occasion", name: occasion, widget: string, required: false }
                   - { label: "Fit", name: fit, widget: string, required: false }
                   - { label: "Care", name: care, widget: string, required: false }
+
+      # --- 3. everything about the site itself -------------------------------
+      - name: site
+        label: "Site & home page"
+        file: content/settings.json
+        description: >
+          The business name, the home page — hero, features, banner, about, the
+          spinning carousel, the category row — and the footer.
+        fields:
+          - { label: "Business name", name: brandName, widget: string }
+          - { label: "Tagline", name: tagline, widget: string }
 
           - label: "Home page — search engine listing"
             name: seo
@@ -654,90 +783,6 @@ collections:
               required: false
 
           - { label: "Categories row heading", name: categoriesHeading, widget: string }
-
-          - label: "Contact page"
-            name: contact
-            widget: object
-            collapsed: true
-            fields:
-              - { label: "Heading", name: heading, widget: string }
-              - { label: "Intro", name: intro, widget: text }
-              - { label: "Steps eyebrow", name: stepsEyebrow, widget: string }
-              - label: "Ordering steps"
-                name: steps
-                widget: list
-                label_singular: "Step"
-                collapsed: false
-                summary: "{{fields.title}}"
-                hint: "Numbered automatically. Three works best on phones."
-                fields:
-                  - { label: "Title", name: title, widget: string }
-                  - { label: "Body", name: body, widget: text }
-              - { label: "FAQ heading", name: faqHeading, widget: string }
-              - label: "FAQs"
-                name: faq
-                widget: list
-                label_singular: "Question"
-                collapsed: true
-                summary: "{{fields.question}}"
-                hint: "These are also published as structured data, so Google can show them directly in search results."
-                fields:
-                  - { label: "Question", name: question, widget: string }
-                  - { label: "Answer", name: answer, widget: text }
-              - { label: "Social section heading", name: socialHeading, widget: string }
-              - label: "Social cards"
-                name: social
-                widget: object
-                collapsed: true
-                hint: "The wording on each card. The links themselves come from the contact details above."
-                fields:
-                  - label: "Instagram"
-                    name: instagram
-                    widget: object
-                    fields:
-                      - { label: "Description", name: description, widget: string }
-                      - { label: "Button label", name: button, widget: string }
-                  - label: "WhatsApp"
-                    name: whatsapp
-                    widget: object
-                    fields:
-                      - { label: "Description", name: description, widget: string }
-                      - { label: "Button label", name: button, widget: string }
-                  - label: "Facebook"
-                    name: facebook
-                    widget: object
-                    fields:
-                      - { label: "Description", name: description, widget: string }
-                      - { label: "Button label", name: button, widget: string }
-                  - label: "TikTok"
-                    name: tiktok
-                    widget: object
-                    fields:
-                      - { label: "Description", name: description, widget: string }
-                      - { label: "Button label", name: button, widget: string }
-                  - label: "Email"
-                    name: email
-                    widget: object
-                    fields:
-                      - { label: "Description", name: description, widget: string }
-                      - { label: "Button label", name: button, widget: string }
-              - label: "Feedback block"
-                name: feedback
-                widget: object
-                collapsed: true
-                fields:
-                  - { label: "Eyebrow", name: eyebrow, widget: string }
-                  - { label: "Heading", name: heading, widget: string }
-                  - { label: "Body", name: body, widget: text }
-                  - { label: "Button label", name: button, widget: string }
-                  - { label: "Pre-filled message", name: prefill, widget: string, hint: "What WhatsApp opens with when someone taps the button." }
-              - label: "Search engine listing"
-                name: seo
-                widget: object
-                collapsed: true
-                fields:
-                  - { label: "Page title", name: title, widget: string }
-                  - { label: "Description", name: description, widget: text }
 
           - { label: "Footer line", name: footerNote, widget: string }
           - { label: "Floating button label", name: floatingLabel, widget: string }

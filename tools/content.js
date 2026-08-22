@@ -147,6 +147,46 @@ const nonEmpty = (...vals) => {
   return "";
 };
 
+/* --- site settings ------------------------------------------------------- */
+
+/**
+ * Site Settings is three files rather than one, because it is three jobs: the
+ * shop's contact details, the wording every product falls back on, and
+ * everything about the site itself. Decap shows one page per file, so an editor
+ * changing a phone number is not scrolling past the hero headlines to find it.
+ *
+ * The rest of the build sees one settings object, exactly as it did when there
+ * was one file — the split is an admin-side arrangement and nothing downstream
+ * should have to know about it.
+ *
+ * Only the first file is required. A directory holding just settings.json still
+ * loads, which is what tools/fixtures/content relies on, and what the site
+ * itself would fall back to if a file were ever lost.
+ */
+const SETTINGS_FILES = ["settings.json", "settings-contact.json", "settings-products.json"];
+
+function readSettings(dir) {
+  const merged = {};
+  const from = new Map();
+  for (const file of SETTINGS_FILES) {
+    const part = readJson(path.join(dir, file), { required: file === SETTINGS_FILES[0] });
+    if (!part) continue;
+    for (const [key, value] of Object.entries(part)) {
+      // The same setting in two files is a split that has gone wrong: one of
+      // the two pages in the admin is then editing a value the site ignores,
+      // with nothing on screen to say so.
+      if (from.has(key)) {
+        warn('"' + key + '" is set in both content/' + from.get(key) + " and content/" + file +
+             " — the site uses the one in content/" + file + ". Remove it from the other file, " +
+             "and check site/admin/config.yml only declares it on one page");
+      }
+      from.set(key, file);
+      merged[key] = value;
+    }
+  }
+  return merged;
+}
+
 /* --- the home carousel --------------------------------------------------- */
 
 /**
@@ -272,7 +312,7 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
   // what the tests do — would otherwise inherit the first one's warnings.
   warnings.length = 0;
 
-  const settings = readJson(path.join(dir, "settings.json"));
+  const settings = readSettings(dir);
 
   // The CMS stores every photo as {url, upload, alt}; the renderer wants {src,
   // alt}. Products and category cards are converted further down — these two
@@ -518,4 +558,4 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
   };
 }
 
-module.exports = { load, SIZES, CATEGORY_ORDER, chooseCarousel, warnings };
+module.exports = { load, SIZES, CATEGORY_ORDER, readSettings, chooseCarousel, warnings };

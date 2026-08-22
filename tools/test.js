@@ -26,10 +26,12 @@
 "use strict";
 
 const path = require("path");
-const { load, SIZES, chooseCarousel, warnings } = require("./content");
+const { load, SIZES, readSettings, chooseCarousel, warnings } = require("./content");
 const images = require("./images");
 
 const FIXTURE = path.join(__dirname, "fixtures", "content");
+// Three settings files rather than one — see its README.
+const SPLIT_SETTINGS = path.join(__dirname, "fixtures", "settings-split");
 
 /* --- tiny harness ------------------------------------------------------- */
 
@@ -438,6 +440,30 @@ check("the panel's cascade agrees with the one the site is built with",
     card.applyWording({}, {}, {}).description
   ],
   ["SECTION words", ""]);
+
+/* --- site settings, split across three admin pages ------------------------ */
+
+// The admin edits contact details, product defaults and the site itself as
+// three separate files. Everything downstream still expects one settings
+// object, so the merge is the seam that holds that promise.
+const splitBefore = warnings.length;
+const split = readSettings(SPLIT_SETTINGS);
+const splitWarnings = warnings.slice(splitBefore);
+
+check("all three files arrive as one settings object",
+  [split.brandName, split.whatsappNumber, split.accessoryLabel],
+  ["Split Designer", "920000000000", "PRODUCTS label"]);
+checkTrue("a setting that ended up on two pages is named, not silently picked",
+  warned(splitWarnings, "deliveryNote", "settings.json", "settings-products.json"));
+check("…and the later file wins, which is what the warning says happens",
+  split.deliveryNote, "PRODUCTS page's copy of the delivery note");
+checkTrue("nothing else is reported as a clash",
+  splitWarnings.length === 1);
+
+// The fixture catalogue still has settings.json on its own, which is what a
+// site looks like before the split — and what one would look like again if a
+// file were lost. Every check above this line ran against it.
+check("a directory with only settings.json still loads", model.settings.brandName, "Fixture Designer");
 
 /* --- the home carousel --------------------------------------------------- */
 

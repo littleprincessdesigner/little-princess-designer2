@@ -119,7 +119,9 @@
    *   products.json — the size order, the readable section name, and each
    *                   section's standard wording for the fallback chain
    *   settings.json — the WhatsApp number, the accessory wording and price,
-   *                   the delivery note, and the site-wide default wording
+   *                   the delivery note, and the site-wide default wording.
+   *                   The build's own merge of the three Site Settings pages,
+   *                   so the panel reads one object however they are split up
    *
    * Neither is required. Without them the panel still draws: the section name
    * falls back to its stored code, the wording falls back to whatever the piece

@@ -11,7 +11,16 @@ There are four things in the sidebar:
 | **Products** | Every piece in the shop |
 | **Subcategories** | The sections inside each tab — "Casual dresses", "Rompers" |
 | **Category pages** | The wording at the top of Girls / Boys / Babies / Ready to wear |
-| **Site settings** | Phone number, email, social links, and the wording on the home and contact pages |
+| **Site settings** | Three pages: **Contact details**, **Product defaults**, **Site & home page** |
+
+**Site settings** is split into three pages so you are not scrolling past the
+hero headlines to change a phone number:
+
+| Page | What's on it |
+|---|---|
+| **Contact details** | Phone number, email, social links, and the whole contact page |
+| **Product defaults** | The wording and prices every product falls back on |
+| **Site & home page** | Business name, hero, features, banner, about, carousel, footer |
 
 ---
 
@@ -129,6 +138,10 @@ until you reassign it. Nothing is lost, but it is invisible in the meantime.
 
 **Site settings → Contact details.**
 
+Everything about reaching the shop is on this one page — the phone number,
+email, the Instagram, Facebook and TikTok links, and all the wording on the
+contact page (ordering steps, FAQs, the social cards, the feedback block).
+
 The WhatsApp number is used by every WhatsApp button on the site — the floating
 button, the product pages, the contact page. Changing it here changes all of
 them.
@@ -138,9 +151,10 @@ Enter it as digits only, with the country code and no `+` or spaces:
 
 ---
 
-## Change the wording on the home or contact page
+## Change the wording on the home page
 
-Also **Site settings**. The sections are in the order they appear on the site:
+**Site settings → Site & home page.** The sections are in the order they appear
+on the site:
 
 - **Hero headlines** — the three hand-lettered lines that fade in over the dress
 - **Hero buttons** — the three cards under it
@@ -149,16 +163,32 @@ Also **Site settings**. The sections are in the order they appear on the site:
 - **About us** — leave a blank line between paragraphs
 - **Carousel** — the heading and hint over the spinning ring, and what spins
   in it (its own section below)
-- **Contact page** — ordering steps, FAQs, social card wording, feedback block
+- **Categories row heading** and **Footer line** at the bottom
 
-FAQs are also published in a format Google understands, so they can appear
-directly in search results. Worth keeping them accurate.
+The contact page's wording is on the **Contact details** page instead, next to
+the phone number it goes with: ordering steps, FAQs, the social cards and the
+feedback block. FAQs are also published in a format Google understands, so they
+can appear directly in search results — worth keeping them accurate.
+
+---
+
+## Change what a product says when you leave it blank
+
+**Site settings → Product defaults.**
+
+Nothing on this page shows anywhere a product has been filled in properly. It is
+the last fallback: a piece uses its own words first, then its subcategory's
+standard wording, then these. It means no product can end up with a blank
+description, however quickly it was added.
+
+Also here: the matching-accessory charge and its wording, and the delivery note
+in the small print under a product's total.
 
 ---
 
 ## Choose what spins in the carousel
 
-**Site settings → Contact details**, in the carousel section.
+**Site settings → Site & home page**, in the carousel section.
 
 The ring on the home page can be filled two ways:
 
