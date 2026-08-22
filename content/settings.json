@@ -3,7 +3,17 @@
   "carouselMode": "chosen",
   "carouselProducts": [
     "aurora-theme-dress",
-    "blossom-birthday-theme-dress"
+    "blossom-birthday-theme-dress",
+    "blue-purple-blend-frock",
+    "irhu-faisy-dress",
+    "king-crown-prince-dress-1",
+    "frozen-half-frock",
+    "blue-cloud-baby-shirt",
+    "cotton-candy-dress",
+    "barbie-kkk",
+    "first-tooth-tutu-skirt",
+    null,
+    null
   ],
   "featuresHeading": "Features",
   "categoriesHeading": "Get yours now",
@@ -22,7 +32,7 @@
   "tagline": "Luxury dresses for kids",
   "floatingLabel": "Contact us",
   "brandName": "Little Princess Designer",
-  "carouselSlots": 12,
+  "carouselSlots": 10,
   "heroHooks": [
     {
       "text": "There is a princess in every girl"
