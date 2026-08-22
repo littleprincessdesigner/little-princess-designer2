@@ -1,0 +1,27 @@
+{
+  "badge": "",
+  "name": "first tooth outfit (dark blue)",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 2800
+    }
+  ],
+  "showAccessory": false,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642838.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642837.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642836.jpg.jpeg"
+    }
+  ],
+  "subcategory": "boys-collection",
+  "addedOn": "2026-08-23T02:36:00.000+05:00"
+}
