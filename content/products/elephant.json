@@ -1,0 +1,24 @@
+{
+  "badge": "",
+  "name": "elephant ",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 1
+    }
+  ],
+  "showAccessory": false,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641059.heic"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641058.heic"
+    }
+  ],
+  "subcategory": "boys-theme-dresses",
+  "addedOn": "2026-08-23T03:20:00.000+05:00"
+}
