@@ -234,9 +234,11 @@ checkTrue("render.js re-exports the shared esc, not a second copy",
   render.esc === card.esc);
 checkTrue("…and the shared money", render.money === card.money);
 
-/* safeHref survived being moved — the scheme allowlist is a security guard
-   (see the Security item in review-checklist.md), and its control-character
-   handling is the part most easily broken by a careless copy. */
+/* safeHref survived being moved. The scheme allowlist is a security guard: every
+   link field in the admin is free text, editors hold no repo access, and a
+   "javascript:" address typed into one would otherwise reach an href on every
+   page. Its control-character handling is the part most easily broken by a
+   careless copy. */
 
 check("safeHref keeps an ordinary link", card.safeHref("https://example.test/a"), "https://example.test/a");
 check("safeHref keeps a same-site path", card.safeHref("/girls/"), "/girls/");

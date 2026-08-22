@@ -99,7 +99,6 @@ dist/               ← generated, not committed. What Netlify serves.
 netlify.toml        ← build command, admin redirect, cache headers
 CLAUDE.md           ← the owner's standing instructions. Read them.
 handoff.md          ← state of play from previous sessions
-review-checklist.md ← a past code review, all items ticked. History, not a to-do
 ```
 
 ---
@@ -221,8 +220,6 @@ peach for babies, gold for ready to wear.
 | File | What it answers |
 |---|---|
 | `CLAUDE.md` | How the owner wants to be talked to, and the pull-request policy |
-| `handoff.md` | What is live, what is in flight, what is unverified |
+| `handoff.md` | What is live, what is waiting on the owner, what has never been verified, and which approaches are already known to fail |
 | `docs/ADMIN-GUIDE.md` | How the owner uses the admin — the same tasks, in their language |
 | `docs/CMS-SETUP.md` | The one-time CMS, DecapBridge and ImageKit setup |
-| `review-checklist.md` | A finished code review. History and rationale, not a to-do list |
-| `docs/DESIGN-HANDOFF-README.md` | The note that came with the original Claude Design prototype, kept as provenance. The `project/` and `chats/` folders it refers to are **not** in this repo |

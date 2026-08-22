@@ -1,5 +1,8 @@
-# Handoff: Little Princess Designer — live site, admin, link previews
-_Last updated: 2026-08-05_
+# Handoff: Little Princess Designer
+
+_Last updated: 2026-08-22. Read `README.md` first — it explains how the repo
+works. This file only carries what a fresh session cannot work out from the
+code: what is live, what has never been proved, and which roads are closed._
 
 ## Goal
 
@@ -7,17 +10,11 @@ A handmade kidswear shop (Lahore) running on Netlify, where the owner and
 invited helpers add products, prices and photos through a form — no developer.
 Photos live on ImageKit, not in git.
 
-## What we're building
+## Constraints that bite if forgotten
 
-Static site, no database, no server. `content/` holds one JSON file per product,
-subcategory and category page plus a settings file. Netlify runs `npm run build`,
-which regenerates every page from `content/` + `site/` into `dist/`. Decap CMS at
-`/admin/` writes those JSON files back to the repo, triggering the next build.
-
-Constraints that bite if forgotten:
-- **Zero runtime dependencies.** `tools/check-config.js` parses `config.yml` with
-  a hand-rolled YAML reader and gates every build — anything added to the config
-  must survive it.
+- **Zero runtime dependencies.** `tools/check-config.js` parses `config.yml`
+  with a hand-rolled YAML reader and gates every build — anything added to the
+  config must survive it.
 - **Every field in `content/` must be declared in `site/admin/config.yml`**, or
   Decap silently deletes it on save. `npm run check` enforces this.
 - `site/tokens.css` is a binding design system. Don't edit its values.
@@ -29,122 +26,87 @@ Constraints that bite if forgotten:
 ## Current state
 
 **Live** at `https://littleprincessdesigner.pk` — a custom domain added in
-August 2026; `littleprincessdesigner.netlify.app` redirects to it. Build clean.
-Preview deploys still answer on `.netlify.app` addresses of their own, which is
-correct: a custom domain serves the live deploy only.
+August 2026; `littleprincessdesigner.netlify.app` redirects to it. Preview
+deploys still answer on `.netlify.app` addresses of their own, which is correct:
+a custom domain serves the live deploy only.
+
+Build clean: 64 live products, 71 pages, 12 sections. Every product now has at
+least one photo — the "no photo yet" warning that used to run to five names is
+gone.
+
 Admin works end to end: two people (Rimaz, Javeria) have saved edits through
-DecapBridge, and their names land in the commit messages as intended.
+DecapBridge, and their names land in the commit messages as intended. The photo
+library is ImageKit — `media_library: imagekit` in `site/admin/config.yml`,
+wired to ImageKit's embeddable widget by `site/admin/imagekit.js`, since Decap
+ships no ImageKit library of its own. No keys anywhere: each editor signs in to
+ImageKit inside the panel. Uploads and resizing were confirmed working by the
+owner on 2026-08-05.
 
-**PR #5 is OPEN and UNMERGED** — https://github.com/Somaz137/little-princess-designer2/pull/5
-`mergeable_state: clean`, Netlify checks were still running when the session
-ended. Branch `claude/netlify-bridgecap-cms-setup-xb5hwb` at `0c160d2`, one
-commit ahead of `main` (`38883cb`). Merging it is the next action.
+## Waiting on the owner — all admin jobs, no code can fix them
 
-**Unverified in PR #5** (all need a real phone or a real share):
-- Instagram icon no longer flashing left on header minimise
-- Header now waiting for the hero sequence before minimising
-- Provider-resized link previews actually rendering in WhatsApp
+1. **All four category card photos are still empty** (`content/categories/*.json`,
+   `card.image`). This is why category links preview with the generic card and
+   why the home page shows "GIRLS PHOTO" placeholders.
+2. **Three boys pieces are filed under Girls → Luxury dresses** — Cotton-Silk
+   Three Piece, Eid Waistcoat Set and Junior Waistcoat Set. They were orphaned
+   when subcategory `b2` was deleted, and were reassigned to a girls section
+   rather than a boys one. They are live, on the wrong page.
+3. **Five sections have no products**, and each prints an empty heading on its
+   shop page: Casual dresses and Accessory (Girls), Theme dresses (Boys),
+   Shirts and Rompers (Babies). Either fill them or delete them.
 
-**Content problem, not code:** CMS edits deleted subcategory `b2`, orphaning
-three boys products — Cotton-Silk Three Piece, Eid Waistcoat Set, Junior
-Waistcoat Set. They are hidden from the site until reassigned in the admin. The
-build names each one. Catalogue is now 36 live products, 43 pages.
+## Never verified from this environment
 
-**Done 2026-08-05:** the *photo library*, on ImageKit rather than Cloudinary.
-`media_library: imagekit` is live in `site/admin/config.yml`, wired to ImageKit's
-embeddable widget by `site/admin/imagekit.js` (Decap ships no ImageKit library of
-its own). No keys anywhere — each editor signs in to ImageKit inside the panel —
-so nothing is outstanding from the owner. Untested against the real thing from
-this environment: the proxy blocks `ik.imagekit.io` and `unpkg.com`, so the first
-real upload is the proof.
+The proxy blocks `unpkg.com`, `*.netlify.app`, `littleprincessdesigner.pk`,
+`ik.imagekit.io`, `res.cloudinary.com` and `docs.netlify.com` (403 on CONNECT),
+so a session cannot open the admin, the deploy preview or the live site. Do not
+promise to check them. What that leaves unproved:
 
-**Empty:** all four category card photos (`content/categories/*.json`,
-`card.image`). This is why category links preview with the generic card and why
-the home page shows "GIRLS PHOTO" placeholders. Owner must add them in the
-admin; no code change can supply them.
+- **The admin panel itself**, including the live product-card preview in
+  `site/admin/preview.js`. Config changes can only be checked with
+  `npm run check` and by parsing the YAML.
+- **Link previews in WhatsApp.** `og:image` asks ImageKit for a resized JPEG
+  copy (`w-1200,h-630,cm-pad_resize,bg-FFFCF8,f-jpg`) because WhatsApp will not
+  render WebP and skips images over roughly 300 KB. Testing it needs a real
+  share on `littleprincessdesigner.pk` — not a `<deploy-id>--…netlify.app`
+  snapshot — with `?1` appended to defeat WhatsApp's per-URL preview cache.
+- **Anything on a phone.** See the constraint above.
 
-## Files in flight
+To check what an npm package actually does, download its tarball from
+`registry.npmjs.org` and read `dist/*.js.map` `sourcesContent`. Every Decap
+claim in this repo was confirmed that way.
 
-- `tools/render.js` — `shareImage()` + `images.preview()` build og:image;
-  `jsonLdScript()` escapes structured data; `render404()`; home section order.
-- `tools/content.js` — `normaliseSrc()` forces a leading `/`; settings-level
-  carousel/about photos resolved; WebP-first-photo warning (skips ImageKit).
-- `tools/build.js` — counts `.html` actually written; emits `404.html`.
-- `site/app.js` — header latch threshold tied to the hero story; resize handler
-  ignores height-only changes.
-- `site/styles.css` — `.lp-igbtn` no longer transitions `margin`; `will-change`
-  on hero layers; `.lp-main--notfound`, `.lp-cta--center`; `.lp-back` inline-block.
-- `site/admin/config.yml` — DecapBridge PKCE, real site id, `auth:` claims,
-  live `media_library: imagekit` block.
-- `site/admin/imagekit.js` — ImageKit widget ↔ `CMS.registerMediaLibrary`.
-- `tools/images.js` — the one place any image host is described.
-- `site/assets/share-card.png` — 1200x630 PNG preview card (210 KB).
-- `tools/share-card.html` — its source, with re-render instructions in a comment.
-- `review-checklist.md` — all six review findings checked off.
+## Roads already found to be closed
 
-Working tree clean; everything committed and pushed.
-
-## What's changed
-
-- Admin sign-in moved from GitHub OAuth to DecapBridge PKCE so non-technical
-  helpers can edit without repo access. Confirmed working by two real editors.
-- Closed a stored XSS: `JSON.stringify` does not escape `<`, so a CMS field
-  containing `</script>` broke out of the JSON-LD block. That mattered *because*
-  of the DecapBridge switch — content editors now hold no repo access.
-- Fixed blank home carousel and About photos (`<img src="">`), missing share
-  tags, a wrong page count, three 404 defects, and the `.lp-back` pill
-  overlapping the product gallery.
-- **Link previews took two passes.** First diagnosis (every share image was
-  WebP, which WhatsApp will not render) was correct but incomplete — added
-  `share-card.png`. Products still failed: the shared card showed the right
-  title and description and dropped only the image, which pointed at image
-  *size*. og:image now requests a resized copy at
-  `w-1200,h-630,cm-pad_resize,bg-FFFCF8,f-jpg`; the page keeps the original.
-- Home page reordered twice: Explore the Collection and Get yours now moved
-  above Features/About, then the quote banner moved to the very end.
-
-## Failed attempts
-
-- **`unpkg.com`, `docs.netlify.com`, `*.netlify.app`, `littleprincessdesigner.pk`,
-  `res.cloudinary.com` and
-  `ik.imagekit.io` are all blocked by this environment's proxy** (403 on
-  CONNECT). `imagekit.io`'s docs pages answer 403 to WebFetch too; the npm
-  tarballs of `imagekit-javascript` and `imagekit-media-library-widget` are the
-  way to read what those actually do. Verify package
-  behaviour through `registry.npmjs.org` instead: download the tarball and read
-  `dist/*.js.map` `sourcesContent`. This is how every Decap claim was confirmed.
-  It also means the deploy preview and the live site cannot be inspected — do
-  not promise to check them.
-- **`add_repo` for `decaporg/decap-cms` was denied by the user.** Don't retry;
-  use the npm tarball route.
 - **Do not add a `netlify-identity-widget` script tag.** Most git-gateway
   tutorials call for it. `decap-cms-ui-auth` only defers to
   `window.netlifyIdentity` when that global exists, so adding it would hijack
   login and point it at the retired Netlify Identity service.
+- **`add_repo` for `decaporg/decap-cms` was denied by the user.** Don't retry;
+  use the npm tarball route.
 - **ffmpeg cannot decode WebP here** (Playwright's minimal build). Use headless
-  Chromium to render and screenshot instead — that is how `share-card.png` was
-  produced.
+  Chromium to render and screenshot instead — that is how
+  `site/assets/share-card.png` was produced, and `tools/share-card.html` carries
+  the exact commands in a comment.
 - **`pkill -f "tools/serve.js"` kills its own shell** (the pattern matches the
   bash command line). Use `pkill -f "serve[.]js"`.
-- **Nearly shipped literal U+2028/U+2029 characters in a regex.** They survived
-  transit, but had they been normalised to spaces the code would have replaced
-  every space in the structured data. Written as `\uXXXX` escapes instead.
-- Anchor-jump screenshots (`#about`) do not work — headless Chromium resets
-  scroll. To capture lower sections, inject a fixed-**pixel** height override for
-  `.lp-story` into a throwaway copy in `dist/`; `vh` units scale with the tall
-  capture window and do not help.
+- **Anchor-jump screenshots (`#about`) do not work** — headless Chromium resets
+  scroll. To capture lower sections, inject a fixed-**pixel** height override
+  for `.lp-story` into a throwaway copy in `dist/`; `vh` units scale with the
+  tall capture window and do not help.
+- **Never ship literal U+2028/U+2029 characters in a regex.** Write them as
+  `\uXXXX` escapes: if the file is ever normalised, the raw characters become
+  spaces and the code would then match every space in the structured data.
 
-## Next step
+## Recent history
 
-Merge PR #5 once its Netlify checks pass
-(`mcp__github__merge_pull_request`, owner `Somaz137`, repo
-`little-princess-designer2`, pullNumber 5, merge_method `merge`), then sync the
-local branch to `main` and push it so the branch ref matches.
-
-Then hand three things back to the owner, none of which are code:
-1. Test a share on `littleprincessdesigner.pk` — **not** a
-   `<deploy-id>--littleprincessdesigner.netlify.app` snapshot URL, and append
-   `?1` to defeat WhatsApp's per-URL preview cache.
-2. Reassign the three orphaned `b2` products in the admin.
-3. Add the four category card photos — the photo library is on now, so this is
-   a job in the admin rather than anything to send anyone.
+- **2026-08-05** — DecapBridge sign-in (so helpers need no repo access), a
+  stored-XSS fix in the JSON-LD block, the ImageKit photo library, and the
+  link-preview resizing. PR #5, merged.
+- **2026-08-22** — the carousel became admin-controlled (choose the pieces and
+  the number of slots); Site settings split into three pages (contact, product
+  defaults, the site itself); section ids became file names so two sections can
+  no longer share one; the README was rewritten as the orientation file for new
+  sessions. A finished code review and the original Claude Design handoff note
+  were deleted in the same pass — every item in the review was shipped, and the
+  design note pointed at folders this repo does not contain.
