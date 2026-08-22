@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
  * Assertions over tools/content.js, the one file in the build with real
- * branching in it: the wording cascade, duplicate-id detection, and the size
- * and price filtering that decides whether a product reaches the site at all.
+ * branching in it: the wording cascade, the settings merge, and the size and
+ * price filtering that decides whether a product reaches the site at all.
  * A regression in any of those is invisible in review and shows up as a
  * product quietly missing from the live shop.
  *
@@ -18,18 +18,20 @@
  * It runs against tools/fixtures/content, a small catalogue built to hit every
  * branch at once: a product with its own wording, one that has to inherit from
  * its subcategory, one that has to fall through to the site defaults, a hidden
- * one, an orphaned one, a price row with an unknown size, a product with no
- * usable price, and a duplicated subcategory id. Editing the fixture is how you
+ * one, an orphaned one, a price row with an unknown size, and a product with no
+ * usable price. Editing the fixture is how you
  * add a case; it is not a copy of the real catalogue and does not track it.
  */
 
 "use strict";
 
 const path = require("path");
-const { load, SIZES } = require("./content");
+const { load, SIZES, readSettings, chooseCarousel, warnings } = require("./content");
 const images = require("./images");
 
 const FIXTURE = path.join(__dirname, "fixtures", "content");
+// Three settings files rather than one — see its README.
+const SPLIT_SETTINGS = path.join(__dirname, "fixtures", "settings-split");
 
 /* --- tiny harness ------------------------------------------------------- */
 
@@ -121,8 +123,10 @@ check("a missing date is 0, not NaN — NaN would make the sort incoherent",
   byName["Undated"].addedOn, 0);
 check("a date is parsed to milliseconds for sorting",
   byName["Own words"].addedOn, Date.parse("2026-08-03T12:00:00.000Z"));
-checkTrue("a duplicated subcategory id is warned about",
-  warned(w, "Duplicate id", 'already uses that id'));
+// The id used to be typed into the admin, and two sections were given the same
+// one. It is the file name now, so a clash cannot be expressed: s1.json is "s1"
+// and nothing in the file can say otherwise.
+check("a section's id is its file name", model.subcategories.map(s => s.id).sort(), ["s1", "s2"]);
 checkTrue("a subcategory under an unknown parent is skipped, with a warning",
   !model.subcategories.some(s => s.id === "orphan") && warned(w, "orphan", "not a category"));
 
@@ -230,9 +234,11 @@ checkTrue("render.js re-exports the shared esc, not a second copy",
   render.esc === card.esc);
 checkTrue("…and the shared money", render.money === card.money);
 
-/* safeHref survived being moved — the scheme allowlist is a security guard
-   (see the Security item in review-checklist.md), and its control-character
-   handling is the part most easily broken by a careless copy. */
+/* safeHref survived being moved. The scheme allowlist is a security guard: every
+   link field in the admin is free text, editors hold no repo access, and a
+   "javascript:" address typed into one would otherwise reach an href on every
+   page. Its control-character handling is the part most easily broken by a
+   careless copy. */
 
 check("safeHref keeps an ordinary link", card.safeHref("https://example.test/a"), "https://example.test/a");
 check("safeHref keeps a same-site path", card.safeHref("/girls/"), "/girls/");
@@ -438,6 +444,95 @@ check("the panel's cascade agrees with the one the site is built with",
     card.applyWording({}, {}, {}).description
   ],
   ["SECTION words", ""]);
+
+/* --- site settings, split across three admin pages ------------------------ */
+
+// The admin edits contact details, product defaults and the site itself as
+// three separate files. Everything downstream still expects one settings
+// object, so the merge is the seam that holds that promise.
+const splitBefore = warnings.length;
+const split = readSettings(SPLIT_SETTINGS);
+const splitWarnings = warnings.slice(splitBefore);
+
+check("all three files arrive as one settings object",
+  [split.brandName, split.whatsappNumber, split.accessoryLabel],
+  ["Split Designer", "920000000000", "PRODUCTS label"]);
+checkTrue("a setting that ended up on two pages is named, not silently picked",
+  warned(splitWarnings, "deliveryNote", "settings.json", "settings-products.json"));
+check("…and the later file wins, which is what the warning says happens",
+  split.deliveryNote, "PRODUCTS page's copy of the delivery note");
+checkTrue("nothing else is reported as a clash",
+  splitWarnings.length === 1);
+
+// The fixture catalogue still has settings.json on its own, which is what a
+// site looks like before the split — and what one would look like again if a
+// file were lost. Every check above this line ran against it.
+check("a directory with only settings.json still loads", model.settings.brandName, "Fixture Designer");
+
+/* --- the home carousel --------------------------------------------------- */
+
+// chooseCarousel() reads Site Settings, which the fixture deliberately does not
+// set — so every case here hands it settings of its own. The site reaches it
+// through load(); these calls are the same function with the same rules.
+// The fixture catalogue is smaller than the ten slots the ring defaults to, so
+// "all of them" is what a default-slot call returns here.
+const carouselIds = settings => chooseCarousel(settings, model.products).map(p => p.id);
+
+/** The warnings chooseCarousel() raised for one call, and nothing else's. */
+function carouselWarnings(settings) {
+  const before = warnings.length;
+  chooseCarousel(settings, model.products);
+  return warnings.slice(before);
+}
+
+check("with nothing set, the ring spins the newest pieces, newest first",
+  model.carousel.map(p => p.id).slice(0, 3), ["inherits-site", "inherits-sub", "on-sale"]);
+check("…and the slot count decides how many of them",
+  carouselIds({ carouselSlots: 4 }).length, 4);
+check("a slot count below the shape the ring keeps is pulled up to 3",
+  carouselIds({ carouselSlots: 1 }).length, 3);
+check("…and one above it is pulled down to 20",
+  carouselIds({ carouselSlots: 99 }).length, Math.min(20, model.products.length));
+checkTrue("both say so rather than correcting silently",
+  warned(carouselWarnings({ carouselSlots: 1 }), "outside 3–20") &&
+  warned(carouselWarnings({ carouselSlots: 99 }), "outside 3–20"));
+checkTrue("a slot count that is not a number falls back to ten, with a warning",
+  carouselIds({ carouselSlots: "abc" }).length === model.products.length &&
+  warned(carouselWarnings({ carouselSlots: "abc" }), "not a number"));
+
+check("chosen pieces spin in the order they were picked, not by date",
+  carouselIds({ carouselMode: "chosen", carouselProducts: ["undated", "own-words", "on-sale"] }),
+  ["undated", "own-words", "on-sale"]);
+check("…and the slot count still caps the list",
+  carouselIds({ carouselMode: "chosen", carouselSlots: 3, carouselProducts: ["undated", "own-words", "on-sale", "photos"] }),
+  ["undated", "own-words", "on-sale"]);
+check("a pick stored as an object reads the same as a bare address",
+  carouselIds({ carouselMode: "chosen", carouselProducts: [{ product: "photos" }] }), ["photos"]);
+
+checkTrue("a piece that is hidden, deleted or renamed is skipped and named",
+  carouselIds({ carouselMode: "chosen", carouselProducts: ["photos", "hidden", "gone-away"] })
+    .join() === "photos" &&
+  warned(carouselWarnings({ carouselMode: "chosen", carouselProducts: ["gone-away"] }),
+    "gone-away", "not a piece on the site"));
+checkTrue("the same piece picked twice spins once, with a warning",
+  carouselIds({ carouselMode: "chosen", carouselProducts: ["photos", "photos"] }).join() === "photos" &&
+  warned(carouselWarnings({ carouselMode: "chosen", carouselProducts: ["photos", "photos"] }),
+    "twice"));
+checkTrue("fewer pieces than slots spins what there is, and says so",
+  carouselIds({ carouselMode: "chosen", carouselSlots: 6, carouselProducts: ["photos"] }).length === 1 &&
+  warned(carouselWarnings({ carouselMode: "chosen", carouselSlots: 6, carouselProducts: ["photos"] }),
+    "6 slots but only 1"));
+
+// The home page losing its carousel is worse than showing a stale-ish ring, so
+// every way of ending up with no chosen piece falls back to the newest.
+checkTrue("chosen with nothing chosen falls back to the newest, with a warning",
+  carouselIds({ carouselMode: "chosen", carouselProducts: [] }).length === model.products.length &&
+  warned(carouselWarnings({ carouselMode: "chosen", carouselProducts: [] }), "no piece on the site is chosen"));
+checkTrue("chosen with only dead picks falls back too",
+  carouselIds({ carouselMode: "chosen", carouselProducts: ["gone-away"] }).length === model.products.length);
+checkTrue("a way of filling it this site does not know falls back to the newest",
+  carouselIds({ carouselMode: "shuffle" }).length === model.products.length &&
+  warned(carouselWarnings({ carouselMode: "shuffle" }), "shuffle", "not something this site knows"));
 
 /* --- report ------------------------------------------------------------- */
 

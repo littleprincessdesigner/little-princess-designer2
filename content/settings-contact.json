@@ -1,0 +1,80 @@
+{
+  "whatsappNumber": "923217152723",
+  "phoneDisplay": "+92 321 715 2723",
+  "email": "info@littleprincessdesigner.pk",
+  "instagram": "https://www.instagram.com/littleprincessdesigner/",
+  "facebook": "https://www.facebook.com/LittlePrincessDesigner/",
+  "tiktok": "https://www.tiktok.com/@littleprincessdesigner",
+  "contact": {
+    "heading": "How to place an order",
+    "stepsEyebrow": "Three steps to your order",
+    "feedback": {
+      "eyebrow": "Suggestions & complaints",
+      "heading": "Tell us how we did",
+      "body": "If a fitting was wrong, a delivery was late, or you have an idea for us — message us. We read every one ourselves and reply the same day.",
+      "button": "Send it on WhatsApp",
+      "prefill": "Hello Little Princess Designer, I have feedback for you:"
+    },
+    "steps": [
+      {
+        "title": "Confirm on WhatsApp",
+        "body": "We confirm every design over WhatsApp before begin the manufacturing."
+      },
+      {
+        "title": "Pay 25% advance",
+        "body": "A 25% advance starts production. Non-refundable once we cut. Delivery is charged separately."
+      },
+      {
+        "title": "We make it just for you",
+        "body": "Cut and hand-finished to your measurements. We message you the day it ships."
+      }
+    ],
+    "faqHeading": "Frequently asked questions",
+    "intro": "Ordering handmade kidswear from Little Princess Designer takes three steps and one WhatsApp conversation. Made-to-order pieces are cut to your child's measurements; ready-to-wear pieces ship the same day.",
+    "social": {
+      "instagram": {
+        "description": "Follow @littleprincessdesigner for new arrivals",
+        "button": "Follow us"
+      },
+      "whatsapp": {
+        "description": "Chat with us on +92 321 715 2723",
+        "button": "Message us"
+      },
+      "facebook": {
+        "description": "See our latest posts on LittlePrincessDesigner",
+        "button": "Like our page"
+      },
+      "tiktok": {
+        "description": "Watch the dresses in motion, @littleprincessdesigner",
+        "button": "Watch on TikTok"
+      },
+      "email": {
+        "description": "Ask for more information at info@littleprincessdesigner.pk",
+        "button": "Email us"
+      }
+    },
+    "socialHeading": "Contact us",
+    "faq": [
+      {
+        "question": "How long does a made-to-order dress take?",
+        "answer": "Around three weeks from the day the 25% advance is paid. You will be updated via WhatsApp."
+      },
+      {
+        "question": "Do you offer ready-to-wear options?",
+        "answer": "Yes. Our Ready to wear rail is already stitched in standard sizes, made to the same standard quality, lower price and dispatched as soon as you place the order."
+      },
+      {
+        "question": "What sizes are available?",
+        "answer": "Ranges from 0–3 years up to 13–16 years, and the price shown updates with the size you pick. Made-to-order pieces are cut to your child's body, waist and length measurements."
+      },
+      {
+        "question": "Do you ship outside Lahore and Pakistan?",
+        "answer": "We ship nationwide across Pakistan and internationally as well. Delivery is charged separately from the prices shown. We will quote the courier charges according to your city or district."
+      }
+    ],
+    "seo": {
+      "title": "Contact Us & How to Order | Little Princess Designer, Lahore",
+      "description": "How to order handmade kidswear from Little Princess Designer: confirm on WhatsApp, pay 25% advance, and we make it to your measurements. FAQs, sizes and delivery."
+    }
+  }
+}

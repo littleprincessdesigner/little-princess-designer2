@@ -120,14 +120,14 @@ collections:
     # Every row shows name, section, price and any warning marker, so the list
     # can be read without opening anything.
     #
-    #   Blush Party Frock  ·  g3  ·  PKR 18500  ·  HIDDEN  ·  SOLD OUT
+    #   Blush Party Frock  ·  girls-luxury-dresses  ·  PKR 18500  ·  HIDDEN
     #
     # Two things to know about it:
     #
-    #   · The section is the stored code (g3, y1), not "Girls / Party". Decap
-    #     cannot look a relation up for a summary — it only sees what is in the
-    #     file, and the file holds the code. Group by → Subcategory still puts
-    #     the readable names as headings.
+    #   · The section shows as the stored code, not as "Girls / Party" — Decap
+    #     cannot look a relation up for a summary, it only sees what is in the
+    #     file. Since the code became the section's file name that reads for
+    #     itself ("girls-luxury-dresses"), where it used to read "g3".
     #   · The price is the FIRST size row's price, not the lowest. The website
     #     shows the lowest ("from PKR …"); a summary cannot compare rows. If a
     #     row's price looks wrong here, open it and check which row is first.
@@ -213,8 +213,8 @@ collections:
         name: subcategory
         widget: relation
         collection: subcategories
-        value_field: id
-        search_fields: [name, id]
+        value_field: "{{slug}}"
+        search_fields: [name]
         display_fields: [name, parent]
         hint: "Which section of the shop this appears in. Add or remove sections under Subcategories in the sidebar."
 
@@ -347,7 +347,13 @@ collections:
     extension: json
     format: json
     identifier_field: name
-    slug: "{{fields.id}}"
+    # The file name is the section's id — see the "Short code" note below. It is
+    # built from the tab and the name so it reads for itself in a product's
+    # form, and Decap guarantees it is unique: if the name is already taken it
+    # adds a number rather than overwriting. Set once, when the section is
+    # created; renaming the section afterwards leaves it alone, which is what
+    # keeps every product pointing at the right place.
+    slug: "{{fields.parent}}-{{fields.name}}"
     summary: "{{name}}  ·  {{parent}}"
     sortable_fields: [parent, order, name]
     editor:
@@ -356,12 +362,11 @@ collections:
       - label: "Tab"
         field: parent
     fields:
-      - label: "Short code"
-        name: id
-        widget: string
-        pattern: ['^[a-z0-9-]+$', "Lowercase letters, numbers and dashes only — e.g. g5 or party-skirts"]
-        hint: "A short permanent code, e.g. g5. Products remember this code, so DO NOT change it once products are using this subcategory — add a new one instead."
-
+      # There is no "Short code" field any more, and that is deliberate. It used
+      # to be typed by hand, and two girls sections were both given "g1" — after
+      # which one of them showed no products and both wrote the same anchor into
+      # the page, with nothing on screen to say so. The code is now the file
+      # name, which the CMS keeps unique on its own.
       - label: "Name"
         name: name
         widget: string
@@ -465,20 +470,43 @@ collections:
   # ---------------------------------------------------------------------------
   # SITE SETTINGS — contact details and the wording used across the site
   # ---------------------------------------------------------------------------
+  # ---------------------------------------------------------------------------
+  # SITE SETTINGS — three pages, one per job
+  #
+  # This was a single page holding everything from the phone number to the
+  # footer line, which meant scrolling past the hero headlines to change an
+  # email address. It is three files now, and Decap shows one page per file.
+  #
+  # The split is only an admin-side arrangement: tools/content.js reads all
+  # three and merges them into the one settings object the rest of the build
+  # has always seen, so nothing about the site knows or cares which page a
+  # value was typed on.
+  #
+  # Moving a setting from one page to another means moving it in BOTH places —
+  # the field here and the key in the JSON file. A setting declared on two
+  # pages is worse than one declared on none: each page saves the whole file it
+  # owns, so the two copies drift and only one of them reaches the site. The
+  # build warns by name if it ever finds the same key in two files.
+  # ---------------------------------------------------------------------------
   - name: settings
     label: "Site settings"
     description: >
-      Phone number, email, social links and the wording on the home and contact
-      pages. Changing the WhatsApp number here changes it everywhere on the site.
+      Three pages. Contact details is the shop's phone number, email, social
+      links and the whole contact page. Product defaults is the wording and
+      prices every product falls back on. Site & home page is everything else —
+      the hero, the carousel, the about section, the footer.
     editor:
       preview: false
     files:
-      - name: general
+      # --- 1. the shop's own details, and the page that shows them -----------
+      - name: contact
         label: "Contact details"
-        file: content/settings.json
+        file: content/settings-contact.json
+        description: >
+          Phone number, email and social links, plus the wording on the contact
+          page. Changing the WhatsApp number here changes it everywhere on the
+          site — the floating button, every product page, the contact page.
         fields:
-          - { label: "Business name", name: brandName, widget: string }
-          - { label: "Tagline", name: tagline, widget: string }
           - label: "WhatsApp number"
             name: whatsappNumber
             widget: string
@@ -489,121 +517,6 @@ collections:
           - { label: "Instagram link", name: instagram, widget: string }
           - { label: "Facebook link", name: facebook, widget: string }
           - { label: "TikTok link", name: tiktok, widget: string }
-
-          - label: "Prices and totals"
-            name: accessoryPriceDefault
-            widget: number
-            value_type: int
-            hint: "Default matching-accessory charge, used when a product does not set its own."
-          - { label: "Accessory checkbox label", name: accessoryLabel, widget: string }
-          - { label: "Accessory note", name: accessoryNote, widget: string }
-          - { label: "Delivery note", name: deliveryNote, widget: string, hint: "The small print under the total on a product page." }
-
-          - label: "Default product wording"
-            name: productDefaults
-            widget: object
-            collapsed: true
-            hint: >
-              The last fallback for product wording. A piece uses its own words
-              first, then its subcategory's standard wording, then these. Filling
-              these in means no product can end up with a blank description or an
-              empty details row, however it was added.
-            fields:
-              - { label: "Description", name: description, widget: text, required: false }
-              - { label: "Second paragraph", name: description2, widget: text, required: false }
-              - label: "Closing sentence"
-                name: summaryTail
-                widget: string
-                required: false
-                hint: "Ends the one-line summary shown in Google results and WhatsApp previews, after the first sentence of the description."
-              - label: "Details"
-                name: specs
-                widget: object
-                collapsed: true
-                fields:
-                  - { label: "Fabric", name: fabric, widget: string, required: false }
-                  - { label: "Occasion", name: occasion, widget: string, required: false }
-                  - { label: "Fit", name: fit, widget: string, required: false }
-                  - { label: "Care", name: care, widget: string, required: false }
-
-          - label: "Home page — search engine listing"
-            name: seo
-            widget: object
-            collapsed: true
-            fields:
-              - { label: "Page title", name: title, widget: string }
-              - { label: "Description", name: description, widget: text }
-
-          - label: "Hero headlines"
-            name: heroHooks
-            widget: list
-            label_singular: "Headline"
-            collapsed: false
-            summary: "{{fields.text}}"
-            hint: "The three hand-lettered lines that fade in as the drawing turns into a dress. Exactly three."
-            fields:
-              - { label: "Line", name: text, widget: string }
-
-          - label: "Hero buttons"
-            name: heroCtas
-            widget: list
-            label_singular: "Button"
-            collapsed: false
-            summary: "{{fields.title}}"
-            hint: "The three cards under the hero. Their links are fixed: collection, WhatsApp, contact page."
-            fields:
-              - { label: "Title", name: title, widget: string }
-              - { label: "Subtitle", name: subtitle, widget: string, hint: "Hidden on phones to save space." }
-
-          - { label: "Features heading", name: featuresHeading, widget: string }
-          - label: "Features"
-            name: features
-            widget: list
-            label_singular: "Feature"
-            collapsed: true
-            summary: "{{fields.title}}"
-            fields:
-              - label: "Icon"
-                name: icon
-                widget: select
-                options:
-                  - { label: "Gift box", value: gift }
-                  - { label: "Globe", value: globe }
-                  - { label: "Crown", value: crown }
-                  - { label: "Dress", value: dress }
-              - { label: "Title", name: title, widget: string }
-              - { label: "Body", name: body, widget: text }
-
-          - label: "Banner"
-            name: quote
-            widget: object
-            collapsed: true
-            fields:
-              - { label: "Heading", name: heading, widget: string }
-              - { label: "Subline", name: subline, widget: text, hint: "Wrap words in **double asterisks** to make them bold." }
-
-          - label: "About us"
-            name: about
-            widget: object
-            collapsed: true
-            fields:
-              - { label: "Eyebrow", name: eyebrow, widget: string }
-              - { label: "Heading", name: heading, widget: string }
-              - { label: "Body", name: body, widget: text, hint: "Leave a blank line between paragraphs. **Double asterisks** make text bold." }
-              - label: "Photo"
-                name: photo
-                widget: object
-                fields:
-                  - { label: "Choose a photo", name: upload, widget: image, required: false }
-                  - { label: "…or paste an image link", name: url, widget: string, required: false }
-                  - { label: "Photo description (alt text)", name: alt, widget: string }
-
-          # The ring fills itself from the ten most recently added pieces, so
-          # there is no photo list here to keep up to date — only the wording.
-          - { label: "Carousel heading", name: carouselHeading, widget: string }
-          - { label: "Carousel hint", name: carouselHint, widget: string }
-
-          - { label: "Categories row heading", name: categoriesHeading, widget: string }
 
           - label: "Contact page"
             name: contact
@@ -688,6 +601,193 @@ collections:
                 fields:
                   - { label: "Page title", name: title, widget: string }
                   - { label: "Description", name: description, widget: text }
+
+      # --- 2. what a product says when it says nothing of its own ------------
+      - name: products
+        label: "Product defaults"
+        file: content/settings-products.json
+        description: >
+          The wording and prices every product falls back on. A piece uses its
+          own words first, then its subcategory's, then these — so nothing here
+          shows anywhere a piece has been filled in properly, and nothing on the
+          site can end up blank.
+        fields:
+
+          - label: "Prices and totals"
+            name: accessoryPriceDefault
+            widget: number
+            value_type: int
+            hint: "Default matching-accessory charge, used when a product does not set its own."
+          - { label: "Accessory checkbox label", name: accessoryLabel, widget: string }
+          - { label: "Accessory note", name: accessoryNote, widget: string }
+          - { label: "Delivery note", name: deliveryNote, widget: string, hint: "The small print under the total on a product page." }
+
+          - label: "Default product wording"
+            name: productDefaults
+            widget: object
+            collapsed: true
+            hint: >
+              The last fallback for product wording. A piece uses its own words
+              first, then its subcategory's standard wording, then these. Filling
+              these in means no product can end up with a blank description or an
+              empty details row, however it was added.
+            fields:
+              - { label: "Description", name: description, widget: text, required: false }
+              - { label: "Second paragraph", name: description2, widget: text, required: false }
+              - label: "Closing sentence"
+                name: summaryTail
+                widget: string
+                required: false
+                hint: "Ends the one-line summary shown in Google results and WhatsApp previews, after the first sentence of the description."
+              - label: "Details"
+                name: specs
+                widget: object
+                collapsed: true
+                fields:
+                  - { label: "Fabric", name: fabric, widget: string, required: false }
+                  - { label: "Occasion", name: occasion, widget: string, required: false }
+                  - { label: "Fit", name: fit, widget: string, required: false }
+                  - { label: "Care", name: care, widget: string, required: false }
+
+      # --- 3. everything about the site itself -------------------------------
+      - name: site
+        label: "Site & home page"
+        file: content/settings.json
+        description: >
+          The business name, the home page — hero, features, banner, about, the
+          spinning carousel, the category row — and the footer.
+        fields:
+          - { label: "Business name", name: brandName, widget: string }
+          - { label: "Tagline", name: tagline, widget: string }
+
+          - label: "Home page — search engine listing"
+            name: seo
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Page title", name: title, widget: string }
+              - { label: "Description", name: description, widget: text }
+
+          - label: "Hero headlines"
+            name: heroHooks
+            widget: list
+            label_singular: "Headline"
+            collapsed: false
+            summary: "{{fields.text}}"
+            hint: "The three hand-lettered lines that fade in as the drawing turns into a dress. Exactly three."
+            fields:
+              - { label: "Line", name: text, widget: string }
+
+          - label: "Hero buttons"
+            name: heroCtas
+            widget: list
+            label_singular: "Button"
+            collapsed: false
+            summary: "{{fields.title}}"
+            hint: "The three cards under the hero. Their links are fixed: collection, WhatsApp, contact page."
+            fields:
+              - { label: "Title", name: title, widget: string }
+              - { label: "Subtitle", name: subtitle, widget: string, hint: "Hidden on phones to save space." }
+
+          - { label: "Features heading", name: featuresHeading, widget: string }
+          - label: "Features"
+            name: features
+            widget: list
+            label_singular: "Feature"
+            collapsed: true
+            summary: "{{fields.title}}"
+            fields:
+              - label: "Icon"
+                name: icon
+                widget: select
+                options:
+                  - { label: "Gift box", value: gift }
+                  - { label: "Globe", value: globe }
+                  - { label: "Crown", value: crown }
+                  - { label: "Dress", value: dress }
+              - { label: "Title", name: title, widget: string }
+              - { label: "Body", name: body, widget: text }
+
+          - label: "Banner"
+            name: quote
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Heading", name: heading, widget: string }
+              - { label: "Subline", name: subline, widget: text, hint: "Wrap words in **double asterisks** to make them bold." }
+
+          - label: "About us"
+            name: about
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Eyebrow", name: eyebrow, widget: string }
+              - { label: "Heading", name: heading, widget: string }
+              - { label: "Body", name: body, widget: text, hint: "Leave a blank line between paragraphs. **Double asterisks** make text bold." }
+              - label: "Photo"
+                name: photo
+                widget: object
+                fields:
+                  - { label: "Choose a photo", name: upload, widget: image, required: false }
+                  - { label: "…or paste an image link", name: url, widget: string, required: false }
+                  - { label: "Photo description (alt text)", name: alt, widget: string }
+
+          # --- The spinning ring on the home page ------------------------
+          # The wording above it, how it is filled, and how many faces it has.
+          - { label: "Carousel heading", name: carouselHeading, widget: string }
+          - { label: "Carousel hint", name: carouselHint, widget: string }
+
+          - label: "How the carousel is filled"
+            name: carouselMode
+            widget: select
+            default: latest
+            options:
+              - { label: "The newest pieces, automatically", value: latest }
+              - { label: "Only the pieces I choose below", value: chosen }
+            hint: >
+              Left on "newest", the ring keeps itself up to date — whatever you
+              added last is what spins. Switch to "pieces I choose" to put
+              exactly what you want in it, however old.
+
+          - label: "Number of slots"
+            name: carouselSlots
+            widget: number
+            value_type: int
+            default: 10
+            min: 3
+            max: 20
+            required: false
+            hint: >
+              How many pieces the ring spins. Ten is the shape it was designed
+              around; fewer makes each piece bigger, more makes them narrower.
+              Anything outside 3–20 is pulled back into that range.
+
+          # A relation field stores the piece's web address (its "slug"), which
+          # is what content.js looks it up by. Renaming a product changes that
+          # address, so a rename drops it out of the ring — the build says so
+          # by name when it happens, and the piece is picked again here.
+          - label: "Pieces in the carousel"
+            name: carouselProducts
+            widget: list
+            label_singular: "Piece"
+            collapsed: false
+            required: false
+            hint: >
+              Used only when "How the carousel is filled" is set to the pieces
+              you choose. They spin in the order listed — drag to reorder. Start
+              typing a product name to find it. Leave this empty and the newest
+              pieces show instead, so the home page is never left blank.
+            field:
+              label: "Piece"
+              name: product
+              widget: relation
+              collection: products
+              value_field: "{{slug}}"
+              search_fields: [name]
+              display_fields: [name]
+              required: false
+
+          - { label: "Categories row heading", name: categoriesHeading, widget: string }
 
           - { label: "Footer line", name: footerNote, widget: string }
           - { label: "Floating button label", name: floatingLabel, widget: string }

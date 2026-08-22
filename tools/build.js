@@ -172,10 +172,12 @@ for (const p of model.products) {
 
 // 4. robots + sitemap
 // Each URL is dated by the content file it is built from: a product by its own
-// JSON, a category page by its category file, home and contact by settings.
+// JSON, a category page by its category file, and the two settings pages by
+// whichever of the three settings files holds most of what they show — the home
+// page by the site one, the contact page by the contact one.
 const urls = [
   ["/", "content/settings.json"],
-  ["/contact/", "content/settings.json"],
+  ["/contact/", "content/settings-contact.json"],
   ...model.categories.map(c => [c.href, "content/categories/" + c.key + ".json"]),
   ...model.products.map(p => [p.href, "content/products/" + p.id + ".json"])
 ];

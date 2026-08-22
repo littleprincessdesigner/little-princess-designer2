@@ -147,6 +147,158 @@ const nonEmpty = (...vals) => {
   return "";
 };
 
+/* --- site settings ------------------------------------------------------- */
+
+/**
+ * Site Settings is three files rather than one, because it is three jobs: the
+ * shop's contact details, the wording every product falls back on, and
+ * everything about the site itself. Decap shows one page per file, so an editor
+ * changing a phone number is not scrolling past the hero headlines to find it.
+ *
+ * The rest of the build sees one settings object, exactly as it did when there
+ * was one file — the split is an admin-side arrangement and nothing downstream
+ * should have to know about it.
+ *
+ * Only the first file is required. A directory holding just settings.json still
+ * loads, which is what tools/fixtures/content relies on, and what the site
+ * itself would fall back to if a file were ever lost.
+ */
+const SETTINGS_FILES = ["settings.json", "settings-contact.json", "settings-products.json"];
+
+function readSettings(dir) {
+  const merged = {};
+  const from = new Map();
+  for (const file of SETTINGS_FILES) {
+    const part = readJson(path.join(dir, file), { required: file === SETTINGS_FILES[0] });
+    if (!part) continue;
+    for (const [key, value] of Object.entries(part)) {
+      // The same setting in two files is a split that has gone wrong: one of
+      // the two pages in the admin is then editing a value the site ignores,
+      // with nothing on screen to say so.
+      if (from.has(key)) {
+        warn('"' + key + '" is set in both content/' + from.get(key) + " and content/" + file +
+             " — the site uses the one in content/" + file + ". Remove it from the other file, " +
+             "and check site/admin/config.yml only declares it on one page");
+      }
+      from.set(key, file);
+      merged[key] = value;
+    }
+  }
+  return merged;
+}
+
+/* --- the home carousel --------------------------------------------------- */
+
+/**
+ * How many faces the ring spins when Site Settings does not say. Ten, because
+ * that is how many the cylinder was drawn around — far fewer makes each face
+ * wide and the ring sparse, far more makes them slivers.
+ */
+const CAROUSEL_SLOTS_DEFAULT = 10;
+
+/** The range the ring still looks like a ring in. Anything outside is clamped. */
+const CAROUSEL_SLOTS_MIN = 3;
+const CAROUSEL_SLOTS_MAX = 20;
+
+/** A pick can be the slug on its own, or an object holding it — accept both. */
+function pickSlug(entry) {
+  if (typeof entry === "string") return entry.trim();
+  if (entry && typeof entry === "object") {
+    return String(entry.product || entry.slug || entry.id || "").trim();
+  }
+  return "";
+}
+
+/**
+ * How many faces to spin. Set in Site Settings; anything unreadable or outside
+ * the range the ring survives is clamped and said out loud rather than
+ * silently corrected, because a number typed into the admin that does nothing
+ * looks like the setting is broken.
+ */
+function carouselSlots(settings) {
+  const raw = settings.carouselSlots;
+  if (raw === undefined || raw === null || raw === "") return CAROUSEL_SLOTS_DEFAULT;
+
+  const n = Number(raw);
+  if (!Number.isFinite(n)) {
+    warn('the carousel slot count in Site Settings is "' + raw + '", which is not a number — ' +
+         "using " + CAROUSEL_SLOTS_DEFAULT);
+    return CAROUSEL_SLOTS_DEFAULT;
+  }
+  const clamped = Math.min(CAROUSEL_SLOTS_MAX, Math.max(CAROUSEL_SLOTS_MIN, Math.round(n)));
+  if (clamped !== Math.round(n)) {
+    warn("the carousel is set to " + Math.round(n) + " slots, which is outside " +
+         CAROUSEL_SLOTS_MIN + "–" + CAROUSEL_SLOTS_MAX + " — using " + clamped + " instead");
+  }
+  return clamped;
+}
+
+/**
+ * Which pieces spin in the home carousel.
+ *
+ * Two ways to fill it, both set in Site Settings:
+ *   - "latest" (the default): the newest pieces, so new work reaches the home
+ *     page with nobody having to maintain a list;
+ *   - "chosen": exactly the pieces picked in the admin, in the order picked.
+ *
+ * Everything that can go wrong with a hand-picked list — a piece since hidden,
+ * deleted or renamed, the same piece twice, an empty list, fewer picks than
+ * slots — leaves the ring turning and says what happened, because the home page
+ * losing its carousel is not a fair price for a stale pick.
+ *
+ * Exported so tools/test.js can put settings in front of it directly; the site
+ * only ever reaches it through load().
+ */
+function chooseCarousel(settings, products) {
+  const slots = carouselSlots(settings);
+  const newest = [...products]
+    .sort((a, b) => b.addedOn - a.addedOn || a.name.localeCompare(b.name));
+
+  const mode = String(settings.carouselMode || "latest").trim() || "latest";
+  if (mode !== "latest" && mode !== "chosen") {
+    warn('Site Settings asks the carousel to be filled by "' + mode + '", which is not ' +
+         "something this site knows how to do — showing the newest pieces instead");
+    return newest.slice(0, slots);
+  }
+  if (mode === "latest") return newest.slice(0, slots);
+
+  const byId = new Map(products.map(p => [p.id, p]));
+  const chosen = [];
+  const seen = new Set();
+  for (const entry of Array.isArray(settings.carouselProducts) ? settings.carouselProducts : []) {
+    const slug = pickSlug(entry);
+    if (!slug) continue;
+    const product = byId.get(slug);
+    if (!product) {
+      // Hidden, deleted, or renamed: renaming a product changes its address,
+      // and the pick stores the address. All three read the same from here.
+      warn('the carousel is set to show "' + slug + '", which is not a piece on the site — ' +
+           "it may have been hidden, deleted or renamed. That slot is skipped; " +
+           "pick it again in Site Settings → Pieces in the carousel");
+      continue;
+    }
+    if (seen.has(slug)) {
+      warn('"' + product.name + '" is in the carousel list twice — it spins once');
+      continue;
+    }
+    seen.add(slug);
+    chosen.push(product);
+  }
+
+  if (!chosen.length) {
+    warn("the carousel is set to show chosen pieces, but no piece on the site is chosen — " +
+         "showing the newest instead. Pick pieces in Site Settings → Pieces in the carousel, " +
+         'or set "How the carousel is filled" back to the newest pieces');
+    return newest.slice(0, slots);
+  }
+  if (chosen.length < slots) {
+    warn("the carousel has " + slots + " slots but only " + chosen.length +
+         " piece(s) chosen — the ring spins " + chosen.length + ". Pick more pieces, " +
+         "or lower the slot count in Site Settings");
+  }
+  return chosen.slice(0, slots);
+}
+
 /**
  * Reads a content directory into the model.
  *
@@ -160,7 +312,7 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
   // what the tests do — would otherwise inherit the first one's warnings.
   warnings.length = 0;
 
-  const settings = readJson(path.join(dir, "settings.json"));
+  const settings = readSettings(dir);
 
   // The CMS stores every photo as {url, upload, alt}; the renderer wants {src,
   // alt}. Products and category cards are converted further down — these two
@@ -169,11 +321,6 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
   if (settings.about) {
     settings.about.photo = resolveImage(settings.about.photo, settings.about.heading);
   }
-  // Nulls are kept rather than filtered out: an empty slot renders the same
-  // "photo coming soon" frame as everywhere else, so the ring keeps its shape
-  // while the catalogue is being photographed.
-  settings.carousel = (Array.isArray(settings.carousel) ? settings.carousel : [])
-    .map(img => resolveImage(img));
 
   const categories = CATEGORY_ORDER.map(key => {
     const c = readJson(path.join(dir, "categories", key + ".json"));
@@ -189,9 +336,17 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
   const byKey = Object.fromEntries(categories.map(c => [c.key, c]));
 
   // --- subcategories ------------------------------------------------------
+  // A section's id is its file name, and nothing else. It used to be a
+  // free-text "short code" typed into the admin, which is how two girls
+  // sections both ended up as "g1": Decap names the file after that code, could
+  // not overwrite the one already there, so it saved g1-1.json with g1 still
+  // inside — a successful-looking save that left two sections sharing an id.
+  // Taking the id from the file name makes that impossible rather than merely
+  // detectable: two files cannot share a name, so two sections cannot share an
+  // id, and there is no longer a field to mistype.
   const subs = [];
   for (const { slug, data } of readDir(path.join(dir, "subcategories"))) {
-    const id = (data.id || slug).trim();
+    const id = slug.trim();
     if (!byKey[data.parent]) {
       warn('subcategory "' + id + '" has parent "' + data.parent + '", which is not a category — skipped');
       continue;
@@ -210,24 +365,6 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
     byKey[data.parent].subcategories.push(sub);
   }
   for (const c of categories) c.subcategories.sort((a, b) => a.order - b.order || a.name.localeCompare(b.name));
-
-  // Two subcategories sharing an id is silent damage, and the id is a free-text
-  // field in the admin so one mistyped character does it. The lookup below is
-  // last-one-wins, so every product pointing at that id is pulled out of the
-  // first subcategory and into the second — the first then renders as empty
-  // while its products appear under the wrong heading, and both emit the same
-  // anchor. This is exactly what happened to boys "b2".
-  const seenId = new Map();
-  for (const s of subs) {
-    const clash = seenId.get(s.id);
-    if (clash) {
-      warn('subcategory "' + s.name + '" uses the id "' + s.id + '", but subcategory "' +
-        clash.name + '" already uses that id — one of them will show no products ' +
-        'until you give it an id of its own');
-    } else {
-      seenId.set(s.id, s);
-    }
-  }
 
   const subById = Object.fromEntries(subs.map(s => [s.id, s]));
 
@@ -391,6 +528,11 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
   return {
     settings,
     sizes: SIZES,
+    // Which pieces spin on the home page. Decided here rather than in the
+    // renderer because it is a content rule — it reads Site Settings and the
+    // catalogue, and every warning it raises belongs with the other content
+    // warnings the build prints.
+    carousel: chooseCarousel(settings, products),
     // A copy: the module-level list is cleared by the next load(), and callers
     // that hold the model should not have it emptied underneath them.
     warnings: warnings.slice(),
@@ -406,4 +548,4 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
   };
 }
 
-module.exports = { load, SIZES, CATEGORY_ORDER, warnings };
+module.exports = { load, SIZES, CATEGORY_ORDER, readSettings, chooseCarousel, warnings };

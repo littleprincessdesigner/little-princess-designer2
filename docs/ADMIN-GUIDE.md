@@ -11,7 +11,16 @@ There are four things in the sidebar:
 | **Products** | Every piece in the shop |
 | **Subcategories** | The sections inside each tab — "Casual dresses", "Rompers" |
 | **Category pages** | The wording at the top of Girls / Boys / Babies / Ready to wear |
-| **Site settings** | Phone number, email, social links, and the wording on the home and contact pages |
+| **Site settings** | Three pages: **Contact details**, **Product defaults**, **Site & home page** |
+
+**Site settings** is split into three pages so you are not scrolling past the
+hero headlines to change a phone number:
+
+| Page | What's on it |
+|---|---|
+| **Contact details** | Phone number, email, social links, and the whole contact page |
+| **Product defaults** | The wording and prices every product falls back on |
+| **Site & home page** | Business name, hero, features, banner, about, carousel, footer |
 
 ---
 
@@ -109,11 +118,15 @@ separate.
 
 **Subcategories → New Subcategory.**
 
-- **Short code** — a permanent code like `g5`. Products remember this code, so
-  **do not change it later** — if you need a different code, make a new
-  subcategory and move the products across.
+There is no code to fill in. The section is filed under its tab and its name —
+a section called "Party skirts" under Girls is stored as `girls-party-skirts` —
+and the CMS keeps that unique for you, so two sections can never end up sharing
+one. (Two girls sections were both saved as `g1` when the code was typed by
+hand, and one of them stopped showing its products.)
+
 - **Name** — the heading shown on the page, e.g. "Party skirts". Safe to rename
-  whenever you like.
+  whenever you like: the filing stays as it was, so every product in the section
+  stays put.
 - **Tab** — which of the four shop tabs it belongs to.
 - **Sort order** — lower numbers appear higher up the page.
 - **Standard description / details** — used by every product in this section
@@ -129,6 +142,10 @@ until you reassign it. Nothing is lost, but it is invisible in the meantime.
 
 **Site settings → Contact details.**
 
+Everything about reaching the shop is on this one page — the phone number,
+email, the Instagram, Facebook and TikTok links, and all the wording on the
+contact page (ordering steps, FAQs, the social cards, the feedback block).
+
 The WhatsApp number is used by every WhatsApp button on the site — the floating
 button, the product pages, the contact page. Changing it here changes all of
 them.
@@ -138,20 +155,78 @@ Enter it as digits only, with the country code and no `+` or spaces:
 
 ---
 
-## Change the wording on the home or contact page
+## Change the wording on the home page
 
-Also **Site settings**. The sections are in the order they appear on the site:
+**Site settings → Site & home page.** The sections are in the order they appear
+on the site:
 
 - **Hero headlines** — the three hand-lettered lines that fade in over the dress
 - **Hero buttons** — the three cards under it
 - **Features** — the four berry cards
 - **Banner** — the pink strip. Wrap words in `**double asterisks**` to bold them
 - **About us** — leave a blank line between paragraphs
-- **Carousel photos** — the spinning ring of pieces
-- **Contact page** — ordering steps, FAQs, social card wording, feedback block
+- **Carousel** — the heading and hint over the spinning ring, and what spins
+  in it (its own section below)
+- **Categories row heading** and **Footer line** at the bottom
 
-FAQs are also published in a format Google understands, so they can appear
-directly in search results. Worth keeping them accurate.
+The contact page's wording is on the **Contact details** page instead, next to
+the phone number it goes with: ordering steps, FAQs, the social cards and the
+feedback block. FAQs are also published in a format Google understands, so they
+can appear directly in search results — worth keeping them accurate.
+
+---
+
+## Change what a product says when you leave it blank
+
+**Site settings → Product defaults.**
+
+Nothing on this page shows anywhere a product has been filled in properly. It is
+the last fallback: a piece uses its own words first, then its subcategory's
+standard wording, then these. It means no product can end up with a blank
+description, however quickly it was added.
+
+Also here: the matching-accessory charge and its wording, and the delivery note
+in the small print under a product's total.
+
+---
+
+## Choose what spins in the carousel
+
+**Site settings → Site & home page**, in the carousel section.
+
+The ring on the home page can be filled two ways:
+
+- **The newest pieces, automatically** — how it has always worked. Whatever you
+  added last is what spins, and you never have to touch it.
+- **Only the pieces I choose below** — you decide. Use this to put your best
+  work, or a season's pieces, on the home page however old they are.
+
+To choose your own:
+
+1. Set **How the carousel is filled** to *Only the pieces I choose below*.
+2. In **Pieces in the carousel**, press **Add Piece** and start typing a product
+   name — pick it from the list that appears.
+3. Add as many as you want. They spin in the order listed, and you can drag a
+   row to move it.
+4. **Publish**.
+
+**Number of slots** is how many pieces the ring holds — ten by default. Fewer
+makes each piece bigger on screen, more makes them narrower. Three is the fewest
+and twenty the most; anything outside that is pulled back into range.
+
+The two settings work together: on *newest*, the slot count is how many recent
+pieces show. On *pieces I choose*, it is a limit — if you list more than the
+slot count, the extra rows sit unused until you raise it.
+
+A few things worth knowing:
+
+- **Leave the list empty and the newest pieces show instead.** The home page is
+  never left with an empty ring.
+- **Choose fewer pieces than slots and the ring simply spins fewer.** It still
+  works; it is just a smaller ring.
+- **Renaming a product drops it out of the ring.** The list remembers a piece by
+  its web address, and renaming changes that address. Hiding or deleting a piece
+  does the same thing. Just pick it again.
 
 ---
 
