@@ -1,11 +1,10 @@
 {
   "carouselHeading": "Just finished in the studio",
+  "carouselMode": "chosen",
+  "carouselProducts": [],
   "featuresHeading": "Features",
   "categoriesHeading": "Get yours now",
   "carouselHint": "Drag to spin · tap a piece to open it",
-  "carouselMode": "latest",
-  "carouselSlots": 10,
-  "carouselProducts": [],
   "footerNote": "© 2026 Little Princess Designer · Lahore, Pakistan",
   "about": {
     "eyebrow": "About us · Our story",
@@ -20,6 +19,7 @@
   "tagline": "Luxury dresses for kids",
   "floatingLabel": "Contact us",
   "brandName": "Little Princess Designer",
+  "carouselSlots": 3,
   "heroHooks": [
     {
       "text": "There is a princess in every girl"
