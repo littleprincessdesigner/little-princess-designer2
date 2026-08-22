@@ -1,0 +1,30 @@
+{
+  "badge": "",
+  "name": "blue horizon dress",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 44
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641139.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641140.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641138.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642136%20(4).jpg"
+    }
+  ],
+  "subcategory": "girls-luxury-dresses",
+  "addedOn": "2026-08-22T15:07:00.000+05:00"
+}
