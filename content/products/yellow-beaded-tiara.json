@@ -1,0 +1,21 @@
+{
+  "badge": "",
+  "name": "yellow beaded tiara",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 33
+    }
+  ],
+  "showAccessory": false,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641033.heic"
+    }
+  ],
+  "subcategory": "girls-accessory",
+  "addedOn": "2026-08-22T15:30:00.000+05:00"
+}
