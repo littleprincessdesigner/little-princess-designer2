@@ -1,0 +1,40 @@
+{
+  "badge": "",
+  "name": "masha and the bear dress",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 6500
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 8500
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "price": 10500
+    }
+  ],
+  "showAccessory": false,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5986.JPG.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5987.JPG%20(1).jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5995.JPG.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5992.JPG.jpg"
+    }
+  ],
+  "subcategory": "ready-to-wear",
+  "addedOn": "2026-08-22T14:55:00.000+05:00"
+}
