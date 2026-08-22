@@ -26,7 +26,7 @@
 "use strict";
 
 const path = require("path");
-const { load, SIZES } = require("./content");
+const { load, SIZES, chooseCarousel, warnings } = require("./content");
 const images = require("./images");
 
 const FIXTURE = path.join(__dirname, "fixtures", "content");
@@ -438,6 +438,71 @@ check("the panel's cascade agrees with the one the site is built with",
     card.applyWording({}, {}, {}).description
   ],
   ["SECTION words", ""]);
+
+/* --- the home carousel --------------------------------------------------- */
+
+// chooseCarousel() reads Site Settings, which the fixture deliberately does not
+// set — so every case here hands it settings of its own. The site reaches it
+// through load(); these calls are the same function with the same rules.
+// The fixture catalogue is smaller than the ten slots the ring defaults to, so
+// "all of them" is what a default-slot call returns here.
+const carouselIds = settings => chooseCarousel(settings, model.products).map(p => p.id);
+
+/** The warnings chooseCarousel() raised for one call, and nothing else's. */
+function carouselWarnings(settings) {
+  const before = warnings.length;
+  chooseCarousel(settings, model.products);
+  return warnings.slice(before);
+}
+
+check("with nothing set, the ring spins the newest pieces, newest first",
+  model.carousel.map(p => p.id).slice(0, 3), ["inherits-site", "inherits-sub", "on-sale"]);
+check("…and the slot count decides how many of them",
+  carouselIds({ carouselSlots: 4 }).length, 4);
+check("a slot count below the shape the ring keeps is pulled up to 3",
+  carouselIds({ carouselSlots: 1 }).length, 3);
+check("…and one above it is pulled down to 20",
+  carouselIds({ carouselSlots: 99 }).length, Math.min(20, model.products.length));
+checkTrue("both say so rather than correcting silently",
+  warned(carouselWarnings({ carouselSlots: 1 }), "outside 3–20") &&
+  warned(carouselWarnings({ carouselSlots: 99 }), "outside 3–20"));
+checkTrue("a slot count that is not a number falls back to ten, with a warning",
+  carouselIds({ carouselSlots: "abc" }).length === model.products.length &&
+  warned(carouselWarnings({ carouselSlots: "abc" }), "not a number"));
+
+check("chosen pieces spin in the order they were picked, not by date",
+  carouselIds({ carouselMode: "chosen", carouselProducts: ["undated", "own-words", "on-sale"] }),
+  ["undated", "own-words", "on-sale"]);
+check("…and the slot count still caps the list",
+  carouselIds({ carouselMode: "chosen", carouselSlots: 3, carouselProducts: ["undated", "own-words", "on-sale", "photos"] }),
+  ["undated", "own-words", "on-sale"]);
+check("a pick stored as an object reads the same as a bare address",
+  carouselIds({ carouselMode: "chosen", carouselProducts: [{ product: "photos" }] }), ["photos"]);
+
+checkTrue("a piece that is hidden, deleted or renamed is skipped and named",
+  carouselIds({ carouselMode: "chosen", carouselProducts: ["photos", "hidden", "gone-away"] })
+    .join() === "photos" &&
+  warned(carouselWarnings({ carouselMode: "chosen", carouselProducts: ["gone-away"] }),
+    "gone-away", "not a piece on the site"));
+checkTrue("the same piece picked twice spins once, with a warning",
+  carouselIds({ carouselMode: "chosen", carouselProducts: ["photos", "photos"] }).join() === "photos" &&
+  warned(carouselWarnings({ carouselMode: "chosen", carouselProducts: ["photos", "photos"] }),
+    "twice"));
+checkTrue("fewer pieces than slots spins what there is, and says so",
+  carouselIds({ carouselMode: "chosen", carouselSlots: 6, carouselProducts: ["photos"] }).length === 1 &&
+  warned(carouselWarnings({ carouselMode: "chosen", carouselSlots: 6, carouselProducts: ["photos"] }),
+    "6 slots but only 1"));
+
+// The home page losing its carousel is worse than showing a stale-ish ring, so
+// every way of ending up with no chosen piece falls back to the newest.
+checkTrue("chosen with nothing chosen falls back to the newest, with a warning",
+  carouselIds({ carouselMode: "chosen", carouselProducts: [] }).length === model.products.length &&
+  warned(carouselWarnings({ carouselMode: "chosen", carouselProducts: [] }), "no piece on the site is chosen"));
+checkTrue("chosen with only dead picks falls back too",
+  carouselIds({ carouselMode: "chosen", carouselProducts: ["gone-away"] }).length === model.products.length);
+checkTrue("a way of filling it this site does not know falls back to the newest",
+  carouselIds({ carouselMode: "shuffle" }).length === model.products.length &&
+  warned(carouselWarnings({ carouselMode: "shuffle" }), "shuffle", "not something this site knows"));
 
 /* --- report ------------------------------------------------------------- */
 

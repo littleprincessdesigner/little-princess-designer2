@@ -147,11 +147,52 @@ Also **Site settings**. The sections are in the order they appear on the site:
 - **Features** — the four berry cards
 - **Banner** — the pink strip. Wrap words in `**double asterisks**` to bold them
 - **About us** — leave a blank line between paragraphs
-- **Carousel photos** — the spinning ring of pieces
+- **Carousel** — the heading and hint over the spinning ring, and what spins
+  in it (its own section below)
 - **Contact page** — ordering steps, FAQs, social card wording, feedback block
 
 FAQs are also published in a format Google understands, so they can appear
 directly in search results. Worth keeping them accurate.
+
+---
+
+## Choose what spins in the carousel
+
+**Site settings → Contact details**, in the carousel section.
+
+The ring on the home page can be filled two ways:
+
+- **The newest pieces, automatically** — how it has always worked. Whatever you
+  added last is what spins, and you never have to touch it.
+- **Only the pieces I choose below** — you decide. Use this to put your best
+  work, or a season's pieces, on the home page however old they are.
+
+To choose your own:
+
+1. Set **How the carousel is filled** to *Only the pieces I choose below*.
+2. In **Pieces in the carousel**, press **Add Piece** and start typing a product
+   name — pick it from the list that appears.
+3. Add as many as you want. They spin in the order listed, and you can drag a
+   row to move it.
+4. **Publish**.
+
+**Number of slots** is how many pieces the ring holds — ten by default. Fewer
+makes each piece bigger on screen, more makes them narrower. Three is the fewest
+and twenty the most; anything outside that is pulled back into range.
+
+The two settings work together: on *newest*, the slot count is how many recent
+pieces show. On *pieces I choose*, it is a limit — if you list more than the
+slot count, the extra rows sit unused until you raise it.
+
+A few things worth knowing:
+
+- **Leave the list empty and the newest pieces show instead.** The home page is
+  never left with an empty ring.
+- **Choose fewer pieces than slots and the ring simply spins fewer.** It still
+  works; it is just a smaller ring.
+- **Renaming a product drops it out of the ring.** The list remembers a piece by
+  its web address, and renaming changes that address. Hiding or deleting a piece
+  does the same thing. Just pick it again.
 
 ---
 

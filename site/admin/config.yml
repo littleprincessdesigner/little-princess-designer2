@@ -598,10 +598,60 @@ collections:
                   - { label: "…or paste an image link", name: url, widget: string, required: false }
                   - { label: "Photo description (alt text)", name: alt, widget: string }
 
-          # The ring fills itself from the ten most recently added pieces, so
-          # there is no photo list here to keep up to date — only the wording.
+          # --- The spinning ring on the home page ------------------------
+          # The wording above it, how it is filled, and how many faces it has.
           - { label: "Carousel heading", name: carouselHeading, widget: string }
           - { label: "Carousel hint", name: carouselHint, widget: string }
+
+          - label: "How the carousel is filled"
+            name: carouselMode
+            widget: select
+            default: latest
+            options:
+              - { label: "The newest pieces, automatically", value: latest }
+              - { label: "Only the pieces I choose below", value: chosen }
+            hint: >
+              Left on "newest", the ring keeps itself up to date — whatever you
+              added last is what spins. Switch to "pieces I choose" to put
+              exactly what you want in it, however old.
+
+          - label: "Number of slots"
+            name: carouselSlots
+            widget: number
+            value_type: int
+            default: 10
+            min: 3
+            max: 20
+            required: false
+            hint: >
+              How many pieces the ring spins. Ten is the shape it was designed
+              around; fewer makes each piece bigger, more makes them narrower.
+              Anything outside 3–20 is pulled back into that range.
+
+          # A relation field stores the piece's web address (its "slug"), which
+          # is what content.js looks it up by. Renaming a product changes that
+          # address, so a rename drops it out of the ring — the build says so
+          # by name when it happens, and the piece is picked again here.
+          - label: "Pieces in the carousel"
+            name: carouselProducts
+            widget: list
+            label_singular: "Piece"
+            collapsed: false
+            required: false
+            hint: >
+              Used only when "How the carousel is filled" is set to the pieces
+              you choose. They spin in the order listed — drag to reorder. Start
+              typing a product name to find it. Leave this empty and the newest
+              pieces show instead, so the home page is never left blank.
+            field:
+              label: "Piece"
+              name: product
+              widget: relation
+              collection: products
+              value_field: "{{slug}}"
+              search_fields: [name]
+              display_fields: [name]
+              required: false
 
           - { label: "Categories row heading", name: categoriesHeading, widget: string }
 

@@ -90,6 +90,9 @@
   "deliveryNote": "Delivery charges are not included in this total.",
   "facebook": "https://www.facebook.com/LittlePrincessDesigner/",
   "carouselHint": "Drag to spin · tap a piece to open it",
+  "carouselMode": "latest",
+  "carouselSlots": 10,
+  "carouselProducts": [],
   "accessoryPriceDefault": 95,
   "footerNote": "© 2026 Little Princess Designer · Lahore, Pakistan",
   "about": {

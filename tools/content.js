@@ -147,6 +147,118 @@ const nonEmpty = (...vals) => {
   return "";
 };
 
+/* --- the home carousel --------------------------------------------------- */
+
+/**
+ * How many faces the ring spins when Site Settings does not say. Ten, because
+ * that is how many the cylinder was drawn around — far fewer makes each face
+ * wide and the ring sparse, far more makes them slivers.
+ */
+const CAROUSEL_SLOTS_DEFAULT = 10;
+
+/** The range the ring still looks like a ring in. Anything outside is clamped. */
+const CAROUSEL_SLOTS_MIN = 3;
+const CAROUSEL_SLOTS_MAX = 20;
+
+/** A pick can be the slug on its own, or an object holding it — accept both. */
+function pickSlug(entry) {
+  if (typeof entry === "string") return entry.trim();
+  if (entry && typeof entry === "object") {
+    return String(entry.product || entry.slug || entry.id || "").trim();
+  }
+  return "";
+}
+
+/**
+ * How many faces to spin. Set in Site Settings; anything unreadable or outside
+ * the range the ring survives is clamped and said out loud rather than
+ * silently corrected, because a number typed into the admin that does nothing
+ * looks like the setting is broken.
+ */
+function carouselSlots(settings) {
+  const raw = settings.carouselSlots;
+  if (raw === undefined || raw === null || raw === "") return CAROUSEL_SLOTS_DEFAULT;
+
+  const n = Number(raw);
+  if (!Number.isFinite(n)) {
+    warn('the carousel slot count in Site Settings is "' + raw + '", which is not a number — ' +
+         "using " + CAROUSEL_SLOTS_DEFAULT);
+    return CAROUSEL_SLOTS_DEFAULT;
+  }
+  const clamped = Math.min(CAROUSEL_SLOTS_MAX, Math.max(CAROUSEL_SLOTS_MIN, Math.round(n)));
+  if (clamped !== Math.round(n)) {
+    warn("the carousel is set to " + Math.round(n) + " slots, which is outside " +
+         CAROUSEL_SLOTS_MIN + "–" + CAROUSEL_SLOTS_MAX + " — using " + clamped + " instead");
+  }
+  return clamped;
+}
+
+/**
+ * Which pieces spin in the home carousel.
+ *
+ * Two ways to fill it, both set in Site Settings:
+ *   - "latest" (the default): the newest pieces, so new work reaches the home
+ *     page with nobody having to maintain a list;
+ *   - "chosen": exactly the pieces picked in the admin, in the order picked.
+ *
+ * Everything that can go wrong with a hand-picked list — a piece since hidden,
+ * deleted or renamed, the same piece twice, an empty list, fewer picks than
+ * slots — leaves the ring turning and says what happened, because the home page
+ * losing its carousel is not a fair price for a stale pick.
+ *
+ * Exported so tools/test.js can put settings in front of it directly; the site
+ * only ever reaches it through load().
+ */
+function chooseCarousel(settings, products) {
+  const slots = carouselSlots(settings);
+  const newest = [...products]
+    .sort((a, b) => b.addedOn - a.addedOn || a.name.localeCompare(b.name));
+
+  const mode = String(settings.carouselMode || "latest").trim() || "latest";
+  if (mode !== "latest" && mode !== "chosen") {
+    warn('Site Settings asks the carousel to be filled by "' + mode + '", which is not ' +
+         "something this site knows how to do — showing the newest pieces instead");
+    return newest.slice(0, slots);
+  }
+  if (mode === "latest") return newest.slice(0, slots);
+
+  const byId = new Map(products.map(p => [p.id, p]));
+  const chosen = [];
+  const seen = new Set();
+  for (const entry of Array.isArray(settings.carouselProducts) ? settings.carouselProducts : []) {
+    const slug = pickSlug(entry);
+    if (!slug) continue;
+    const product = byId.get(slug);
+    if (!product) {
+      // Hidden, deleted, or renamed: renaming a product changes its address,
+      // and the pick stores the address. All three read the same from here.
+      warn('the carousel is set to show "' + slug + '", which is not a piece on the site — ' +
+           "it may have been hidden, deleted or renamed. That slot is skipped; " +
+           "pick it again in Site Settings → Pieces in the carousel");
+      continue;
+    }
+    if (seen.has(slug)) {
+      warn('"' + product.name + '" is in the carousel list twice — it spins once');
+      continue;
+    }
+    seen.add(slug);
+    chosen.push(product);
+  }
+
+  if (!chosen.length) {
+    warn("the carousel is set to show chosen pieces, but no piece on the site is chosen — " +
+         "showing the newest instead. Pick pieces in Site Settings → Pieces in the carousel, " +
+         'or set "How the carousel is filled" back to the newest pieces');
+    return newest.slice(0, slots);
+  }
+  if (chosen.length < slots) {
+    warn("the carousel has " + slots + " slots but only " + chosen.length +
+         " piece(s) chosen — the ring spins " + chosen.length + ". Pick more pieces, " +
+         "or lower the slot count in Site Settings");
+  }
+  return chosen.slice(0, slots);
+}
+
 /**
  * Reads a content directory into the model.
  *
@@ -169,11 +281,6 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
   if (settings.about) {
     settings.about.photo = resolveImage(settings.about.photo, settings.about.heading);
   }
-  // Nulls are kept rather than filtered out: an empty slot renders the same
-  // "photo coming soon" frame as everywhere else, so the ring keeps its shape
-  // while the catalogue is being photographed.
-  settings.carousel = (Array.isArray(settings.carousel) ? settings.carousel : [])
-    .map(img => resolveImage(img));
 
   const categories = CATEGORY_ORDER.map(key => {
     const c = readJson(path.join(dir, "categories", key + ".json"));
@@ -391,6 +498,11 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
   return {
     settings,
     sizes: SIZES,
+    // Which pieces spin on the home page. Decided here rather than in the
+    // renderer because it is a content rule — it reads Site Settings and the
+    // catalogue, and every warning it raises belongs with the other content
+    // warnings the build prints.
+    carousel: chooseCarousel(settings, products),
     // A copy: the module-level list is cleared by the next load(), and callers
     // that hold the model should not have it emptied underneath them.
     warnings: warnings.slice(),
@@ -406,4 +518,4 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
   };
 }
 
-module.exports = { load, SIZES, CATEGORY_ORDER, warnings };
+module.exports = { load, SIZES, CATEGORY_ORDER, chooseCarousel, warnings };

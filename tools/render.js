@@ -28,13 +28,6 @@ const inline = s => esc(s).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
  */
 const SUMMARY_TAIL = "Made to order, hand-finished in our Lahore studio.";
 
-/**
- * How many pieces spin in the home carousel. Ten, because that is how many
- * faces the cylinder was built around — fewer makes each face wide and the
- * ring sparse.
- */
-const CAROUSEL_COUNT = 10;
-
 /** Splits a CMS textarea into paragraphs on blank lines. */
 const paragraphs = s => String(s || "").split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
 
@@ -273,13 +266,11 @@ function renderHome(model, siteUrl) {
   const hooks = (s.heroHooks || []).slice(0, 3).map(h => (typeof h === "string" ? h : h.text || ""));
   const ctas = s.heroCtas || [];
 
-  // The carousel used to spin a hand-curated photo list from Site Settings.
-  // It shows the newest pieces instead, so new work is visible from the home
-  // page rather than only to someone who opens the right subcategory — and so
-  // the row keeps itself up to date with no one having to maintain it.
-  const newest = [...model.products]
-    .sort((a, b) => b.addedOn - a.addedOn || a.name.localeCompare(b.name))
-    .slice(0, CAROUSEL_COUNT);
+  // Which pieces spin, and how many faces the ring has, are both settings now:
+  // either the newest pieces automatically or a list picked in the admin, cut
+  // to the slot count. content.js has already applied all of that — everything
+  // this file does is draw whatever it was handed.
+  const spinning = model.carousel || [];
   const stages = [
     { src: "/assets/dress-sketch-tall.webp", alt: "Pencil sketch of a made-to-order party frock for girls, drawn in the Little Princess Designer studio" },
     { src: "/assets/dress-colour-tall.webp", alt: "The same girls party frock, watercoloured to show the chosen fabric and trim colours" },
@@ -332,7 +323,7 @@ ${ctas.slice(0, 3).map((c, i) => {
 </div>
 <div class="lp-car-wrap">
 <carousel-3d>
-${newest.map(p =>
+${spinning.map(p =>
   '<div><a class="lp-car-face" href="' + safeHref(p.href) +
   '" aria-label="' + esc(p.name + " — " + p.subcategoryName + " for " + p.tabLabel) + '">' +
   // The placeholder carries the product name rather than the generic wording:
