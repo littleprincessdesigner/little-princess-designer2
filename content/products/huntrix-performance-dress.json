@@ -1,0 +1,27 @@
+{
+  "badge": "",
+  "name": "huntrix performance dress",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 33
+    }
+  ],
+  "showAccessory": false,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5879.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5880.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5874.jpg"
+    }
+  ],
+  "subcategory": "girls-theme-dresses",
+  "addedOn": "2026-08-23T02:19:00.000+05:00"
+}
