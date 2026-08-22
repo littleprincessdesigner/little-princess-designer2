@@ -1,0 +1,33 @@
+{
+  "badge": "",
+  "name": "girrafe ",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 55
+    }
+  ],
+  "showAccessory": false,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641063.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641069.heic"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641064.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641057.heic"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641065.heic"
+    }
+  ],
+  "subcategory": "boys-theme-dresses",
+  "addedOn": "2026-08-23T02:44:00.000+05:00"
+}
