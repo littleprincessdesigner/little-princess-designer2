@@ -3,14 +3,12 @@
   "carouselMode": "chosen",
   "carouselProducts": [
     "aurora-theme-dress",
-    "barbie-kkk",
     "blue-purple-blend-frock",
     "irhu-faisy-dress",
     "purple-shoot-dress",
     "prince-zain-coat-suit",
     "first-tooth-tutu-skirt",
     "peony-character-dress",
-    "ready-blush-party-dress",
     "ziva-dress",
     "peony-tulle-skirt",
     "prince-arthur-suit"
@@ -32,7 +30,7 @@
   "tagline": "Luxury dresses for kids",
   "floatingLabel": "Contact us",
   "brandName": "Little Princess Designer",
-  "carouselSlots": 12,
+  "carouselSlots": 10,
   "heroHooks": [
     {
       "text": "There is a princess in every girl"
