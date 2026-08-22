@@ -1,0 +1,21 @@
+{
+  "badge": "",
+  "name": "first tooth romper",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 25
+    }
+  ],
+  "showAccessory": false,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20260819_115844.jpg.jpeg"
+    }
+  ],
+  "subcategory": "babies-rompers",
+  "addedOn": "2026-08-23T02:41:00.000+05:00"
+}
