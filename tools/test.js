@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
  * Assertions over tools/content.js, the one file in the build with real
- * branching in it: the wording cascade, duplicate-id detection, and the size
- * and price filtering that decides whether a product reaches the site at all.
+ * branching in it: the wording cascade, the settings merge, and the size and
+ * price filtering that decides whether a product reaches the site at all.
  * A regression in any of those is invisible in review and shows up as a
  * product quietly missing from the live shop.
  *
@@ -18,8 +18,8 @@
  * It runs against tools/fixtures/content, a small catalogue built to hit every
  * branch at once: a product with its own wording, one that has to inherit from
  * its subcategory, one that has to fall through to the site defaults, a hidden
- * one, an orphaned one, a price row with an unknown size, a product with no
- * usable price, and a duplicated subcategory id. Editing the fixture is how you
+ * one, an orphaned one, a price row with an unknown size, and a product with no
+ * usable price. Editing the fixture is how you
  * add a case; it is not a copy of the real catalogue and does not track it.
  */
 
@@ -123,8 +123,10 @@ check("a missing date is 0, not NaN — NaN would make the sort incoherent",
   byName["Undated"].addedOn, 0);
 check("a date is parsed to milliseconds for sorting",
   byName["Own words"].addedOn, Date.parse("2026-08-03T12:00:00.000Z"));
-checkTrue("a duplicated subcategory id is warned about",
-  warned(w, "Duplicate id", 'already uses that id'));
+// The id used to be typed into the admin, and two sections were given the same
+// one. It is the file name now, so a clash cannot be expressed: s1.json is "s1"
+// and nothing in the file can say otherwise.
+check("a section's id is its file name", model.subcategories.map(s => s.id).sort(), ["s1", "s2"]);
 checkTrue("a subcategory under an unknown parent is skipped, with a warning",
   !model.subcategories.some(s => s.id === "orphan") && warned(w, "orphan", "not a category"));
 

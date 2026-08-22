@@ -118,11 +118,15 @@ separate.
 
 **Subcategories → New Subcategory.**
 
-- **Short code** — a permanent code like `g5`. Products remember this code, so
-  **do not change it later** — if you need a different code, make a new
-  subcategory and move the products across.
+There is no code to fill in. The section is filed under its tab and its name —
+a section called "Party skirts" under Girls is stored as `girls-party-skirts` —
+and the CMS keeps that unique for you, so two sections can never end up sharing
+one. (Two girls sections were both saved as `g1` when the code was typed by
+hand, and one of them stopped showing its products.)
+
 - **Name** — the heading shown on the page, e.g. "Party skirts". Safe to rename
-  whenever you like.
+  whenever you like: the filing stays as it was, so every product in the section
+  stays put.
 - **Tab** — which of the four shop tabs it belongs to.
 - **Sort order** — lower numbers appear higher up the page.
 - **Standard description / details** — used by every product in this section

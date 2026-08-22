@@ -1,1 +1,5 @@
-{ "id": "s2", "parent": "girls", "name": "No defaults", "order": 5 }
+{
+  "parent": "girls",
+  "name": "No defaults",
+  "order": 5
+}

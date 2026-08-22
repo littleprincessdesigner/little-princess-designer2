@@ -336,9 +336,17 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
   const byKey = Object.fromEntries(categories.map(c => [c.key, c]));
 
   // --- subcategories ------------------------------------------------------
+  // A section's id is its file name, and nothing else. It used to be a
+  // free-text "short code" typed into the admin, which is how two girls
+  // sections both ended up as "g1": Decap names the file after that code, could
+  // not overwrite the one already there, so it saved g1-1.json with g1 still
+  // inside — a successful-looking save that left two sections sharing an id.
+  // Taking the id from the file name makes that impossible rather than merely
+  // detectable: two files cannot share a name, so two sections cannot share an
+  // id, and there is no longer a field to mistype.
   const subs = [];
   for (const { slug, data } of readDir(path.join(dir, "subcategories"))) {
-    const id = (data.id || slug).trim();
+    const id = slug.trim();
     if (!byKey[data.parent]) {
       warn('subcategory "' + id + '" has parent "' + data.parent + '", which is not a category — skipped');
       continue;
@@ -357,24 +365,6 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
     byKey[data.parent].subcategories.push(sub);
   }
   for (const c of categories) c.subcategories.sort((a, b) => a.order - b.order || a.name.localeCompare(b.name));
-
-  // Two subcategories sharing an id is silent damage, and the id is a free-text
-  // field in the admin so one mistyped character does it. The lookup below is
-  // last-one-wins, so every product pointing at that id is pulled out of the
-  // first subcategory and into the second — the first then renders as empty
-  // while its products appear under the wrong heading, and both emit the same
-  // anchor. This is exactly what happened to boys "b2".
-  const seenId = new Map();
-  for (const s of subs) {
-    const clash = seenId.get(s.id);
-    if (clash) {
-      warn('subcategory "' + s.name + '" uses the id "' + s.id + '", but subcategory "' +
-        clash.name + '" already uses that id — one of them will show no products ' +
-        'until you give it an id of its own');
-    } else {
-      seenId.set(s.id, s);
-    }
-  }
 
   const subById = Object.fromEntries(subs.map(s => [s.id, s]));
 

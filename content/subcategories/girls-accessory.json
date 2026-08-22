@@ -1,6 +1,5 @@
 {
   "order": 100,
-  "id": "g1",
   "name": "Accessory",
   "parent": "girls"
 }

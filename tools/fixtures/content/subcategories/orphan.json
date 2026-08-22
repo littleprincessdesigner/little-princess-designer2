@@ -1,1 +1,5 @@
-{ "id": "orphan", "parent": "nosuchtab", "name": "Orphan", "order": 30 }
+{
+  "parent": "nosuchtab",
+  "name": "Orphan",
+  "order": 30
+}

@@ -120,14 +120,14 @@ collections:
     # Every row shows name, section, price and any warning marker, so the list
     # can be read without opening anything.
     #
-    #   Blush Party Frock  ·  g3  ·  PKR 18500  ·  HIDDEN  ·  SOLD OUT
+    #   Blush Party Frock  ·  girls-luxury-dresses  ·  PKR 18500  ·  HIDDEN
     #
     # Two things to know about it:
     #
-    #   · The section is the stored code (g3, y1), not "Girls / Party". Decap
-    #     cannot look a relation up for a summary — it only sees what is in the
-    #     file, and the file holds the code. Group by → Subcategory still puts
-    #     the readable names as headings.
+    #   · The section shows as the stored code, not as "Girls / Party" — Decap
+    #     cannot look a relation up for a summary, it only sees what is in the
+    #     file. Since the code became the section's file name that reads for
+    #     itself ("girls-luxury-dresses"), where it used to read "g3".
     #   · The price is the FIRST size row's price, not the lowest. The website
     #     shows the lowest ("from PKR …"); a summary cannot compare rows. If a
     #     row's price looks wrong here, open it and check which row is first.
@@ -213,8 +213,8 @@ collections:
         name: subcategory
         widget: relation
         collection: subcategories
-        value_field: id
-        search_fields: [name, id]
+        value_field: "{{slug}}"
+        search_fields: [name]
         display_fields: [name, parent]
         hint: "Which section of the shop this appears in. Add or remove sections under Subcategories in the sidebar."
 
@@ -347,7 +347,13 @@ collections:
     extension: json
     format: json
     identifier_field: name
-    slug: "{{fields.id}}"
+    # The file name is the section's id — see the "Short code" note below. It is
+    # built from the tab and the name so it reads for itself in a product's
+    # form, and Decap guarantees it is unique: if the name is already taken it
+    # adds a number rather than overwriting. Set once, when the section is
+    # created; renaming the section afterwards leaves it alone, which is what
+    # keeps every product pointing at the right place.
+    slug: "{{fields.parent}}-{{fields.name}}"
     summary: "{{name}}  ·  {{parent}}"
     sortable_fields: [parent, order, name]
     editor:
@@ -356,12 +362,11 @@ collections:
       - label: "Tab"
         field: parent
     fields:
-      - label: "Short code"
-        name: id
-        widget: string
-        pattern: ['^[a-z0-9-]+$', "Lowercase letters, numbers and dashes only — e.g. g5 or party-skirts"]
-        hint: "A short permanent code, e.g. g5. Products remember this code, so DO NOT change it once products are using this subcategory — add a new one instead."
-
+      # There is no "Short code" field any more, and that is deliberate. It used
+      # to be typed by hand, and two girls sections were both given "g1" — after
+      # which one of them showed no products and both wrote the same anchor into
+      # the page, with nothing on screen to say so. The code is now the file
+      # name, which the CMS keeps unique on its own.
       - label: "Name"
         name: name
         widget: string
