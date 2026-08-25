@@ -5,18 +5,20 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 58,
-      "available": true
+      "price": 6500,
+      "available": true,
+      "salePrice": ""
     },
     {
       "size": "4–6 years",
       "price": 20300,
-      "available": true
+      "available": true,
+      "salePrice": 7500
     },
     {
+      "available": true,
       "size": "7–9 years",
-      "price": 21200,
-      "available": true
+      "price": 8500
     }
   ],
   "showAccessory": false,
@@ -36,12 +38,9 @@
     },
     {
       "upload": "https://ik.imagekit.io/lpdlhr/mky%20ms%20dress%20(10).jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/mky%20ms%20dress%20(8).jpg"
     }
   ],
-  "description": "",
+  "description": "full len, cotton  shirt, silk frock",
   "subcategory": "ready-to-wear",
   "addedOn": "2026-07-19T12:00:00.000Z"
 }
