@@ -30,12 +30,12 @@
   },
   "images": [
     {
+      "upload": "https://ik.imagekit.io/lpdlhr/bb%20shark%20(2).jpg?updatedAt=1786651536687"
+    },
+    {
       "url": "",
       "upload": "https://ik.imagekit.io/lpdlhr/bb%20shark%20(1).jpg?updatedAt=1786651536910",
       "alt": ""
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/bb%20shark%20(2).jpg?updatedAt=1786651536687"
     }
   ],
   "description": "",
