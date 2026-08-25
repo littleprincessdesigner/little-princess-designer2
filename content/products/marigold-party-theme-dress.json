@@ -5,33 +5,18 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 55,
+      "price": 5800,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 14200,
-      "available": true
-    },
-    {
-      "size": "7–9 years",
-      "price": 15100,
-      "available": true
-    },
-    {
-      "size": "10–12 years",
-      "price": 16000,
-      "available": true
-    },
-    {
-      "size": "13–16 years",
-      "price": 16900,
+      "price": 6100,
       "available": true
     }
   ],
   "showAccessory": true,
   "description2": "",
-  "accessoryPrice": 1500,
+  "accessoryPrice": 800,
   "specs": {
     "fabric": "",
     "occasion": "",
@@ -40,12 +25,10 @@
   },
   "images": [
     {
-      "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/fruity%20(1).jpg?updatedAt=1786651642601",
-      "alt": ""
+      "upload": "https://ik.imagekit.io/lpdlhr/fruity.jpg?updatedAt=1786651642862"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/fruity.jpg?updatedAt=1786651642862"
+      "upload": "https://ik.imagekit.io/lpdlhr/fruity%20(1).jpg?updatedAt=1786651642601"
     }
   ],
   "description": "",
