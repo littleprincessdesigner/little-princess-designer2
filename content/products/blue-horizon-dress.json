@@ -6,11 +6,27 @@
     {
       "available": true,
       "size": "0–3 years",
-      "price": 44
+      "price": 17500,
+      "salePrice": ""
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 19500
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "price": 21500
+    },
+    {
+      "available": true,
+      "size": "10–12 years",
+      "price": 23500
     }
   ],
   "showAccessory": true,
-  "accessoryPrice": 1500,
+  "accessoryPrice": 500,
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641139.jpg"
