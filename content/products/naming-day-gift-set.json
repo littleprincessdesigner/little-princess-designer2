@@ -40,12 +40,12 @@
   },
   "images": [
     {
+      "upload": "https://ik.imagekit.io/lpdlhr/ppl.jpg"
+    },
+    {
       "url": "",
       "upload": "https://ik.imagekit.io/lpdlhr/ppl%20(1).jpg",
       "alt": ""
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/ppl.jpg"
     }
   ],
   "description": "",
