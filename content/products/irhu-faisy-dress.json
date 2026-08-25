@@ -6,7 +6,18 @@
     {
       "available": true,
       "size": "0–3 years",
-      "price": 44
+      "price": 8500
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 10500
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "salePrice": "",
+      "price": 12500
     }
   ],
   "showAccessory": true,
@@ -28,6 +39,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/1000642307.jpg.jpeg"
     }
   ],
+  "description": "300 hb, 1200 wings and knee len",
   "subcategory": "girls-luxury-dresses",
   "addedOn": "2026-08-20T01:50:00.000+05:00"
 }
