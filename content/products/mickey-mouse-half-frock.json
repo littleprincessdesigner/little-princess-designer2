@@ -6,17 +6,22 @@
     {
       "available": true,
       "size": "0–3 years",
-      "price": 44
+      "price": 4500
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 5500
     }
   ],
   "showAccessory": true,
-  "accessoryPrice": 1500,
+  "accessoryPrice": 500,
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642146.jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642144.jpg"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642144.jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642146.jpg"
     }
   ],
   "subcategory": "girls-skirts",
