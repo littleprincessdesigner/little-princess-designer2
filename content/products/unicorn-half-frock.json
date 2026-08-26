@@ -6,11 +6,21 @@
     {
       "available": true,
       "size": "0–3 years",
-      "price": 55
+      "price": 4800
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 5300
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "price": 5800
     }
   ],
   "showAccessory": true,
-  "accessoryPrice": 1500,
+  "accessoryPrice": 500,
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000642133%20(1).jpg"
@@ -19,7 +29,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/image-0%20(1).jpg"
     }
   ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000642133%20(1).jpg",
   "subcategory": "girls-theme-dresses",
-  "addedOn": "2026-08-21T01:49:00.000+05:00",
-  "image": "https://ik.imagekit.io/lpdlhr/1000642133%20(1).jpg"
+  "addedOn": "2026-08-21T01:49:00.000+05:00"
 }
