@@ -5,16 +5,16 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 44,
+      "price": 6500,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 9200,
+      "price": 7500,
       "available": true
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "description2": "",
   "accessoryPrice": 1500,
   "specs": {
