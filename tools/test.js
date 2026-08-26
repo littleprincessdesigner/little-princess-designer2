@@ -156,7 +156,7 @@ check("a card copy scales down only, and lets ImageKit pick the format",
   IK + "&tr=w-800,c-at_max,f-auto");
 check("the gallery goes one step larger and pins the quality",
   images.srcset(IK, "detail").split(", ").pop(),
-  IK + "&tr=w-1600,c-at_max,f-auto,q-90 1600w");
+  IK + "&tr=w-1600,c-at_max,f-auto,q-75 1600w");
 check("an unknown profile name costs quality, not a broken picture",
   images.srcset(IK, "typo"), images.srcset(IK, "card"));
 

@@ -47,8 +47,17 @@ const PROFILES = {
  * The quality number the "detail" profile asks for, on a 1-100 scale both hosts
  * understand. One place, because it is the knob to turn when the owner says the
  * product photos look soft — or when the bill says they cost too much.
+ *
+ * Lowered from 90 to 75 (2026-08-26): a Lighthouse audit measured product-page
+ * LCP at 8.2s on a throttled mobile connection, with this quality setting the
+ * single largest contributor to the wasted bytes on the page. 75 is visually
+ * close to indistinguishable from 90 for photography at these dimensions and
+ * roughly halves the file size — see littleprincessdesigner.pk-audit/findings/
+ * performance.md Critical #1. Turn it back up if a printed/zoomed comparison
+ * ever shows real softness; this did not touch the width steps below, which
+ * are a separate, unrelated decision.
  */
-const DETAIL_QUALITY = 90;
+const DETAIL_QUALITY = 75;
 
 /**
  * The paper colour the site is printed on (`--paper-050` in site/tokens.css),
