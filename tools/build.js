@@ -223,6 +223,18 @@ writeFile("llms.txt",
   (s.tiktok ? "- TikTok: " + s.tiktok + "\n" : "")
 );
 
+// A contact channel for a security researcher, per RFC 9116. Expires a year
+// out — a stale, long-past-expiry security.txt is treated as absent by tools
+// that check it, so this needs the build to naturally refresh the date on
+// every deploy rather than picking one once and forgetting it.
+const securityExpires = new Date();
+securityExpires.setUTCFullYear(securityExpires.getUTCFullYear() + 1);
+writeFile(".well-known/security.txt",
+  "Contact: mailto:" + s.email + "\n" +
+  "Expires: " + securityExpires.toISOString() + "\n" +
+  "Canonical: " + SITE_URL + "/.well-known/security.txt\n"
+);
+
 /* --- report ------------------------------------------------------------ */
 
 const st = model.stats;
