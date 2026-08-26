@@ -86,6 +86,20 @@
       // one column in the usual narrow split, two once there is room for
       // them — so what shows here is the real page at its real size, not a
       // fixed impression of it.
+      //
+      // The one deliberate exception: the photo's own shape. styles.css
+      // squares the gallery photo on a real desktop visit, and widens it to
+      // 4:3 only past its own phone breakpoint (max-width:768px) — a rule
+      // written for an actual phone, not for this panel being narrow because
+      // it is squeezed into half a desktop screen. Left alone, a normal split
+      // pane is usually under that width, so the preview would show the wide
+      // phone crop while the owner's own desktop visit to the real page shows
+      // the square one — the exact photo looking a different shape in each
+      // place. Pinning it to square here, at higher specificity than either
+      // of styles.css's own rules so it wins regardless of which one the
+      // panel's width would otherwise trigger, keeps it matching the desktop
+      // shape the owner actually checks against.
+      ".lp-preview .lp-galwrap,.lp-preview .lp-gallery>div{aspect-ratio:1/1}" +
       ".lp-preview-notes{margin:18px 0 0;padding:14px 16px;list-style:none;" +
       "background:#fff6ef;border:1px solid #e8d5c4;border-radius:12px;" +
       "font-size:13px;line-height:1.5;color:#6b4a3a}" +
