@@ -6,7 +6,22 @@
     {
       "available": true,
       "size": "0–3 years",
-      "price": 55
+      "price": 28000
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 30000
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "price": 32000
+    },
+    {
+      "available": true,
+      "size": "10–12 years",
+      "price": 35000
     }
   ],
   "showAccessory": true,
@@ -22,7 +37,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/1786025642565.jpg"
     }
   ],
+  "image": "https://ik.imagekit.io/lpdlhr/1786025586557.jpg",
   "subcategory": "girls-luxury-dresses",
-  "addedOn": "2026-08-19T01:54:00.000+05:00",
-  "image": "https://ik.imagekit.io/lpdlhr/1786025586557.jpg"
+  "addedOn": "2026-08-19T01:54:00.000+05:00"
 }
