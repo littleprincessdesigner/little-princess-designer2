@@ -209,6 +209,19 @@ collections:
             required: false
             hint: "Describe the piece for search engines and for anyone using a screen reader — e.g. \"Blush pink net party frock for girls, hand-beaded bodice\"."
 
+      # Decap's grid/tiles view (the toggle beside the list) can only draw a
+      # thumbnail from one specific kind of field, and cannot look inside the
+      # Photos list above — which is why the tiles show empty. This field
+      # copies the first Photos row into a shape the tiles view can read, and
+      # it does that copying by itself, every time this piece is saved
+      # (site/admin/tile-photo.js) — there is nothing to fill in here by hand,
+      # and nothing here is shown on the website itself.
+      - label: "Tile photo (filled in automatically)"
+        name: image
+        widget: image
+        required: false
+        hint: "Kept in sync with the first photo above every time you save. Edit Photos above to change it — this box is only what the grid view reads its thumbnail from."
+
       - label: "Subcategory"
         name: subcategory
         widget: relation

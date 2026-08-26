@@ -266,6 +266,11 @@
 <script src="/admin/card.js"></script>
 <script src="/admin/preview.js"></script>
 
+<!-- Copies a product's first photo into the plain field the tiles/grid view
+     reads its thumbnail from, on every save — see the file for why. Only
+     needs `window.CMS`, so it can sit anywhere after decap-cms.js. -->
+<script src="/admin/tile-photo.js"></script>
+
 <!-- Keeps the mouse wheel from changing a number field's value out from under
      whoever is scrolling past it — see the file for why. Independent of
      everything above: it only needs the page's own document, not Decap. -->
