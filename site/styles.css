@@ -1005,4 +1005,22 @@ carousel-3d{
   .lp-footer a{font-size:0.76rem;line-height:1.25}
   .lp-footcol > div{gap:0.3rem}
   .lp-footbottom{padding:0.6rem var(--gutter-page);font-size:0.68rem}
+
+  /* Product gallery: a 1:1 frame at full viewport width pushes the price and
+     "Order on WhatsApp" button below the fold on phones — the price is
+     already right under the title in the markup, so the gallery's own
+     height is what's pushing it down. 4:3 trims about a quarter of that
+     height back without cropping a tall dress photo too aggressively.
+     littleprincessdesigner.pk-audit/findings/visual.md High #2 — this closes
+     part of the gap; the rest is the mobile nav's footprint (Medium #3),
+     deliberately left for its own pass since it touches every page's header. */
+  .lp-galwrap,.lp-gallery > div{aspect-ratio:4/3}
+
+  /* Floating WhatsApp button: the label pill made the fixed bottom-right
+     button wide enough to sit over in-flow content on some pages (the home
+     page's "Message on WhatsApp" card, the contact page's third step) —
+     littleprincessdesigner.pk-audit/findings/visual.md High #1. Icon-only on
+     phones keeps the button working while shrinking what it can cover; the
+     anchor's own aria-label still names it for screen readers. */
+  .lp-float-label{display:none}
 }
