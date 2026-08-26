@@ -44,6 +44,21 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# styles.css/tokens.css/app.js/carousel-3d.js aren't fingerprinted, so they
+# can't safely get the immutable 1-year treatment /assets/* gets — a deploy
+# that changes them needs visitors to pick up the new copy. An hour is short
+# enough that a change reaches a returning visitor the same day, long enough
+# that it isn't refetched on every single page view.
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
 [[headers]]
   for = "/admin/*"
   [headers.values]
