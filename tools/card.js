@@ -120,7 +120,7 @@ const IMG_SIZES = {
  */
 function frame(image, { eager = false, placeholder = "Photo coming soon", sizes = "", profile = "card" } = {}) {
   if (!image) {
-    return '<div class="lp-ph"><img class="lp-ph-crown" src="/assets/logo-crown.png" alt=""><span>' +
+    return '<div class="lp-ph"><img class="lp-ph-crown" src="/assets/logo-crown.png" width="120" height="140" alt=""><span>' +
       esc(placeholder) + "</span></div>";
   }
   // Empty on a host that cannot resize, in which case both attributes are
@@ -130,7 +130,7 @@ function frame(image, { eager = false, placeholder = "Photo coming soon", sizes 
   const set = sizes && images ? images.srcset(image.src, profile) : "";
   return '<img src="' + esc(image.src) + '" alt="' + esc(image.alt) + '"' +
     (set ? ' srcset="' + esc(set) + '" sizes="' + esc(sizes) + '"' : "") +
-    (eager ? "" : ' loading="lazy"') + ' decoding="async">';
+    (eager ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async">';
 }
 
 /* --- the card ------------------------------------------------------------ */

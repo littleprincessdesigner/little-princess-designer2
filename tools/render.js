@@ -133,7 +133,10 @@ ${share.width ? '<meta property="og:image:width" content="' + share.width + '">'
 ${share.height ? '<meta property="og:image:height" content="' + share.height + '">' : ""}
 ${share.alt ? '<meta property="og:image:alt" content="' + esc(share.alt) + '">' : ""}
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${esc(share.url)}">
+<link rel="preconnect" href="https://ik.imagekit.io" crossorigin>
 <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 <link rel="shortcut icon" href="/assets/favicon.ico" />
@@ -164,7 +167,7 @@ function header(s, activeTab) {
   ];
   return `<header class="lp-header" data-min="0">
 <div class="lp-hdr">
-<a class="lp-logo" href="/"><img src="/assets/logo-lockup.webp" alt="${esc(s.brandName)} — home"></a>
+<a class="lp-logo" href="/"><img src="/assets/logo-lockup.webp" width="722" height="375" alt="${esc(s.brandName)} — home"></a>
 <nav class="lp-nav" aria-label="Main">
 ${nav.map(n =>
   '<a class="lp-navlink" href="' + n.href + '"' +
@@ -199,7 +202,7 @@ ${svg(ICON.close, { size: 20, stroke: "var(--berry-800)", width: 2 })}
 function footer(s, categories) {
   return `<footer class="lp-footer">
 <div class="lp-footgrid">
-<div><img src="/assets/logo-lockup.webp" alt="${esc(s.brandName)}"></div>
+<div><img src="/assets/logo-lockup.webp" width="722" height="375" alt="${esc(s.brandName)}"></div>
 <div class="lp-footcol">
 <div class="lp-eyebrow">Shop</div>
 <div>
@@ -318,7 +321,7 @@ ${ctas.slice(0, 3).map((c, i) => {
 
 <section class="lp-sect lp-sect--feat lp-anchor lp-car-sect" id="explore-collection">
 <div class="lp-car-head">
-<h2 class="lp-h2 lp-h2--sm"><img class="lp-crown lp-crown--sm" src="/assets/logo-crown.png" alt="">${esc(s.carouselHeading)}</h2>
+<h2 class="lp-h2 lp-h2--sm"><img class="lp-crown lp-crown--sm" src="/assets/logo-crown.png" width="120" height="140" alt="">${esc(s.carouselHeading)}</h2>
 <span class="lp-car-hint">${esc(s.carouselHint)}</span>
 </div>
 <div class="lp-car-wrap">
@@ -337,7 +340,7 @@ ${spinning.map(p =>
 </section>
 
 <section class="lp-sect lp-sect--gap9">
-<h2 class="lp-h2"><img class="lp-crown" src="/assets/logo-crown.png" alt="">${esc(s.categoriesHeading)}</h2>
+<h2 class="lp-h2"><img class="lp-crown" src="/assets/logo-crown.png" width="120" height="140" alt="">${esc(s.categoriesHeading)}</h2>
 <div class="lp-getyours">
 ${model.categories.map(c => `<a href="${c.href}">
 <div class="lp-gy" data-cat="${esc(c.key)}">
@@ -350,7 +353,7 @@ ${model.categories.map(c => `<a href="${c.href}">
 </section>
 
 <section class="lp-sect lp-sect--gap9">
-<h2 class="lp-h2"><img class="lp-crown" src="/assets/logo-crown.png" alt="">${esc(s.featuresHeading)}</h2>
+<h2 class="lp-h2"><img class="lp-crown" src="/assets/logo-crown.png" width="120" height="140" alt="">${esc(s.featuresHeading)}</h2>
 <div class="lp-feat">
 ${(s.features || []).map(f => `<div>
 ${svg(ICON[FEATURE_ICONS[f.icon] || "crown"], { size: 30, stroke: "#fff", width: 1.8 })}
@@ -373,7 +376,7 @@ ${paragraphs(s.about.body).map(p => "<p>" + inline(p) + "</p>").join("\n")}
 
 <section class="lp-sect lp-sect--gap8">
 <div class="lp-quote">
-<img src="/assets/logo-crown.png" alt="">
+<img src="/assets/logo-crown.png" width="120" height="140" alt="">
 <div class="lp-quote-h">${esc(s.quote.heading)}</div>
 <div class="lp-quote-s">${inline(s.quote.subline)}</div>
 </div>
@@ -389,6 +392,10 @@ ${paragraphs(s.about.body).map(p => "<p>" + inline(p) + "</p>").join("\n")}
     email: s.email,
     telephone: s.phoneDisplay,
     address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },
+    image: siteUrl + "/assets/logo-lockup.webp",
+    // Matches the shop filter's own range (renderShop's price slider,
+    // min 3000 / max 100000) rather than a guessed figure.
+    priceRange: "PKR 3,000 - PKR 100,000",
     sameAs: [s.instagram, s.facebook, s.tiktok].filter(Boolean),
     foundingDate: "2015"
   };
@@ -497,13 +504,23 @@ ${sections}
     description: cat.seo.description,
     canonical: siteUrl + cat.href,
     image: cat.card.image,
-    jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      name: cat.h1,
-      description: cat.seo.description,
-      url: siteUrl + cat.href
-    },
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: cat.h1,
+        description: cat.seo.description,
+        url: siteUrl + cat.href
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: siteUrl + "/" },
+          { "@type": "ListItem", position: 2, name: cat.title, item: siteUrl + cat.href }
+        ]
+      }
+    ],
     body
   });
 }
@@ -554,26 +571,49 @@ ${card.productDetail(p, s)}
     description: desc,
     canonical: siteUrl + p.href,
     image: p.images[0],
-    jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      name: p.name,
-      // Never empty: falls back to the same summary the meta tags carry.
-      description: p.description || desc,
-      category: p.tabLabel + " > " + p.subcategoryName,
-      brand: { "@type": "Brand", name: s.brandName },
-      image: p.images.map(i => absoluteUrl(i.src, siteUrl)),
-      offers: {
-        "@type": "AggregateOffer",
-        priceCurrency: "PKR",
-        lowPrice: p.minPrice,
-        highPrice: Math.max(...p.sizes.map(x => x.price)),
-        offerCount: p.sizes.length,
-        availability: p.badge === "Sold out"
-          ? "https://schema.org/OutOfStock"
-          : "https://schema.org/InStock"
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: p.name,
+        // Never empty: falls back to the same summary the meta tags carry.
+        description: p.description || desc,
+        category: p.tabLabel + " > " + p.subcategoryName,
+        brand: { "@type": "Brand", name: s.brandName },
+        image: p.images.map(i => absoluteUrl(i.src, siteUrl)),
+        offers: {
+          "@type": "AggregateOffer",
+          url: siteUrl + p.href,
+          priceCurrency: "PKR",
+          lowPrice: p.minPrice,
+          highPrice: Math.max(...p.sizes.map(x => x.price)),
+          offerCount: p.sizes.length,
+          availability: p.badge === "Sold out"
+            ? "https://schema.org/OutOfStock"
+            : "https://schema.org/InStock",
+          // Every piece is cut to order once the 25% advance is paid (see the
+          // Contact page FAQ) — there is no returns window to describe beyond
+          // "not permitted," so this is reporting the real policy, not a
+          // guessed one. Leave shippingDetails out: delivery cost is quoted
+          // per order (courier + destination), not a fixed rate this site
+          // could state accurately.
+          hasMerchantReturnPolicy: {
+            "@type": "MerchantReturnPolicy",
+            returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted"
+          }
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: siteUrl + "/" },
+          { "@type": "ListItem", position: 2, name: cat.title, item: siteUrl + cat.href },
+          { "@type": "ListItem", position: 3, name: p.subcategoryName, item: siteUrl + cat.href + "#" + p.subcategory },
+          { "@type": "ListItem", position: 4, name: p.name, item: siteUrl + p.href }
+        ]
       }
-    },
+    ],
     body
   });
 }
@@ -605,7 +645,7 @@ ${(c.steps || []).map((st, i) => `<div class="lp-step">
 </div>
 
 <h2 class="lp-h2 lp-h2--sm lp-h2--section lp-anchor" id="faq">
-<img class="lp-crown lp-crown--sm" src="/assets/logo-crown.png" alt="">${esc(c.faqHeading)}</h2>
+<img class="lp-crown lp-crown--sm" src="/assets/logo-crown.png" width="120" height="140" alt="">${esc(c.faqHeading)}</h2>
 <div class="lp-faq">
 ${(c.faq || []).map(q => `<details class="lp-faqitem">
 <summary>
@@ -617,7 +657,7 @@ ${(c.faq || []).map(q => `<details class="lp-faqitem">
 </div>
 
 <h2 class="lp-h2 lp-h2--sm lp-h2--section">
-<img class="lp-crown lp-crown--sm" src="/assets/logo-crown.png" alt="">${esc(c.socialHeading)}</h2>
+<img class="lp-crown lp-crown--sm" src="/assets/logo-crown.png" width="120" height="140" alt="">${esc(c.socialHeading)}</h2>
 <div class="lp-social">
 ${cards.map(card => {
   const meta = (c.social && c.social[card.key]) || {};
