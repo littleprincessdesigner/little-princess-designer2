@@ -19,6 +19,7 @@ const path = require("path");
 const { execFileSync } = require("child_process");
 const content = require("./content");
 const render = require("./render");
+const { waLink } = require("./card");
 
 const ROOT = path.join(__dirname, "..");
 const SITE = path.join(ROOT, "site");
@@ -192,8 +193,34 @@ writeFile("sitemap.xml",
   }).join("\n") +
   "\n</urlset>\n"
 );
+// The wildcard rule below already allows every crawler, AI ones included —
+// naming the major ones explicitly changes nothing a crawler does, it just
+// makes the policy self-documenting for the next person (or audit) reading
+// this file, rather than relying on the wildcard's intent being obvious.
+const AI_CRAWLERS = ["GPTBot", "OAI-SearchBot", "ClaudeBot", "PerplexityBot", "Google-Extended"];
 writeFile("robots.txt",
-  "User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: " + SITE_URL + "/sitemap.xml\n"
+  "User-agent: *\nAllow: /\nDisallow: /admin/\n\n" +
+  AI_CRAWLERS.map(name => "User-agent: " + name + "\nAllow: /\n").join("\n") +
+  "\nSitemap: " + SITE_URL + "/sitemap.xml\n"
+);
+
+// A short, plain-English "about this site" file some AI assistants read
+// directly. Not required by any major crawler and ignored by Google Search
+// specifically, but costs nothing to publish. Built from the same settings
+// the rest of the site already shows, not new copy of its own.
+writeFile("llms.txt",
+  "# " + s.brandName + "\n\n" +
+  "> " + s.seo.description + "\n\n" +
+  (s.contact && s.contact.intro ? s.contact.intro + "\n\n" : "") +
+  "## Sections\n\n" +
+  model.categories.map(c => "- " + c.label + ": " + SITE_URL + c.href).join("\n") + "\n\n" +
+  "## Contact\n\n" +
+  "- How to order / FAQ: " + SITE_URL + "/contact/\n" +
+  "- WhatsApp: " + waLink(s.whatsappNumber) + "\n" +
+  "- Email: " + s.email + "\n" +
+  (s.instagram ? "- Instagram: " + s.instagram + "\n" : "") +
+  (s.facebook ? "- Facebook: " + s.facebook + "\n" : "") +
+  (s.tiktok ? "- TikTok: " + s.tiktok + "\n" : "")
 );
 
 /* --- report ------------------------------------------------------------ */
