@@ -80,6 +80,39 @@ img{max-width:100%}
 .lp-navlink[aria-current="page"]{background:var(--tone);color:var(--paper-000);border-color:var(--tone)}
 .lp-navlink[aria-current="page"]:hover{color:var(--paper-000)}
 
+/* Mobile nav menu: a <details>/<summary> disclosure, the same zero-JS
+   pattern already used below for the FAQ accordion (.lp-faqitem) — so the
+   six links stay reachable with or without JavaScript. Hidden by default
+   (desktop shows the plain nav, as it always has); the phone breakpoint
+   below turns it on. */
+.lp-nav-toggle{
+  display:none;list-style:none;cursor:pointer;
+  width:2.75rem;height:2.75rem;border-radius:999px;flex:0 0 auto;
+  border:2px solid var(--berry-300);background:var(--paper-000);
+  align-items:center;justify-content:center;
+}
+.lp-nav-toggle::-webkit-details-marker{display:none}
+.lp-nav-toggle::marker{content:""}
+.lp-burger,.lp-burger::before,.lp-burger::after{
+  width:20px;height:2px;background:var(--berry-800);border-radius:2px;
+}
+.lp-burger{position:relative;display:block}
+.lp-burger::before,.lp-burger::after{content:"";position:absolute;left:0}
+.lp-burger::before{top:-6px}
+.lp-burger::after{top:6px}
+
+/* Above phone width, the toggle disappears and the wrapper is removed from
+   the box tree entirely (display:contents), so .lp-nav becomes a direct
+   flex child of .lp-hdr again — exactly the layout it had before this
+   wrapper existed. The !important overrides the browser's native rule that
+   hides a <details> element's content when it isn't open; without it, the
+   nav would only show on desktop after someone tapped the (invisible)
+   toggle first. */
+@media (min-width:769px){
+  .lp-nav-wrap{display:contents}
+  .lp-nav{display:flex !important}
+}
+
 .lp-igbtn{
   flex:0 0 auto;width:3.25rem;height:3.25rem;border-radius:999px;
   border:2px solid #7C2447;background:#A43462;
@@ -905,8 +938,22 @@ carousel-3d{
   .lp-hdr{gap:0.4rem;align-items:flex-start}
   .lp-logo{width:auto;flex:1 1 100%;justify-content:center;order:0}
   .lp-logo img{height:2.9rem}
+  /* The toggle is a small fixed-size button, not a space-filling row like the
+     inline nav used to be — flex:0 0 auto is enough, none of the flex-basis
+     reasoning the old .lp-nav rule needed still applies. */
+  .lp-nav-wrap{order:1;flex:0 0 auto}
+  .lp-nav-toggle{display:flex}
+  /* Opens as a full-width panel anchored to .lp-header (position:sticky, the
+     nearest positioned ancestor) rather than pushing the header row's own
+     height — app.js measures the header's height into --lp-header for the
+     home page's sticky hero, and an absolutely positioned dropdown can never
+     disturb that measurement the way growing the row in place would. */
   .lp-nav{
-    order:1;flex:1 1 0;justify-content:flex-start;align-items:flex-start;gap:7px;
+    position:absolute;left:0;right:0;top:100%;
+    flex-direction:column;align-items:stretch;justify-content:flex-start;
+    gap:7px;padding:0.75rem var(--gutter-page) 1rem;
+    background:var(--paper-000);border-bottom:2px solid var(--border-soft);
+    box-shadow:var(--shadow-md);
   }
   .lp-navlink{padding:0.7rem 0.95rem;font-size:0.97rem}
   .lp-igbtn{
