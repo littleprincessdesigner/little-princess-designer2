@@ -5,21 +5,21 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 55,
+      "price": 15000,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 7600,
+      "price": 16500,
       "available": true
     },
     {
       "size": "7–9 years",
-      "price": 8500,
+      "price": 18500,
       "available": true
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "description2": "",
   "accessoryPrice": 1500,
   "specs": {
@@ -41,8 +41,8 @@
       "upload": "https://ik.imagekit.io/lpdlhr/red%20butterfly.jpg"
     }
   ],
+  "image": "https://ik.imagekit.io/lpdlhr/red%20butterfly%20(1).jpg",
   "description": "",
   "subcategory": "girls-luxury-dresses",
-  "addedOn": "2026-07-05T12:00:00.000Z",
-  "image": "https://ik.imagekit.io/lpdlhr/red%20butterfly%20(1).jpg"
+  "addedOn": "2026-07-05T12:00:00.000Z"
 }
