@@ -66,8 +66,8 @@ console.log("Checking tools/content.js against tools/fixtures/content, and tools
 /* which products survive */
 
 check("visible products", model.products.map(p => p.name).sort(),
-  ["Bad size row", "Badged sale only", "Inherits site", "Inherits sub", "On sale", "Own words",
-    "Photos", "Some sizes off", "Undated"]);
+  ["Bad size row", "Badged sale only", "Completely unrelated name", "Inherits site", "Inherits sub",
+    "On sale", "Own words", "Photos", "Some sizes off", "Undated"]);
 check("hidden products are counted, not rendered", model.stats.hidden, 1);
 checkTrue("a product with no usable price is dropped, with a warning",
   !byName["No price"] && warned(w, "No price", "no size with a price"));
@@ -106,6 +106,18 @@ check("a row marked unavailable is left out",
   byName["Some sizes off"].sizes.map(s => s.size), ["4–6 years"]);
 check("the size vocabulary is the one read from the admin", model.sizes, SIZES);
 
+// "Completely unrelated name" lives in cheap-test-row.json on purpose — one
+// fixture doing double duty (a sub-floor price AND a name/slug mismatch)
+// keeps the catalogue at exactly 10 products, still within the ten slots the
+// carousel defaults to, rather than growing past what later checks assume.
+checkTrue("a suspiciously low price is warned about, not silently dropped",
+  byName["Completely unrelated name"].sizes.some(s => s.price === 55) &&
+  warned(w, "Completely unrelated name", "suspiciously low price", "PKR 55"));
+checkTrue("a name sharing no words with its own slug is warned about",
+  warned(w, "Completely unrelated name", "cheap-test-row", "shares almost no words"));
+checkTrue("a name that does share words with its slug is not warned about",
+  !warned(w, "Own words", "shares almost no words"));
+
 /* subcategories */
 
 check("subcategories sort by order, not by filename",
@@ -114,7 +126,7 @@ check("subcategories sort by order, not by filename",
 check("products sort newest-first within a subcategory, not by filename",
   model.categories.find(c => c.key === "girls").subcategories
     .find(s => s.id === "s1").products.map(p => p.name),
-  ["Inherits sub", "Own words", "Bad size row", "Some sizes off"]);
+  ["Inherits sub", "Own words", "Bad size row", "Some sizes off", "Completely unrelated name"]);
 check("a product with no date sorts last rather than first",
   model.categories.find(c => c.key === "girls").subcategories
     .find(s => s.id === "s2").products.map(p => p.name),

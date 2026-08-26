@@ -31,6 +31,47 @@ const CONFIG = path.join(ROOT, "site", "admin", "config.yml");
 const EXPECTED_SIZE_COUNT = 5;
 
 /**
+ * Below this, a size's price is flagged as suspiciously low rather than a
+ * real price — added after two live incidents where a draft/test row (PKR 44,
+ * 55, 98…) reached production because nothing checked plausibility, only that
+ * a price was a positive number. A warning, not a rejection: a genuinely cheap
+ * accessory could exist, so this is caught in the build log for a human to
+ * confirm, not silently dropped or silently shipped.
+ */
+const LOW_PRICE_FLOOR = 1000;
+
+/**
+ * Words too generic to count as a match between a product's name and its own
+ * web address — every real slug/name mismatch this site has hit (a product
+ * edited in place until its name stopped describing the slug it was created
+ * with) scored zero overlap on the *specific* words, so filtering out the
+ * category-level ones this check would otherwise catch.
+ */
+const NAME_STOPWORDS = new Set([
+  "the", "a", "an", "and", "of", "for", "with", "set", "dress", "suit",
+  "frock", "skirt", "romper", "gown", "shirt", "theme", "party", "baby",
+  "girls", "boys"
+]);
+
+function meaningfulWords(s) {
+  return String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, " ")
+    .split(" ").filter(w => w && !NAME_STOPWORDS.has(w));
+}
+
+/**
+ * How much a product's name has in common with its own slug, 0 (nothing) to 1
+ * (every distinctive word shared). A name with nothing distinctive to compare
+ * — after stopwords, an empty string — scores 1: that is a thin-content
+ * problem for a different check, not this one.
+ */
+function nameSlugOverlap(slug, name) {
+  const slugWords = new Set(meaningfulWords(slug.replace(/-/g, " ")));
+  const nameWords = meaningfulWords(name);
+  if (!nameWords.length) return 1;
+  return nameWords.filter(w => slugWords.has(w)).length / nameWords.length;
+}
+
+/**
  * The canonical size vocabulary, read out of the admin's own dropdown so the
  * two cannot drift apart. It drives price-row validation, age-order sorting
  * and the shop filter chips; a size offered in the admin but missing here has
@@ -440,6 +481,20 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
     if (nonEmpty(data.badge) === "Sale" && !sizes.some(s => s.wasPrice)) {
       warn('product "' + name + '" is badged "Sale" but no size has a sale price — ' +
            'customers see the badge and the usual price');
+    }
+
+    const lowPriced = sizes.filter(s => s.price < LOW_PRICE_FLOOR);
+    if (lowPriced.length) {
+      warn('product "' + name + '" has a suspiciously low price for ' +
+           lowPriced.map(s => s.size + " (PKR " + s.price + ")").join(", ") +
+           ' — check this is not draft/placeholder data before it goes live');
+    }
+
+    if (nameSlugOverlap(slug, name) < 0.3) {
+      warn('product "' + name + '" (at /product/' + slug + '/) shares almost no words with its own ' +
+           "web address — the same pattern as this site's known slug/name-mismatch bug. If this piece " +
+           "is genuinely different from what \"" + slug + "\" suggests, create a new product instead " +
+           "of renaming this one");
     }
 
     const specsIn = data.specs || {};
