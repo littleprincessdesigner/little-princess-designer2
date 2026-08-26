@@ -168,15 +168,14 @@ function header(s, activeTab) {
   return `<header class="lp-header" data-min="0">
 <div class="lp-hdr">
 <a class="lp-logo" href="/"><img src="/assets/logo-lockup.webp" width="722" height="375" alt="${esc(s.brandName)} — home"></a>
-<details class="lp-nav-wrap">
-<summary class="lp-nav-toggle" aria-label="Menu"><span class="lp-burger"></span></summary>
+<input type="checkbox" class="lp-nav-check" id="lp-nav-check">
+<label class="lp-nav-toggle" for="lp-nav-check" aria-label="Menu"><span class="lp-burger"></span></label>
 <nav class="lp-nav" aria-label="Main">
 ${nav.map(n =>
   '<a class="lp-navlink" href="' + n.href + '"' +
   (n.key === activeTab ? ' aria-current="page"' : "") + ">" + esc(n.label) + "</a>"
 ).join("\n")}
 </nav>
-</details>
 <button type="button" class="lp-searchbtn" data-search-open aria-expanded="false" aria-controls="lp-search" aria-label="Search the catalogue" hidden>
 ${svg(ICON.search, { size: 24, stroke: "var(--berry-800)", width: 2 })}
 </button>
