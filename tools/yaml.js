@@ -15,8 +15,12 @@
 "use strict";
 
 function parseYaml(src) {
+  // Strip a trailing \r first: if config.yml is ever saved with Windows line
+  // endings, every value regex below anchors on $ (end of string), and JS's
+  // `.` does not match \r — so a stray \r silently fails every "key: value"
+  // line while leaving bare "key:" nesting headers (whose \s* eats it) intact.
   const lines = src.split("\n")
-    .map(l => l.replace(/\t/g, "  "))
+    .map(l => l.replace(/\r$/, "").replace(/\t/g, "  "))
     .filter(l => l.trim() && !/^\s*#/.test(l));
 
   const anchors = {};
