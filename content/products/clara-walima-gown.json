@@ -35,16 +35,16 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/purple.jpg?updatedAt=1786648291119"
+      "upload": "https://ik.imagekit.io/lpdlhr/purple%20(2).jpg?updatedAt=1786648291263"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/purple%20(2).jpg?updatedAt=1786648291263"
+      "upload": "https://ik.imagekit.io/lpdlhr/purple.jpg?updatedAt=1786648291119"
     },
     {
       "upload": "https://ik.imagekit.io/lpdlhr/purple%20(1).jpg?updatedAt=1786648291560"
     }
   ],
-  "image": "https://ik.imagekit.io/lpdlhr/purple.jpg?updatedAt=1786648291119",
+  "image": "https://ik.imagekit.io/lpdlhr/purple%20(2).jpg?updatedAt=1786648291263",
   "description": "",
   "accessoryName": "Headband",
   "subcategory": "girls-luxury-dresses",
