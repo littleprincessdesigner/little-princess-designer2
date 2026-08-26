@@ -428,6 +428,21 @@ check("the preview reads the switch the same way",
   ],
   [false, true]);
 
+/* the accessory's tick-box says what it actually is, when a piece says so */
+
+const genericSettings = Object.assign({}, model.settings, { accessoryLabel: "Add matching accessory" });
+checkTrue("a piece with no accessory name uses the site's generic wording",
+  card.productDetail(detailProduct, genericSettings).includes("Add matching accessory"));
+
+const namedAccessoryHtml = card.productDetail(
+  Object.assign({}, detailProduct, { accessoryName: "hair bow" }), genericSettings);
+checkTrue("a piece that names its accessory shows that instead",
+  namedAccessoryHtml.includes("Add matching hair bow") &&
+  !namedAccessoryHtml.includes("Add matching accessory"));
+check("the preview reads a typed-in accessory name the same way",
+  card.fromCmsEntry({ accessoryName: "  hijab pin  " }, catalogue).product.accessoryName,
+  "hijab pin");
+
 /* the wording cascade the panel applies: piece → section → site default */
 
 const sectionWording = { defaultDescription: "SECTION words", defaultSpecs: { fabric: "SECTION fabric" } };

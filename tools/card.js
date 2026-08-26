@@ -271,6 +271,7 @@ function fromCmsEntry(data, catalogue) {
       tabLabel: sub.label,
       badge: String(d.badge || "").trim(),
       showAccessory: d.showAccessory !== false,
+      accessoryName: String(d.accessoryName || "").trim(),
       images: imgs,
       // The card reads `sizes[0]` and `minPrice` unconditionally. A single
       // priceless row keeps it drawable while the form is still empty; the
@@ -424,10 +425,15 @@ ${svg(ICON.arrowRight, { size: 20, stroke: "var(--tone-deep)", width: 2 })}
   // Left out entirely for a piece that has no matching accessory, rather than
   // shown and ignored. app.js finds no tick-box and leaves the total alone —
   // it already null-checks this, so nothing else has to change.
+  //
+  // The label names the actual accessory ("Add matching hair bow") when a
+  // piece says what it is; otherwise it falls back to the site's generic
+  // wording ("Add matching accessory"), exactly as it always has.
+  const accessoryLabel = p.accessoryName ? "Add matching " + p.accessoryName : s.accessoryLabel;
   const accessory = p.showAccessory === false ? "" : `<div>
 <label class="lp-acc">
 <input type="checkbox" data-accessory aria-describedby="lp-acc-note">
-<span>${esc(s.accessoryLabel)}</span>
+<span>${esc(accessoryLabel)}</span>
 </label>
 <div class="lp-acc-note" id="lp-acc-note">${esc(s.accessoryNote)}</div>
 </div>

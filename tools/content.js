@@ -519,6 +519,10 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
       // Absent counts as on, so every piece saved before this field existed
       // keeps offering the accessory exactly as it did.
       showAccessory: data.showAccessory !== false,
+      // What the tick-box actually offers — "hair bow", "matching clutch" —
+      // so the customer knows what they are adding rather than just "an
+      // accessory". Blank falls back to the site's generic wording.
+      accessoryName: nonEmpty(data.accessoryName),
       accessoryPrice: Number(
         Number.isFinite(Number(data.accessoryPrice)) && Number(data.accessoryPrice) > 0
           ? data.accessoryPrice

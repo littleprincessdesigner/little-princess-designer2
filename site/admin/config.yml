@@ -300,13 +300,19 @@ collections:
         default: true
         hint: "Off = the \"Add matching accessory\" tick-box disappears from this product's page, and the total is just the price. Turn it off for pieces you do not make an accessory for."
 
+      - label: "What the accessory is"
+        name: accessoryName
+        widget: string
+        required: false
+        hint: "e.g. \"hair bow\", \"matching clutch\", \"hijab pin\". Shown to the customer as \"Add matching hair bow\" instead of the plain \"Add matching accessory\", so they know exactly what they would be adding. Leave blank to keep the plain wording. Ignored when the switch above is off."
+
       - label: "Matching accessory price (PKR)"
         name: accessoryPrice
         widget: number
         value_type: int
         required: false
         default: 1500
-        hint: "Added to the total when the customer ticks \"Add matching accessory\". Leave blank to use the site default. Ignored when the switch above is off."
+        hint: "Added to the total when the customer ticks the accessory box above. Leave blank to use the site default. Ignored when the switch above is off."
 
       - label: "Description"
         name: description

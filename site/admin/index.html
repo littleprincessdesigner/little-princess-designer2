@@ -266,6 +266,11 @@
 <script src="/admin/card.js"></script>
 <script src="/admin/preview.js"></script>
 
+<!-- Keeps the mouse wheel from changing a number field's value out from under
+     whoever is scrolling past it — see the file for why. Independent of
+     everything above: it only needs the page's own document, not Decap. -->
+<script src="/admin/no-scroll-number.js"></script>
+
 <script>
   // Hide the splash as soon as Decap has painted anything — its login screen
   // included, so the Login button is never sitting behind the overlay.

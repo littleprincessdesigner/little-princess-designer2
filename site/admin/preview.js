@@ -74,19 +74,18 @@
       // minmax(300px,1fr), so it drops to one column here by itself — this only
       // stops .lp-main adding the page's own wide gutters on top of the panel's.
       ".lp-preview .lp-main{padding:0;max-width:none}" +
-      // Stacked in a narrow panel, a full-width photo is about 700px tall and
-      // pushes the price and the description — the fields actually being typed
-      // — below the fold on every keystroke. Capping the gallery keeps the
-      // whole page in view. This changes the scale of the preview, never its
-      // content: the markup is still exactly what the site renders.
-      // An explicit width, not max-width. .lp-galwrap is a grid item, and the
-      // centring margins turn off its stretch — so with only a max-width it
-      // falls back to shrink-to-fit, and .lp-gallery is a horizontal scroller
-      // whose fit-content width is zero. The frame then had no width, the 3/4
-      // aspect ratio gave it no height, and the photo vanished along with its
-      // slot. A stated width cannot collapse. min() keeps it honest if the
-      // panel is ever narrower than 300px.
-      ".lp-preview .lp-galwrap{width:min(300px,100%);margin:0 auto}" +
+      // No width rule for .lp-galwrap here on purpose, unlike an earlier
+      // version of this file. That version capped the gallery at a fixed
+      // 300px so the price and description stayed on screen while typing —
+      // but that cap applied every time, even after pressing Decap's own
+      // "preview only" button to widen this panel to the full editor width,
+      // so it kept showing the phone layout when there was room to show the
+      // real two-column desktop one. Leaving it out means .lp-detail's own
+      // grid rule (already loaded above, unmodified) decides column count
+      // from the panel's real width, same as it does in a visitor's browser:
+      // one column in the usual narrow split, two once there is room for
+      // them — so what shows here is the real page at its real size, not a
+      // fixed impression of it.
       ".lp-preview-notes{margin:18px 0 0;padding:14px 16px;list-style:none;" +
       "background:#fff6ef;border:1px solid #e8d5c4;border-radius:12px;" +
       "font-size:13px;line-height:1.5;color:#6b4a3a}" +
