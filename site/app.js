@@ -9,7 +9,24 @@
 (function () {
   "use strict";
 
-  var money = function (n) { return "PKR " + Number(n).toLocaleString("en-US"); };
+  /* Shared with the build via tools/shared.js — money formatting, the wa.me
+     link and the WhatsApp order message, so a card's price and its order link
+     match the ones tools/card.js already wrote into the page. render.js emits
+     /shared.js immediately before this file (both deferred, so it has run). The
+     inline fallbacks cover only the case where /shared.js failed to load — and
+     inside the admin preview iframe, where load order is best-effort. */
+  var LP = window.LPShared || {};
+  var money = LP.money || function (n) { return "PKR " + Number(n).toLocaleString("en-US"); };
+  var waMessage = LP.waOrderMessage || function (o) {
+    return "Hello Little Princess Designer, I'd like to order:\n" + o.name +
+      "\nSize: " + o.size +
+      "\nMatching accessory: " + (o.accessory ? "yes" : "no") +
+      "\nTotal shown: " + money(o.total);
+  };
+  var waLink = LP.waLink || function (num, text) {
+    return "https://wa.me/" + String(num).replace(/[^0-9]/g, "") +
+      (text ? "?text=" + encodeURIComponent(text) : "");
+  };
   var $ = function (sel, root) { return (root || document).querySelector(sel); };
   var $$ = function (sel, root) {
     return Array.prototype.slice.call((root || document).querySelectorAll(sel));
@@ -424,7 +441,7 @@
     var priceOut = $("[data-detail-price]", detail);
     var totalOut = $("[data-total]", detail);
     var accessory = $("[data-accessory]", detail);
-    var waLink = $("[data-wa-order]", detail);
+    var orderLink = $("[data-wa-order]", detail);
 
     var waNumber = String(detail.getAttribute("data-wa") || "").replace(/[^0-9]/g, "");
     var name = detail.getAttribute("data-name") || "";
@@ -446,13 +463,13 @@
       // one crossed-out number on the page is a saving, two is a puzzle.
       if (totalOut) totalOut.textContent = money(total);
 
-      if (waLink) {
-        var text =
-          "Hello Little Princess Designer, I'd like to order:\n" + name +
-          "\nSize: " + opt.textContent.trim() +
-          "\nMatching accessory: " + (withAccessory ? "yes" : "no") +
-          "\nTotal shown: " + money(total);
-        waLink.href = "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(text);
+      if (orderLink) {
+        orderLink.href = waLink(waNumber, waMessage({
+          name: name,
+          size: opt.textContent.trim(),
+          accessory: withAccessory,
+          total: total
+        }));
       }
     }
 

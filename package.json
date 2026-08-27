@@ -9,7 +9,6 @@
     "start": "npm run build && node tools/serve.js",
     "serve": "node tools/serve.js",
     "cms": "npx decap-server",
-    "seed": "node tools/seed-content.js",
     "check": "node tools/check-config.js",
     "preview": "node tools/build.js && node tools/build-preview.js"
   },

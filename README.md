@@ -77,26 +77,30 @@ site/               ← hand-written source, copied into dist/ as-is
     config.yml            EVERY field the CMS knows about (see rules below)
     preview.js            the live product-card preview panel in the admin
     imagekit.js           wires Decap's photo picker to the ImageKit library
+    tile-photo.js         syncs a hidden cover-photo field for the tiles view
+    no-scroll-number.js   stops the mouse wheel changing a focused number field
 
 tools/              ← the build. Plain Node, no dependencies.
   content.js              reads content/, validates it, returns one model
   render.js               model → HTML for every page
   card.js                 the product card — shared by the build AND the admin
+  shared.js               money / wa.me / order-message — shared by build + app.js
   images.js               the one place any photo host is described (ImageKit)
   build.js                orchestrates a build; writes dist/
   check-config.js         fails the build if content/ and config.yml disagree
   yaml.js                 hand-rolled YAML reader used by the two above
   warm-previews.js        pre-builds the WhatsApp/Facebook share images
-  test.js                 assertions over content.js, card.js and images.js
+  indexnow.js             pings Bing/Yandex with the sitemap URLs after a deploy
+  test.js                 assertions over content.js, card.js, shared.js, images.js
   fixtures/               small fake catalogues the tests run against
   serve.js                local static server for dist/
   build-preview.js        packs dist/ into one shareable preview.html
-  seed-content.js         the original starter catalogue. Safe to delete
   share-card.html         source for the generic share image (see its comments)
 
 docs/               ← prose. Index at the bottom of this file.
 dist/               ← generated, not committed. What Netlify serves.
 netlify.toml        ← build command, admin redirect, cache headers
+redirects.json      ← old→new paths for renamed pages; build.js writes dist/_redirects
 CLAUDE.md           ← the owner's standing instructions. Read them.
 handoff.md          ← state of play from previous sessions
 ```
@@ -111,6 +115,7 @@ handoff.md          ← state of play from previous sessions
 | Change what a page **contains** | `tools/render.js` — every page is prerendered there |
 | Change the **product card** | `tools/card.js` — one file, used by the site and the admin preview |
 | Change **interactivity** (filters, gallery, sizes) | `site/app.js`. It never builds markup; it wires up what render.js emitted |
+| Change the **WhatsApp order message** or price format | `tools/shared.js` — one copy, used by the build and by `app.js` |
 | Change the **3D carousel** behaviour | `site/carousel-3d.js` — it lays itself out from however many children it has |
 | Change **which pieces spin** in the carousel | `chooseCarousel()` in `tools/content.js`; its settings live in `config.yml` under Site & home page |
 | Add or change a **field an editor fills in** | `site/admin/config.yml` **and** the matching key in `content/` — both, always |
@@ -119,6 +124,7 @@ handoff.md          ← state of play from previous sessions
 | Change what the **admin looks like** | `site/admin/index.html` — the skin is one long commented block |
 | Change the **admin's preview panel** | `site/admin/preview.js` + `tools/card.js` |
 | Change **build outputs, sitemap, robots** | `tools/build.js` |
+| Keep an **old URL working** after a rename | add `"/old/path/": "/new/path/"` to `redirects.json` |
 | Add a **test** | `tools/test.js`, with fixtures in `tools/fixtures/` |
 | Understand **what the owner sees** | `docs/ADMIN-GUIDE.md` — written for them, in their language |
 | Understand the **CMS and sign-in setup** | `docs/CMS-SETUP.md` |
@@ -141,13 +147,16 @@ Two shapes worth knowing before you read any of it:
 ## Commands
 
 ```bash
-npm run build     # check-config → build dist/ → warm the share images
+npm run build     # check-config → build dist/ → warm the share images → ping IndexNow
 npm start         # build, then serve on http://localhost:8080
 npm run cms       # local admin save-server (run alongside npm start)
 npm run check     # verify content/ matches the CMS config — gates every build
-npm test          # assertions over the build's content, card and image rules
+npm test          # assertions over the build's content, card, shared and image rules
 npm run preview   # bundle the whole site into one shareable preview.html
 ```
+
+(The warm-previews and IndexNow steps only reach out on Netlify; run locally
+they write what they can and skip the network — pass `--force` to override.)
 
 Node 18+ (Netlify pins 20). Nothing to install — `npm test` and `npm run build`
 work in a fresh clone with no `npm install`.
@@ -176,7 +185,9 @@ work in a fresh clone with no `npm install`.
   exists — and still succeeds. Read them: they are how content mistakes surface.
 - **Renaming a product changes its web address**, and anything holding that
   address — a carousel pick, a shared link, a search result — points at the old
-  one.
+  one. Carousel picks are stored in `content/settings.json`; for everything
+  outside the repo, add `"/product/<old>/": "/product/<new>/"` to
+  `redirects.json` so the old address 301s to the new one.
 - **Prices are per product, per size**, with the size vocabulary read out of
   `config.yml` itself so the admin and the build cannot drift apart.
 - **Never claim a mobile fix is verified from a screenshot.** Headless Chromium
@@ -223,3 +234,4 @@ peach for babies, gold for ready to wear.
 | `handoff.md` | What is live, what is waiting on the owner, what has never been verified, and which approaches are already known to fail |
 | `docs/ADMIN-GUIDE.md` | How the owner uses the admin — the same tasks, in their language |
 | `docs/CMS-SETUP.md` | The one-time CMS, DecapBridge and ImageKit setup |
+| `docs/AUDITING.md` | Before you "clean up" a duplicate or an unused token — what is deliberate, and how the build already guards it |

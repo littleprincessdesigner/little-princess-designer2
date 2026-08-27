@@ -64,12 +64,13 @@ const PAGES = [
   { key: "contact", label: "Contact us", file: "contact/index.html" }
 ];
 
-// include one product page so the detail view is previewable
+// include a couple of product pages so the detail view is previewable. Taken
+// from whatever the build actually produced rather than a hand-kept slug list —
+// product files are renamed often enough that a fixed list quietly rots.
 const productDirs = fs.existsSync(path.join(DIST, "product"))
   ? fs.readdirSync(path.join(DIST, "product"))
   : [];
-const featured = ["aurora-luxury-gown", "prince-arthur-suit", "cloud-romper", "ready-blush-party-dress"]
-  .filter(slug => productDirs.includes(slug));
+const featured = productDirs.slice(0, 2);
 for (const slug of featured) {
   PAGES.push({ key: "product/" + slug, label: null, file: "product/" + slug + "/index.html" });
 }

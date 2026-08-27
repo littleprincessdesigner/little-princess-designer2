@@ -123,14 +123,17 @@ for (const entry of ["tokens.css", "styles.css", "app.js", "carousel-3d.js", "as
   if (fs.existsSync(from)) copyRecursive(from, path.join(DIST, entry));
 }
 
-// 1b. the two files the admin preview shares with this build. They are build
-// code — they live in tools/ and are required above — but the preview panel
-// loads them as ordinary scripts in the browser, so they need an address. They
-// are copied rather than kept in site/ so that there is exactly one copy in the
-// repository: edit tools/card.js and both the site and the preview change with
-// it, which is the entire point of the arrangement. Order matters at load time
-// (card.js reads images.js off the window), and it is index.html that fixes it.
-for (const entry of ["images.js", "card.js"]) {
+// 1b. build code that also has to run in a browser, so it needs an address.
+// These live in tools/ (required above) and are copied out rather than kept in
+// site/ so there is exactly one copy in the repository: edit tools/card.js and
+// the site, the admin preview and the tests all move with it. Order matters at
+// load time (card.js reads shared.js and images.js off the window), which
+// index.html and render.js fix.
+//   · shared.js — every public page loads /shared.js (render.js emits it), and
+//     the admin loads /admin/shared.js, so it goes to both places.
+//   · images.js, card.js — only the admin preview loads these.
+copyRecursive(path.join(TOOLS, "shared.js"), path.join(DIST, "shared.js"));
+for (const entry of ["shared.js", "images.js", "card.js"]) {
   copyRecursive(path.join(TOOLS, entry), path.join(DIST, "admin", entry));
 }
 
@@ -204,6 +207,23 @@ writeFile("robots.txt",
   "\nSitemap: " + SITE_URL + "/sitemap.xml\n"
 );
 
+// 4b. redirects — old web addresses kept alive after a page is renamed. Renaming
+// a product in the admin changes its URL, and every shared link, bookmarked
+// page and search result still points at the old one. redirects.json at the
+// repo root maps old path → new path (hand-maintained: add a line whenever a
+// slug changes); Netlify serves dist/_redirects. Each entry is emitted twice,
+// with and without the trailing slash, so both forms are one hop.
+let redirectMap = {};
+try {
+  redirectMap = JSON.parse(fs.readFileSync(path.join(ROOT, "redirects.json"), "utf8")).redirects || {};
+} catch { /* no redirects.json — nothing to emit */ }
+const redirectLines = Object.entries(redirectMap).flatMap(([from, to]) => {
+  const bare = from.replace(/\/$/, "");
+  const line = t => t + " " + to + " 301";
+  return bare && bare !== from ? [line(from), line(bare)] : [line(from)];
+});
+if (redirectLines.length) writeFile("_redirects", redirectLines.join("\n") + "\n");
+
 // A short, plain-English "about this site" file some AI assistants read
 // directly. Not required by any major crawler and ignored by Google Search
 // specifically, but costs nothing to publish. Built from the same settings
@@ -245,6 +265,7 @@ console.log("  " + pagesWritten.length + " pages" +
 console.log("  " + st.subcategories + " subcategories, " + st.products + " live products" +
   (st.hidden ? ", " + st.hidden + " hidden by the admin" : ""));
 console.log("  " + urls.length + " urls in sitemap.xml");
+if (redirectLines.length) console.log("  " + redirectLines.length + " lines in _redirects");
 
 if (st.warnings) {
   console.log("\n" + st.warnings + " content warning(s) above — the build still succeeded.");

@@ -160,6 +160,8 @@ const isAbsoluteSrc = src => /^(https?:)?\/\//i.test(src) || /^data:/i.test(src)
  * neither resolves against whatever page it happens to land on, and gets the
  * site origin glued straight onto it when building share tags. Force it
  * root-relative and say so: a visible 404 beats a silently malformed URL.
+ *
+ * MIRRORED: tools/card.js normaliseSrc (browser copy) — kept in step by tools/test.js
  */
 function normaliseSrc(src) {
   if (isAbsoluteSrc(src) || src.startsWith("/")) return src;
@@ -183,6 +185,7 @@ function resolveImages(list, fallbackAlt) {
     .filter(Boolean);
 }
 
+// MIRRORED: tools/card.js firstNonEmpty (browser copy) — kept in step by tools/test.js
 const nonEmpty = (...vals) => {
   for (const v of vals) if (typeof v === "string" && v.trim()) return v.trim();
   return "";
@@ -431,6 +434,8 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
       continue;
     }
 
+    // MIRRORED: tools/card.js fromCmsEntry runs the same size/price pipeline for
+    // the admin preview (bend-don't-break variant) — kept in step by tools/test.js
     const sizes = (Array.isArray(data.sizes) ? data.sizes : [])
       .filter(s => s && s.available !== false)
       .map(s => ({
@@ -607,4 +612,4 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
   };
 }
 
-module.exports = { load, SIZES, CATEGORY_ORDER, readSettings, chooseCarousel, warnings };
+module.exports = { load, SIZES, readSettings, chooseCarousel, warnings };
