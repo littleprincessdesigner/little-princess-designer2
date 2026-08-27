@@ -14,9 +14,21 @@
    container. Missing it is what let the page scroll sideways on phones. */
 *,*::before,*::after{box-sizing:border-box}
 
-html{font-size:16px;overflow-anchor:none;scroll-behavior:smooth;overflow-x:hidden}
+/* An `overflow-x:hidden` backstop against sideways scrolling used to live on
+   html and body here, on top of the actual fix (the footer grid rules
+   further down). It was removed: setting overflow on either axis makes that
+   element a scroll container, which is also what `position:sticky` measures
+   its stuck position against for anything inside it — with html/body turned
+   into scroll containers, .lp-header and .lp-sticky (the home page hero
+   pin) still reported `position:sticky` in computed styles but visually
+   scrolled away with the page like static content the moment you scrolled
+   past 0, on every page, not just phones. Caught by scrolling the home page
+   hero in a real browser while shortening it below, not by reading the CSS.
+   The footer fix is the real guard against the sideways scroll; this was
+   only ever a second layer, and not a safe one. */
+html{font-size:16px;overflow-anchor:none;scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--paper-050);-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{margin:0;background:var(--paper-050);-webkit-text-size-adjust:100%}
 :root{--gutter-page:2.5rem;--width-container:73.75rem}
 
 a{color:var(--text-link);text-decoration:none}
@@ -70,10 +82,10 @@ img{max-width:100%}
 .lp-logo img{height:56px;width:auto;transition:height 260ms cubic-bezier(.2,.8,.3,1)}
 
 .lp-nav{flex:1 1 320px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
-/* Groups the search, menu and Instagram buttons so they move as one unit —
-   see the phone tier below, where a single `margin-left:auto` on this wrapper
-   is what pins all three to the right edge regardless of whether the search
-   button happens to be hidden (it starts `hidden` until app.js reveals it). */
+/* Groups the menu and Instagram buttons so they move as one unit — see the
+   phone tier below, where a single `margin-left:auto` on this wrapper is what
+   pins the pair to the right edge. Search sits outside this wrapper, further
+   up in the markup, so it is free to land on the opposite side on phones. */
 .lp-hdr-icons{display:flex;align-items:center;gap:var(--space-3);flex:0 0 auto}
 .lp-navlink{
   font:var(--weight-bold) 1rem/1 var(--font-ui);
@@ -222,7 +234,6 @@ img{max-width:100%}
 
 /* --- 4. Layout ----------------------------------------------------------- */
 
-.lp-main{display:block}
 .lp-main--home{display:flex;flex-direction:column;align-items:stretch}
 .lp-main--shop,.lp-main--product,.lp-main--contact,.lp-main--notfound{
   max-width:var(--width-container);margin:0 auto;
@@ -256,7 +267,17 @@ img{max-width:100%}
 
 /* --- 5. Hero scroll story ------------------------------------------------ */
 
-.lp-story{position:relative;height:320vh;background:#EFDCE4}
+/* Total scroll distance for the pinned crossfade below, one viewport-height
+   of which is the pin itself — the rest (height minus 100vh) is how far the
+   visitor scrolls while it plays. app.js times the three-stage crossfade as
+   fractions of that distance (see initStory's a1/b1/a2/b2), not a fixed
+   pixel count, so any value here still plays the same three stages end to
+   end — only how much scrolling it takes to get through them changes.
+   Was 320vh (220vh of extra scrolling, over 2000px on a laptop) — cut to
+   200vh for feeling oversized, then brought back up partway from there for
+   feeling rushed at 200vh. 235vh nets out at about 60% of the original
+   extra-scroll distance. */
+.lp-story{position:relative;height:235vh;background:#EFDCE4}
 .lp-sticky{
   position:sticky;top:var(--lp-header,78px);
   /* `svh` is the small-viewport height — the phone's viewport with the URL bar
@@ -421,6 +442,7 @@ carousel-3d{
   perspective:1000px;transform-style:preserve-3d;
   touch-action:pan-y;cursor:grab;height:31.25rem;
 }
+carousel-3d:active{cursor:grabbing}
 .lp-car-face{
   display:block;position:relative;width:100%;aspect-ratio:3/4;
   border-radius:var(--radius-md);overflow:hidden;
@@ -944,20 +966,24 @@ carousel-3d{
 /* --- 18. Phone -------------------------------------------------------- */
 
 @media (max-width:768px){
-  /* Header: logo centred on its own row, then ONE row shared by the search,
-     menu and Instagram buttons — grouped in .lp-hdr-icons so they move, size
-     and stay pinned to the right edge as a single unit (see below). */
+  /* Header: logo centred on its own row, then ONE row split into two groups —
+     search alone at the left edge, menu + Instagram together at the right
+     edge. Search carries no margin, so it just sits at the natural start of
+     the row; `margin-left:auto` on .lp-hdr-icons (see below) is what pushes
+     the menu/Instagram pair all the way to the other end. Order in the
+     markup — search, then the wrapper — is what keeps them on opposite
+     sides rather than bunched together. */
   .lp-hdr{gap:0.4rem;align-items:flex-start}
   .lp-logo{width:auto;flex:1 1 100%;justify-content:center;order:0}
   .lp-logo img{height:2.9rem}
-  /* `margin-left:auto` on the wrapper — not on any one button inside it — is
-     what pins the trio to the right edge. That way it holds regardless of
-     which of the three happen to be in the DOM at the time (the search
-     button starts `hidden` until app.js reveals it), instead of relying on
-     whichever button happens to render first. */
+  .lp-searchbtn{width:2.75rem;height:2.75rem}
+  /* `margin-left:auto` here — not on .lp-igbtn itself — is what pins the
+     menu/Instagram pair to the right edge, holding regardless of which of
+     the two happen to render (the toggle is CSS-only and always present;
+     Instagram's href always renders too, so this is mostly future-proofing
+     to match the same reasoning .lp-searchbtn's placement relies on). */
   .lp-hdr-icons{margin-left:auto;gap:0.4rem}
-  .lp-searchbtn,.lp-igbtn{width:2.75rem;height:2.75rem}
-  .lp-igbtn{margin:0}
+  .lp-igbtn{width:2.75rem;height:2.75rem;margin:0}
   .lp-igbtn svg{width:1.5rem;height:1.5rem}
   .lp-nav-toggle{display:flex}
   /* Closed by default on phones; the checked checkbox (toggled by clicking
@@ -965,12 +991,35 @@ carousel-3d{
      reveals it — see .lp-nav-check:checked below. A full-height panel
      anchored to the right edge, sliding in under the sticky header — the
      same drawer language as the filters panel (.lp-panel/.lp-scrim)
-     elsewhere on the site. It stays in the DOM at all times (never
-     `display:none`) so the transform can animate it, and the checkbox is
-     what drives that with no JavaScript needed at all. `top` follows
-     --lp-header (the same custom property .lp-sticky reads) so the panel
-     starts right under the header rather than over it.
+     elsewhere on the site.
 
+     Closed state is a real `display:none`, not just an off-screen
+     `transform` — an earlier version left it always rendered so the
+     transform could animate it, `translateX(105%)` sliding it just past the
+     right edge. That still counted toward the PAGE's own horizontal extent
+     in real testing (document.documentElement.scrollWidth grew by exactly
+     the panel's width the moment it existed off-screen, transform or not),
+     which is the sideways-scroll bug all over again, just from the panel
+     itself instead of the footer. `display:none` removes it from that
+     calculation entirely, in every browser, with no dependence on a
+     particular engine's overflow quirks.
+
+     Animating INTO `display:none` needs two things most transitions don't:
+     `display` itself in the `transition` list (with `allow-discrete`, so the
+     browser defers the display:flex→none flip until the transform has
+     finished sliding out, instead of vanishing instantly and only then
+     playing a transform animation nobody can see) and an `@starting-style`
+     block giving the check:checked rule something to animate FROM (a rule
+     can't transition from `display:none` on its own — there is no prior
+     frame with a transform value to interpolate from). Same idea as the
+     `visibility` used to hide the collapsed Instagram button from the tab
+     order further up, just for `display` instead. Support (Chrome 117,
+     Safari 17.4, Firefox 129) is now over two years old; anything short of
+     that just opens and closes the panel without the slide, which is a
+     fine fallback, not a broken one.
+
+     `top` follows --lp-header (the same custom property .lp-sticky reads)
+     so the panel starts right under the header rather than over it.
      Height is `calc(100vh - ...)`, not `bottom:0` — .lp-header's own
      backdrop-filter makes it the containing block for this fixed-position
      child (backdrop-filter does that, same as filter or transform), and
@@ -982,6 +1031,7 @@ carousel-3d{
      same reason: it has to be @supports, not two plain declarations —
      that trick does not survive going through a var(). */
   .lp-nav{
+    display:none;
     position:fixed;top:var(--lp-header,78px);right:0;
     height:calc(100vh - var(--lp-header,78px));
     width:min(300px,80vw);
@@ -991,12 +1041,15 @@ carousel-3d{
     box-shadow:var(--shadow-lg);
     z-index:45;overflow-y:auto;
     transform:translateX(105%);
-    transition:transform 240ms cubic-bezier(.2,.8,.3,1);
+    transition:transform 240ms cubic-bezier(.2,.8,.3,1),display 240ms allow-discrete;
   }
   @supports (height:1svh){
     .lp-nav{height:calc(100svh - var(--lp-header,78px))}
   }
-  .lp-nav-check:checked ~ .lp-nav{transform:translateX(0)}
+  .lp-nav-check:checked ~ .lp-nav{display:flex;transform:translateX(0)}
+  @starting-style{
+    .lp-nav-check:checked ~ .lp-nav{transform:translateX(105%)}
+  }
   .lp-nav-x{
     display:flex;align-self:flex-end;cursor:pointer;
     width:2.25rem;height:2.25rem;border-radius:999px;flex:0 0 auto;
@@ -1045,9 +1098,10 @@ carousel-3d{
 
   /* Hero story */
   /* Same fallback pair as .lp-sticky. Without the `vh` line an older phone
-     falls all the way back to the 320vh in the base rule, which stretches the
-     three-stage crossfade over twice the scrolling it was timed for. */
-  .lp-story{height:165vh;height:165svh}
+     falls all the way back to the 235vh in the base rule, which stretches the
+     three-stage crossfade over noticeably more scrolling than it was timed
+     for on a phone screen. */
+  .lp-story{height:145vh;height:145svh}
   .lp-sticky{justify-content:space-between}
   .lp-hooks{min-height:clamp(48px,8vh,84px);padding:0.65rem 1rem 0.55rem}
   .lp-hook{font-size:2.5rem}
