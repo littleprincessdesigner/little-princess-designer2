@@ -33,7 +33,9 @@ const paragraphs = s => String(s || "").split(/\n\s*\n/).map(p => p.trim()).filt
 
 
 
-const FEATURE_ICONS = { gift: "gift", globe: "globe", crown: "crown", dress: "dress" };
+/** Which ICON keys a feature's CMS `icon` value is allowed to reach; anything
+ *  else (or blank) falls back to the crown. */
+const FEATURE_ICONS = new Set(["gift", "globe", "crown", "dress"]);
 
 
 
@@ -48,6 +50,10 @@ const FEATURE_ICONS = { gift: "gift", globe: "globe", crown: "crown", dress: "dr
  * content.js guarantees a leading "/" on anything not absolute, so this can
  * join the two without a separator — that guarantee is what stops
  * "site.comfoo.jpg" being produced from a carelessly pasted value.
+ *
+ * MIRRORED: the "is this URL absolute" test is also tools/content.js
+ *           isAbsoluteSrc and tools/card.js normaliseSrc — one regex pair,
+ *           three files, because two of them run in the browser.
  */
 function absoluteUrl(src, siteUrl) {
   return /^(https?:)?\/\//i.test(src) || /^data:/i.test(src) ? src : siteUrl + src;
@@ -177,10 +183,10 @@ ${nav.map(n =>
 ).join("\n")}
 </nav>
 <label class="lp-nav-scrim" for="lp-nav-check" aria-hidden="true"></label>
-<div class="lp-hdr-icons">
 <button type="button" class="lp-searchbtn" data-search-open aria-expanded="false" aria-controls="lp-search" aria-label="Search the catalogue" hidden>
 ${svg(ICON.search, { size: 24, stroke: "var(--berry-800)", width: 2 })}
 </button>
+<div class="lp-hdr-icons">
 <label class="lp-nav-toggle" for="lp-nav-check" aria-label="Menu"><span class="lp-burger"></span></label>
 <a class="lp-igbtn" target="_blank" rel="noopener" href="${safeHref(s.instagram)}" aria-label="Instagram">
 ${svg(ICON.igHeader, { size: 27, stroke: "#FFFCF8", width: 1.7 })}
@@ -246,7 +252,7 @@ function floatingWa(s) {
 </a>`;
 }
 
-function page(model, { tab, title, description, canonical, jsonLd, body, image, ogType, siteUrl, noindex }) {
+function page(model, { tab, title, description, canonical, jsonLd, body, image, ogType, siteUrl, noindex, carousel = false }) {
   const s = model.settings;
   return [
     head({
@@ -260,7 +266,11 @@ function page(model, { tab, title, description, canonical, jsonLd, body, image, 
     footer(s, model.categories),
     floatingWa(s),
     "</div>",
-    '<script src="/carousel-3d.js" defer></script>',
+    // shared.js first: card.js's browser half and app.js both read window.LPShared.
+    '<script src="/shared.js" defer></script>',
+    // Only the home page renders a <carousel-3d>; every other page skipped the
+    // download of a script that defined a custom element nothing used.
+    ...(carousel ? ['<script src="/carousel-3d.js" defer></script>'] : []),
     '<script src="/app.js" defer></script>',
     "</body>",
     "</html>",
@@ -362,7 +372,7 @@ ${model.categories.map(c => `<a href="${c.href}">
 <h2 class="lp-h2"><img class="lp-crown" src="/assets/logo-crown.png" width="120" height="140" alt="">${esc(s.featuresHeading)}</h2>
 <div class="lp-feat">
 ${(s.features || []).map(f => `<div>
-${svg(ICON[FEATURE_ICONS[f.icon] || "crown"], { size: 30, stroke: "#fff", width: 1.8 })}
+${svg(ICON[FEATURE_ICONS.has(f.icon) ? f.icon : "crown"], { size: 30, stroke: "#fff", width: 1.8 })}
 <div class="lp-feat-t">${esc(f.title)}</div>
 <p>${esc(f.body)}</p>
 </div>`).join("\n")}
@@ -409,6 +419,8 @@ ${paragraphs(s.about.body).map(p => "<p>" + inline(p) + "</p>").join("\n")}
   return page(model, {
     tab: "home",
     siteUrl,
+    // The only page with a <carousel-3d>, so the only one that loads its script.
+    carousel: true,
     title: s.seo.title,
     description: s.seo.description,
     canonical: siteUrl + "/",
