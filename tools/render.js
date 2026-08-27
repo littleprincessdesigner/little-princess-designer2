@@ -169,19 +169,23 @@ function header(s, activeTab) {
 <div class="lp-hdr">
 <a class="lp-logo" href="/"><img src="/assets/logo-lockup.webp" width="722" height="375" alt="${esc(s.brandName)} — home"></a>
 <input type="checkbox" class="lp-nav-check" id="lp-nav-check">
-<label class="lp-nav-toggle" for="lp-nav-check" aria-label="Menu"><span class="lp-burger"></span></label>
 <nav class="lp-nav" aria-label="Main">
+<label class="lp-nav-x" for="lp-nav-check" aria-label="Close menu">${svg(ICON.close, { size: 18, stroke: "var(--berry-800)", width: 2 })}</label>
 ${nav.map(n =>
   '<a class="lp-navlink" href="' + n.href + '"' +
   (n.key === activeTab ? ' aria-current="page"' : "") + ">" + esc(n.label) + "</a>"
 ).join("\n")}
 </nav>
+<label class="lp-nav-scrim" for="lp-nav-check" aria-hidden="true"></label>
+<div class="lp-hdr-icons">
 <button type="button" class="lp-searchbtn" data-search-open aria-expanded="false" aria-controls="lp-search" aria-label="Search the catalogue" hidden>
 ${svg(ICON.search, { size: 24, stroke: "var(--berry-800)", width: 2 })}
 </button>
+<label class="lp-nav-toggle" for="lp-nav-check" aria-label="Menu"><span class="lp-burger"></span></label>
 <a class="lp-igbtn" target="_blank" rel="noopener" href="${safeHref(s.instagram)}" aria-label="Instagram">
 ${svg(ICON.igHeader, { size: 27, stroke: "#FFFCF8", width: 1.7 })}
 </a>
+</div>
 </div>
 <!-- Unhidden by app.js along with the button that opens it: with no JavaScript
      there is nothing to search with, so neither is shown. -->
