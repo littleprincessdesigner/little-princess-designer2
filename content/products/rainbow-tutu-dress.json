@@ -1,0 +1,28 @@
+{
+  "badge": "",
+  "name": "rainbow tutu dress",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 33
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000091450%20(1).jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000091461%20(1).jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000091459%20(1).jpg"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000091450%20(1).jpg",
+  "subcategory": "girls-tutu-dresses",
+  "addedOn": "2026-08-28T00:25:00.000+05:00"
+}
