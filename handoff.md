@@ -30,9 +30,10 @@ August 2026; `littleprincessdesigner.netlify.app` redirects to it. Preview
 deploys still answer on `.netlify.app` addresses of their own, which is correct:
 a custom domain serves the live deploy only.
 
-Build clean: 64 live products, 71 pages, 12 sections. Every product now has at
-least one photo — the "no photo yet" warning that used to run to five names is
-gone.
+Build succeeds: 75 live products, 82 pages, 13 sections (as of 2026-08-27).
+Every product still has at least one photo. The build prints 4 content warnings
+now (three suspiciously-low prices and one empty section — see "Waiting on the
+owner"); the ~26 slug/name mismatches were resolved by renaming the files.
 
 Admin works end to end: two people (Rimaz, Javeria) have saved edits through
 DecapBridge, and their names land in the commit messages as intended. The photo
@@ -44,16 +45,38 @@ owner on 2026-08-05.
 
 ## Waiting on the owner — all admin jobs, no code can fix them
 
+_Refreshed 2026-08-27 against the current catalogue._
+
 1. **All four category card photos are still empty** (`content/categories/*.json`,
    `card.image`). This is why category links preview with the generic card and
    why the home page shows "GIRLS PHOTO" placeholders.
-2. **Three boys pieces are filed under Girls → Luxury dresses** — Cotton-Silk
-   Three Piece, Eid Waistcoat Set and Junior Waistcoat Set. They were orphaned
-   when subcategory `b2` was deleted, and were reassigned to a girls section
-   rather than a boys one. They are live, on the wrong page.
-3. **Five sections have no products**, and each prints an empty heading on its
-   shop page: Casual dresses and Accessory (Girls), Theme dresses (Boys),
-   Shirts and Rompers (Babies). Either fill them or delete them.
+2. **Renaming a product in the admin still changes its web address.** The ~26
+   products whose slug no longer matched their name were renamed to match
+   (2026-08-27), and `redirects.json` → `dist/_redirects` now points every old
+   `/product/<old-slug>/` at its new address so shared links and search results
+   keep working. **From here on**, if a product is renamed in the admin, add its
+   old→new path to `redirects.json` when the slug is next tidied up — or better,
+   create a **New Product** instead of editing an existing one into a different
+   piece. A few of the resulting URLs are as rough as the names the owner
+   typed (`/product/red/`, `/product/ppl/`, `/product/purplyyyy/`); rename those
+   properly in the admin if wanted, and add the redirect.
+3. **One empty section**: `content/subcategories/girls-tutu-dresses.json`
+   ("Tutu Dresses") has no products and prints an empty heading with a "New
+   pieces … on the way" line on the Girls page. Fill it or delete it. (The five
+   sections this list used to name are all populated now.) Two different product
+   files are both named "unicorn tutu dress" and both filed under Girls → Luxury
+   dresses — `unicorn-tutu-dress.json` and the one now at
+   `unicorn-tutu-dress-2.json` (was `soft-cotton-baby-shirt.json`). Merge or
+   delete one.
+4. **Placeholder prices still live** — the build flags "suspiciously low price"
+   on "pink faie" (PKR 55), "unicorn tutu dress" (PKR 55 / 40 / 44) and
+   "welcome home daddy romperr" (PKR 33). Set real prices or hide the pieces.
+5. **`welcome-home-daddy-romperr.json`'s first photo is a `.heic` file**
+   (`1000641071.heic`). Browsers can't display HEIC — the card shows an empty
+   frame. Re-upload it as a JPEG through the ImageKit library.
+6. **`content/settings-products.json` `accessoryPriceDefault` is `95`**, which
+   looks like leftover test data (real per-product accessory prices are
+   250–7500). Set it to the intended default.
 
 ## Never verified from this environment
 
@@ -110,3 +133,24 @@ claim in this repo was confirmed that way.
   sessions. A finished code review and the original Claude Design handoff note
   were deleted in the same pass — every item in the review was shipped, and the
   design note pointed at folders this repo does not contain.
+- **2026-08-27** — mobile nav drawer (PR #24) and the header-icon split +
+  shorter scroll story + 1:1 product gallery (PR #25).
+- **2026-08-27** — dead-code and duplication sweep: deleted the unused
+  `tools/seed-content.js`, trimmed a few unused exports and one dead CSS rule,
+  and pulled the `money` / wa.me link / WhatsApp order-message helpers into
+  `tools/shared.js` so the build and `site/app.js` share one copy (was two,
+  hand-kept). `carousel-3d.js` now loads only on the home page. `docs/AUDITING.md`
+  was added so the next audit does not re-flag the deliberate
+  `render.js`/`card.js`/`content.js` duplication or the unused `tokens.css`
+  entries. Note: the `render.js` / `styles.css` half of this landed early inside
+  PR #25 (its `git add` swept up the then-uncommitted changes); this pass added
+  the rest — `tools/shared.js` itself, the `build.js` copy step and the
+  `card.js` / `app.js` / admin wiring — so the `/shared.js` that PR #25 pages
+  reference actually exists.
+- **2026-08-27** — renamed 35 product files so each slug matches its current
+  name (the ~26 "shares almost no words with its own web address" warnings are
+  gone). New `redirects.json` → `dist/_redirects` (written by `tools/build.js`)
+  301s every old `/product/<slug>/` to its new address. Carousel picks in
+  `content/settings.json` updated to the new slugs. This does **not** change the
+  workflow problem — renaming in the admin still needs a matching redirect
+  added, or a New Product instead.

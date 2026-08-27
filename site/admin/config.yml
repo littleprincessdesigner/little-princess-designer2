@@ -57,8 +57,9 @@ local_backend: true
 publish_mode: simple
 
 # Where an upload would be committed if photos still went into the repository.
-# They do not — see the ImageKit block below — but Decap wants these declared,
-# and the photos already at /assets/uploads/ are still served from here.
+# They do not — every photo is an ImageKit URL (see the block below) — so this
+# directory does not exist and nothing references it. Decap still requires both
+# keys to be declared, so they stay.
 media_folder: "site/assets/uploads"
 public_folder: "/assets/uploads"
 
@@ -486,9 +487,6 @@ collections:
         file: content/categories/ready.json
         fields: *category_fields
 
-  # ---------------------------------------------------------------------------
-  # SITE SETTINGS — contact details and the wording used across the site
-  # ---------------------------------------------------------------------------
   # ---------------------------------------------------------------------------
   # SITE SETTINGS — three pages, one per job
   #

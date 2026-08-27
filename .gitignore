@@ -1,5 +1,6 @@
 # Build output — regenerated from content/ on every build
 dist/
+preview.html
 
 node_modules/
 .DS_Store

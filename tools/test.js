@@ -11,6 +11,13 @@
  * comes from an account no test can reach. Pinning the exact strings here at
  * least means a change to them has to be deliberate.
  *
+ * Plus the helpers that are deliberately copied between Node and the browser,
+ * because the browser halves cannot be run from here: tools/card.js against
+ * tools/content.js (the card, the wording cascade, the size/price pipeline —
+ * grep "MIRRORED:" for the full list), and tools/shared.js against what
+ * card.js produces (money, the wa.me link, the WhatsApp order message that
+ * site/app.js also builds).
+ *
  * Dependency-free on purpose — no runner, no framework, nothing to install.
  *
  *   npm test
@@ -239,12 +246,37 @@ check("…at its ordinary price", byName["Badged sale only"].sizes[0].wasPrice, 
 
 const card = require("./card");
 const render = require("./render");
+const shared = require("./shared");
 
 /* the move itself: render.js must be using the shared copies, not its own */
 
 checkTrue("render.js re-exports the shared esc, not a second copy",
   render.esc === card.esc);
 checkTrue("…and the shared money", render.money === card.money);
+
+/* --- tools/shared.js: the helpers the build AND site/app.js both use ------
+ *
+ * money, the wa.me link and the WhatsApp order message. app.js rebuilds the
+ * order link on every size/accessory change and used to carry its own copy of
+ * the text; this is the single source both now read, so these checks are what
+ * stop the two drifting. app.js cannot run from Node — pinning card.js's output
+ * from the same helper is the closest proxy.
+ */
+
+checkTrue("card.js's money is shared.money, not a second copy", card.money === shared.money);
+check("money formats a price the one site way", shared.money(16500), "PKR 16,500");
+check("waLink keeps digits only and appends an encoded message",
+  shared.waLink("+92 321 715 2723", "hi there"),
+  "https://wa.me/923217152723?text=hi%20there");
+check("waLink with no message is just the number",
+  shared.waLink("923217152723"), "https://wa.me/923217152723");
+check("the WhatsApp order message is exactly the text the product link carries",
+  shared.waOrderMessage({ name: "Aurora Gown", size: "0–3 years", accessory: false, total: 16500 }),
+  "Hello Little Princess Designer, I'd like to order:\nAurora Gown\n" +
+  "Size: 0–3 years\nMatching accessory: no\nTotal shown: PKR 16,500");
+checkTrue("…and it says \"yes\" once the matching accessory is ticked",
+  shared.waOrderMessage({ name: "X", size: "S", accessory: true, total: 100 })
+    .includes("Matching accessory: yes"));
 
 /* safeHref survived being moved. The scheme allowlist is a security guard: every
    link field in the admin is free text, editors hold no repo access, and a
@@ -397,6 +429,14 @@ checkTrue("…the total", detailHtml.includes("data-total"));
 checkTrue("…and the order button, addressed to the shop's number",
   detailHtml.includes("data-wa-order") &&
   detailHtml.includes(String(model.settings.whatsappNumber).replace(/[^0-9]/g, "")));
+checkTrue("…with the exact pre-filled message shared.waOrderMessage builds — " +
+  "the same text app.js rebuilds when the size changes",
+  detailHtml.includes(card.esc(encodeURIComponent(shared.waOrderMessage({
+    name: detailProduct.name,
+    size: detailProduct.sizes[0].size,
+    accessory: false,
+    total: detailProduct.sizes[0].price
+  })))));
 
 // A sold-out piece must not offer an order button — the same rule the page has
 // had since that finding was fixed, now living in the shared file.

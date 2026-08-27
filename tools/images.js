@@ -251,7 +251,7 @@ function warms(src) {
  * its global is never set. That failure is silent everywhere except the browser
  * console, and it is why tools/test.js cannot be the only check on this file.
  */
-const IMAGES_API = { PROFILES, hostFor, resized, srcset, preview, warms };
+const IMAGES_API = { resized, srcset, preview, warms };
 
 if (typeof module === "object" && module.exports) {
   module.exports = IMAGES_API;

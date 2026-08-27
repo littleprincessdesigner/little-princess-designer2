@@ -203,9 +203,19 @@
 
     if (!doc.getElementById("lp-behaviour")) {
       win.LP_NO_AUTOBOOT = true;
+      // shared.js before app.js — app.js reads window.LPShared for money and the
+      // WhatsApp order message. `async = false` keeps dynamically-inserted
+      // scripts in insertion order; app.js also carries inline fallbacks, so a
+      // slow or missing shared.js only costs the shared copy, never the preview.
+      var base = doc.createElement("script");
+      base.src = "/shared.js";
+      base.async = false;
+      (doc.head || doc.documentElement).appendChild(base);
+
       var tag = doc.createElement("script");
       tag.id = "lp-behaviour";
       tag.src = "/app.js";
+      tag.async = false;
       (doc.head || doc.documentElement).appendChild(tag);
     }
     // The script may already be in flight from an earlier render. Poll briefly

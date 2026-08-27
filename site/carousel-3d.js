@@ -15,12 +15,10 @@ class Carousel3D extends HTMLElement {
     if (this._built) return;
     this._built = true;
 
-    if (!document.getElementById('carousel-3d-css')) {
-      const st = document.createElement('style');
-      st.id = 'carousel-3d-css';
-      st.textContent = 'carousel-3d{display:block;position:relative;overflow:hidden;perspective:1000px;transform-style:preserve-3d;cursor:grab;touch-action:pan-y}carousel-3d:active{cursor:grabbing}';
-      document.head.appendChild(st);
-    }
+    // The host's own box (block, relative, perspective, grab cursor, height) is
+    // in site/styles.css — which every page that renders a <carousel-3d> loads,
+    // and which the admin preview registers — so it is not re-injected here. The
+    // per-face transforms below stay in this element's shadow sheet.
 
     this._rot = 0;
     this._vel = 0;

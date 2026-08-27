@@ -30,6 +30,16 @@ const images = (typeof require === "function")
   ? require("./images")
   : (typeof LPImages !== "undefined" ? LPImages : null);
 
+/**
+ * `money`, `waLink` and the WhatsApp order message (`tools/shared.js`) — the
+ * helpers this file and `site/app.js` both use, so the price and the order link
+ * a card writes match the ones app.js rebuilds as the size changes. Same
+ * Node-or-window load as `images` above; the admin loads shared.js first.
+ */
+const shared = (typeof require === "function")
+  ? require("./shared")
+  : (typeof LPShared !== "undefined" ? LPShared : null);
+
 const ESC = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ESC[c]);
 
@@ -54,7 +64,7 @@ const safeHref = url => {
   return SAFE_SCHEMES.includes(scheme[1]) ? esc(raw) : "#";
 };
 
-const money = n => "PKR " + Number(n).toLocaleString("en-US");
+const money = shared.money;
 
 /* --- shared image frame ------------------------------------------------- */
 
@@ -189,13 +199,15 @@ ${frame(p.images[0] ? { src: p.images[0].src, alt } : null, { placeholder: "Phot
  * `tools/content.js` out of files that are already complete and valid. The
  * preview panel has neither luxury: it is handed whatever is in the form at
  * this keystroke, which for a new piece means no name, no sizes and no photo.
- * So this is content.js's product-shaping rules again (tools/content.js:256-295
- * — same filters, same order, same minimum), rewritten to bend rather than
- * break when a field is not filled in yet.
+ * So this is content.js's product-shaping rules again — same filters, same
+ * order, same minimum — rewritten to bend rather than break when a field is not
+ * filled in yet.
  *
  * It lives here, next to the card, for the same reason the card is here: the
  * two have to agree, and `npm test` can only check that if both are reachable
  * from Node.
+ *
+ * MIRRORED: tools/content.js load() size/price pipeline — kept in step by tools/test.js
  *
  * `catalogue` is the parsed `/data/products.json` the build already writes.
  * It supplies the canonical size order and the readable subcategory name.
@@ -283,11 +295,12 @@ function fromCmsEntry(data, catalogue) {
 }
 
 /**
- * The same rule the build applies to a photo address (`normaliseSrc` in
- * tools/content.js): absolute addresses pass through, anything else is forced
- * root-relative. Repeated rather than shared because content.js is Node-only —
- * it reads the content directory — and this file has to run in a browser. It is
- * three lines, and `npm test` checks the two against each other.
+ * The same rule the build applies to a photo address: absolute addresses pass
+ * through, anything else is forced root-relative. Repeated rather than shared
+ * because content.js is Node-only — it reads the content directory — and this
+ * file has to run in a browser. It is three lines.
+ *
+ * MIRRORED: tools/content.js normaliseSrc — kept in step by tools/test.js
  */
 function normaliseSrc(src) {
   if (/^(https?:)?\/\//i.test(src) || /^data:/i.test(src) || src.startsWith("/")) return src;
@@ -345,9 +358,7 @@ const svg = (body, { size = 24, stroke = "currentColor", width = 1.6, viewBox = 
 
 /* --- the product page's own block ---------------------------------------- */
 
-const waLink = (num, text) =>
-  "https://wa.me/" + String(num).replace(/[^0-9]/g, "") +
-  (text ? "?text=" + encodeURIComponent(text) : "");
+const waLink = shared.waLink;
 
 /**
  * The three views a gallery is laid out for. A piece with fewer photos still
@@ -401,11 +412,12 @@ function productDetail(p, s) {
   // WhatsApp button is still there to ask about it. No data-wa-order attribute,
   // so app.js leaves this alone while it carries on repricing.
   const soldOut = p.badge === "Sold out";
+  // The message text is shared.waOrderMessage — the same builder app.js calls
+  // to rewrite this link when the size or the accessory tick-box changes.
   const orderCta = soldOut
     ? `<span class="lp-wa lp-wa--off" aria-disabled="true">Currently unavailable</span>`
     : `<a class="lp-wa" target="_blank" rel="noopener" href="${safeHref(waLink(s.whatsappNumber,
-  "Hello Little Princess Designer, I'd like to order:\n" + p.name +
-  "\nSize: " + first.size + "\nMatching accessory: no\nTotal shown: " + money(first.price)))}" data-wa-order>
+  shared.waOrderMessage({ name: p.name, size: first.size, accessory: false, total: first.price })))}" data-wa-order>
 ${svg(ICON.waFilled, { size: 20, viewBox: "0 0 32 32", stroke: "none", width: 0 })}
 Order on WhatsApp</a>`;
 
@@ -496,10 +508,12 @@ ${orderCta}
  * can resolve empty — leaving a piece and its section both blank is two clicks
  * in the admin, and the live page falls back rather than showing a gap.
  *
- * This is `nonEmpty()` from tools/content.js:145 applied to the same fields in
- * the same order. It is repeated rather than shared because content.js reads
- * the content directory and cannot run in a browser; `npm test` checks the two
- * against each other on the same input.
+ * This is `nonEmpty()` from tools/content.js applied to the same fields in the
+ * same order. It is repeated rather than shared because content.js reads the
+ * content directory and cannot run in a browser.
+ *
+ * MIRRORED: tools/content.js nonEmpty + the product wording cascade in load()
+ *           — kept in step by tools/test.js
  */
 function firstNonEmpty(...vals) {
   for (const v of vals) if (typeof v === "string" && v.trim()) return v.trim();
@@ -537,9 +551,8 @@ function applyWording(data, sub, settings) {
  * whichever loads second.
  */
 const CARD_API = {
-  esc, safeHref, money, frame, IMG_SIZES, priceBlock, productCard,
-  svg, ICON, waLink, productDetail, applyWording,
-  fromCmsEntry, findSubcategory
+  esc, safeHref, money, frame, IMG_SIZES, productCard,
+  svg, ICON, waLink, productDetail, applyWording, fromCmsEntry
 };
 
 if (typeof module === "object" && module.exports) {
