@@ -1,0 +1,25 @@
+{
+  "badge": "",
+  "name": "minnie mouse tutu skirt",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 33
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640938.jpg?updatedAt=1787688444110"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640940%20(1).jpg"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000640938.jpg?updatedAt=1787688444110",
+  "subcategory": "girls-theme-dresses",
+  "addedOn": "2026-08-28T00:42:00.000+05:00"
+}
