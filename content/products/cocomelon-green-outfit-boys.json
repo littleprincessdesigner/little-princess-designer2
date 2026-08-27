@@ -1,0 +1,25 @@
+{
+  "badge": "",
+  "name": "cocomelon green outfit boys",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 44
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641076%20(1).jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641075%20(1).jpg"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000641076%20(1).jpg",
+  "subcategory": "boys-theme-dresses",
+  "addedOn": "2026-08-28T01:32:00.000+05:00"
+}
