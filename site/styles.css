@@ -8,9 +8,15 @@
 
 /* --- 1. Global ----------------------------------------------------------- */
 
-html{font-size:16px;overflow-anchor:none;scroll-behavior:smooth}
+/* Without this, a box's padding and border add to its declared width instead
+   of eating into it — several rules below pair `width:100%` with padding on
+   purpose, trusting this reset to keep that box from running wider than its
+   container. Missing it is what let the page scroll sideways on phones. */
+*,*::before,*::after{box-sizing:border-box}
+
+html{font-size:16px;overflow-anchor:none;scroll-behavior:smooth;overflow-x:hidden}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--paper-050);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper-050);-webkit-text-size-adjust:100%;overflow-x:hidden}
 :root{--gutter-page:2.5rem;--width-container:73.75rem}
 
 a{color:var(--text-link);text-decoration:none}
@@ -64,6 +70,11 @@ img{max-width:100%}
 .lp-logo img{height:56px;width:auto;transition:height 260ms cubic-bezier(.2,.8,.3,1)}
 
 .lp-nav{flex:1 1 320px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+/* Groups the search, menu and Instagram buttons so they move as one unit —
+   see the phone tier below, where a single `margin-left:auto` on this wrapper
+   is what pins all three to the right edge regardless of whether the search
+   button happens to be hidden (it starts `hidden` until app.js reveals it). */
+.lp-hdr-icons{display:flex;align-items:center;gap:var(--space-3);flex:0 0 auto}
 .lp-navlink{
   font:var(--weight-bold) 1rem/1 var(--font-ui);
   padding:0.75rem 1.1rem;
@@ -88,7 +99,11 @@ img{max-width:100%}
    behavior to override, unlike <details> — so desktop needs no override at
    all: .lp-nav is never nested inside anything now, it is exactly the same
    direct child of .lp-hdr it always was, with its original, untouched CSS
-   below (line ~66) still the only rule governing it above phone width. */
+   above still the only rule governing it above phone width. The toggle
+   label, the close (×) label inside the nav, and the full-screen scrim label
+   are three more `for="lp-nav-check"` controls on the same checkbox — a
+   label does not need to sit next to its checkbox to work, so each can live
+   wherever the markup needs it. All three are no-ops above phone width. */
 .lp-nav-check{
   position:absolute;opacity:0;width:1px;height:1px;
   margin:-1px;overflow:hidden;pointer-events:none;
@@ -106,16 +121,19 @@ img{max-width:100%}
 .lp-burger::before,.lp-burger::after{content:"";position:absolute;left:0}
 .lp-burger::before{top:-6px}
 .lp-burger::after{top:6px}
+.lp-nav-x,.lp-nav-scrim{display:none}
 
 .lp-igbtn{
   flex:0 0 auto;width:3.25rem;height:3.25rem;border-radius:999px;
   border:2px solid #7C2447;background:#A43462;
   display:flex;align-items:center;justify-content:center;
   box-shadow:0 2px 0 #7C2447;
-  /* Size and paint animate; POSITION must not. On phones this button is placed
-     by `margin-left:auto`, and animating margin makes the browser slide it from
-     the left edge across to the right every time the header minimises — which
-     reads as the icon flashing on the wrong side. */
+  /* Size and paint animate; POSITION must not. On phones this button sits
+     inside .lp-hdr-icons, whose `margin-left:auto` places the group — margin
+     is deliberately left off this list, since animating it would make the
+     browser slide the button from the left edge across to the right every
+     time the header minimises, which reads as the icon flashing on the
+     wrong side. */
   transition:width 260ms cubic-bezier(.2,.8,.3,1),height 260ms cubic-bezier(.2,.8,.3,1),
              opacity 200ms ease,visibility 260ms,filter 140ms ease,transform 140ms ease;
 }
@@ -881,8 +899,15 @@ carousel-3d{
 }
 .lp-footer img{height:64px;width:auto}
 .lp-footer .lp-eyebrow{color:var(--text-muted);margin-bottom:var(--space-3)}
+/* A grid item's default min-width is auto, not 0 — it will not shrink past
+   its content's own min-content size. The Contact column's email address is
+   one unbroken word, so without this the column (and the whole grid) was
+   forced wider than the viewport on phones to fit it, and the page scrolled
+   sideways. Pairs with `overflow-wrap` below, which lets that word actually
+   break once the column is allowed to shrink. */
+.lp-footcol{min-width:0}
 .lp-footcol > div{display:grid;gap:var(--space-2)}
-.lp-footer a{font:var(--type-small);color:var(--ink-800)}
+.lp-footer a{font:var(--type-small);color:var(--ink-800);overflow-wrap:anywhere}
 .lp-footer a:hover{color:var(--berry-900)}
 .lp-footbottom{
   border-top:1px solid var(--border-soft);
@@ -919,60 +944,94 @@ carousel-3d{
 /* --- 18. Phone -------------------------------------------------------- */
 
 @media (max-width:768px){
-  /* Header: logo centred on its own row, then ONE row shared by the nav pills
-     and the Instagram button — the button is not given a row of its own.
-
-     `flex:1 1 0` on the nav is what makes them share it. With `flex-basis:auto`
-     the nav's hypothetical size is its max-content width — all six pills side
-     by side, far wider than a phone — so it claimed a whole flex line before
-     the button was even considered, and the button wrapped onto a third row.
-     A zero basis keeps the nav out of that line-breaking decision; it then
-     takes whatever width is left beside the button and wraps its pills
-     internally. */
+  /* Header: logo centred on its own row, then ONE row shared by the search,
+     menu and Instagram buttons — grouped in .lp-hdr-icons so they move, size
+     and stay pinned to the right edge as a single unit (see below). */
   .lp-hdr{gap:0.4rem;align-items:flex-start}
   .lp-logo{width:auto;flex:1 1 100%;justify-content:center;order:0}
   .lp-logo img{height:2.9rem}
-  /* The toggle is a small fixed-size button, not a space-filling row like the
-     inline nav used to be — flex:0 0 auto is enough, none of the flex-basis
-     reasoning the old .lp-nav rule needed still applies. */
-  .lp-nav-toggle{order:1;display:flex}
-  /* Closed by default on phones; the checked checkbox (toggled by clicking
-     the label above) is what reveals it — see .lp-nav-check:checked below.
-     Opens as a full-width panel anchored to .lp-header (position:sticky, the
-     nearest positioned ancestor) rather than pushing the header row's own
-     height — app.js measures the header's height into --lp-header for the
-     home page's sticky hero, and an absolutely positioned dropdown can never
-     disturb that measurement the way growing the row in place would. */
-  .lp-nav{
-    display:none;
-    position:absolute;left:0;right:0;top:100%;
-    flex-direction:column;align-items:stretch;justify-content:flex-start;
-    gap:7px;padding:0.75rem var(--gutter-page) 1rem;
-    background:var(--paper-000);border-bottom:2px solid var(--border-soft);
-    box-shadow:var(--shadow-md);
-  }
-  .lp-nav-check:checked ~ .lp-nav{display:flex}
-  .lp-navlink{padding:0.7rem 0.95rem;font-size:0.97rem}
-  .lp-igbtn{
-    order:2;margin-left:auto;align-self:flex-start;margin-top:0;
-    width:2.75rem;height:2.75rem;
-  }
+  /* `margin-left:auto` on the wrapper — not on any one button inside it — is
+     what pins the trio to the right edge. That way it holds regardless of
+     which of the three happen to be in the DOM at the time (the search
+     button starts `hidden` until app.js reveals it), instead of relying on
+     whichever button happens to render first. */
+  .lp-hdr-icons{margin-left:auto;gap:0.4rem}
+  .lp-searchbtn,.lp-igbtn{width:2.75rem;height:2.75rem}
+  .lp-igbtn{margin:0}
   .lp-igbtn svg{width:1.5rem;height:1.5rem}
+  .lp-nav-toggle{display:flex}
+  /* Closed by default on phones; the checked checkbox (toggled by clicking
+     the burger, the × inside the panel, or the scrim behind it) is what
+     reveals it — see .lp-nav-check:checked below. A full-height panel
+     anchored to the right edge, sliding in under the sticky header — the
+     same drawer language as the filters panel (.lp-panel/.lp-scrim)
+     elsewhere on the site. It stays in the DOM at all times (never
+     `display:none`) so the transform can animate it, and the checkbox is
+     what drives that with no JavaScript needed at all. `top` follows
+     --lp-header (the same custom property .lp-sticky reads) so the panel
+     starts right under the header rather than over it.
+
+     Height is `calc(100vh - ...)`, not `bottom:0` — .lp-header's own
+     backdrop-filter makes it the containing block for this fixed-position
+     child (backdrop-filter does that, same as filter or transform), and
+     .lp-header's own box is only as tall as the header bar, not the whole
+     page. `bottom:0` was resolving against that short box, not the
+     viewport, and the panel rendered as a 28px sliver. `vh` is measured
+     against the real viewport regardless of containing block, so it is not
+     affected. Same `vh`-then-`svh` fallback as .lp-sticky above, and the
+     same reason: it has to be @supports, not two plain declarations —
+     that trick does not survive going through a var(). */
+  .lp-nav{
+    position:fixed;top:var(--lp-header,78px);right:0;
+    height:calc(100vh - var(--lp-header,78px));
+    width:min(300px,80vw);
+    flex-direction:column;align-items:stretch;justify-content:flex-start;
+    gap:7px;padding:1rem 1.1rem;
+    background:var(--paper-000);border-left:2px solid var(--border-soft);
+    box-shadow:var(--shadow-lg);
+    z-index:45;overflow-y:auto;
+    transform:translateX(105%);
+    transition:transform 240ms cubic-bezier(.2,.8,.3,1);
+  }
+  @supports (height:1svh){
+    .lp-nav{height:calc(100svh - var(--lp-header,78px))}
+  }
+  .lp-nav-check:checked ~ .lp-nav{transform:translateX(0)}
+  .lp-nav-x{
+    display:flex;align-self:flex-end;cursor:pointer;
+    width:2.25rem;height:2.25rem;border-radius:999px;flex:0 0 auto;
+    border:2px solid var(--berry-300);background:var(--paper-050);
+    align-items:center;justify-content:center;margin-bottom:4px;
+  }
+  .lp-navlink{padding:0.7rem 0.95rem;font-size:0.97rem}
+  /* Dims the page behind the open panel; tapping it closes the panel, same
+     as tapping outside .lp-panel does — another `for="lp-nav-check"` label,
+     so no JavaScript is needed for that either. `top:0;height:100vh`, not
+     `inset:0` — same containing-block reasoning as .lp-nav just above: `inset`
+     would resolve `bottom:0` against .lp-header's own short box, leaving a
+     sliver of scrim instead of covering the page. */
+  .lp-nav-scrim{
+    display:block;position:fixed;top:0;left:0;right:0;height:100vh;z-index:44;
+    background:rgba(34,36,31,.42);
+    opacity:0;pointer-events:none;transition:opacity 200ms ease;
+  }
+  @supports (height:1svh){
+    .lp-nav-scrim{height:100svh}
+  }
+  .lp-nav-check:checked ~ .lp-nav-scrim{opacity:1;pointer-events:auto}
 
   .lp-header[data-min="1"] .lp-hdr{padding:0.2rem var(--gutter-page);gap:0.15rem}
   .lp-header[data-min="1"] .lp-logo img{height:1.9rem}
-  .lp-header[data-min="1"] .lp-nav{gap:5px}
   .lp-header[data-min="1"] .lp-navlink{padding:0.4rem 0.65rem;font-size:0.85rem}
   /* The Instagram button folds away once the header minimises, leaving the
      shrunk header as just the logo and the tabs. It is still reachable at the
      top of every page and in the footer.
 
-     It collapses IN PLACE. `margin-left:auto` is the only thing holding it
-     against the right edge, and an earlier version of this rule reset it with
-     `margin:0` — so the instant the header minimised the button snapped from
-     the right edge to the left at full size and only then faded out, over
-     there. That is the flash in the owner's screen recording. Whatever else
-     changes in this rule, never reset the margin.
+     It collapses IN PLACE — the wrapper's `margin-left:auto` keeps holding
+     the group against the right edge throughout, so collapsing just the
+     Instagram button inside it cannot cause the edge-to-edge flash an
+     earlier version of this rule once had (see the .lp-hdr-icons rule above
+     for why the margin now lives on the wrapper, not this button).
 
      `visibility` is what takes the collapsed link out of the tab order — a
      0x0 transparent anchor is still focusable, and tabbing to something a
