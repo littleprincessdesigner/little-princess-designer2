@@ -1,0 +1,25 @@
+{
+  "badge": "",
+  "name": "rapunzel costume",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 55
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640954.jpg?updatedAt=1787434164454"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.35%20PM.jpg"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000640954.jpg?updatedAt=1787434164454",
+  "subcategory": "girls-theme-dresses",
+  "addedOn": "2026-08-28T01:42:00.000+05:00"
+}
