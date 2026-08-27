@@ -37,10 +37,19 @@
     },
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000642307.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/ffff.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/fff.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/ffff.png"
     }
   ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000642304.jpg.jpeg",
   "description": "300 hb, 1200 wings and knee len",
   "subcategory": "girls-luxury-dresses",
-  "addedOn": "2026-08-20T01:50:00.000+05:00",
-  "image": "https://ik.imagekit.io/lpdlhr/1000642304.jpg.jpeg"
+  "addedOn": "2026-08-20T01:50:00.000+05:00"
 }
