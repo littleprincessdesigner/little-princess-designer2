@@ -40,22 +40,22 @@
   },
   "images": [
     {
+      "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie%20(2).jpg"
+    },
+    {
       "url": "",
       "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie%20(1).jpg",
       "alt": ""
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie.jpg"
-    },
-    {
       "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie%20(3).jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie%20(2).jpg"
     }
   ],
+  "image": "https://ik.imagekit.io/lpdlhr/pink%20faie.jpg",
   "description": "",
   "subcategory": "girls-luxury-dresses",
-  "addedOn": "2026-06-30T12:00:00.000Z",
-  "image": "https://ik.imagekit.io/lpdlhr/pink%20faie%20(1).jpg"
+  "addedOn": "2026-06-30T12:00:00.000Z"
 }
