@@ -1,0 +1,25 @@
+{
+  "badge": "",
+  "name": "pink and silver",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 55
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640932.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640934.jpg"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000640932.jpg",
+  "subcategory": "girls-casual-dresses",
+  "addedOn": "2026-08-28T18:07:00.000+05:00"
+}
