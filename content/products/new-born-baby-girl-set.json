@@ -13,16 +13,16 @@
   "accessoryPrice": 1500,
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641049.heic"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641049.jpg"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641055.heic"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641055.jpg"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641056.heic"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641056.jpg"
     }
   ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000641049.jpg",
   "subcategory": "babies-baby-sets",
-  "addedOn": "2026-08-21T15:42:00.000+05:00",
-  "image": "https://ik.imagekit.io/lpdlhr/1000641049.heic"
+  "addedOn": "2026-08-21T15:42:00.000+05:00"
 }
