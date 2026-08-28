@@ -1,0 +1,28 @@
+{
+  "badge": "",
+  "name": "black low-high",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 44
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640919.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640918.jpg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640917.jpg"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000640919.jpg",
+  "subcategory": "girls-luxury-dresses",
+  "addedOn": "2026-08-28T18:05:00.000+05:00"
+}
