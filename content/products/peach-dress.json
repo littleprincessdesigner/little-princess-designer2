@@ -35,18 +35,18 @@
   },
   "images": [
     {
+      "upload": "https://ik.imagekit.io/lpdlhr/peaches%20(1).jpg"
+    },
+    {
       "url": "",
       "upload": "https://ik.imagekit.io/lpdlhr/peaches.jpg",
       "alt": ""
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/peaches%20(1).jpg"
-    },
-    {
       "upload": "https://ik.imagekit.io/lpdlhr/peaches%20(2).jpg"
     }
   ],
-  "image": "https://ik.imagekit.io/lpdlhr/peaches.jpg",
+  "image": "https://ik.imagekit.io/lpdlhr/peaches%20(1).jpg",
   "description": "",
   "subcategory": "girls-luxury-dresses",
   "addedOn": "2026-07-01T12:00:00.000Z"
