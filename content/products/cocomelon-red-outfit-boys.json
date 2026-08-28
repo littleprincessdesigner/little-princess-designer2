@@ -13,16 +13,16 @@
   "accessoryPrice": 1500,
   "images": [
     {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640995.jpg"
+    },
+    {
       "upload": "https://ik.imagekit.io/lpdlhr/tttttttttttttt.jpg"
     },
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.39%20PM.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000640995.jpg"
     }
   ],
-  "image": "https://ik.imagekit.io/lpdlhr/tttttttttttttt.jpg",
+  "image": "https://ik.imagekit.io/lpdlhr/1000640995.jpg",
   "subcategory": "boys-theme-dresses",
   "addedOn": "2026-08-28T01:30:00.000+05:00"
 }
