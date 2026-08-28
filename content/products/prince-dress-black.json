@@ -18,13 +18,13 @@
   "accessoryPrice": 1500,
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642851.jpg.jpeg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000085413.jpg"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641018.heic"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642851.jpg.jpeg"
     }
   ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000085413.jpg",
   "subcategory": "boys-prince-dresses",
-  "addedOn": "2026-08-21T15:18:00.000+05:00",
-  "image": "https://ik.imagekit.io/lpdlhr/1000642851.jpg.jpeg"
+  "addedOn": "2026-08-21T15:18:00.000+05:00"
 }
