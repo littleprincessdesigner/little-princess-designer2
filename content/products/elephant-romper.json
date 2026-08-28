@@ -1,0 +1,22 @@
+{
+  "badge": "",
+  "name": "elephant romper",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 33
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641094%20(1).jpg"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000641094%20(1).jpg",
+  "subcategory": "babies-rompers",
+  "addedOn": "2026-08-28T18:11:00.000+05:00"
+}
