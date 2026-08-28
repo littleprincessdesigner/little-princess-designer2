@@ -1,0 +1,22 @@
+{
+  "badge": "",
+  "name": "lion ",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 44
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641032%20(2).jpg"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000641032%20(2).jpg",
+  "subcategory": "boys-theme-dresses",
+  "addedOn": "2026-08-28T15:20:00.000+05:00"
+}
