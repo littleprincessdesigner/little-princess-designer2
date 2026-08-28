@@ -14,9 +14,12 @@
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641137.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000085127.jpg"
     }
   ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000641137.jpg.jpeg",
   "subcategory": "babies-baby-sets",
-  "addedOn": "2026-08-21T16:20:00.000+05:00",
-  "image": "https://ik.imagekit.io/lpdlhr/1000641137.jpg.jpeg"
+  "addedOn": "2026-08-21T16:20:00.000+05:00"
 }
