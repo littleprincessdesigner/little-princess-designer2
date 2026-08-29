@@ -121,6 +121,43 @@ claim in this repo was confirmed that way.
   `\uXXXX` escapes: if the file is ever normalised, the raw characters become
   spaces and the code would then match every space in the structured data.
 
+## Planned: testimonials/reviews section — not built, wait for the owner
+
+The owner has not started collecting reviews yet. **Do not build this and do
+not remind the owner about it** — only start once they say they have actual
+reviews in hand. When that happens, this is the shape already agreed:
+
+1. A new "Testimonials" collection in `site/admin/config.yml`, edited the same
+   way products are: one entry per review (customer's words, optional star
+   rating, optional photo). The owner collects these over WhatsApp after a
+   delivery and pastes them in — there's no automated checkout to pull
+   reviews from.
+2. `tools/render.js`/`tools/card.js` grow a "What our customers say" block
+   (homepage is the obvious spot) that reads that collection, following the
+   existing pattern of one shared render function used by both the live
+   build and the admin preview.
+3. Once there are enough entries, add `aggregateRating` to the homepage
+   `ClothingStore` schema block (`tools/render.js`, next to `sameAs` —
+   see `s.google` below) computed from the stored ratings — this is the
+   structured-data signal search engines and AI answers actually read for
+   trust, not just decoration.
+4. Separate from this: Google Business Profile reviews (once customers leave
+   them there) show automatically on Google Search/Maps — nothing to build
+   on this site for that half, beyond the "Find us on Google" link already
+   wired in (see below).
+
+## Google Business Profile — link wired in, profile not yet public
+
+**2026-08-29** — the owner shared their Google Business Profile link
+(`https://share.google/RuMkheJ03vZxCvLc9`). It's now stored as `google` in
+`content/settings-contact.json` and flows to two places: a "Find us on
+Google" card on the contact page (`tools/render.js`'s `cards` list) and the
+homepage's `ClothingStore` schema `sameAs` array. Both fields are declared in
+`site/admin/config.yml` so the owner can change the link or its wording later
+without a code change. **Not yet verified live** — this was written and
+tested locally; confirm the contact page shows the new card and the link
+works once it deploys.
+
 ## Recent history
 
 - **2026-08-05** — DecapBridge sign-in (so helpers need no repo access), a

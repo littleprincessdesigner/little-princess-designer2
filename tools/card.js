@@ -335,6 +335,9 @@ const ICON = {
   facebook: '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>',
   tiktok: '<path d="M9 12.2a3.6 3.6 0 1 0 3.6 3.6V3.5c.4 2 2 3.4 4 3.6"></path>',
   email: '<rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="m4 7 8 6 8-6"></path>',
+  // A map pin, for the "Find us on Google" contact card — Google Business
+  // Profile reviews live on Google Maps/Search, not a page this site hosts.
+  mapPin: '<path d="M12 21s-6.5-6.2-6.5-11A6.5 6.5 0 0 1 18.5 10c0 4.8-6.5 11-6.5 11Z"></path><circle cx="12" cy="10" r="2.3"></circle>',
   crownCta: '<path d="M12 4a1.6 1.6 0 1 0-1.1 1.5L12 7l8.2 5.3a1.6 1.6 0 0 1-.9 3H4.7a1.6 1.6 0 0 1-.9-3L12 7"></path>',
   gem: '<path d="M6 4h12l3 5-9 11L3 9l3-5Z"></path><path d="M3 9h18M9 4l3 16 3-16"></path>',
   gift: '<rect x="3" y="8" width="18" height="13" rx="2"></rect><path d="M3 12h18M12 8v13"></path><path d="M12 8S9.5 3 7.5 4.5 9 8 12 8Zm0 0s2.5-5 4.5-3.5S15 8 12 8Z"></path>',

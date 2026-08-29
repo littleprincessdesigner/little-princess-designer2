@@ -412,7 +412,7 @@ ${paragraphs(s.about.body).map(p => "<p>" + inline(p) + "</p>").join("\n")}
     // Matches the shop filter's own range (renderShop's price slider,
     // min 3000 / max 100000) rather than a guessed figure.
     priceRange: "PKR 3,000 - PKR 100,000",
-    sameAs: [s.instagram, s.facebook, s.tiktok].filter(Boolean),
+    sameAs: [s.instagram, s.facebook, s.tiktok, s.google].filter(Boolean),
     foundingDate: "2015"
   };
 
@@ -647,6 +647,7 @@ function renderContact(model, siteUrl) {
     { key: "whatsapp", label: "WhatsApp", icon: ICON.waOutlineDetail, href: waLink(s.whatsappNumber), aria: "Chat with Little Princess Designer on WhatsApp" },
     { key: "facebook", label: "Facebook", icon: ICON.facebook, href: s.facebook, aria: "Little Princess Designer on Facebook" },
     { key: "tiktok", label: "TikTok", icon: ICON.tiktok, href: s.tiktok, aria: "Little Princess Designer on TikTok" },
+    { key: "google", label: "Google", icon: ICON.mapPin, href: s.google, aria: "Little Princess Designer reviews on Google" },
     { key: "email", label: "Email", icon: ICON.email, href: "mailto:" + s.email, aria: "Email Little Princess Designer" }
   ];
 

@@ -5,6 +5,7 @@
   "instagram": "https://www.instagram.com/littleprincessdesigner/",
   "facebook": "https://www.facebook.com/LittlePrincessDesigner/",
   "tiktok": "https://www.tiktok.com/@littleprincessdesigner",
+  "google": "https://share.google/RuMkheJ03vZxCvLc9",
   "contact": {
     "heading": "How to place an order",
     "stepsEyebrow": "Three steps to your order",
@@ -47,6 +48,10 @@
       "tiktok": {
         "description": "Watch the dresses in motion, @littleprincessdesigner",
         "button": "Watch on TikTok"
+      },
+      "google": {
+        "description": "See our reviews and find us on Google",
+        "button": "View on Google"
       },
       "email": {
         "description": "Ask for more information at info@littleprincessdesigner.pk",
