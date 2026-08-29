@@ -1,0 +1,25 @@
+{
+  "badge": "",
+  "name": "icrtw shirt",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 55
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20240915_121334.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20240915_121339.jpg.jpeg"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/20240915_121334.jpg.jpeg",
+  "subcategory": "boys-collection",
+  "addedOn": "2026-08-30T01:31:00.000+05:00"
+}
