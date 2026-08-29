@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "aizal dress shortt",
+  "name": "Sky Blue Blossom Gown short",
   "visible": true,
   "sizes": [
     {
@@ -20,12 +20,12 @@
     }
   ],
   "showAccessory": true,
-  "description2": "",
+  "description2": "Detailed to perfection, the airy organza flare is bordered with hand-placed pastel flower petals with pearl centers and scattered pearl droplets across the silhouette. Softly lined underneath for all-day comfort, this statement piece comes with a matching floral headband to complete the royal look.",
   "accessoryPrice": 1200,
   "specs": {
-    "fabric": "",
+    "fabric": "Organza with hand-placed pearls and 3D floral petals",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted off-shoulder bodice with supportive pearl straps and a flared organza skirt",
     "care": ""
   },
   "images": [
@@ -42,7 +42,8 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/sky%20blue%20dress.jpg?updatedAt=1786650315337",
-  "description": "",
+  "description": "A dreamy sky-blue party gown designed with an off-the-shoulder neckline, delicate pearl strap accents, and an elaborately embellished pearl bodice. The waistline is accented with soft pastel 3D floral blooms that seamlessly cascade down the voluminous flared organza skirt.",
+  "accessoryName": "Fascinator (PKR 1200)",
   "subcategory": "girls-luxury-dresses",
   "addedOn": "2026-07-31T12:00:00.000Z"
 }
