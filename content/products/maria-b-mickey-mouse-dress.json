@@ -1,0 +1,31 @@
+{
+  "badge": "",
+  "name": "maria b mickey mouse dress",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 44
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/CYMERA_20231119_114716.png"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/CYMERA_20231119_115002.png"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/CYMERA_20231119_114819.png"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/CYMERA_20231119_115425.jpg"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/CYMERA_20231119_114716.png",
+  "subcategory": "girls-theme-dresses",
+  "addedOn": "2026-08-30T01:43:00.000+05:00"
+}
