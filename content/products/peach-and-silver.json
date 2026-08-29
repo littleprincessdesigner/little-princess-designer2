@@ -10,7 +10,12 @@
     }
   ],
   "showAccessory": true,
+  "description2": "Designed to keep little ones comfy while they shine, it is fully lined with soft fabric inside so the sequins never scratch. The piece comes complete with a matching peach flower-and-pearl crown headband for an effortless, picture-perfect look.",
   "accessoryPrice": 1500,
+  "specs": {
+    "fabric": "Silver sequin body with a layered net tutu skirt",
+    "fit": "Fitted sleeveless sequin top with a fluffy, high-volume net tutu skirt"
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641034%20(1).jpg"
@@ -20,6 +25,7 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000641034%20(1).jpg",
+  "description": "A show-stopping party dress featuring an all-over shimmering silver sequin bodice paired with a playful, high-volume peach net tutu skirt. The waistline is accented with a delicate peach 3D floral corsage that ties the sparkling silver and soft pastel tones together beautifully.",
   "accessoryName": "placerholder",
   "subcategory": "girls-tutu-dresses",
   "addedOn": "2026-08-28T18:09:00.000+05:00"
