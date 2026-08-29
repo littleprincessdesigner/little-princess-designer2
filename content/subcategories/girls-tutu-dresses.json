@@ -1,5 +1,9 @@
 {
   "order": 100,
   "name": "Tutu Dresses",
-  "parent": "girls"
+  "parent": "girls",
+  "defaultSpecs": {
+    "occasion": "Birthday parties, dance shows, and wedding celebrations",
+    "care": "Hand wash gently in cold water; finger-comb and hang to keep the tulle fluffy"
+  }
 }
