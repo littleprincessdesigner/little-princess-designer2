@@ -1,0 +1,25 @@
+{
+  "badge": "",
+  "name": "baby shark pink tutu",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 66
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641092%20(1).jpg?updatedAt=1788030606020"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641093%20(1).jpg?updatedAt=1788030607317"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000641092%20(1).jpg?updatedAt=1788030606020",
+  "subcategory": "girls-theme-dresses",
+  "addedOn": "2026-08-30T01:04:00.000+05:00"
+}
