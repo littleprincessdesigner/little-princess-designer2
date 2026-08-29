@@ -1,0 +1,28 @@
+{
+  "badge": "",
+  "name": "golden pricne dress",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 44
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20240915_115751.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20240915_115756.jpg.jpeg"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20240915_115759.jpg.jpeg"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/20240915_115751.jpg.jpeg",
+  "subcategory": "boys-prince-dresses",
+  "addedOn": "2026-08-30T01:25:00.000+05:00"
+}
