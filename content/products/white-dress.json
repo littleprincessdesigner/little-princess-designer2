@@ -1,0 +1,28 @@
+{
+  "badge": "",
+  "name": "white dress",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 55
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641015%20(1).jpg?updatedAt=1788030605008"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641013%20(1).jpg?updatedAt=1788030605614"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641014%20(1).jpg?updatedAt=1788030605579"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000641015%20(1).jpg?updatedAt=1788030605008",
+  "subcategory": "girls-casual-dresses",
+  "addedOn": "2026-08-30T00:08:00.000+05:00"
+}
