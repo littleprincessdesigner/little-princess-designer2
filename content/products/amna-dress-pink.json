@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "amna dress pink",
+  "name": "Pink Enchanted Garden Butterfly Dress",
   "visible": true,
   "sizes": [
     {
@@ -25,15 +25,21 @@
     }
   ],
   "showAccessory": true,
-  "description2": "",
+  "description2": "Made for birthday fun and celebrations. The airy net flare gives it a lively princess look while keeping it light and breezy to twirl in. ",
   "accessoryPrice": 700,
   "specs": {
-    "fabric": "",
+    "fabric": "Soft net with 3D floral decorations, golden butterfly motifs, and pearl embellishments",
     "occasion": "",
-    "fit": "",
+    "fit": "Comfortable round-neck body with ruffled sleeves and a full, net skirt",
     "care": ""
   },
   "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/amna%20dress%20(1).jpg?updatedAt=1786647640264"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/amna%20dress%20(2).jpg?updatedAt=1786647641439"
+    },
     {
       "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_184153_WhatsAppBusiness.jpg.jpeg"
     },
@@ -44,16 +50,11 @@
       "url": "",
       "upload": "https://ik.imagekit.io/lpdlhr/amna%20dress.jpg?updatedAt=1786647604782",
       "alt": ""
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/amna%20dress%20(1).jpg?updatedAt=1786647640264"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/amna%20dress%20(2).jpg?updatedAt=1786647641439"
     }
   ],
-  "description": "",
+  "image": "https://ik.imagekit.io/lpdlhr/amna%20dress%20(1).jpg?updatedAt=1786647640264",
+  "description": "A bright rose-pink party frock designed with a fluffy, layered net skirt and charming flutter shoulder details. A lush diagonal cascade of colorful 3D flowers, golden butterflies, and shimmering crystal and pearl accents flows across the body down into the skirt.",
+  "accessoryName": "Headband (PKR 700)",
   "subcategory": "girls-luxury-dresses",
-  "addedOn": "2026-07-03T12:00:00.000Z",
-  "image": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_184153_WhatsAppBusiness.jpg.jpeg"
+  "addedOn": "2026-07-03T12:00:00.000Z"
 }
