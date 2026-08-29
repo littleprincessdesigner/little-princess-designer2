@@ -1,0 +1,31 @@
+{
+  "badge": "",
+  "name": "purple flowy sleeves",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 44
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641037%20(1).jpg?updatedAt=1788030606840"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641040%20(1).jpg?updatedAt=1788030609298"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641044%20(1).jpg?updatedAt=1788030609385"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000083564%20(1).jpg?updatedAt=1788030606421"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000641037%20(1).jpg?updatedAt=1788030606840",
+  "subcategory": "girls-luxury-dresses",
+  "addedOn": "2026-08-30T01:02:00.000+05:00"
+}
