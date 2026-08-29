@@ -1,41 +1,36 @@
 {
   "badge": "",
-  "name": "aizal dress",
+  "name": "Aizal Blue dress",
   "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 12400,
+      "price": 25000,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 13300,
+      "price": 28000,
       "available": true
     },
     {
       "size": "7–9 years",
-      "price": 14200,
+      "price": 32000,
       "available": true
     },
     {
       "size": "10–12 years",
-      "price": 15100,
-      "available": true
-    },
-    {
-      "size": "13–16 years",
-      "price": 16000,
+      "price": 39000,
       "available": true
     }
   ],
   "showAccessory": true,
-  "description2": "",
-  "accessoryPrice": 1500,
+  "description2": "The entire hem and train are richly decorated with soft pastel 3D floral petals, each accented with a glowing pearl center. Fully lined with a soft underlayer to ensure a smooth and comfortable fit, this gown is made to create an unforgettable fairy tale entrance.",
+  "accessoryPrice": 1400,
   "specs": {
-    "fabric": "",
+    "fabric": "Organza with hand-embellished pearl upper body and 3D flower petals",
     "occasion": "",
-    "fit": "",
+    "fit": "Off-shoulder upper body with pearl straps, waist ruffle, and trailing skirt",
     "care": ""
   },
   "images": [
@@ -58,7 +53,8 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000053528.jpg",
-  "description": "",
+  "description": "A majestic sky-blue royal ballgown crafted with an off-the-shoulder neckline, delicate pearl shoulder straps, and a heavily embellished pearl upper body. A sculpted, wavy peplum ruffle sits at the waist, leading into a grand, flared organza skirt that extends into an exquisite sweeping floor train.",
+  "accessoryName": "Head band (PKR 1400)",
   "subcategory": "girls-luxury-dresses",
   "addedOn": "2026-07-18T12:00:00.000Z"
 }
