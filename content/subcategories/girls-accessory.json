@@ -1,5 +1,9 @@
 {
   "order": 100,
   "name": "Accessory",
-  "parent": "girls"
+  "parent": "girls",
+  "defaultSpecs": {
+    "occasion": "Parties, weddings, events, photo shoots, and styling everyday outfits",
+    "care": "Wipe with a soft dry cloth; store flat away from moisture and heavy pressur"
+  }
 }
