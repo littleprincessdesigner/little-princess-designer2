@@ -11,6 +11,15 @@
   ],
   "showAccessory": true,
   "accessoryPrice": 500,
+  "accessoryName": "Crown (PKR 500)",
+  "description": "A first tooth tutu skirt set for baby's first tooth milestone. The cotton shirt has a tooth design that can be customized with your baby's name, paired with a pink net tutu skirt.",
+  "description2": "The net skirt is soft and full, giving it a sweet, girly shape.",
+  "specs": {
+    "fabric": "Cotton shirt with a soft net tutu skirt",
+    "occasion": "",
+    "fit": "Relaxed fit shirt with a full, flared tutu skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260820_001735_Instagram.jpg.jpeg"
