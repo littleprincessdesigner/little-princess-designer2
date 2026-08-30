@@ -1,30 +1,45 @@
 {
-  "badge": "",
-  "name": "cotton candy dress",
-  "visible": true,
-  "sizes": [
+  "name": "Cotton Candy Tutu Dress",
+  "images": [
     {
-      "available": true,
-      "size": "0–3 years",
-      "price": 7500
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640955.jpg",
+      "url": "",
+      "alt": ""
     },
     {
-      "available": true,
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640961.jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000640955.jpg",
+  "subcategory": "girls-tutu-dresses",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-19T01:36:00.000+05:00",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 7500,
+      "salePrice": null,
+      "available": true
+    },
+    {
       "size": "4–6 years",
-      "price": 9500
+      "price": 9500,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": true,
+  "accessoryName": "Birthday Hat (PKR 1000)",
   "accessoryPrice": 1000,
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000640955.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000640961.jpg"
-    }
-  ],
-  "subcategory": "girls-luxury-dresses",
-  "addedOn": "2026-08-19T01:36:00.000+05:00",
-  "image": "https://ik.imagekit.io/lpdlhr/1000640955.jpg"
+  "description": "A vibrant cotton candy-themed tutu dress with a shimmering sequin upper body, designed in a knee-length style. Ruffled flutter shouldes style.",
+  "description2": "The skirt is a fluffy mix of pink and purple net tutu layers for volume and bouncy shape.",
+  "specs": {
+    "fabric": "Sequin upper body with a layered net tutu skirt",
+    "occasion": "",
+    "fit": "Fitted sequin upper body with a flared skirt",
+    "care": ""
+  }
 }
