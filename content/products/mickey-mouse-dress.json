@@ -1,47 +1,61 @@
 {
-  "badge": "",
   "name": "mickey mouse dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/mky%20ms%20dress%20(1).jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/mky%20ms%20dress%20(10).jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2010.57.17%20PM.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2010.57.07%20PM.jpeg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/mky%20ms%20dress%20(1).jpg",
+  "subcategory": "ready-to-wear",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-07-19T12:00:00.000Z",
   "sizes": [
     {
       "size": "0–3 years",
       "price": 6500,
-      "available": true,
-      "salePrice": ""
+      "salePrice": null,
+      "available": true
     },
     {
       "size": "4–6 years",
       "price": 20300,
-      "available": true,
-      "salePrice": 7500
+      "salePrice": 7500,
+      "available": true
     },
     {
-      "available": true,
       "size": "7–9 years",
-      "price": 8500
+      "price": 8500,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": false,
-  "description2": "",
+  "accessoryName": "",
   "accessoryPrice": 1500,
+  "description": "full len, cotton  shirt, silk frock",
+  "description2": "",
   "specs": {
     "fabric": "",
     "occasion": "",
     "fit": "",
     "care": ""
-  },
-  "images": [
-    {
-      "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/mky%20ms%20dress%20(1).jpg",
-      "alt": ""
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/mky%20ms%20dress%20(10).jpg"
-    }
-  ],
-  "description": "full len, cotton  shirt, silk frock",
-  "subcategory": "ready-to-wear",
-  "addedOn": "2026-07-19T12:00:00.000Z",
-  "image": "https://ik.imagekit.io/lpdlhr/mky%20ms%20dress%20(1).jpg"
+  }
 }
