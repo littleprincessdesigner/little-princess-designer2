@@ -1,45 +1,51 @@
 {
-  "badge": "",
   "name": "red and gold dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(4).jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(3).jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(4).jpg",
+  "subcategory": "girls-tutu-dresses",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-07-14T12:00:00.000Z",
   "sizes": [
     {
       "size": "0–3 years",
       "price": 11400,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "4–6 years",
       "price": 12300,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "7–9 years",
       "price": 13200,
+      "salePrice": null,
       "available": true
     }
   ],
   "showAccessory": true,
-  "description2": "",
+  "accessoryName": "",
   "accessoryPrice": 1500,
+  "description": "",
+  "description2": "",
   "specs": {
     "fabric": "",
     "occasion": "",
     "fit": "",
     "care": ""
-  },
-  "images": [
-    {
-      "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(4).jpg",
-      "alt": ""
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(3).jpg"
-    }
-  ],
-  "description": "",
-  "subcategory": "girls-luxury-dresses",
-  "addedOn": "2026-07-14T12:00:00.000Z",
-  "image": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(4).jpg"
+  }
 }
