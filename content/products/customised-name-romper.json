@@ -1,0 +1,39 @@
+{
+  "name": "customised name romper",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20241125_170601.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20241125_170556.jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/20241125_170601.jpg",
+  "subcategory": "babies-rompers",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-31T00:01",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 44,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": true,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "",
+  "description2": "",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
