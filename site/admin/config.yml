@@ -106,12 +106,15 @@ collections:
     # every save (photo fields are plain address boxes now, which the CMS does
     # not recognise as pictures on their own).
     thumbnail: image
-    # The only collection with a preview pane. It draws the real product page —
-    # the same tools/card.js the live site is built with — so a piece can be
-    # checked before it is published. The wiring is in site/admin/preview.js;
-    # setting this to false switches the pane off and leaves the rest working.
+    # Preview pane OFF (2026-08-30). site/admin/preview.js draws the real
+    # product page — the same tools/card.js the live site is built with — but
+    # under Sveltia the pane was destabilising the editor form: adding a row to
+    # Photos or Sizes was wiping the entry. Turned off until the custom preview
+    # is debugged against Sveltia in a real browser. Everything else works with
+    # it off; flip back to true to re-test. preview.js and its <script> tags in
+    # index.html are left in place so re-enabling is a one-line change.
     editor:
-      preview: true
+      preview: false
     view_filters:
       - label: "Live on the website"
         field: visible
