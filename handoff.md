@@ -114,10 +114,12 @@ before any code changed:
    live site's image pipeline (`tools/images.js`) is untouched — every existing
    photo URL still works. Cloudinary (which Sveltia *does* have a picker for) is
    the noted upgrade path if the paste step annoys.
-3. **Preview panel.** `site/admin/preview.js` used Decap's React preview API,
-   which Sveltia does not reliably support. Chosen: **Sveltia's built-in
-   preview.** `preview.js` and `imagekit.js` were deleted; the admin copies of
-   `shared.js`/`images.js`/`card.js` are no longer built.
+3. **Preview panel.** `site/admin/preview.js` uses Decap's React preview API.
+   First dropped for Sveltia's built-in preview; the owner then asked for the
+   full product-page preview back (2026-08-30). It was restored and adapted for
+   Sveltia: broader `h` lookup, a note that Sveltia only makes the preview pane
+   an iframe once `registerPreviewStyle` is called (which this file does), and
+   graceful degradation at every step. `imagekit.js` stays deleted.
 
 Also: the `<style>` skin in `index.html` was dropped (Sveltia's Svelte UI can't
 be re-skinned — it has its own themed UI with dark mode); `local_backend` and
@@ -126,10 +128,15 @@ File System Access API instead); `auth:` and the DecapBridge `commit_messages`
 wording were removed.
 
 **Still to do before this is live:** owner completes `docs/CMS-SETUP.md` steps
-1–4, we test sign-in + a save on the branch preview deploy, then merge. After
-merge, `tile-photo.js`'s `preSave` hook and the `thumbnail: image` collection
-option need a real check in the browser — both are best-effort and the list
-view works without them.
+1–4, we test sign-in + a save on the branch preview deploy, then merge. Three
+things are best-effort and need a real browser check on the preview deploy —
+all degrade to "still usable", none block a merge:
+  - `preview.js` — does Sveltia expose `h`? does the preview iframe run the
+    injected `/app.js` (interactive size/accessory recompute) or only render
+    static? Static is fine; empty pane means `h` is missing and we fall back to
+    `editor.preview: false` or a static-only card.
+  - `tile-photo.js`'s `preSave` hook — worst case a blank grid thumbnail.
+  - the `thumbnail: image` collection option — same.
 
 ## Roads already found to be closed
 

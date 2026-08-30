@@ -24,7 +24,7 @@ const { waLink } = require("./card");
 const ROOT = path.join(__dirname, "..");
 const SITE = path.join(ROOT, "site");
 const DIST = path.join(ROOT, "dist");
-// This directory. tools/shared.js is copied out to dist/ from here — see the
+// This directory. The admin preview is served three files from here — see the
 // copy step below.
 const TOOLS = __dirname;
 
@@ -124,14 +124,18 @@ for (const entry of ["tokens.css", "styles.css", "app.js", "carousel-3d.js", "as
 }
 
 // 1b. build code that also has to run in a browser, so it needs an address.
-// tools/shared.js holds the money / wa.me-link / order-message helpers; it
-// lives in tools/ (required above for the build) and is copied out so there is
-// exactly one copy in the repository — every public page loads /shared.js,
-// emitted by render.js.
-// (Before the Sveltia migration, tools/shared.js, images.js and card.js were
-// also copied into dist/admin/ for Decap's custom live-preview panel. Sveltia
-// uses its own built-in preview, so those admin copies are gone.)
+// These live in tools/ (required above) and are copied out rather than kept in
+// site/ so there is exactly one copy in the repository: edit tools/card.js and
+// the site AND the admin preview panel move with it. Order matters at load time
+// (card.js reads shared.js and images.js off the window), which index.html and
+// render.js fix.
+//   · shared.js — every public page loads /shared.js (render.js emits it), and
+//     the admin preview loads /admin/shared.js, so it goes to both places.
+//   · images.js, card.js — the admin preview panel (site/admin/preview.js).
 copyRecursive(path.join(TOOLS, "shared.js"), path.join(DIST, "shared.js"));
+for (const entry of ["shared.js", "images.js", "card.js"]) {
+  copyRecursive(path.join(TOOLS, entry), path.join(DIST, "admin", entry));
+}
 
 // 2. data files — the CMS-to-site contract, also handy for any future consumer
 writeFile("data/products.json", JSON.stringify({

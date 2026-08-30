@@ -57,6 +57,22 @@
      and adding it stops the CMS loading. -->
 <script src="https://unpkg.com/@sveltia/cms@0.203.1/dist/sveltia-cms.js"></script>
 
+<!-- The live product-card preview panel, and the build files it draws the real
+     shop page with. These are copies of tools/shared.js, tools/images.js and
+     tools/card.js, placed here by the build (tools/build.js) so the browser has
+     an address for them — the originals stay in tools/, where the build
+     requires them, so there is only ever one copy in the repository.
+
+     Order matters: shared.js leaves the money/wa-link helpers on the window,
+     images.js leaves the resize table, and card.js reads both from there;
+     preview.js needs all three plus window.CMS from the script above. Plain
+     ordered <script> tags run in sequence, so this holds — don't add defer or
+     async. See site/admin/preview.js for how it plugs into Sveltia. -->
+<script src="/admin/shared.js"></script>
+<script src="/admin/images.js"></script>
+<script src="/admin/card.js"></script>
+<script src="/admin/preview.js"></script>
+
 <!-- Copies a product's first photo into the plain field the grid view reads
      its thumbnail from, on every save — see the file for why. Uses Sveltia's
      preSave event (the same API Decap exposed). -->
