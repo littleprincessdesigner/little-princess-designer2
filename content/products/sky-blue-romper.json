@@ -1,0 +1,22 @@
+{
+  "badge": "",
+  "name": "sky blue romper",
+  "visible": true,
+  "sizes": [
+    {
+      "available": true,
+      "size": "0–3 years",
+      "price": 33
+    }
+  ],
+  "showAccessory": true,
+  "accessoryPrice": 1500,
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.32%20PM.jpg"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.32%20PM.jpg",
+  "subcategory": "babies-rompers",
+  "addedOn": "2026-08-30T16:12:00.000+05:00"
+}
