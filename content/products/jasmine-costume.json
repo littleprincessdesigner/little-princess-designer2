@@ -30,18 +30,16 @@
     }
   ],
   "showAccessory": true,
-  "description2": "",
+  "description2": "The skirt is made of layered net with a gold beaded belt at the waist, giving it a full, sparkly shape.",
   "accessoryPrice": 250,
+  "accessoryName": "Headband (PKR 250)",
   "specs": {
-    "fabric": "",
+    "fabric": "Net and silk dress with a sequin body",
     "occasion": "",
-    "fit": "",
+    "fit": "Off-shoulder sequin body with a full net skirt",
     "care": ""
   },
   "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642841.jpg_mUUUzd3fb.jpeg"
-    },
     {
       "upload": "https://ik.imagekit.io/lpdlhr/jasmine%20(1).jpg"
     },
@@ -51,8 +49,8 @@
       "alt": ""
     }
   ],
-  "description": "",
+  "description": "A Jasmine-themed costume in net and silk, with a fitted sequin body and an off-shoulder bow.",
   "subcategory": "girls-theme-dresses",
   "addedOn": "2026-07-15T12:00:00.000Z",
-  "image": "https://ik.imagekit.io/lpdlhr/1000642841.jpg_mUUUzd3fb.jpeg"
+  "image": "https://ik.imagekit.io/lpdlhr/jasmine%20(1).jpg"
 }
