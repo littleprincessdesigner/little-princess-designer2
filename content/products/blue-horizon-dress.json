@@ -26,7 +26,16 @@
     }
   ],
   "showAccessory": true,
-  "accessoryPrice": 500,
+  "accessoryPrice": 350,
+  "accessoryName": "Flower Pin (PKR 350)",
+  "description": "A sky blue silk gown with an off-shoulder neckline and a beaded floral body. Pearl and flower details are scattered across the body for a delicate, sparkly look.",
+  "description2": "The lower body is made of tiered silk ruffles with flowers in between each layer, giving it a full, layered shape.",
+  "specs": {
+    "fabric": "Silk dress with a beaded floral body and a tiered skirt",
+    "occasion": "",
+    "fit": "Off-shoulder silk body with a full, tiered ruffled skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641139.jpg"
