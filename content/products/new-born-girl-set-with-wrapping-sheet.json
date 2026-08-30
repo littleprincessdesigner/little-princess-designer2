@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "new born girl set (with wrapping sheet)",
+  "name": "New Born Girl Set",
   "visible": true,
   "sizes": [
     {
@@ -11,6 +11,12 @@
   ],
   "showAccessory": false,
   "accessoryPrice": 1500,
+  "specs": {
+    "fabric": "Soft cotton with pink trim across all pieces",
+    "occasion": "",
+    "fit": "Romper, cap, mittens and socks in a relaxed newborn fit",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641137.jpg.jpeg"
@@ -20,6 +26,8 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000641137.jpg.jpeg",
+  "description": "A newborn girl set made from soft cotton, finished with pink bow and crown details. It can be customized with any name and color.",
+  "description2": "1) Wrapping sheet 2) Bib 3) Mittens 4) Socks 5) Romper 6) Cap",
   "subcategory": "babies-baby-sets",
   "addedOn": "2026-08-21T16:20:00.000+05:00"
 }

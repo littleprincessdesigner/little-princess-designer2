@@ -13,9 +13,6 @@
   "accessoryPrice": 4500,
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641063.jpg.jpeg"
-    },
-    {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641069.jpg"
     },
     {
@@ -31,7 +28,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/1000641066.jpg"
     }
   ],
-  "image": "https://ik.imagekit.io/lpdlhr/1000641063.jpg.jpeg",
+  "image": "https://ik.imagekit.io/lpdlhr/1000641069.jpg",
   "subcategory": "themed-baby-sets",
   "addedOn": "2026-08-23T02:44:00.000+05:00"
 }

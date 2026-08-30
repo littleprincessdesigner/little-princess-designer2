@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "new born baby set (urdu)",
+  "name": "Baby Set With Pillow + Cushions",
   "visible": true,
   "sizes": [
     {
@@ -11,6 +11,12 @@
   ],
   "showAccessory": false,
   "accessoryPrice": 1500,
+  "specs": {
+    "fabric": "Soft cotton with navy trim across all pieces",
+    "occasion": "",
+    "fit": "Romper, cap, mittens and socks in a relaxed newborn fit",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641133%20-%20Copy.jpg"
@@ -35,7 +41,8 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000641133%20-%20Copy.jpg",
-  "description": "with wrapping sheet and cushions\n",
+  "description": "A newborn baby set made from soft cotton, trimmed in navy with a crown design and ribbon bows.",
+  "description2": "1) Wrapping sheet 2) Cushions 3) Pillow 4) Mittens 5) Socks 6) Romper 7) Cap",
   "subcategory": "babies-baby-sets",
   "addedOn": "2026-08-21T16:44:00.000+05:00"
 }

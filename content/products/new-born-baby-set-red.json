@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "new born baby set (red)",
+  "name": "Baby Set With Pillow",
   "visible": true,
   "sizes": [
     {
@@ -11,6 +11,12 @@
   ],
   "showAccessory": false,
   "accessoryPrice": 1500,
+  "specs": {
+    "fabric": "Soft cotton with red trim across all pieces",
+    "occasion": "",
+    "fit": "Romper, cap, mittens and socks in a relaxed newborn fit",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641136.jpg.jpeg"
@@ -32,7 +38,8 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000641136.jpg.jpeg",
-  "description": "along with cushion ",
+  "description": "A newborn baby set made from soft cotton, finished with lace trim and a crown design. It can be customized in any color.",
+  "description2": "1) Wrapping sheet 2) Cap 3) Pillow 4) Mittens 5) Socks 6) Romper",
   "subcategory": "babies-baby-sets",
   "addedOn": "2026-08-21T16:27:00.000+05:00"
 }
