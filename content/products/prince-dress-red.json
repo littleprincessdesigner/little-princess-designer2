@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "prince dress (red) ",
+  "name": "Red Prince Dress (5 Piece)",
   "visible": true,
   "sizes": [
     {
@@ -16,6 +16,14 @@
   ],
   "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A red prince dress with a full sleeve uniform shirt, cuffs, and gold trim, paired with a matching red cape and belt. The name can be customized on the cape.",
+  "description2": "1) Shirt 2) Belt 3) Cape 4) Trousers 5) Crown",
+  "specs": {
+    "fabric": "Uniform shirt with silk trousers and cape",
+    "occasion": "",
+    "fit": "Full sleeve shirt with a collar and relaxed trousers",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-26%20at%208.59.32%20PM.jpeg"

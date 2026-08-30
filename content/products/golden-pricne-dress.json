@@ -1,16 +1,29 @@
 {
   "badge": "",
-  "name": "golden pricne dress",
+  "name": "Golden Prince Dress (5 Piece)",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 44
+      "price": 6200
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 6200
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A golden prince dress with a full sleeve uniform shirt, cuffs, and a collar, paired with matching gold trousers. The name can be customized on the cape.",
+  "description2": "1) Shirt 2) Belt 3) Cape 4) Trousers 5) Crown",
+  "specs": {
+    "fabric": "Uniform shirt with silk trousers and cape",
+    "occasion": "",
+    "fit": "Full sleeve shirt with a collar and relaxed trousers",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/20240915_115751.jpg.jpeg"

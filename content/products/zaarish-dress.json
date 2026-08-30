@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "zaarish dress",
+  "name": "Light Pink Floral Dress",
   "visible": true,
   "sizes": [
     {
@@ -30,12 +30,13 @@
     }
   ],
   "showAccessory": true,
-  "description2": "",
+  "description2": "The net skirt is soft and full, fading from white to pink for a delicate, dreamy look.",
   "accessoryPrice": 1200,
+  "accessoryName": "Fascinator (PKR 1200)",
   "specs": {
-    "fabric": "",
+    "fabric": "Silk body with a full net skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted silk body with a full, flared net skirt",
     "care": ""
   },
   "images": [
@@ -49,7 +50,7 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/zaarish%20dress%20(3).jpg",
-  "description": "",
+  "description": "A light pink floral dress with a silk body and a flower garland trim across the neckline.",
   "subcategory": "girls-casual-dresses",
   "addedOn": "2026-07-11T12:00:00.000Z"
 }

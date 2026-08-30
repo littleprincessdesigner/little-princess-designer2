@@ -1,16 +1,35 @@
 {
   "badge": "",
-  "name": "maria b mickey mouse dress",
+  "name": "Beaded Mickey Mouse Costume",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 44
+      "price": 19000
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 20000
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "price": 22000
     }
   ],
   "showAccessory": true,
-  "accessoryPrice": 1500,
+  "accessoryPrice": 800,
+  "accessoryName": "Hair Band and Gloves (PKR 800)",
+  "description": "A Mickey Mouse-themed costume in silk and net, with a beaded upper body and real feathers on the arms.",
+  "description2": "The lower body has 3D patches of Mickey Mouse across the net skirt.",
+  "specs": {
+    "fabric": "Silk and net dress with bead work",
+    "occasion": "",
+    "fit": "Fitted beaded body with a full net skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/CYMERA_20231119_114716.png"
