@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": " blue purple blend frock",
+  "name": "Blue Purple Blend Frock",
   "visible": true,
   "sizes": [
     {
@@ -31,6 +31,15 @@
   ],
   "showAccessory": true,
   "accessoryPrice": 1000,
+  "accessoryName": "Flower Tiara and Gloves (PKR 1000)",
+  "description": "A blue purple blend frock in net. The upper body is fully covered with 3D pastel flowers.",
+  "description2": "The net skirt fades from blue to purple, scattered with flower details for a soft, dreamy look.",
+  "specs": {
+    "fabric": "Net dress with a 3D flower bodice",
+    "occasion": "",
+    "fit": "Fitted net bodice with a full, flared skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260820_000757_Instagram.jpg.jpeg?updatedAt=1787174643764"
@@ -46,9 +55,6 @@
     },
     {
       "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260820_000817_Instagram.jpg.jpeg?updatedAt=1787174643200"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260820_000900_Instagram.jpg.jpeg?updatedAt=1787174643153"
     }
   ],
   "subcategory": "girls-luxury-dresses",
