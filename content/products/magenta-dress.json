@@ -1,32 +1,61 @@
 {
-  "badge": "",
   "name": "Magenta Butterfly Dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642137.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%207.48.18%20PM%20(1).png",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640924.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640923.jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000642137.jpg",
+  "subcategory": "girls-casual-dresses",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-28T00:24:00.000+05:00",
   "sizes": [
     {
-      "available": true,
       "size": "0–3 years",
-      "price": 14300
+      "price": 14300,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "4–6 years",
-      "price": 15300
+      "price": 15300,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "7–9 years",
-      "price": 17300
+      "price": 17300,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "10–12 years",
-      "price": 19300
+      "price": 19300,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": true,
-  "accessoryPrice": 500,
   "accessoryName": "Crown (PKR 500)",
+  "accessoryPrice": 500,
   "description": "A magenta butterfly dress in silk with a fitted body and delicate wing-like straps at the shoulders.",
   "description2": "The knee length skirt is made of layered net ruffles with a silver waistband, giving it a full, tiered shape.",
   "specs": {
@@ -34,19 +63,5 @@
     "occasion": "",
     "fit": "Fitted silk body with a full, knee length net skirt",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642137.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000640924.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000640923.jpg"
-    }
-  ],
-  "image": "https://ik.imagekit.io/lpdlhr/1000642137.jpg",
-  "subcategory": "girls-casual-dresses",
-  "addedOn": "2026-08-28T00:24:00.000+05:00"
+  }
 }
