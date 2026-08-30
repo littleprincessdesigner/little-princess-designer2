@@ -1,56 +1,63 @@
 {
-  "badge": "",
-  "name": "jasmine costume",
+  "name": "Jasmine Costume",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/jasmine%20(1).jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/jasmine.jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/jasmine%20(1).jpg",
+  "subcategory": "girls-theme-dresses",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-07-15T12:00:00.000Z",
   "sizes": [
     {
       "size": "0–3 years",
       "price": 13100,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "4–6 years",
       "price": 14100,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "7–9 years",
       "price": 16100,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "10–12 years",
       "price": 18100,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "13–16 years",
       "price": 20100,
+      "salePrice": null,
       "available": true
     }
   ],
   "showAccessory": true,
-  "description2": "The skirt is made of layered net with a gold beaded belt at the waist, giving it a full, sparkly shape.",
-  "accessoryPrice": 250,
   "accessoryName": "Headband (PKR 250)",
+  "accessoryPrice": 250,
+  "description": "A Jasmine-themed costume in net and silk, with a fitted sequin body and an off-shoulder bow.",
+  "description2": "The skirt is made of layered net with a gold beaded belt at the waist, giving it a full, sparkly shape.",
   "specs": {
     "fabric": "Net and silk dress with a sequin body",
     "occasion": "",
     "fit": "Off-shoulder sequin body with a full net skirt",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/jasmine%20(1).jpg"
-    },
-    {
-      "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/jasmine.jpg",
-      "alt": ""
-    }
-  ],
-  "description": "A Jasmine-themed costume in net and silk, with a fitted sequin body and an off-shoulder bow.",
-  "subcategory": "girls-theme-dresses",
-  "addedOn": "2026-07-15T12:00:00.000Z",
-  "image": "https://ik.imagekit.io/lpdlhr/jasmine%20(1).jpg"
+  }
 }
