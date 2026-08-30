@@ -1,47 +1,76 @@
 {
-  "badge": "",
   "name": "ziva dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641151.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641152.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641153.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641165.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641164.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641154.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20250410_093450.jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000641151.jpg.jpeg",
+  "subcategory": "girls-luxury-dresses",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-18T01:28:00.000+05:00",
   "sizes": [
     {
-      "available": true,
       "size": "0–3 years",
-      "price": 13500
+      "price": 13500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "4–6 years",
-      "price": 15500
+      "price": 15500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "7–9 years",
-      "price": 17500
+      "price": 17500,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": true,
+  "accessoryName": "",
   "accessoryPrice": 300,
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641151.jpg.jpeg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641152.jpg.jpeg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641153.jpg.jpeg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641165.jpg.jpeg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641164.jpg.jpeg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641154.jpg.jpeg"
-    }
-  ],
-  "subcategory": "girls-luxury-dresses",
-  "addedOn": "2026-08-18T01:28:00.000+05:00",
-  "image": "https://ik.imagekit.io/lpdlhr/1000641151.jpg.jpeg"
+  "description": "",
+  "description2": "",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
 }
