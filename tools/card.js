@@ -459,10 +459,13 @@ ${svg(ICON.arrowRight, { size: 20, stroke: "var(--tone-deep)", width: 2 })}
 </div>
 `;
 
+  // Fabric and Fit don't apply to hair accessories (a beaded tiara has no
+  // "fit"), so the Accessory subcategory skips straight to Occasion and Care.
+  const isAccessory = p.subcategoryName === "Accessory";
   const specRows = [
-    ["Fabric", p.specs.fabric],
+    ...(isAccessory ? [] : [["Fabric", p.specs.fabric]]),
     ["Occasion", p.specs.occasion],
-    ["Fit", p.specs.fit],
+    ...(isAccessory ? [] : [["Fit", p.specs.fit]]),
     ["Care", p.specs.care],
     ["Made in", "Our own studio in Lahore, Pakistan"]
   ].filter(([, v]) => v);
