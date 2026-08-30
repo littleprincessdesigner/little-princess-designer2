@@ -1,16 +1,29 @@
 {
   "badge": "",
-  "name": "pink fluff dress",
+  "name": "Mini pink fluff dress",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 55
+      "price": 15000
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 17000
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "Fluffy charm scaled down for little ones.",
+  "description2": "A silk upper body keeps the fit smooth and comfortable, while the organza skirt puffs out for that full, statement look.",
+  "specs": {
+    "fabric": "Silk upper body, layered organza skirt",
+    "occasion": "",
+    "fit": "Smooth silk top with a voluminous organza skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641052%20(1).jpg"
