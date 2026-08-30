@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "irhu faisy dress",
+  "name": "Butterfly Fairy Dress",
   "visible": true,
   "sizes": [
     {
@@ -22,6 +22,14 @@
   ],
   "showAccessory": true,
   "accessoryPrice": 1500,
+  "accessoryName": "Hairband and Wings (PKR 1500)",
+  "description2": "The knee length net skirt is also covered in butterflies all over, and comes with a matching hairband.",
+  "specs": {
+    "fabric": "Silk body with a net skirt",
+    "occasion": "",
+    "fit": "Fitted silk body with a knee length net skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000642304.jpg.jpeg"
@@ -49,7 +57,7 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000642304.jpg.jpeg",
-  "description": "300 hb, 1200 wings and knee len",
-  "subcategory": "girls-luxury-dresses",
+  "description": "A Butterfly Fairy dress with a silk body and net wings covered in colorful butterflies. The wings light up with LED lights for a magical effect.",
+  "subcategory": "girls-casual-dresses",
   "addedOn": "2026-08-20T01:50:00.000+05:00"
 }

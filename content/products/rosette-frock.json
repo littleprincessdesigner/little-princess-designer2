@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "rosette frock",
+  "name": "Rosette Silk Dress",
   "visible": true,
   "sizes": [
     {
@@ -21,6 +21,15 @@
   ],
   "showAccessory": true,
   "accessoryPrice": 250,
+  "accessoryName": "Flower Pin (PKR 250)",
+  "description": "A rosette silk dress in deep maroon, with an off-shoulder neckline and 3D rosette flowers beaded with pearls across the body.",
+  "description2": "The skirt is layered and ruffled, giving it a full, textured shape.",
+  "specs": {
+    "fabric": "Silk dress with a beaded rosette body",
+    "occasion": "",
+    "fit": "Off-shoulder silk body with a full, layered skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/DSC_5736.jpg"
