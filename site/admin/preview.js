@@ -240,11 +240,23 @@
     }, 50);
   }
 
-  /** React hands the rendered node here; null on unmount. */
+  /**
+   * React hands the rendered node here; null on unmount.
+   *
+   * This ONLY ever touches an iframe document that is not the admin page's own.
+   * If Sveltia renders the preview inline (no iframe) rather than in a frame of
+   * its own, `node.ownerDocument` is the admin document — and injecting
+   * `/app.js` into that would run the whole site's boot logic inside the CMS.
+   * So bail unless we are demonstrably in a separate frame.
+   */
   function wire(node) {
-    if (!node) return;
     try {
-      withBehaviour(node.ownerDocument, function (lp) {
+      if (!node) return;
+      var doc = node.ownerDocument;
+      if (!doc || doc === window.document || (doc.defaultView && doc.defaultView === window)) {
+        return; // rendered inline, not in an iframe — do not touch the host page
+      }
+      withBehaviour(doc, function (lp) {
         lp.initDetail(node);
         lp.initCards(node);
       });
@@ -253,44 +265,53 @@
     }
   }
 
+  /**
+   * The panel. Wrapped whole in try/catch: a preview is a convenience, and a
+   * throw here must never be allowed to reach the CMS — under Sveltia an
+   * uncaught render error in a preview template can tear down the editor form
+   * beside it (losing half-typed list rows), which is far worse than a blank
+   * preview. Any failure returns a plain "unavailable" note instead.
+   */
   function ProductPreview(props) {
-    var out;
     try {
-      out = card.fromCmsEntry(plain(props.entry), catalogue);
-    } catch (e) {
+      var out = card.fromCmsEntry(plain(props && props.entry), catalogue);
+
+      // The product page as a customer meets it, not an impression of it: this
+      // is the same productDetail() the build writes into every product page.
+      var data = plain(props && props.entry);
+      var wording = card.applyWording(data, sectionFor(out.product.subcategory), settings);
+      var product = Object.assign({}, out.product, wording, {
+        accessoryPrice: Number(data.accessoryPrice) > 0
+          ? Number(data.accessoryPrice)
+          : Number(settings && settings.accessoryPriceDefault) || 0
+      });
+
+      var html = '<main class="lp-main lp-main--product">' +
+        card.productDetail(product, settings || {}) + "</main>";
+
+      var notes = out.notes.length
+        ? h("ul", { className: "lp-preview-notes" },
+          out.notes.map(function (n, i) { return h("li", { key: i }, n); }))
+        : null;
+
       return h("div", { className: "lp-preview" },
-        h("p", { className: "lp-preview-head" }, "Preview unavailable"));
+        h("p", { className: "lp-preview-head" }, "The product page"),
+        // A string of the site's own markup. It is inserted as markup because
+        // that is what it is — and everything inside it that came from the form
+        // has already been through `esc()` and `safeHref()` in tools/card.js,
+        // the same two guards the live site relies on.
+        h("div", { ref: wire, dangerouslySetInnerHTML: { __html: html } }),
+        notes
+      );
+    } catch (e) {
+      if (window.console) console.warn("[lp] product preview render failed: " + e);
+      try {
+        return h("div", { className: "lp-preview" },
+          h("p", { className: "lp-preview-head" }, "Preview unavailable"));
+      } catch (e2) {
+        return null;
+      }
     }
-
-    // The product page as a customer meets it, not an impression of it: this is
-    // the same productDetail() the build writes into every product page. The
-    // panel is a narrow column, so it lays itself out the way a phone does —
-    // photo above, details below — which is how most customers see it anyway.
-    var data = plain(props.entry);
-    var wording = card.applyWording(data, sectionFor(out.product.subcategory), settings);
-    var product = Object.assign({}, out.product, wording, {
-      accessoryPrice: Number(data.accessoryPrice) > 0
-        ? Number(data.accessoryPrice)
-        : Number(settings && settings.accessoryPriceDefault) || 0
-    });
-
-    var html = '<main class="lp-main lp-main--product">' +
-      card.productDetail(product, settings || {}) + "</main>";
-
-    var notes = out.notes.length
-      ? h("ul", { className: "lp-preview-notes" },
-        out.notes.map(function (n, i) { return h("li", { key: i }, n); }))
-      : null;
-
-    return h("div", { className: "lp-preview" },
-      h("p", { className: "lp-preview-head" }, "The product page"),
-      // A string of the site's own markup. It is inserted as markup because
-      // that is what it is — and everything inside it that came from the form
-      // has already been through `esc()` and `safeHref()` in tools/card.js, the
-      // same two guards the live site relies on.
-      h("div", { ref: wire, dangerouslySetInnerHTML: { __html: html } }),
-      notes
-    );
   }
 
   try {
