@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "minnie mouse coustume",
+  "name": "Minnie Mouse Polka Frock",
   "visible": true,
   "sizes": [
     {
@@ -21,6 +21,15 @@
   ],
   "showAccessory": true,
   "accessoryPrice": 400,
+  "accessoryName": "Head Band (PKR 400)",
+  "description": "A pretty Minnie Mouse polka frock in pink silk with white polka dots. It has puffed sleeves, a white collar, and a black bow at the waist.",
+  "description2": "The skirt is full and layered, with a black bow accent at the waist for contrast.",
+  "specs": {
+    "fabric": "Silk fabric with a fitted bodice and full skirt",
+    "occasion": "",
+    "fit": "Fitted bodice with puffed sleeves and a full, flared skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641020.jpg"

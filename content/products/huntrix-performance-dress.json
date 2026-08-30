@@ -26,6 +26,14 @@
   ],
   "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A performance-ready dress with a white sequin body and a net underlayer. It comes with a black sequin jacket. Adorned with shiny golden chains.",
+  "description2": "A gold belt cinches the waist, finishing the look with a bold, stage-ready style.",
+  "specs": {
+    "fabric": "Silk sequin dress with a net hem and chained sequin jacket",
+    "occasion": "",
+    "fit": "Fitted silk dress with a jacket and gold chain trim",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/DSC_5879.jpg"

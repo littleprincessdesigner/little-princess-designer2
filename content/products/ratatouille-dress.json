@@ -1,16 +1,34 @@
 {
   "badge": "",
-  "name": "ratatouille dress",
+  "name": "Ratatouille Skirt And Shirt",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 55
+      "price": 5800
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 6800
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "price": 7800
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A Ratatouille-themed skirt and shirt set. The cotton shirt features a Little Chef Ratatouille print, paired with a ruffled net skirt finished with a bow at the waist.",
+  "description2": "The skirt is made of soft layered net ruffles and comes as a matching shirt and skirt set.",
+  "specs": {
+    "fabric": "Cotton shirt with a ruffled net skirt",
+    "occasion": "",
+    "fit": "Relaxed fit shirt with a full, layered net skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641096%20(1).jpg"
