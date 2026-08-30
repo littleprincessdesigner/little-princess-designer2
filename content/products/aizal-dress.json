@@ -1,60 +1,87 @@
 {
-  "badge": "",
   "name": "Aizal Blue dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000053528.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000053523.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000053527.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000053519.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000084475%20(1).jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.27%20PM%20(2).png?updatedAt=1788088566356",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.28%20PM%20(2).png?updatedAt=1788088565299",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.28%20PM%20(2).png?updatedAt=1788088565299",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000053528.jpg",
+  "subcategory": "girls-luxury-dresses",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-07-18T12:00:00.000Z",
   "sizes": [
     {
       "size": "0–3 years",
       "price": 25000,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "4–6 years",
       "price": 28000,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "7–9 years",
       "price": 32000,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "10–12 years",
       "price": 39000,
+      "salePrice": null,
       "available": true
     }
   ],
   "showAccessory": true,
-  "description2": "The entire hem and train are richly decorated with soft pastel 3D floral petals, each accented with a glowing pearl center. Fully lined with a soft underlayer to ensure a smooth and comfortable fit, this gown is made to create an unforgettable fairy tale entrance.",
+  "accessoryName": "Head band (PKR 1400)",
   "accessoryPrice": 1400,
+  "description": "A majestic sky-blue royal ballgown crafted with an off-the-shoulder neckline, delicate pearl shoulder straps, and a heavily embellished pearl upper body. A sculpted, wavy peplum ruffle sits at the waist, leading into a grand, flared organza skirt that extends into an exquisite sweeping floor train.",
+  "description2": "The entire hem and train are richly decorated with soft pastel 3D floral petals, each accented with a glowing pearl center. Fully lined with a soft underlayer to ensure a smooth and comfortable fit, this gown is made to create an unforgettable fairy tale entrance.",
   "specs": {
     "fabric": "Organza with hand-embellished pearl upper body and 3D flower petals",
     "occasion": "",
     "fit": "Off-shoulder upper body with pearl straps, waist ruffle, and trailing skirt",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000053528.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000053523.jpg"
-    },
-    {
-      "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/1000053527.jpg",
-      "alt": ""
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000053519.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000084475%20(1).jpg"
-    }
-  ],
-  "image": "https://ik.imagekit.io/lpdlhr/1000053528.jpg",
-  "description": "A majestic sky-blue royal ballgown crafted with an off-the-shoulder neckline, delicate pearl shoulder straps, and a heavily embellished pearl upper body. A sculpted, wavy peplum ruffle sits at the waist, leading into a grand, flared organza skirt that extends into an exquisite sweeping floor train.",
-  "accessoryName": "Head band (PKR 1400)",
-  "subcategory": "girls-luxury-dresses",
-  "addedOn": "2026-07-18T12:00:00.000Z"
+  }
 }
