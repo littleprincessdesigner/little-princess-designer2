@@ -1,16 +1,29 @@
 {
   "badge": "",
-  "name": "icrtw shirt",
+  "name": "Blue Prince Dress (4 Pieces)",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 55
+      "price": 4700
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 4700
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A blue prince dress with a half sleeve cotton shirt and an easy neck, paired with matching blue trousers with a gold stripe.",
+  "description2": "1) Shirt 2) Trousers 3) Crown 4) Cape",
+  "specs": {
+    "fabric": "Cotton shirt with silk trousers and cape",
+    "occasion": "",
+    "fit": "Half sleeve shirt with an easy neck and relaxed trousers",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/20240915_121334.jpg.jpeg"

@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "prince dress (black)",
+  "name": "Black Prince Dress (5 Piece)",
   "visible": true,
   "sizes": [
     {
@@ -14,8 +14,16 @@
       "price": 6200
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A black prince dress with a full sleeve uniform shirt, cuffs, and gold trim, paired with a matching black cape.",
+  "description2": "1) Shirt 2) Belt 3) Cape 4) Trousers 5) Crown",
+  "specs": {
+    "fabric": "Uniform shirt with silk trousers and cape",
+    "occasion": "",
+    "fit": "Full sleeve shirt with a collar and relaxed trousers",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000085413.jpg"
