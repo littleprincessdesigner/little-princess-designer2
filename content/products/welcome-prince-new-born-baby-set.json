@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "welcome prince new born baby set",
+  "name": "Welcome Prince Newborn Set",
   "visible": true,
   "sizes": [
     {
@@ -11,6 +11,12 @@
   ],
   "showAccessory": false,
   "accessoryPrice": 1500,
+  "specs": {
+    "fabric": "Cotton set with ribbon bow and crown details",
+    "occasion": "",
+    "fit": "Romper, cap, mittens and socks in a relaxed newborn fit",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000642277.jpg.jpeg"
@@ -38,7 +44,8 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000642277.jpg.jpeg",
-  "description": "2 sizes available \n0-3 months\n3-6 months",
+  "description": "A Welcome Prince newborn set made from soft cotton, finished with royal blue ribbon bows and a crown appliqué design.",
+  "description2": "1) Wrapping sheet 2) Mittens 3) Cap 4) Romper 5) Socks",
   "subcategory": "babies-baby-sets",
   "addedOn": "2026-08-21T16:36:00.000+05:00"
 }
