@@ -1,0 +1,34 @@
+{
+  "name": "cocomelon green knickers",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.35%20PM%20(1).jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.35%20PM%20(1).jpg",
+  "subcategory": "boys-theme-dresses",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-28T01:35:00.000+05:00",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 33,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": true,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "",
+  "description2": "",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
