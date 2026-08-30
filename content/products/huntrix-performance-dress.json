@@ -1,30 +1,55 @@
 {
-  "badge": "",
-  "name": "huntrix performance dress",
+  "name": "Huntrix Performance Dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5879.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5880.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5874.jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/DSC_5879.jpg",
+  "subcategory": "girls-theme-dresses",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-23T02:19:00.000+05:00",
   "sizes": [
     {
-      "available": true,
       "size": "0–3 years",
-      "price": 18500
+      "price": 18500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "4–6 years",
-      "price": 20500
+      "price": 20500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "7–9 years",
-      "price": 22500
+      "price": 22500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "10–12 years",
-      "price": 24500
+      "price": 24500,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": false,
+  "accessoryName": "",
   "accessoryPrice": 1500,
   "description": "A performance-ready dress with a white sequin body and a net underlayer. It comes with a black sequin jacket. Adorned with shiny golden chains.",
   "description2": "A gold belt cinches the waist, finishing the look with a bold, stage-ready style.",
@@ -33,19 +58,5 @@
     "occasion": "",
     "fit": "Fitted silk dress with a jacket and gold chain trim",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5879.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5880.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5874.jpg"
-    }
-  ],
-  "subcategory": "girls-theme-dresses",
-  "addedOn": "2026-08-23T02:19:00.000+05:00",
-  "image": "https://ik.imagekit.io/lpdlhr/DSC_5879.jpg"
+  }
 }
