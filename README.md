@@ -76,13 +76,14 @@ site/               ← hand-written source, copied into dist/ as-is
   admin/
     index.html            the CMS shell; branded loading screen; pins @sveltia/cms
     config.yml            EVERY field the CMS knows about (see rules below)
+    preview.js            the live product-page preview panel in the admin
     tile-photo.js         syncs a hidden cover-photo field for the tiles view
     no-scroll-number.js   stops the mouse wheel changing a focused number field
 
 tools/              ← the build. Plain Node, no dependencies.
   content.js              reads content/, validates it, returns one model
   render.js               model → HTML for every page
-  card.js                 the product card markup — used by render.js
+  card.js                 the product card — shared by the build AND the admin preview
   shared.js               money / wa.me / order-message — shared by build + app.js
   images.js               the one place any photo host is described (ImageKit)
   build.js                orchestrates a build; writes dist/
@@ -112,7 +113,7 @@ handoff.md          ← state of play from previous sessions
 |---|---|
 | Change what a page **looks like** | `site/styles.css` (never `site/tokens.css` values) |
 | Change what a page **contains** | `tools/render.js` — every page is prerendered there |
-| Change the **product card** | `tools/card.js` — one file, rendered by `tools/render.js` |
+| Change the **product card** | `tools/card.js` — one file, used by the site and the admin preview |
 | Change **interactivity** (filters, gallery, sizes) | `site/app.js`. It never builds markup; it wires up what render.js emitted |
 | Change the **WhatsApp order message** or price format | `tools/shared.js` — one copy, used by the build and by `app.js` |
 | Change the **3D carousel** behaviour | `site/carousel-3d.js` — it lays itself out from however many children it has |
@@ -121,6 +122,7 @@ handoff.md          ← state of play from previous sessions
 | Change how content is **read or validated** | `tools/content.js` — the wording cascade, price filtering, warnings |
 | Change **photo handling, sizes or share images** | `tools/images.js`, then `tools/warm-previews.js` |
 | Change the **admin loading screen** | `site/admin/index.html` — Sveltia's own UI past that point is not themeable |
+| Change the **admin's product preview** | `site/admin/preview.js` + `tools/card.js` (adapted for Sveltia; degrades quietly if its preview API shifts) |
 | Change **build outputs, sitemap, robots** | `tools/build.js` |
 | Keep an **old URL working** after a rename | add `"/old/path/": "/new/path/"` to `redirects.json` |
 | Add a **test** | `tools/test.js`, with fixtures in `tools/fixtures/` |

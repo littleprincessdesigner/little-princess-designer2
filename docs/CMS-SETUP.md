@@ -235,8 +235,8 @@ If the site is still on the old setup, the switch is:
 1. Do steps 1–4 above (GitHub collaborators, OAuth app, broker, test login).
 2. The code changes are already on the `sveltia-cms-migration` branch:
    `config.yml` backend swapped to `github`, the ImageKit picker turned into a
-   paste box, the Decap-only scripts and admin skin removed, `npm run cms`
-   dropped.
+   paste box, the admin colour skin and `imagekit.js` removed, `npm run cms`
+   dropped. The product-page preview panel is kept (adapted for Sveltia).
 3. Test the admin on that branch's Netlify **preview deploy** first — sign in,
    open a product, change something trivial, save, confirm the commit lands.
 4. Merge the branch. The live admin switches over on the next deploy.

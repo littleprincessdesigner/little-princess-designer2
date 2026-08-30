@@ -106,8 +106,10 @@ collections:
     # every save (photo fields are plain address boxes now, which the CMS does
     # not recognise as pictures on their own).
     thumbnail: image
-    # The only collection with a preview pane. Sveltia draws its own built-in
-    # preview from the fields below; set this to false to switch the pane off.
+    # The only collection with a preview pane. It draws the real product page —
+    # the same tools/card.js the live site is built with — so a piece can be
+    # checked before it is published. The wiring is in site/admin/preview.js;
+    # setting this to false switches the pane off and leaves the rest working.
     editor:
       preview: true
     view_filters:
