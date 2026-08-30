@@ -1,5 +1,5 @@
 {
-  "name": "ziva dress",
+  "name": "Blush Rose Petal Ballgown",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641151.jpg.jpeg",
@@ -30,11 +30,6 @@
       "upload": "https://ik.imagekit.io/lpdlhr/1000641154.jpg.jpeg",
       "url": "",
       "alt": ""
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/20250410_093450.jpg",
-      "url": "",
-      "alt": ""
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000641151.jpg.jpeg",
@@ -63,14 +58,14 @@
     }
   ],
   "showAccessory": true,
-  "accessoryName": "",
+  "accessoryName": "Flower Pin (PKR 300)",
   "accessoryPrice": 300,
-  "description": "",
-  "description2": "",
+  "description": "An ethereal pastel pink luxury gown with a silk upper body. It has lush, cascading 3D pastel floral clusters along the long off-shoulder drapes. There is a ribbon for the shoulder straps.",
+  "description2": "The floor-length skirt is made from flared and voluminous layers of airy pink net to create a graceful gown.",
   "specs": {
-    "fabric": "",
+    "fabric": "Silk upper body with multi-layered net skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted off-shoulder silk body with draped shoulders and a floor-length net flare",
     "care": ""
   }
 }
