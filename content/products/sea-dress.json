@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "sea dress  ",
+  "name": "Sea Crochet Tutu Dress",
   "visible": true,
   "sizes": [
     {
@@ -17,6 +17,15 @@
   ],
   "showAccessory": true,
   "accessoryPrice": 500,
+  "accessoryName": "Head Band (PKR 500)",
+  "description": "A sea-themed tutu dress with a crochet body, knee length dress design. Starfish and flower details sit at the waist, above a flowing turquoise net tutu skirt.",
+  "description2": "The net skirt is layered for volume and lined with soft cotton underneath, so it stays comfortable while keeping its full, bouncy shape.",
+  "specs": {
+    "fabric": "Crochet body with a layered net tutu skirt",
+    "occasion": "",
+    "fit": "Fitted crochet body with a flared, twirl-friendly tutu skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641004.jpg"
@@ -28,8 +37,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/1000641006.jpg"
     }
   ],
-  "description": "crocket body knee len",
-  "subcategory": "girls-skirts",
+  "subcategory": "girls-tutu-dresses",
   "addedOn": "2026-08-18T01:58:00.000+05:00",
   "image": "https://ik.imagekit.io/lpdlhr/1000641004.jpg"
 }
