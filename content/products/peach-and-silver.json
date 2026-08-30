@@ -1,37 +1,60 @@
 {
-  "badge": "",
   "name": "Sequin Peach Tutu Dress",
-  "visible": true,
-  "sizes": [
+  "images": [
     {
-      "available": true,
-      "size": "0–3 years",
-      "price": 7800
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.26%20PM%20(2).jpeg?updatedAt=1788088554723",
+      "url": "",
+      "alt": ""
     },
     {
-      "available": true,
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.26%20PM.jpeg?updatedAt=1788088553541",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.26%20PM%20(1).jpeg?updatedAt=1788088554646",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641034%20(1).jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000104973%20(1).jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.26%20PM%20(2).jpeg?updatedAt=1788088554723",
+  "subcategory": "girls-tutu-dresses",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-28T18:09:00.000+05:00",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 7800,
+      "salePrice": null,
+      "available": true
+    },
+    {
       "size": "4–6 years",
-      "price": 8800
+      "price": 8800,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": true,
-  "description2": "The net skirt is layered for volume, giving it a full, bouncy shape that moves and twirls easily.",
+  "accessoryName": "Crown Hair Pin (PKR 600)",
   "accessoryPrice": 600,
+  "description": "A sparkly sequin tutu dress with a silver sequin body and a soft peach net tutu skirt. Two pastel flowers sit at the waist.",
+  "description2": "The net skirt is layered for volume, giving it a full, bouncy shape that moves and twirls easily.",
   "specs": {
     "fabric": "Sequin body with a layered net tutu skirt",
-    "fit": "Fitted sequin body with a full, flared tutu skirt"
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641034%20(1).jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000104973%20(1).jpg"
-    }
-  ],
-  "image": "https://ik.imagekit.io/lpdlhr/1000641034%20(1).jpg",
-  "description": "A sparkly sequin tutu dress with a silver sequin body and a soft peach net tutu skirt. Two pastel flowers sit at the waist.",
-  "accessoryName": "Crown Hair Pin (PKR 600)",
-  "subcategory": "girls-tutu-dresses",
-  "addedOn": "2026-08-28T18:09:00.000+05:00"
+    "occasion": "",
+    "fit": "Fitted sequin body with a full, flared tutu skirt",
+    "care": ""
+  }
 }
