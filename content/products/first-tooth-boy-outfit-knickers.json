@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "first tooth boy outfit (knickers)",
+  "name": "First Tooth Boy Outfit (Summers)",
   "visible": true,
   "sizes": [
     {
@@ -11,6 +11,14 @@
   ],
   "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A first tooth boy outfit with a cotton shirt marking the milestone, paired with silk shorts.",
+  "description2": "It can be customized with any name.",
+  "specs": {
+    "fabric": "Cotton shirt with silk shorts",
+    "occasion": "",
+    "fit": "Half sleeve shirt with an easy neck and relaxed shorts",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000642280.jpg.jpeg"
