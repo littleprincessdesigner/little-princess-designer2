@@ -1,16 +1,25 @@
 {
   "badge": "",
-  "name": "unicorn tutu dress",
+  "name": "Unicorn Tutu Dress",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 44
+      "price": 3900
     }
   ],
   "showAccessory": true,
-  "accessoryPrice": 1500,
+  "accessoryPrice": 500,
+  "accessoryName": "Hair Band (PKR 500)",
+  "description": "A pretty unicorn tutu skirt set. The white cotton shirt has a unicorn design with colorful flowers and a gold horn, paired with a multicolor tutu skirt.",
+  "description2": "The tutu skirt is made of soft layered net in pink, blue and purple, giving it a full, bouncy look.",
+  "specs": {
+    "fabric": "Cotton shirt with a multicolor net tutu skirt",
+    "occasion": "",
+    "fit": "Relaxed fit shirt with a full, flared tutu skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000640936.jpg"
@@ -20,6 +29,6 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000640936.jpg",
-  "subcategory": "girls-theme-dresses",
+  "subcategory": "girls-tutu-dresses",
   "addedOn": "2026-08-28T00:35:00.000+05:00"
 }

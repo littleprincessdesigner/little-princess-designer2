@@ -1,16 +1,25 @@
 {
   "badge": "",
-  "name": "minnie mouse tutu skirt",
+  "name": "Minnie Mouse Tutu Skirt",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 33
+      "price": 3900
     }
   ],
   "showAccessory": true,
-  "accessoryPrice": 1500,
+  "accessoryPrice": 300,
+  "accessoryName": "Hair Band (PKR 300)",
+  "description": "A cute Minnie Mouse tutu skirt set. The white cotton shirt has a Minnie Mouse design with a pink bow, paired with a soft pink tutu skirt.",
+  "description2": "The tutu skirt is made of soft layered net, giving it a full, bouncy look that's easy to move in.",
+  "specs": {
+    "fabric": "Cotton shirt with a pink net tutu skirt",
+    "occasion": "",
+    "fit": "Relaxed fit shirt with a full, flared tutu skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000640938.jpg?updatedAt=1787688444110"
@@ -20,6 +29,6 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000640938.jpg?updatedAt=1787688444110",
-  "subcategory": "girls-theme-dresses",
+  "subcategory": "girls-tutu-dresses",
   "addedOn": "2026-08-28T00:42:00.000+05:00"
 }
