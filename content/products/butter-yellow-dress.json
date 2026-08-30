@@ -1,16 +1,39 @@
 {
   "badge": "",
-  "name": "butter yellow dress",
+  "name": "Luxury Silk Gown",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 55
+      "price": 16500
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 18500
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "price": 20500
+    },
+    {
+      "available": true,
+      "size": "10–12 years",
+      "price": 23000
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A luxury silk gown in butter yellow, with an off-shoulder body finished with pearl shoulder straps.",
+  "description2": "The skirt is made of flowing silk with a long train for a dramatic, elegant shape.",
+  "specs": {
+    "fabric": "Silk gown throughout, with a long train",
+    "occasion": "",
+    "fit": "Off-shoulder silk body with pearl straps and a flowing train",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.03%20PM%20(1).jpeg"

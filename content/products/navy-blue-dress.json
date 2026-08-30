@@ -1,16 +1,39 @@
 {
   "badge": "",
-  "name": "navy blue dress",
+  "name": "Luxury Sequin Gown",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 44
+      "price": 16000
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 18000
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "price": 20000
+    },
+    {
+      "available": true,
+      "size": "10–12 years",
+      "price": 23000
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A luxury sequin gown in navy blue, with sheer net on the shoulders and a pearl design at the neckline.",
+  "description2": "The skirt is full and flows into a long train, made entirely of sparkling sequin fabric.",
+  "specs": {
+    "fabric": "Sequin gown throughout, with a long train",
+    "occasion": "",
+    "fit": "Sequin body with net shoulders and a full, flowing train",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.28%20PM%20(1).jpeg"

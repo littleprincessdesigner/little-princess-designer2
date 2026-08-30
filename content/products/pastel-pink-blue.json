@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "pastel pink blue",
+  "name": "Pastel Silk and Organza Gown",
   "visible": true,
   "sizes": [
     {
@@ -24,8 +24,16 @@
       "price": 35000
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A pastel silk and organza gown with a beaded pastel body and sheer organza wing details at the waist.",
+  "description2": "The skirt is made of silk with flowers in pink and blue shades scattered across the bottom, fading from pink at the top to blue at the hem.",
+  "specs": {
+    "fabric": "Organza and silk gown with a beaded body",
+    "occasion": "",
+    "fit": "Fitted beaded body with a full, flowing silk skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1786025586557.jpg"
