@@ -1,0 +1,34 @@
+{
+  "name": "mr. one-derful romper",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/GGGGG.jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/GGGGG.jpg",
+  "subcategory": "babies-rompers",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-31T00:06",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 55,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": true,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "",
+  "description2": "",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
