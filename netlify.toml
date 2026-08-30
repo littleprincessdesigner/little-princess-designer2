@@ -21,6 +21,16 @@
   to = "/"
   status = 301
 
+# The favicon <link> tags point at /assets/, but crawlers (Google's included)
+# still probe the root /favicon.ico by convention, and a 404 there is a missed
+# signal for the icon shown next to the site in search results. Serve the real
+# file from the root path too (200, not a redirect, so the bytes come back
+# directly).
+[[redirects]]
+  from = "/favicon.ico"
+  to = "/assets/favicon.ico"
+  status = 200
+
 # Applies to every path. The other [[headers]] blocks below add more headers
 # for their own more specific paths; Netlify merges blocks by header name
 # rather than one block replacing another.

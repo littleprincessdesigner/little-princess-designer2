@@ -6,3 +6,7 @@ node_modules/
 .DS_Store
 *.log
 .netlify/
+
+# Local-only: SEO audit output and impeccable tool config, not part of the site
+.impeccable/
+littleprincessdesigner.pk-audit/
