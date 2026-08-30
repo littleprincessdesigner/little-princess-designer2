@@ -1,16 +1,24 @@
 {
   "badge": "",
-  "name": "elephant romper",
+  "name": "Elephant Romper Set",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 33
+      "price": 2800
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "An elephant-themed romper set made from soft cotton, with a cute elephant print and a matching cap and booties.",
+  "description2": "It can be customized with any name and color.",
+  "specs": {
+    "fabric": "Soft cotton across the romper, cap, and booties",
+    "occasion": "",
+    "fit": "Relaxed, easy fit romper with a matching cap and booties",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641094%20(1).jpg"
