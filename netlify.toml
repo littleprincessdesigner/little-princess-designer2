@@ -37,9 +37,10 @@
     # this is a safe first step, not real protection yet. Written for the
     # public pages' own resource use (self-hosted CSS/JS/fonts, ImageKit
     # photos, no forms); the admin panel at /admin/* loads a wider set of
-    # third-party resources (unpkg, DecapBridge, ImageKit's widget) this
-    # policy was not tuned for, but Report-Only can't break anything there
-    # either, so it inherits the same header rather than needing its own.
+    # third-party resources (unpkg for the Sveltia CMS script, api.github.com,
+    # and the OAuth sign-in host) this policy was not tuned for, but
+    # Report-Only can't break anything there either, so it inherits the same
+    # header rather than needing its own.
     # Switch to a real Content-Security-Policy only after confirming (via a
     # report-collection endpoint, or manually checking devtools on every
     # page type) that nothing legitimate would be blocked.

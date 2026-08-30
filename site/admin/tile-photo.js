@@ -1,14 +1,19 @@
 /**
  * Keeps the hidden "tile photo" copy of a product's first Photos row in sync,
- * so Decap's grid/tiles view has something to show.
+ * so the CMS grid/tiles view has something to show.
  *
  * WHY THIS EXISTS
  *
- * Decap's grid view can only draw a thumbnail from one specific shape of
- * field — a single photo sitting directly on the entry — and has no way to
- * look inside "Photos", which is a list on purpose, so a piece can carry more
- * than one picture. Left alone, that means the tiles view shows every product
- * with an empty square, even though every product has a photo.
+ * The grid view draws its thumbnail from one plain field sitting directly on
+ * the entry (config.yml's `thumbnail: image`), and cannot look inside "Photos",
+ * which is a list on purpose so a piece can carry more than one picture. The
+ * photo rows are also plain address strings now, not picture fields, so nothing
+ * there is recognised as an image. Left alone the tiles view would show every
+ * product with an empty square.
+ *
+ * Runs on the CMS `preSave` event — an API Decap defined and Sveltia keeps.
+ * Best-effort: if a future Sveltia release changes the event shape, the worst
+ * case is a blank tile, and the list view (the primary view) is unaffected.
  *
  * Asking whoever is editing a piece to fill in a second copy of the same
  * photo by hand would fix the empty tile, but it would also be one more thing

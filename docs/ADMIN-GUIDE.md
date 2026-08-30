@@ -1,8 +1,11 @@
 # Using the admin page
 
-Go to `yoursite.com/admin/` and press **Login** — you are sent to DecapBridge to
-sign in, then brought straight back. Everything you save becomes live on the
+Go to `yoursite.com/admin/` and press **Sign in with GitHub** — authorise it
+once, and you are brought straight back. Everything you save becomes live on the
 website about a minute later.
+
+(The admin is Sveltia CMS. You sign in with a GitHub account; if you do not have
+one yet, see `docs/CMS-SETUP.md`.)
 
 There are four things in the sidebar:
 
@@ -57,12 +60,19 @@ only — `18500`, not `18,500` or `PKR 18500`.
 
 ### Photos
 
-Each photo row gives you two ways to add an image — use whichever suits:
+Photos live in the shop's **ImageKit** library, not in the admin. For each photo
+row:
 
-- **Upload a photo** — drag a file in from your computer or phone
-- **…or paste an image link** — a full `https://…` address
+1. Open [imagekit.io](https://imagekit.io) in another tab, sign in to the shop's
+   account, and upload your photo (or find one already there).
+2. Click the photo and press **Copy URL**.
+3. Paste that address into the **Photo address** box.
 
-If you fill in both, the pasted link wins.
+The address looks like `https://ik.imagekit.io/lpdlhr/blush-frock.jpg`, and
+ImageKit shrinks it for phones automatically.
+
+The **…or another image link** box is only for a photo hosted somewhere other
+than ImageKit. If both boxes are filled, that one wins.
 
 The **first photo** is the one shown on the card in the shop. The product page
 shows up to three, so front / side / back works well.
@@ -243,11 +253,13 @@ subcategory still exists.
 **I made a mistake — can I undo it?**
 Yes. Every change is saved in the repository's history on GitHub, so nothing is
 ever truly lost. Ask whoever set the site up to roll it back. Each entry in that
-history carries the name of whoever made the change.
+history carries the GitHub name of whoever made the change.
 
 **Can I let someone else add products?**
-Yes — invite them by email from the DecapBridge dashboard. They do not need a
-GitHub account, and they can only reach this admin form, nothing else.
+Yes. They need a free GitHub account, and you add them as a collaborator on the
+repository and invite them to the ImageKit account — the steps are in
+`docs/CMS-SETUP.md`. They can only reach this admin form, nothing else in the
+repository.
 
 **Can two people edit at once?**
 Yes, but avoid both editing the *same* product simultaneously — the second save
