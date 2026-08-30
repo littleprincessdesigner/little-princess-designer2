@@ -1,33 +1,61 @@
 {
-  "badge": "",
-  "name": "blue horizon dress",
+  "name": "Blue Horizon Dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641139.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641140.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641138.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642136%20(4).jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000641139.jpg",
+  "subcategory": "girls-luxury-dresses",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-22T15:07:00.000+05:00",
   "sizes": [
     {
-      "available": true,
       "size": "0–3 years",
       "price": 17500,
-      "salePrice": ""
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "4–6 years",
-      "price": 19500
+      "price": 19500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "7–9 years",
-      "price": 21500
+      "price": 21500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "10–12 years",
-      "price": 23500
+      "price": 23500,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": true,
-  "accessoryPrice": 350,
   "accessoryName": "Flower Pin (PKR 350)",
+  "accessoryPrice": 350,
   "description": "A sky blue silk gown with an off-shoulder neckline and a beaded floral body. Pearl and flower details are scattered across the body for a delicate, sparkly look.",
   "description2": "The lower body is made of tiered silk ruffles with flowers in between each layer, giving it a full, layered shape.",
   "specs": {
@@ -35,22 +63,5 @@
     "occasion": "",
     "fit": "Off-shoulder silk body with a full, tiered ruffled skirt",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641139.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641140.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641138.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642136%20(4).jpg"
-    }
-  ],
-  "subcategory": "girls-luxury-dresses",
-  "addedOn": "2026-08-22T15:07:00.000+05:00",
-  "image": "https://ik.imagekit.io/lpdlhr/1000641139.jpg"
+  }
 }
