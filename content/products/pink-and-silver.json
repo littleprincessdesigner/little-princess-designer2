@@ -1,16 +1,30 @@
 {
   "badge": "",
-  "name": "pink and silver",
+  "name": "Sequin Pink Tutu Dress",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 55
+      "price": 7800
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 8800
     }
   ],
   "showAccessory": true,
-  "accessoryPrice": 1500,
+  "accessoryPrice": 600,
+  "accessoryName": "Crown Hair Pin (PKR 600)",
+  "description": "A sparkly sequin tutu dress with a silver sequin body and a soft pink net tutu skirt. Two pastel flowers sit at the waist.",
+  "description2": "The net skirt is layered for volume, giving it a full, bouncy shape that moves and twirls easily.",
+  "specs": {
+    "fabric": "Sequin body with a layered net tutu skirt",
+    "occasion": "",
+    "fit": "Fitted sequin body with a full, flared tutu skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000640932.jpg"
@@ -20,6 +34,6 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000640932.jpg",
-  "subcategory": "girls-casual-dresses",
+  "subcategory": "girls-tutu-dresses",
   "addedOn": "2026-08-28T18:07:00.000+05:00"
 }

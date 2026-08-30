@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "tuti-fruity tutu skirt",
+  "name": "Tutti Frutti Skirt",
   "visible": true,
   "sizes": [
     {
@@ -15,12 +15,13 @@
     }
   ],
   "showAccessory": true,
-  "description2": "",
-  "accessoryPrice": 800,
+  "description2": "The ribbon straps run along the ends of each net layer, adding a bright, fun finish to the skirt.",
+  "accessoryPrice": 600,
+  "accessoryName": "Head Band (PKR 600)",
   "specs": {
-    "fabric": "",
+    "fabric": "Cotton shirt with a net tutu skirt and ribbon straps",
     "occasion": "",
-    "fit": "",
+    "fit": "Relaxed fit shirt with a full, ribbon-trimmed tutu skirt",
     "care": ""
   },
   "images": [
@@ -31,7 +32,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/fruity%20(1).jpg?updatedAt=1786651642601"
     }
   ],
-  "description": "",
+  "description": "A tutti frutti tutu skirt set. The cotton shirt has colorful fruit prints, paired with a pink net tutu skirt trimmed with orange, yellow, and green ribbons.",
   "subcategory": "girls-skirts",
   "addedOn": "2026-07-09T12:00:00.000Z",
   "image": "https://ik.imagekit.io/lpdlhr/fruity.jpg?updatedAt=1786651642862"
