@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "barbie kkk",
+  "name": "Barbie Net Ruffle Dress",
   "visible": true,
   "sizes": [
     {
@@ -24,8 +24,17 @@
       "price": 22500
     }
   ],
-  "showAccessory": false,
-  "accessoryPrice": 1500,
+  "showAccessory": true,
+  "accessoryPrice": 200,
+  "accessoryName": "Hair Pins (PKR 200)",
+  "description": "A barbie net ruffle dress in hot pink, with a fitted body and a voluminous ruffled net skirt.",
+  "description2": "The skirt is made of layered net ruffles, giving it a full, playful shape.",
+  "specs": {
+    "fabric": "Fitted body with a layered net ruffle skirt",
+    "occasion": "",
+    "fit": "Fitted body with a full, ruffled net skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000640965.png"
