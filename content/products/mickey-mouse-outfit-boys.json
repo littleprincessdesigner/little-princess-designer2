@@ -1,16 +1,24 @@
 {
   "badge": "",
-  "name": "mickey mouse outfit boys",
+  "name": "Mickey Mouse Outfit Boys",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 44
+      "price": 4300
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A Mickey Mouse-themed boys outfit with a half sleeve cotton shirt and a bow tie, paired with red suspender pants.",
+  "description2": "The pants are full length with a relaxed, easy fit for everyday wear.",
+  "specs": {
+    "fabric": "Cotton shirt with silk suspender pants",
+    "occasion": "",
+    "fit": "Half sleeve shirt with an easy neck and relaxed pants",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641000.jpg"

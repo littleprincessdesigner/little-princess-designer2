@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "first tooth romper",
+  "name": "First Tooth Romper",
   "visible": true,
   "sizes": [
     {
@@ -11,6 +11,14 @@
   ],
   "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A first tooth romper made from soft cotton, with a half sleeve fit and a fun tooth print to mark the milestone.",
+  "description2": "It can be customized with any name and color.",
+  "specs": {
+    "fabric": "Soft cotton throughout",
+    "occasion": "",
+    "fit": "Half sleeve romper with an easy neck and a relaxed fit",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/20260819_115844.jpg"

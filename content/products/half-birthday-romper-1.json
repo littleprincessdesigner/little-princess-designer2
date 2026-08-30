@@ -1,16 +1,24 @@
 {
   "badge": "",
-  "name": "half birthday romper",
+  "name": "Half Birthday Romper",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 33
+      "price": 1450
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A half birthday romper made from soft cotton, with a half sleeve fit and a fun half birthday print.",
+  "description2": "It's a simple, comfortable piece with a relaxed fit.",
+  "specs": {
+    "fabric": "Soft cotton throughout",
+    "occasion": "",
+    "fit": "Half sleeve romper with a relaxed, easy fit",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.36%20PM%20(1).jpg"

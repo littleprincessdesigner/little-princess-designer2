@@ -1,16 +1,24 @@
 {
   "badge": "",
-  "name": "sky blue romper",
+  "name": "Full Romper and Cap Set",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 33
+      "price": 2800
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A full romper and cap set made from soft cotton, with long sleeves and footed legs for extra warmth.",
+  "description2": "It comes with a matching cap, and snap buttons down the front and legs make it easy to change.",
+  "specs": {
+    "fabric": "Soft cotton throughout, romper and cap",
+    "occasion": "",
+    "fit": "Full sleeve, footed romper with a relaxed, easy fit",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.32%20PM.jpg"

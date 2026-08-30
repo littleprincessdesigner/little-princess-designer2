@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "dumbo dress",
+  "name": "Dumbo Elephant Dress",
   "visible": true,
   "sizes": [
     {
@@ -30,12 +30,13 @@
     }
   ],
   "showAccessory": true,
-  "description2": "",
-  "accessoryPrice": 1000,
+  "description2": "The skirt is made of soft, layered net for a light, fluffy look.",
+  "accessoryPrice": 500,
+  "accessoryName": "Headband (PKR 500)",
   "specs": {
-    "fabric": "",
+    "fabric": "Crochet body with a silk drape and net skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted crochet body with a full, layered net skirt",
     "care": ""
   },
   "images": [
@@ -51,7 +52,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/dumbo.jpg?updatedAt=1786651980632"
     }
   ],
-  "description": "",
+  "description": "A Dumbo-themed dress with a crochet body and a red and yellow silk sash draped across the upper body.",
   "subcategory": "girls-theme-dresses",
   "addedOn": "2026-07-07T12:00:00.000Z",
   "image": "https://ik.imagekit.io/lpdlhr/1000640987.jpg"

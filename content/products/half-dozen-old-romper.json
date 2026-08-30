@@ -1,16 +1,24 @@
 {
   "badge": "",
-  "name": "half dozen old romper",
+  "name": "Half Romper and Cap Set",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 44
+      "price": 2300
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A half romper and cap set made from soft cotton, with a half sleeve fit and a matching cap.",
+  "description2": "It can be customized with any name and color.",
+  "specs": {
+    "fabric": "Soft cotton across the romper and cap",
+    "occasion": "",
+    "fit": "Half sleeve romper with an easy neck and a matching cap",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000084413%20(1).jpg"
