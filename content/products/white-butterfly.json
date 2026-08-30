@@ -1,49 +1,72 @@
 {
-  "badge": "",
-  "name": "white butterfly",
-  "visible": true,
-  "sizes": [
-    {
-      "available": true,
-      "size": "0–3 years",
-      "price": 16500
-    },
-    {
-      "available": true,
-      "size": "4–6 years",
-      "price": 18500
-    },
-    {
-      "available": true,
-      "size": "7–9 years",
-      "price": 20500
-    },
-    {
-      "available": true,
-      "size": "10–12 years",
-      "price": 22500
-    }
-  ],
-  "showAccessory": true,
-  "accessoryPrice": 1500,
+  "name": "White Fluttering Butterfly Gown",
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-26%20at%208.57.43%20PM%20(1).jpeg"
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-26%20at%208.57.43%20PM%20(1).jpeg",
+      "url": "",
+      "alt": ""
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-26%20at%208.57.43%20PM.jpeg"
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-26%20at%208.57.43%20PM.jpeg",
+      "url": "",
+      "alt": ""
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-26%20at%208.57.45%20PM%20(1).jpeg"
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-26%20at%208.57.45%20PM%20(1).jpeg",
+      "url": "",
+      "alt": ""
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-26%20at%208.57.45%20PM.jpeg"
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-26%20at%208.57.45%20PM.jpeg",
+      "url": "",
+      "alt": ""
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-26%20at%208.57.44%20PM.jpeg"
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-26%20at%208.57.44%20PM.jpeg",
+      "url": "",
+      "alt": ""
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-26%20at%208.57.43%20PM%20(1).jpeg",
   "subcategory": "girls-luxury-dresses",
-  "addedOn": "2026-08-18T01:19:00.000+05:00"
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-18T01:19:00.000+05:00",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 16500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 18500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "7–9 years",
+      "price": 20500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "10–12 years",
+      "price": 22500,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": true,
+  "accessoryName": "Fluttering Wings and Headband (PKR 7300)",
+  "accessoryPrice": 7300,
+  "description": "White fairy gown designed with an embellished upper body displaying diagonal work of pastel 3D flowers and delicate beading. The grand skirt is crafted from multiple voluminous layers of soft white net for a beautiful look.",
+  "description2": "The gown also comes with wearable, mechanical butterfly wings at the back. They can be turned on to give a smooth, fluttering movement that brings the fairy look to life. Lined with a soft underlayer to ensure effortless comfort and easy movement throughout the event.",
+  "specs": {
+    "fabric": "Layered net with 3D pastel floral work on upper body",
+    "occasion": "",
+    "fit": "Fitted sleeveless upper body with net skirt and wearable wings",
+    "care": ""
+  }
 }
