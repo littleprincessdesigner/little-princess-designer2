@@ -1,15 +1,47 @@
 {
-  "badge": "",
   "name": "Cocomelon Red Outfit Boys",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.25%20PM%20(2).jpeg?updatedAt=1788088557019",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.25%20PM.jpeg?updatedAt=1788088556731",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640995.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/tttttttttttttt.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.39%20PM.jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.25%20PM%20(2).jpeg?updatedAt=1788088557019",
+  "subcategory": "boys-theme-dresses",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-28T01:30:00.000+05:00",
   "sizes": [
     {
-      "available": true,
       "size": "0–3 years",
-      "price": 4300
+      "price": 4300,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": false,
+  "accessoryName": "",
   "accessoryPrice": 1500,
   "description": "A Cocomelon-themed boys outfit with a full sleeve uniform shirt and collar, paired with red suspender pants.",
   "description2": "The pants are full length with a relaxed, easy fit for everyday wear.",
@@ -18,19 +50,5 @@
     "occasion": "",
     "fit": "Full sleeve shirt with a collar and relaxed pants",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000640995.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/tttttttttttttt.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.39%20PM.jpg"
-    }
-  ],
-  "image": "https://ik.imagekit.io/lpdlhr/1000640995.jpg",
-  "subcategory": "boys-theme-dresses",
-  "addedOn": "2026-08-28T01:30:00.000+05:00"
+  }
 }
