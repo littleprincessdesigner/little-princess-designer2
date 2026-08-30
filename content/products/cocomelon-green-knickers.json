@@ -5,6 +5,11 @@
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.35%20PM%20(1).jpg",
       "url": "",
       "alt": ""
+    },
+    {
+      "upload": "https://6a941e61c39a890008335bed--littleprincessdesigner.netlify.app/admin/#/collections/products",
+      "url": "",
+      "alt": ""
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.35%20PM%20(1).jpg",
@@ -16,6 +21,12 @@
     {
       "size": "0–3 years",
       "price": 33,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 234,
       "salePrice": null,
       "available": true
     }
