@@ -50,12 +50,21 @@
      Pinned deliberately. Sveltia is pre-1.0 and releases often; a floating
      version re-downloads whatever is newest on every visit, so a bad release
      upstream could break this admin overnight with no change on our side.
-     Upgrade by bumping this number and checking the admin still loads and
-     saves. Releases: https://github.com/sveltia/sveltia-cms/releases
+     Upgrade by bumping this number and checking the admin still loads AND
+     that adding a row to Photos / Sizes keeps what you typed and adds a row.
+     Releases: https://github.com/sveltia/sveltia-cms/releases
+
+     PINNED TO 0.198.0, NOT THE LATEST, ON PURPOSE (2026-08-30).
+     The list-widget rework in 0.200.0 (25 Aug) has a regression: clicking a
+     list's "Add" button while a field holds an unsaved value wipes that value
+     and fails to add the row — verified reproducible on 0.203.1 with a minimal
+     two-field list and no custom code, and verified fixed by dropping to
+     0.198.0. This made the admin unusable for adding products. Re-test the
+     Photos/Sizes add flow before bumping past 0.199.x; upstream issue to file.
 
      Do NOT add type="module" — the pre-built file below is not an ES module,
      and adding it stops the CMS loading. -->
-<script src="https://unpkg.com/@sveltia/cms@0.203.1/dist/sveltia-cms.js"></script>
+<script src="https://unpkg.com/@sveltia/cms@0.198.0/dist/sveltia-cms.js"></script>
 
 <!-- The live product-card preview panel, and the build files it draws the real
      shop page with. These are copies of tools/shared.js, tools/images.js and
