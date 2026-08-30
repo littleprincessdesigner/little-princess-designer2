@@ -1,0 +1,39 @@
+{
+  "name": "prince dress romper with pants",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.29%20PM.jpg?updatedAt=1788088555680",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.28%20PM%20(3).jpg?updatedAt=1788088555823",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.29%20PM.jpg?updatedAt=1788088555680",
+  "subcategory": "boys-prince-dresses",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-31T00:19",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 44,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": true,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "",
+  "description2": "",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
