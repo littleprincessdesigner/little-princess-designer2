@@ -1,36 +1,39 @@
 {
-  "badge": "",
   "name": "New Born Girl Set (No Wrapping Sheet)",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641049%20(1).jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641055%20(1).jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000641049%20(1).jpg",
+  "subcategory": "babies-baby-sets",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-21T15:42:00.000+05:00",
   "sizes": [
     {
-      "available": true,
       "size": "0–3 years",
-      "price": 4500
+      "price": 4500,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": false,
+  "accessoryName": "",
   "accessoryPrice": 1500,
+  "description": "A newborn girl set made from soft cotton, finished with pink bow and crown details. It can be customized with any name and color.",
+  "description2": "1) Bib 2) Mittens 3) Socks 4) Romper 5) Cap",
   "specs": {
     "fabric": "Soft cotton with pink trim across all pieces",
     "occasion": "",
     "fit": "Romper, cap, mittens and socks in a relaxed newborn fit",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641049.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641055.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641056.jpg"
-    }
-  ],
-  "image": "https://ik.imagekit.io/lpdlhr/1000641049.jpg",
-  "description": "A newborn girl set made from soft cotton, finished with pink bow and crown details. It can be customized with any name and color.",
-  "description2": "1) Bib 2) Mittens 3) Socks 4) Romper 5) Cap",
-  "subcategory": "babies-baby-sets",
-  "addedOn": "2026-08-21T15:42:00.000+05:00"
+  }
 }
