@@ -1,41 +1,41 @@
 {
   "badge": "",
-  "name": "KS shoot dress",
+  "name": "Multi Shade Ruffle Gown",
   "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 15300,
-      "available": true
-    },
-    {
-      "size": "4–6 years",
-      "price": 16200,
-      "available": true
-    },
-    {
-      "size": "7–9 years",
-      "price": 17100,
-      "available": true
-    },
-    {
-      "size": "10–12 years",
       "price": 18000,
       "available": true
     },
     {
+      "size": "4–6 years",
+      "price": 21000,
+      "available": true
+    },
+    {
+      "size": "7–9 years",
+      "price": 24000,
+      "available": true
+    },
+    {
+      "size": "10–12 years",
+      "price": 27000,
+      "available": true
+    },
+    {
       "size": "13–16 years",
-      "price": 18900,
+      "price": 31000,
       "available": true
     }
   ],
-  "showAccessory": true,
-  "description2": "",
+  "showAccessory": false,
+  "description2": "The skirt is made of layered net ruffles that shift from soft pink to deep pink at the hem, giving it a full, dramatic ball-gown shape. It can be customized in any color and shade.",
   "accessoryPrice": 1500,
   "specs": {
-    "fabric": "",
+    "fabric": "Silk body with a layered, multi shade net skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted silk body with a full, ruffled net skirt",
     "care": ""
   },
   "images": [
@@ -61,7 +61,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190333_Instagram.jpg.jpeg"
     }
   ],
-  "description": "",
+  "description": "A multi shade ruffle gown in silk, with a fitted body finished in delicate floral beading.",
   "subcategory": "girls-luxury-dresses",
   "addedOn": "2026-07-06T12:00:00.000Z",
   "image": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190303_Instagram.jpg.jpeg"
