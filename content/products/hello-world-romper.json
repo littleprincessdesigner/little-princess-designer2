@@ -1,0 +1,34 @@
+{
+  "name": "hello world romper",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.32%20PM%20(1).jpg?updatedAt=1788088553376",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.32%20PM%20(1).jpg?updatedAt=1788088553376",
+  "subcategory": "babies-baby-sets",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-30T23:48",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 44,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": true,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "",
+  "description2": "",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
