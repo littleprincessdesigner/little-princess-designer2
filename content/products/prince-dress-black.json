@@ -1,20 +1,43 @@
 {
-  "badge": "",
   "name": "Black Prince Dress (5 Piece)",
-  "visible": true,
-  "sizes": [
+  "images": [
     {
-      "available": true,
-      "size": "0–3 years",
-      "price": 6200
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.22%20PM.jpg?updatedAt=1788088553522",
+      "url": "",
+      "alt": ""
     },
     {
-      "available": true,
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642851.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000085413.jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.22%20PM.jpg?updatedAt=1788088553522",
+  "subcategory": "boys-prince-dresses",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-21T15:18:00.000+05:00",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 6200,
+      "salePrice": null,
+      "available": true
+    },
+    {
       "size": "4–6 years",
-      "price": 6200
+      "price": 6200,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": false,
+  "accessoryName": "",
   "accessoryPrice": 1500,
   "description": "A black prince dress with a full sleeve uniform shirt, cuffs, and gold trim, paired with a matching black cape. The name can be customized on the cape.",
   "description2": "1) Shirt 2) Belt 3) Cape 4) Trousers 5) Crown",
@@ -23,16 +46,5 @@
     "occasion": "",
     "fit": "Full sleeve shirt with a collar and relaxed trousers",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000085413.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642851.jpg.jpeg"
-    }
-  ],
-  "image": "https://ik.imagekit.io/lpdlhr/1000085413.jpg",
-  "subcategory": "boys-prince-dresses",
-  "addedOn": "2026-08-21T15:18:00.000+05:00"
+  }
 }
