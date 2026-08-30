@@ -6,17 +6,37 @@
     {
       "available": true,
       "size": "0–3 years",
-      "price": 44
+      "price": 13500
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 14500
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "price": 16000
+    },
+    {
+      "available": true,
+      "size": "10–12 years",
+      "price": 18000
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A blue fairy dress in net and silk, with flutter cape sleeves and pearl trim at the neckline.",
+  "description2": "The dress features 3D dolls, along with bead and sequin work throughout for a sparkly, dressed-up look.",
+  "specs": {
+    "fabric": "Net and silk dress with bead and sequin work",
+    "occasion": "",
+    "fit": "Flutter cape sleeves with a flared net and silk skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.51%20PM.jpeg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.50%20PM.jpeg"
     },
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.50%20PM.jpeg"
