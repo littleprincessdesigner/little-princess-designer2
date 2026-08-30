@@ -14,18 +14,27 @@
  *
  * Three things this file has to bridge:
  *
- *   1. Decap hands over the form as it stands this keystroke — half-typed, with
- *      no name or sizes on a new piece. `fromCmsEntry()` in tools/card.js turns
- *      that into something drawable and reports what is missing.
+ *   1. The CMS hands over the form as it stands this keystroke — half-typed,
+ *      with no name or sizes on a new piece. `fromCmsEntry()` in tools/card.js
+ *      turns that into something drawable and reports what is missing.
  *   2. The preview is an iframe of its own, so the site's stylesheets have to
- *      be registered with it explicitly or the card renders unstyled.
+ *      be registered with it explicitly or the card renders unstyled. (Sveltia
+ *      only switches the preview pane to an iframe once a preview style is
+ *      registered — the registerPreviewStyle calls below are what does that.)
  *   3. The readable subcategory name ("g3" → "Casual dresses") is not in the
  *      form, which holds only the code. It is read from /data/products.json,
  *      which the build already writes.
  *
- * Loaded after decap-cms.js — see the note beside the script tags in
- * index.html. Everything here is defensive: this panel is a convenience, and
- * nothing it can fail at should be able to stop the admin loading.
+ * Sveltia note: this was written for Decap's preview API, which Sveltia carries
+ * over (React `h`, `registerPreviewTemplate`, `registerPreviewStyle`, Immutable
+ * entry). Sveltia's support is newer and it warns compatibility is not
+ * guaranteed, so every step here degrades quietly: no `h` → panel stays empty;
+ * styles rejected → unstyled card; iframe won't run injected scripts → the page
+ * renders but the size dropdown and accessory box don't recompute. None of
+ * those can stop the admin loading.
+ *
+ * Loaded after sveltia-cms.js, and after card.js/shared.js/images.js — see the
+ * note beside the script tags in index.html.
  */
 
 (function () {
@@ -34,14 +43,16 @@
   if (!window.CMS) return;
 
   /**
-   * Decap's own element factory. It exposes React's `createElement` as `h` for
-   * exactly this — writing preview templates without a build step. `React` is
-   * checked as well in case a future release stops setting `h`; if neither is
-   * there we leave the panel switched off rather than throw, and the editor is
-   * merely as empty as it was before.
+   * The CMS's element factory. Decap and Sveltia both expose React's
+   * `createElement` as `h` for exactly this — writing preview templates without
+   * a build step. Several names are checked in case a release moves it; if none
+   * is there we leave the panel switched off rather than throw, and the editor
+   * is merely as empty as it was before.
    */
   var h = window.h ||
     (window.React && window.React.createElement) ||
+    (window.CMS && window.CMS.h) ||
+    (window.CMS && window.CMS.React && window.CMS.React.createElement) ||
     null;
 
   if (!h || !window.LPCard) {
@@ -168,9 +179,9 @@
   /* --- the panel ---------------------------------------------------------- */
 
   /**
-   * Immutable-to-plain, defensively. Decap hands the entry over as an
-   * Immutable Map; `toJS` is how it comes back out. A plain object is passed
-   * through untouched so this keeps working if that ever changes.
+   * Immutable-to-plain, defensively. Both Decap and Sveltia hand the entry over
+   * as an Immutable Map; `toJS` is how it comes back out. A plain object is
+   * passed through untouched so this keeps working if that ever changes.
    */
   function plain(entry) {
     try {
@@ -185,10 +196,10 @@
   /* --- making the preview work, not just look right ----------------------- */
 
   /**
-   * The panel renders into an iframe of Decap's own. A <script> tag inserted as
-   * markup never executes, so the page it draws was inert: the size dropdown
-   * did not reprice, a sale on any size but the first never appeared, and the
-   * accessory tick-box left the total alone.
+   * The panel renders into the preview iframe. A <script> tag inserted as
+   * markup never executes, so the page it draws is inert: the size dropdown
+   * does not reprice, a sale on any size but the first never appears, and the
+   * accessory tick-box leaves the total alone.
    *
    * So site/app.js — the very file that does this on the live site — is loaded
    * into that iframe and its initialisers are called on each render. One copy
@@ -229,11 +240,23 @@
     }, 50);
   }
 
-  /** React hands the rendered node here; null on unmount. */
+  /**
+   * React hands the rendered node here; null on unmount.
+   *
+   * This ONLY ever touches an iframe document that is not the admin page's own.
+   * If Sveltia renders the preview inline (no iframe) rather than in a frame of
+   * its own, `node.ownerDocument` is the admin document — and injecting
+   * `/app.js` into that would run the whole site's boot logic inside the CMS.
+   * So bail unless we are demonstrably in a separate frame.
+   */
   function wire(node) {
-    if (!node) return;
     try {
-      withBehaviour(node.ownerDocument, function (lp) {
+      if (!node) return;
+      var doc = node.ownerDocument;
+      if (!doc || doc === window.document || (doc.defaultView && doc.defaultView === window)) {
+        return; // rendered inline, not in an iframe — do not touch the host page
+      }
+      withBehaviour(doc, function (lp) {
         lp.initDetail(node);
         lp.initCards(node);
       });
@@ -242,44 +265,53 @@
     }
   }
 
+  /**
+   * The panel. Wrapped whole in try/catch: a preview is a convenience, and a
+   * throw here must never be allowed to reach the CMS — under Sveltia an
+   * uncaught render error in a preview template can tear down the editor form
+   * beside it (losing half-typed list rows), which is far worse than a blank
+   * preview. Any failure returns a plain "unavailable" note instead.
+   */
   function ProductPreview(props) {
-    var out;
     try {
-      out = card.fromCmsEntry(plain(props.entry), catalogue);
-    } catch (e) {
+      var out = card.fromCmsEntry(plain(props && props.entry), catalogue);
+
+      // The product page as a customer meets it, not an impression of it: this
+      // is the same productDetail() the build writes into every product page.
+      var data = plain(props && props.entry);
+      var wording = card.applyWording(data, sectionFor(out.product.subcategory), settings);
+      var product = Object.assign({}, out.product, wording, {
+        accessoryPrice: Number(data.accessoryPrice) > 0
+          ? Number(data.accessoryPrice)
+          : Number(settings && settings.accessoryPriceDefault) || 0
+      });
+
+      var html = '<main class="lp-main lp-main--product">' +
+        card.productDetail(product, settings || {}) + "</main>";
+
+      var notes = out.notes.length
+        ? h("ul", { className: "lp-preview-notes" },
+          out.notes.map(function (n, i) { return h("li", { key: i }, n); }))
+        : null;
+
       return h("div", { className: "lp-preview" },
-        h("p", { className: "lp-preview-head" }, "Preview unavailable"));
+        h("p", { className: "lp-preview-head" }, "The product page"),
+        // A string of the site's own markup. It is inserted as markup because
+        // that is what it is — and everything inside it that came from the form
+        // has already been through `esc()` and `safeHref()` in tools/card.js,
+        // the same two guards the live site relies on.
+        h("div", { ref: wire, dangerouslySetInnerHTML: { __html: html } }),
+        notes
+      );
+    } catch (e) {
+      if (window.console) console.warn("[lp] product preview render failed: " + e);
+      try {
+        return h("div", { className: "lp-preview" },
+          h("p", { className: "lp-preview-head" }, "Preview unavailable"));
+      } catch (e2) {
+        return null;
+      }
     }
-
-    // The product page as a customer meets it, not an impression of it: this is
-    // the same productDetail() the build writes into every product page. The
-    // panel is a narrow column, so it lays itself out the way a phone does —
-    // photo above, details below — which is how most customers see it anyway.
-    var data = plain(props.entry);
-    var wording = card.applyWording(data, sectionFor(out.product.subcategory), settings);
-    var product = Object.assign({}, out.product, wording, {
-      accessoryPrice: Number(data.accessoryPrice) > 0
-        ? Number(data.accessoryPrice)
-        : Number(settings && settings.accessoryPriceDefault) || 0
-    });
-
-    var html = '<main class="lp-main lp-main--product">' +
-      card.productDetail(product, settings || {}) + "</main>";
-
-    var notes = out.notes.length
-      ? h("ul", { className: "lp-preview-notes" },
-        out.notes.map(function (n, i) { return h("li", { key: i }, n); }))
-      : null;
-
-    return h("div", { className: "lp-preview" },
-      h("p", { className: "lp-preview-head" }, "The product page"),
-      // A string of the site's own markup. It is inserted as markup because
-      // that is what it is — and everything inside it that came from the form
-      // has already been through `esc()` and `safeHref()` in tools/card.js, the
-      // same two guards the live site relies on.
-      h("div", { ref: wire, dangerouslySetInnerHTML: { __html: html } }),
-      notes
-    );
   }
 
   try {

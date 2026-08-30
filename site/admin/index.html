@@ -6,189 +6,22 @@
 <meta name="robots" content="noindex">
 <title>Little Princess Designer — Admin</title>
 <link rel="icon" href="/assets/logo-crown.png">
-<!-- Same self-hosted fonts as the site; no third-party request. -->
+<!-- Self-hosted brand fonts, for the loading screen below only. Sveltia's own
+     UI does not read this — do NOT add a stylesheet link for the CMS itself,
+     which is a common mistake carried over from Decap. -->
 <link rel="stylesheet" href="/tokens.css">
 <style>
-  /* ---------------------------------------------------------------------
-     Brand skin for the CMS chrome.
-
-     Decap ships its own stylesheet — a cold grey page (#eff0f4), white cards,
-     blue accents, system fonts. None of that is configurable, so it is
-     overridden here.
-
-     Two things to know before editing:
-
-     · The selectors match on *part* of a class name, because Decap's classes
-       are generated (`css-1x2y3z-ControlPaneContainer`). The readable half is
-       stable per release, and the release is pinned at the bottom of this
-       file, so these hold until someone bumps that version. If the admin ever
-       looks half-themed after an upgrade, this block is the first suspect.
-     · `!important` is needed throughout: Decap injects its styles at runtime,
-       after this file, so equal-specificity rules lose.
-
-     Deliberately NOT restyled: the on/off toggles and the delete button.
-     Forcing a brand colour onto a toggle makes "off" look like "on", and a
-     berry delete button reads as safe. Both matter more than matching.
-     --------------------------------------------------------------------- */
+  /* The loading screen, shown until Sveltia paints. Sveltia's UI cannot be
+     re-skinned (it is built in Svelte, not React, and ships its own themed
+     interface with automatic dark mode), so this is the only branded surface
+     in the admin now. Everything past the login screen is Sveltia's own look. */
   :root{
-    /* Aliases onto the real design tokens in /tokens.css, which is loaded
-       above — so the admin cannot drift from the site it edits. The literal
-       fallbacks are for the one case that matters: if tokens.css fails to
-       load, the boot screen below is what the owner is left looking at, and
-       it should still be legible rather than unstyled. */
     --lp-berry:var(--berry-700,#A43462);
-    --lp-berry-deep:var(--berry-900,#5C1533);
-    --lp-berry-soft:var(--berry-100,#FDEEF4);
     --lp-paper:var(--paper-050,#FFFCF8);
     --lp-ink:var(--ink-800,#333530);
   }
+  html,body{margin:0}
   body{background:var(--lp-paper);font-family:"Nunito","Segoe UI",system-ui,sans-serif}
-
-  /* --- 1. Warm paper instead of cold grey ------------------------------
-     Decap paints the editor screen with its own `colors.background`, which is
-     a blue-grey. The page behind the form is the largest surface in the tool,
-     so it sets the temperature of everything. */
-  body,
-  [class*="EditorContainer"],
-  [class*="AppMainContainer"]{background:var(--paper-050) !important}
-
-  /* Card surfaces stay white so the form still reads as paper on a desk,
-     but the border and shadow warm up and lose the grey edge. */
-  [class*="SidebarContainer"],
-  [class*="CollectionTopContainer"],
-  [class*="ListCard"],
-  [class*="GridCard"],
-  [class*="SearchResultContainer"]{
-    background:var(--paper-000) !important;
-    border:1px solid var(--ink-100) !important;
-    border-radius:14px !important;
-    box-shadow:0 1px 3px rgba(34,36,31,.06) !important;
-  }
-
-  /* --- 2. Hand-lettered headings ---------------------------------------
-     The logo voice, used only where the site uses it: page and section
-     headings. Product names in the list stay in Nunito — Caveat Brush is a
-     display face and a column of 39 names set in it is harder to scan. */
-  [class*="CollectionTopHeading"],
-  [class*="SidebarHeading"],
-  [class*="SettingsSectionTitle"]{
-    font-family:var(--font-hand) !important;
-    color:var(--berry-800) !important;
-    letter-spacing:.4px !important;
-    text-transform:none !important;
-  }
-  [class*="CollectionTopHeading"]{font-size:32px !important}
-  [class*="SidebarHeading"]{font-size:22px !important}
-
-  /* --- 3. Berry buttons ------------------------------------------------
-     The actions that commit something: Publish, Save, New, Login. */
-  [class*="PublishButton"],
-  [class*="PublishedButton"],
-  [class*="SaveButton"],
-  [class*="CollectionTopNewButton"],
-  [class*="AppHeaderQuickNewButton"],
-  [class*="LoginButton"],
-  button[class*="ButtonPrimary"]{
-    background-color:var(--berry-700) !important;
-    border-color:var(--berry-900) !important;
-    color:var(--paper-000) !important;
-    font-family:var(--font-ui) !important;
-    font-weight:700 !important;
-  }
-  [class*="PublishButton"]:hover,
-  [class*="SaveButton"]:hover,
-  [class*="CollectionTopNewButton"]:hover,
-  [class*="AppHeaderQuickNewButton"]:hover,
-  [class*="LoginButton"]:hover{background-color:var(--berry-800) !important}
-  /* Without this, an override on a disabled Save makes it look clickable. */
-  [class*="PublishButton"]:disabled,
-  [class*="SaveButton"]:disabled,
-  button[class*="ButtonPrimary"]:disabled{
-    background-color:var(--berry-300) !important;
-    border-color:var(--berry-300) !important;
-    cursor:not-allowed !important;
-  }
-
-  /* The quieter add/insert buttons inside a form: berry, but as an outline
-     so they do not compete with Publish. */
-  [class*="AddButton"],
-  [class*="InsertButton"],
-  [class*="FileWidgetButton"],
-  [class*="UploadButton"]{
-    background:var(--berry-100) !important;
-    color:var(--berry-800) !important;
-    border:1.5px solid var(--berry-300) !important;
-    font-weight:700 !important;
-  }
-
-  /* Blue is Decap's accent for the selected collection; berry here. */
-  [class*="NavLinkActive"],
-  [class*="SidebarNavLink"][class*="Active"]{
-    color:var(--berry-700) !important;
-    background-color:var(--berry-100) !important;
-  }
-
-  /* --- 4. Readable hints and labels ------------------------------------
-     Decap sets hints small and pale grey, which is where the wording that
-     explains each field lives. Darker and a size up, with room to breathe. */
-  [class*="ControlHint"]{
-    color:var(--ink-700) !important;
-    font-family:var(--font-ui) !important;
-    font-size:13.5px !important;
-    line-height:1.55 !important;
-    margin-top:6px !important;
-  }
-  [class*="FieldLabel"],
-  [class*="NestedObjectLabel"]{
-    font-family:var(--font-ui) !important;
-    font-weight:700 !important;
-    font-size:14px !important;
-    color:var(--ink-800) !important;
-    text-transform:none !important;
-  }
-
-  /* Inputs on warm paper, with a berry focus ring rather than a blue one. */
-  [class*="TextControl"],
-  [class*="AuthInput"],
-  input[type="text"],input[type="number"],input[type="url"],textarea,select{
-    font-family:var(--font-ui) !important;
-    border-color:var(--ink-200) !important;
-  }
-  [class*="TextControl"]:focus,
-  input:focus,textarea:focus,select:focus{
-    border-color:var(--berry-500) !important;
-    box-shadow:0 0 0 3px var(--berry-100) !important;
-    outline:none !important;
-  }
-
-  /* --- 5. Use the empty third of the screen ----------------------------
-     The live preview is off for products (editor.preview: false in
-     config.yml), so nothing is rendered beside the form — but Decap still
-     caps the form itself at 800px and centres it, leaving roughly a third of
-     a laptop screen empty. Widening it fits the photo rows and the size/price
-     rows without horizontal cramming. The cap stays, because a form running
-     the full width of a wide monitor is harder to read, not easier.
-
-     The doubled selector is deliberate: Decap has two nested elements both
-     labelled ControlPaneContainer, and only the inner one carries the width. */
-  [class*="ControlPaneContainer"] [class*="ControlPaneContainer"]{
-    max-width:1180px !important;
-    padding-left:8px !important;
-    padding-right:8px !important;
-  }
-
-  /* --- 5b. The ImageKit photo library ----------------------------------
-     The widget draws its own full-screen modal at `z-index: 1`, which loses
-     to Decap's editor toolbar and leaves the picker half-covered. Everything
-     else here is cosmetic; the z-index is not. */
-  .ik-media-library-widget-modal{z-index:99999 !important}
-  .ik-media-library-widget-modal-content{
-    border:1px solid var(--ink-200) !important;
-    border-radius:14px !important;
-    overflow:hidden !important;
-  }
-
-  /* Loading state, replaced once the CMS mounts. */
   #lp-boot{
     position:fixed;inset:0;display:flex;flex-direction:column;
     align-items:center;justify-content:center;gap:14px;
@@ -198,26 +31,6 @@
   #lp-boot p{font:700 15px/1.5 "Nunito",sans-serif;color:var(--lp-ink);margin:0;max-width:34ch}
   #lp-boot small{font:400 13px/1.5 "Nunito",sans-serif;color:#6B6D68;max-width:44ch}
   #lp-boot[hidden]{display:none}
-
-  /* --- 6. The top bar --------------------------------------------------
-     Last on purpose. `[class*="AppHeader"]` also matches the buttons inside
-     the bar, so these rules have to come after the button rules above or they
-     would paint the New button berry-on-berry and hide it. */
-  [class*="AppHeader"]{background:var(--lp-berry) !important}
-  [class*="AppHeader"] a,[class*="AppHeader"] button{color:var(--paper-000) !important}
-  [class*="SiteLinkText"],
-  [class*="AppHeaderSiteLink"]{font-family:var(--font-hand) !important;font-size:20px !important}
-  /* The one button sitting on the berry bar: reversed out, so it is visible
-     against it. Typed as `button[...]` to outrank the descendant rule above. */
-  button[class*="AppHeaderQuickNewButton"]{
-    background-color:var(--paper-000) !important;
-    border-color:var(--paper-000) !important;
-    color:var(--berry-800) !important;
-  }
-  button[class*="AppHeaderQuickNewButton"]:hover{
-    background-color:var(--berry-100) !important;
-    color:var(--berry-900) !important;
-  }
 </style>
 </head>
 <body>
@@ -226,81 +39,77 @@
   <img src="/assets/logo-lockup.webp" alt="Little Princess Designer">
   <p>Opening the admin…</p>
   <small id="lp-boot-note">
-    If this does not move past this screen, check that the DecapBridge site id in
-    <code>admin/config.yml</code> has been filled in.
+    If this does not move past this screen, the sign-in service may not be set
+    up yet — see <code>docs/CMS-SETUP.md</code>.
   </small>
 </div>
 
-<!-- Pinned deliberately. A floating range (decap-cms@^3) re-downloads whatever
-     is newest on every visit, so a bad release upstream breaks this admin
-     overnight with no change on our side. Upgrade by bumping this number and
-     checking the admin still loads. Release notes:
-     https://github.com/decaporg/decap-cms/releases -->
-<script src="https://unpkg.com/decap-cms@3.15.1/dist/decap-cms.js"></script>
+<!-- Sveltia CMS — the drop-in successor to Decap CMS. It reads the same
+     admin/config.yml.
 
-<!-- ImageKit's embeddable media library, and the file that plugs it into the
-     Photos button. Pinned for the same reason Decap is, above.
+     Pinned deliberately. Sveltia is pre-1.0 and releases often; a floating
+     version re-downloads whatever is newest on every visit, so a bad release
+     upstream could break this admin overnight with no change on our side.
+     Upgrade by bumping this number and checking the admin still loads AND
+     that adding a row to Photos / Sizes keeps what you typed and adds a row.
+     Releases: https://github.com/sveltia/sveltia-cms/releases
 
-     Order matters twice over: both of these have to run after decap-cms.js,
-     which is what creates `window.CMS`, and imagekit.js has to register the
-     library before Decap finishes fetching config.yml — otherwise Decap reads
-     `media_library: imagekit`, finds nothing registered under that name and
-     stops with a configuration error. Ordinary <script> tags run in order
-     while the config is still being fetched, so this holds; adding `defer` or
-     `async` to either line would break it. -->
-<script src="https://unpkg.com/imagekit-media-library-widget@2.4.1/dist/imagekit-media-library-widget.min.js"></script>
-<script src="/admin/imagekit.js"></script>
+     PINNED TO 0.198.0, NOT THE LATEST, ON PURPOSE (2026-08-30).
+     The list-widget rework in 0.200.0 (25 Aug) has a regression: clicking a
+     list's "Add" button while a field holds an unsaved value wipes that value
+     and fails to add the row — verified reproducible on 0.203.1 with a minimal
+     two-field list and no custom code, and verified fixed by dropping to
+     0.198.0. This made the admin unusable for adding products. Re-test the
+     Photos/Sizes add flow before bumping past 0.199.x; upstream issue to file.
 
-<!-- The live preview panel, and the build files it draws the real shop card
-     with. These are copies of tools/shared.js, tools/images.js and
+     Do NOT add type="module" — the pre-built file below is not an ES module,
+     and adding it stops the CMS loading. -->
+<script src="https://unpkg.com/@sveltia/cms@0.198.0/dist/sveltia-cms.js"></script>
+
+<!-- The live product-card preview panel, and the build files it draws the real
+     shop page with. These are copies of tools/shared.js, tools/images.js and
      tools/card.js, placed here by the build (tools/build.js) so the browser has
      an address for them — the originals stay in tools/, where the build
      requires them, so there is only ever one copy in the repository.
 
-     Order matters again: shared.js leaves the money/wa-link helpers on the
-     window and images.js leaves the resize table, and card.js reads both from
-     there; preview.js needs all three, plus `window.CMS` from decap-cms.js
-     above. Unlike imagekit.js this does not have to beat the config fetch — a
-     preview template can be registered at any point — but keeping it in the
-     same ordinary run of <script> tags costs nothing. -->
+     Order matters: shared.js leaves the money/wa-link helpers on the window,
+     images.js leaves the resize table, and card.js reads both from there;
+     preview.js needs all three plus window.CMS from the script above. Plain
+     ordered <script> tags run in sequence, so this holds — don't add defer or
+     async. See site/admin/preview.js for how it plugs into Sveltia. -->
 <script src="/admin/shared.js"></script>
 <script src="/admin/images.js"></script>
 <script src="/admin/card.js"></script>
 <script src="/admin/preview.js"></script>
 
-<!-- Copies a product's first photo into the plain field the tiles/grid view
-     reads its thumbnail from, on every save — see the file for why. Only
-     needs `window.CMS`, so it can sit anywhere after decap-cms.js. -->
+<!-- Copies a product's first photo into the plain field the grid view reads
+     its thumbnail from, on every save — see the file for why. Uses Sveltia's
+     preSave event (the same API Decap exposed). -->
 <script src="/admin/tile-photo.js"></script>
 
 <!-- Keeps the mouse wheel from changing a number field's value out from under
-     whoever is scrolling past it — see the file for why. Independent of
-     everything above: it only needs the page's own document, not Decap. -->
+     whoever is scrolling past it — see the file for why. Plain browser code,
+     independent of the CMS. -->
 <script src="/admin/no-scroll-number.js"></script>
 
 <script>
-  // Hide the splash as soon as Decap has painted anything — its login screen
-  // included, so the Login button is never sitting behind the overlay.
+  // Hide the loading screen once Sveltia has painted something — its login
+  // screen included, so the Login button is never sitting behind the overlay.
   (function () {
     var boot = document.getElementById("lp-boot");
     var hide = function () { if (boot) boot.hidden = true; };
 
-    if (!window.CMS) {
-      document.getElementById("lp-boot-note").textContent =
-        "The CMS script could not load. Check your network connection and reload.";
-      return;
-    }
-
-    // Decap mounts into <div id="nc-root">. Anything inside it means it is up.
+    // Sveltia mounts into a custom element. Poll briefly for it, then give up
+    // and hide the splash regardless so it can never sit there forever.
+    var tries = 0;
     var check = setInterval(function () {
-      var root = document.getElementById("nc-root");
-      if (root && root.firstElementChild) {
+      var mounted = document.querySelector("#nc-root, .sveltia-cms, sveltia-cms");
+      if ((mounted && mounted.firstElementChild) || ++tries > 60) {
         clearInterval(check);
         hide();
       }
     }, 120);
-    // Belt and braces: never leave the splash up forever.
-    setTimeout(function () { clearInterval(check); hide(); }, 6000);
+    setTimeout(function () { clearInterval(check); hide(); }, 8000);
   })();
 </script>
 </body>

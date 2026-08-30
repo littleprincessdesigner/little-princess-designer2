@@ -16,7 +16,8 @@ Photos live on ImageKit, not in git.
   with a hand-rolled YAML reader and gates every build — anything added to the
   config must survive it.
 - **Every field in `content/` must be declared in `site/admin/config.yml`**, or
-  Decap silently deletes it on save. `npm run check` enforces this.
+  the CMS may drop it on save. `npm run check` enforces this. (Strictly true of
+  Decap; treat it as strict under Sveltia too until proven otherwise.)
 - `site/tokens.css` is a binding design system. Don't edit its values.
 - **Never claim a mobile fix is verified.** Headless Chromium ignores the
   viewport meta, does not reproduce scrolling, and does not fire the URL-bar
@@ -35,13 +36,11 @@ Every product still has at least one photo. The build prints 4 content warnings
 now (three suspiciously-low prices and one empty section — see "Waiting on the
 owner"); the ~26 slug/name mismatches were resolved by renaming the files.
 
-Admin works end to end: two people (Rimaz, Javeria) have saved edits through
-DecapBridge, and their names land in the commit messages as intended. The photo
-library is ImageKit — `media_library: imagekit` in `site/admin/config.yml`,
-wired to ImageKit's embeddable widget by `site/admin/imagekit.js`, since Decap
-ships no ImageKit library of its own. No keys anywhere: each editor signs in to
-ImageKit inside the panel. Uploads and resizing were confirmed working by the
-owner on 2026-08-05.
+**Admin: migrated to Sveltia CMS on the `sveltia-cms-migration` branch
+(2026-08-30) — NOT yet merged or verified live.** See "The Sveltia migration"
+below. Under the old Decap setup, two people (Rimaz, Javeria) saved edits
+through DecapBridge with their names in the commit messages, and the ImageKit
+photo picker + resizing were confirmed working by the owner on 2026-08-05.
 
 ## Waiting on the owner — all admin jobs, no code can fix them
 
@@ -85,9 +84,9 @@ The proxy blocks `unpkg.com`, `*.netlify.app`, `littleprincessdesigner.pk`,
 so a session cannot open the admin, the deploy preview or the live site. Do not
 promise to check them. What that leaves unproved:
 
-- **The admin panel itself**, including the live product-card preview in
-  `site/admin/preview.js`. Config changes can only be checked with
-  `npm run check` and by parsing the YAML.
+- **The admin panel itself.** Under Sveltia this now also needs a real GitHub
+  OAuth sign-in that only exists once the owner does the CMS-SETUP steps. Config
+  changes can only be checked with `npm run check` and by parsing the YAML.
 - **Link previews in WhatsApp.** `og:image` asks ImageKit for a resized JPEG
   copy (`w-1200,h-630,cm-pad_resize,bg-FFFCF8,f-jpg`) because WhatsApp will not
   render WebP and skips images over roughly 300 KB. Testing it needs a real
@@ -99,14 +98,55 @@ To check what an npm package actually does, download its tarball from
 `registry.npmjs.org` and read `dist/*.js.map` `sourcesContent`. Every Decap
 claim in this repo was confirmed that way.
 
+## The Sveltia migration (2026-08-30, branch `sveltia-cms-migration`)
+
+The owner asked to move off Decap + DecapBridge. Sveltia CMS is the successor
+and reads the same `config.yml`. Three conflicts were resolved with the owner
+before any code changed:
+
+1. **Sign-in.** Sveltia does not support git-gateway (so DecapBridge is out).
+   Chosen: the **GitHub backend**, each editor a repo collaborator, sign-in
+   brokered by Netlify's OAuth service (fallback: a Cloudflare `sveltia-cms-auth`
+   worker). Steps for the owner are in `docs/CMS-SETUP.md`.
+2. **Photos.** Sveltia ignores custom media libraries, so the ImageKit in-page
+   picker is gone. Chosen: **keep ImageKit, paste addresses.** The `upload`
+   field is now a `string` box; the editor copies the URL from imagekit.io. The
+   live site's image pipeline (`tools/images.js`) is untouched — every existing
+   photo URL still works. Cloudinary (which Sveltia *does* have a picker for) is
+   the noted upgrade path if the paste step annoys.
+3. **Preview panel.** `site/admin/preview.js` uses Decap's React preview API.
+   First dropped for Sveltia's built-in preview; the owner then asked for the
+   full product-page preview back (2026-08-30). It was restored and adapted for
+   Sveltia: broader `h` lookup, a note that Sveltia only makes the preview pane
+   an iframe once `registerPreviewStyle` is called (which this file does), and
+   graceful degradation at every step. `imagekit.js` stays deleted.
+
+Also: the `<style>` skin in `index.html` was dropped (Sveltia's Svelte UI can't
+be re-skinned — it has its own themed UI with dark mode); `local_backend` and
+the `npm run cms` script are gone (Sveltia edits local files via the browser's
+File System Access API instead); `auth:` and the DecapBridge `commit_messages`
+wording were removed.
+
+**Still to do before this is live:** owner completes `docs/CMS-SETUP.md` steps
+1–4, we test sign-in + a save on the branch preview deploy, then merge. Three
+things are best-effort and need a real browser check on the preview deploy —
+all degrade to "still usable", none block a merge:
+  - `preview.js` — does Sveltia expose `h`? does the preview iframe run the
+    injected `/app.js` (interactive size/accessory recompute) or only render
+    static? Static is fine; empty pane means `h` is missing and we fall back to
+    `editor.preview: false` or a static-only card.
+  - `tile-photo.js`'s `preSave` hook — worst case a blank grid thumbnail.
+  - the `thumbnail: image` collection option — same.
+
 ## Roads already found to be closed
 
-- **Do not add a `netlify-identity-widget` script tag.** Most git-gateway
-  tutorials call for it. `decap-cms-ui-auth` only defers to
-  `window.netlifyIdentity` when that global exists, so adding it would hijack
-  login and point it at the retired Netlify Identity service.
+- **Do not add a `netlify-identity-widget` script tag.** It hijacks login and
+  points it at the retired Netlify Identity service. (Was a git-gateway
+  footgun; still true, and Sveltia has no reason to load it either.)
 - **`add_repo` for `decaporg/decap-cms` was denied by the user.** Don't retry;
-  use the npm tarball route.
+  use the npm tarball route. (Same applies to `sveltia/sveltia-cms` — read its
+  published `dist/*.js` from `registry.npmjs.org` if you need to confirm
+  behaviour.)
 - **ffmpeg cannot decode WebP here** (Playwright's minimal build). Use headless
   Chromium to render and screenshot instead — that is how
   `site/assets/share-card.png` was produced, and `tools/share-card.html` carries
@@ -160,6 +200,10 @@ works once it deploys.
 
 ## Recent history
 
+- **2026-08-30** — migrated the admin from Decap CMS + DecapBridge to Sveltia
+  CMS on branch `sveltia-cms-migration` (not yet merged). Full detail under "The
+  Sveltia migration" above. `npm run check`, `npm test` and `npm run build` all
+  green after the change; the browser side is unverifiable from here.
 - **2026-08-05** — DecapBridge sign-in (so helpers need no repo access), a
   stored-XSS fix in the JSON-LD block, the ImageKit photo library, and the
   link-preview resizing. PR #5, merged.

@@ -1,102 +1,64 @@
 # =============================================================================
-# Decap CMS — Little Princess Designer
+# Sveltia CMS — Little Princess Designer
 #
-# Sign-in is handled by DecapBridge, so editors log in with an email address
-# instead of needing a GitHub account of their own. Setup is complete; the
-# values below came from the DecapBridge dashboard — docs/CMS-SETUP.md.
+# Editors sign in with their GitHub account (see docs/CMS-SETUP.md). Sveltia is
+# a drop-in successor to Decap CMS and reads this same config file.
 #
 # Editing a product here commits a JSON file to content/products/, which makes
 # Netlify rebuild the site. Changes are live in a minute or two.
 # =============================================================================
 
 backend:
-  name: git-gateway
-  # The repository moved from the Somaz137 account to the littleprincessdesigner
-  # organisation. Reading from the old address still works — GitHub forwards it —
-  # which is why nothing looked broken until sign-in failed. This line is what
-  # the admin hands to DecapBridge, so it has to name where the repository
-  # actually lives, not where it used to.
+  name: github
+  # Where the repository actually lives. It moved from the Somaz137 account to
+  # the littleprincessdesigner organisation; GitHub forwards the old address,
+  # but this line must name the current one.
   repo: littleprincessdesigner/little-princess-designer2
   branch: main
-  # DecapBridge signs people in, then hands a short-lived token back to this
-  # page. The long code in both endpoints is this site's id on DecapBridge —
-  # if you ever delete and recreate the site there, replace it in BOTH lines.
-  auth_type: pkce
-  base_url: https://auth.decapbridge.com
-  auth_endpoint: /sites/46bc39a8-a58f-4aed-bc5d-4a660a21ac73/pkce
-  auth_token_endpoint: /sites/46bc39a8-a58f-4aed-bc5d-4a660a21ac73/token
-  gateway_url: https://gateway.decapbridge.com
+  # How the "Sign in with GitHub" button reaches GitHub. Left unset, Sveltia
+  # uses Netlify's shared OAuth service, which needs the GitHub provider added
+  # under the Netlify site's settings (docs/CMS-SETUP.md, step 3). If that
+  # option is missing from Netlify, deploy the small sveltia-cms-auth worker on
+  # Cloudflare (free) and point this at it instead:
+  #   base_url: https://YOUR-WORKER.workers.dev
 
-  # Everyone's edits are committed by DecapBridge rather than by their own
-  # GitHub account, so the editor's name and login go into the message instead —
-  # that is the only way to tell later who changed what.
+  # Each save is now committed by the editor's own GitHub account, so GitHub
+  # records who made every change. These lines just keep the wording readable in
+  # the history; {{author-name}} and {{author-login}} come from GitHub.
   commit_messages:
-    create: 'Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge'
-    update: 'Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge'
-    delete: 'Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge'
-    uploadMedia: 'Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge'
-    deleteMedia: 'Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge'
-    openAuthoring: 'Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge'
-
-# Which parts of a DecapBridge login to read the editor's identity from. Without
-# this the commit messages above have no name to print — first and last name are
-# joined to fill in {{author-name}}.
-auth:
-  email_claim: email
-  first_name_claim: first_name
-  last_name_claim: last_name
-  avatar_url_claim: avatar_url
-
-# Lets you run the admin locally with `npm run cms` — no GitHub login needed.
-# Harmless in production: it only activates on localhost.
-local_backend: true
+    create: 'Create {{collection}} “{{slug}}” — {{author-name}}'
+    update: 'Update {{collection}} “{{slug}}” — {{author-name}}'
+    delete: 'Delete {{collection}} “{{slug}}” — {{author-name}}'
+    uploadMedia: 'Upload “{{path}}” — {{author-name}}'
+    deleteMedia: 'Delete “{{path}}” — {{author-name}}'
 
 # Edits publish straight away. Turn on the draft/review workflow later if you
 # ever want a second pair of eyes before things go live:
 #   publish_mode: editorial_workflow
 publish_mode: simple
 
-# Where an upload would be committed if photos still went into the repository.
-# They do not — every photo is an ImageKit URL (see the block below) — so this
-# directory does not exist and nothing references it. Decap still requires both
-# keys to be declared, so they stay.
+# Sveltia still requires both keys to be declared even though no photo is
+# committed into this repository — every photo is a web address pasted into the
+# form (see the Photos field below). This folder is not used.
 media_folder: "site/assets/uploads"
 public_folder: "/assets/uploads"
 
-# --- Photos: the ImageKit library --------------------------------------------
-# Pressing "Choose an image" opens the shop's ImageKit library instead of
-# committing the file into this repository. That matters because anything
-# committed to git stays in its history forever, even after it is deleted: a
-# hundred photos straight off a phone would sit in the repo permanently, and
-# every clone would carry them.
+# --- Photos ------------------------------------------------------------------
+# Photos are NOT stored in this repository. Each photo row on a product takes a
+# web address, pasted in by the editor from the shop's ImageKit library
+# (imagekit.io → click the photo → Copy URL). That keeps camera-sized files out
+# of git history and lets ImageKit resize them for phones on delivery — the
+# wiring for that resize lives in tools/images.js.
 #
-# There is nothing secret here and nothing to fill in for it to work. The
-# widget asks the editor to sign in to ImageKit itself, so no key of any kind
-# reaches this page — every value below only saves a step. The wiring is in
-# site/admin/imagekit.js, which explains the whole arrangement.
-#
+# Sveltia CMS does not support ImageKit's in-page picker (it ignores custom
+# media libraries), which is why the picker button is now a plain address box.
 # The three hero sketch/colour/photo images stay as repo files either way —
 # they are part of the page design, not catalogue content.
-media_library:
-  name: imagekit
-  config:
-    # The last part of the shop's URL endpoint, https://ik.imagekit.io/lpdlhr —
-    # dashboard → Developer options → URL endpoints. It means the library opens
-    # straight into this account instead of asking which account to open. Not a
-    # password: it is the public address every photo on the site is served from.
-    imagekit_id: "lpdlhr"
-    # Turn on ONLY if you sign in to ImageKit with Google or Microsoft rather
-    # than with a password. On a password account it sends you down a sign-in
-    # route you cannot finish.
-    sso: false
-    # Optional folder to open in, e.g. "/products". Leave empty to land at the
-    # top of the library. A folder named here has to exist in ImageKit already.
-    folder: ""
 
 # Where the "back to site" link in the admin points.
 site_url: https://littleprincessdesigner.pk
-# DecapBridge offers its own logo here; this keeps the shop's own lockup, which
-# is already sitting in site/assets and so needs no third-party request.
+# The shop's own lockup in the CMS header, already sitting in site/assets so it
+# needs no third-party request.
 logo_url: /assets/logo-lockup.webp
 
 collections:
@@ -125,24 +87,32 @@ collections:
     #
     # Two things to know about it:
     #
-    #   · The section shows as the stored code, not as "Girls / Party" — Decap
-    #     cannot look a relation up for a summary, it only sees what is in the
-    #     file. Since the code became the section's file name that reads for
-    #     itself ("girls-luxury-dresses"), where it used to read "g3".
+    #   · The section shows as the stored code, not as "Girls / Party" — the
+    #     summary only sees what is in the file, not what a relation points at.
+    #     Since the code became the section's file name that reads for itself
+    #     ("girls-luxury-dresses"), where it used to read "g3".
     #   · The price is the FIRST size row's price, not the lowest. The website
     #     shows the lowest ("from PKR …"); a summary cannot compare rows. If a
     #     row's price looks wrong here, open it and check which row is first.
     #
     # `ternary('a','b')` prints a when the field is set and b when it is not,
-    # which is how HIDDEN appears only on hidden pieces. Decap's filters are
-    # upper, lower, date, default, ternary and truncate — nothing else parses.
+    # which is how HIDDEN appears only on hidden pieces. Sveltia's string
+    # transformations are upper, lower, slugify, truncate, default, ternary and
+    # date — nothing else parses.
     summary: "{{name}}  ·  {{subcategory}}  ·  PKR {{sizes.0.price | default('?')}}{{visible | ternary('', '  ·  HIDDEN')}}{{badge | ternary('  ·  ', '')}}{{badge | upper}}"
     sortable_fields: [name, addedOn, subcategory]
-    # The only collection with a preview. The panel draws the real shop card —
-    # the same code the live site is built with — so a piece can be checked
-    # before it is published rather than after. The wiring is in
-    # site/admin/preview.js; turning this back to false switches the panel off
-    # and leaves everything else working.
+    # The photo the grid/tiles view shows. It points at the hidden "image" field
+    # that site/admin/tile-photo.js keeps in sync with the first Photos row on
+    # every save (photo fields are plain address boxes now, which the CMS does
+    # not recognise as pictures on their own).
+    thumbnail: image
+    # Preview pane OFF (2026-08-30). site/admin/preview.js draws the real
+    # product page — the same tools/card.js the live site is built with — but
+    # under Sveltia the pane was destabilising the editor form: adding a row to
+    # Photos or Sizes was wiping the entry. Turned off until the custom preview
+    # is debugged against Sveltia in a real browser. Everything else works with
+    # it off; flip back to true to re-test. preview.js and its <script> tags in
+    # index.html are left in place so re-enabling is a one-line change.
     editor:
       preview: true
     view_filters:
@@ -157,11 +127,10 @@ collections:
         pattern: "Sold out"
       # Photo filters. A filter matches a field's value as text, so these read
       # the whole Photos list at once and ask whether a real image address
-      # appears anywhere in it — a pasted link (https://…) or an uploaded file
-      # (/assets/uploads/…). That is the only form that catches both a piece
-      # with no photo rows at all and a piece whose rows are still blank; a
-      # filter on the first row's link misses the first case, because a field
-      # that does not exist never matches.
+      # (https://…) appears anywhere in it. That is the only form that catches
+      # both a piece with no photo rows at all and a piece whose rows are still
+      # blank; a filter on the first row's link misses the first case, because a
+      # field that does not exist never matches.
       # Single-quoted deliberately: a double-quoted YAML scalar turns \\s into \s
       # on the way in, so the pattern would have to be written with doubled
       # backslashes and would then read differently to tools/yaml.js, which does
@@ -191,35 +160,34 @@ collections:
         label_singular: "Photo"
         collapsed: false
         summary: "{{fields.alt}}"
-        hint: "First photo is the one on the card. The product page shows up to three — front, side and back work well. Each row takes EITHER a photo from the library OR a pasted link, not both."
+        hint: "First photo is the one on the card. The product page shows up to three — front, side and back work well."
         fields:
-          - label: "Choose a photo"
+          - label: "Photo address"
             name: upload
-            widget: image
+            widget: string
             required: false
-            allow_multiple: false
-            hint: "Opens your ImageKit photo library. Drag a new photo in there, or pick one you have already added, and press Insert."
-          - label: "…or paste an image link"
+            hint: "Paste the photo's web address from your ImageKit library: open imagekit.io, click the photo, press Copy URL. It looks like https://ik.imagekit.io/lpdlhr/… — ImageKit then resizes it for phones automatically."
+          - label: "…or another image link"
             name: url
             widget: string
             required: false
-            hint: "A full https:// address, from anywhere. Only needed if the library above will not open. If both are filled in, the link wins."
+            hint: "A full https:// address from somewhere other than ImageKit. Only needed for a photo hosted elsewhere. If both boxes are filled in, this one wins."
           - label: "Photo description (alt text)"
             name: alt
             widget: string
             required: false
             hint: "Describe the piece for search engines and for anyone using a screen reader — e.g. \"Blush pink net party frock for girls, hand-beaded bodice\"."
 
-      # Decap's grid/tiles view (the toggle beside the list) can only draw a
-      # thumbnail from one specific kind of field, and cannot look inside the
-      # Photos list above — which is why the tiles show empty. This field
-      # copies the first Photos row into a shape the tiles view can read, and
-      # it does that copying by itself, every time this piece is saved
+      # The grid/tiles view (the toggle beside the list) draws its thumbnail
+      # from one plain field on the entry and cannot look inside the Photos list
+      # above — which is why the tiles would otherwise show empty. This field
+      # copies the first Photos row into a shape the tiles view can read, and it
+      # does that copying by itself, every time this piece is saved
       # (site/admin/tile-photo.js) — there is nothing to fill in here by hand,
       # and nothing here is shown on the website itself.
       - label: "Tile photo (filled in automatically)"
         name: image
-        widget: image
+        widget: string
         required: false
         hint: "Kept in sync with the first photo above every time you save. Edit Photos above to change it — this box is only what the grid view reads its thumbnail from."
 
@@ -369,7 +337,7 @@ collections:
     identifier_field: name
     # The file name is the section's id — see the "Short code" note below. It is
     # built from the tab and the name so it reads for itself in a product's
-    # form, and Decap guarantees it is unique: if the name is already taken it
+    # form, and the CMS guarantees it is unique: if the name is already taken it
     # adds a number rather than overwriting. Set once, when the section is
     # created; renaming the section afterwards leaves it alone, which is what
     # keeps every product pointing at the right place.
@@ -464,8 +432,8 @@ collections:
                 name: image
                 widget: object
                 fields:
-                  - { label: "Choose a photo", name: upload, widget: image, required: false }
-                  - { label: "…or paste an image link", name: url, widget: string, required: false }
+                  - { label: "Photo address", name: upload, widget: string, required: false, hint: "Paste from your ImageKit library (imagekit.io → click the photo → Copy URL)." }
+                  - { label: "…or another image link", name: url, widget: string, required: false }
               - { label: "Photo description (alt text)", name: alt, widget: string }
           - label: "Search engine listing"
             name: seo
@@ -492,7 +460,7 @@ collections:
   #
   # This was a single page holding everything from the phone number to the
   # footer line, which meant scrolling past the hero headlines to change an
-  # email address. It is three files now, and Decap shows one page per file.
+  # email address. It is three files now, and the CMS shows one page per file.
   #
   # The split is only an admin-side arrangement: tools/content.js reads all
   # three and merges them into the one settings object the rest of the build
@@ -752,8 +720,8 @@ collections:
                 name: photo
                 widget: object
                 fields:
-                  - { label: "Choose a photo", name: upload, widget: image, required: false }
-                  - { label: "…or paste an image link", name: url, widget: string, required: false }
+                  - { label: "Photo address", name: upload, widget: string, required: false, hint: "Paste from your ImageKit library (imagekit.io → click the photo → Copy URL)." }
+                  - { label: "…or another image link", name: url, widget: string, required: false }
                   - { label: "Photo description (alt text)", name: alt, widget: string }
 
           # --- The spinning ring on the home page ------------------------

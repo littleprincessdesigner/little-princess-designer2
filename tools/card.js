@@ -64,7 +64,14 @@ const safeHref = url => {
   return SAFE_SCHEMES.includes(scheme[1]) ? esc(raw) : "#";
 };
 
-const money = shared.money;
+// `shared.money` and `shared.waLink` are used directly at each call site below,
+// never aliased to a bare `const money` / `const waLink` here. Loaded as plain
+// <script> tags in the admin, this file and shared.js share one top-level
+// scope, and shared.js already declares both names — a second `const` of the
+// same name is a redeclaration error that kills this whole file (which is what
+// happened, silently, from the 2026-08-27 shared-helpers split until Sveltia's
+// preview panel surfaced it). The `esc`/`safeHref` helpers above are safe: no
+// other classic-script file on the admin page declares those.
 
 /* --- shared image frame ------------------------------------------------- */
 
@@ -159,8 +166,8 @@ function frame(image, { eager = false, placeholder = "Photo coming soon", sizes 
  */
 function priceBlock(sz, cls) {
   return '<span class="lp-price-was" data-price-was' + (sz.wasPrice ? "" : " hidden") + ">" +
-    (sz.wasPrice ? money(sz.wasPrice) : "") + "</span>" +
-    '<span class="' + cls + '" data-price-now>' + money(sz.price) + "</span>";
+    (sz.wasPrice ? shared.money(sz.wasPrice) : "") + "</span>" +
+    '<span class="' + cls + '" data-price-now>' + shared.money(sz.price) + "</span>";
 }
 
 function productCard(model, p) {
@@ -361,8 +368,6 @@ const svg = (body, { size = 24, stroke = "currentColor", width = 1.6, viewBox = 
 
 /* --- the product page's own block ---------------------------------------- */
 
-const waLink = shared.waLink;
-
 /**
  * The three views a gallery is laid out for. A piece with fewer photos still
  * gets three frames, so the page does not reflow as photos are added.
@@ -419,7 +424,7 @@ function productDetail(p, s) {
   // to rewrite this link when the size or the accessory tick-box changes.
   const orderCta = soldOut
     ? `<span class="lp-wa lp-wa--off" aria-disabled="true">Currently unavailable</span>`
-    : `<a class="lp-wa" target="_blank" rel="noopener" href="${safeHref(waLink(s.whatsappNumber,
+    : `<a class="lp-wa" target="_blank" rel="noopener" href="${safeHref(shared.waLink(s.whatsappNumber,
   shared.waOrderMessage({ name: p.name, size: first.size, accessory: false, total: first.price })))}" data-wa-order>
 ${svg(ICON.waFilled, { size: 20, viewBox: "0 0 32 32", stroke: "none", width: 0 })}
 Order on WhatsApp</a>`;
@@ -495,7 +500,7 @@ ${accessory}
 <div class="lp-total">
 <div class="lp-total-row">
 <span class="lp-total-label">Total</span>
-<span class="lp-total-amount" data-total>${money(first.price)}</span>
+<span class="lp-total-amount" data-total>${shared.money(first.price)}</span>
 </div>
 <div class="lp-total-note">${esc(s.deliveryNote)}</div>
 </div>
@@ -551,11 +556,12 @@ function applyWording(data, sub, settings) {
  * The name is deliberately not something plain like `API` — see the matching
  * note in tools/images.js. As <script> tags these two files share one top-level
  * scope, and the same `const` name in both is a redeclaration error that kills
- * whichever loads second.
+ * whichever loads second. `money` and `waLink` are re-exported straight from
+ * `shared` here for the same reason — this file must not declare either name.
  */
 const CARD_API = {
-  esc, safeHref, money, frame, IMG_SIZES, productCard,
-  svg, ICON, waLink, productDetail, applyWording, fromCmsEntry
+  esc, safeHref, money: shared.money, frame, IMG_SIZES, productCard,
+  svg, ICON, waLink: shared.waLink, productDetail, applyWording, fromCmsEntry
 };
 
 if (typeof module === "object" && module.exports) {

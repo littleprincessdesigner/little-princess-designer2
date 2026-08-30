@@ -21,10 +21,9 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641076%20(1).jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641075%20(1).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641076%20(1).jpg",
+      "url": "",
+      "alt": ""
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000641076%20(1).jpg",
