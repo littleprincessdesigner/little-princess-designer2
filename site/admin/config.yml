@@ -114,7 +114,7 @@ collections:
     # it off; flip back to true to re-test. preview.js and its <script> tags in
     # index.html are left in place so re-enabling is a one-line change.
     editor:
-      preview: false
+      preview: true
     view_filters:
       - label: "Live on the website"
         field: visible
