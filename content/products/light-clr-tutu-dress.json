@@ -1,0 +1,39 @@
+{
+  "name": "light clr tutu dress",
+  "images": [
+    {
+      "upload": "",
+      "url": "https://ik.imagekit.io/lpdlhr/1000642264.jpg",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642276.jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000642264.jpg",
+  "subcategory": "girls-tutu-dresses",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-31T01:23",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 55,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": true,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "",
+  "description2": "",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
