@@ -103,9 +103,14 @@ for (const name of ["categories", "settings"]) {
 /* --- report ------------------------------------------------------------ */
 
 if (notes.length) {
-  console.log("\nNotes (" + notes.length + "):");
-  for (const n of notes.slice(0, 12)) console.log("  · " + n);
-  if (notes.length > 12) console.log("  · …and " + (notes.length - 12) + " more");
+  // These are all the harmless direction: a field declared in config.yml that a
+  // content file has not filled in yet. That is the normal state for every
+  // optional field, so on a 110-product catalogue it ran to ~1,100 near-identical
+  // lines and buried everything else in the build log. One summary line is
+  // enough — the count is the only part worth watching, and the real "this would
+  // lose content" cases are the `problems` list below, which stays loud.
+  console.log("\n" + notes.length + " optional field(s) are declared in config.yml but not yet " +
+    "filled in across content/ — normal; the CMS writes each one when it is first given a value.");
 }
 
 if (problems.length) {
