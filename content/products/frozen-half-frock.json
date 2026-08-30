@@ -21,6 +21,14 @@
   ],
   "showAccessory": true,
   "accessoryPrice": 500,
+  "description": "A charming Frozen-themed half frock. The white silk upper body gives a smooth, elegant look, paired with a flared net skirt.",
+  "description2": "The net skirt is lined underneath with a soft silk layer for comfort, while still holding its shape and volume.",
+  "specs": {
+    "fabric": "White silk upper body, net skirt lined with silk underneath",
+    "occasion": "",
+    "fit": "Fitted body through the waist with a twirl-friendly skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000642142%20(1).jpg"
@@ -30,6 +38,7 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000642142%20(1).jpg",
+  "accessoryName": "Purse (PKR 500)",
   "subcategory": "girls-casual-dresses",
   "addedOn": "2026-08-21T01:45:00.000+05:00"
 }

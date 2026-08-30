@@ -21,6 +21,14 @@
   ],
   "showAccessory": true,
   "accessoryPrice": 500,
+  "description": "A pretty unicorn-themed half frock. It has a fitted white silk body on top and a soft, flared net skirt below.",
+  "description2": "The net skirt has a soft silk layer underneath, so it feels comfortable while still looking full and pretty.",
+  "specs": {
+    "fabric": "White silk upper body, net skirt lined with silk underneath",
+    "occasion": "",
+    "fit": "Fitted body through the waist with a twirl-friendly skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000642133%20(1).jpg"
@@ -30,7 +38,7 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000642133%20(1).jpg",
-  "accessoryName": "Bag",
+  "accessoryName": "Purse (PKR 500)",
   "subcategory": "girls-casual-dresses",
   "addedOn": "2026-08-21T01:49:00.000+05:00"
 }
