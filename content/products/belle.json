@@ -1,41 +1,41 @@
 {
   "badge": "",
-  "name": "belle",
+  "name": "Belle Costume",
   "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 5500,
+      "price": 14500,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 6400,
+      "price": 16500,
       "available": true
     },
     {
       "size": "7–9 years",
-      "price": 7300,
+      "price": 18500,
       "available": true
     },
     {
       "size": "10–12 years",
-      "price": 8200,
+      "price": 20500,
       "available": true
     },
     {
       "size": "13–16 years",
-      "price": 9100,
+      "price": 22500,
       "available": true
     }
   ],
-  "showAccessory": true,
-  "description2": "",
+  "showAccessory": false,
+  "description2": "The skirt is made of layered net with ruffled tiers and bow accents, giving it a full, ball-gown shape.",
   "accessoryPrice": 1500,
   "specs": {
-    "fabric": "",
+    "fabric": "Silk body with a layered net skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Off-shoulder silk body with a full, layered net skirt",
     "care": ""
   },
   "images": [
@@ -51,7 +51,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/belle%20(2).jpg?updatedAt=1786652148098"
     }
   ],
-  "description": "",
+  "description": "A Belle-themed costume in yellow silk with an off-shoulder neckline and an oversized bow at the collar.",
   "subcategory": "girls-theme-dresses",
   "addedOn": "2026-07-29T12:00:00.000Z",
   "image": "https://ik.imagekit.io/lpdlhr/belle.jpg?updatedAt=1786652149994"

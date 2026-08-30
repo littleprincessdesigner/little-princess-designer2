@@ -1,16 +1,30 @@
 {
   "badge": "",
-  "name": "baby shark pink tutu",
+  "name": "Baby Shark Skirt Shirt",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 66
+      "price": 5800
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 6000
     }
   ],
   "showAccessory": true,
-  "accessoryPrice": 1500,
+  "accessoryPrice": 150,
+  "accessoryName": "Bow (PKR 150)",
+  "description": "A Baby Shark skirt and shirt set. The cotton shirt has a Baby Shark print, paired with a pink net tutu skirt trimmed with ribbon along the ends.",
+  "description2": "The ribbon straps run along the edges of the net layers, adding a bright, fun finish to the skirt.",
+  "specs": {
+    "fabric": "Cotton shirt with a net tutu skirt and ribbon straps",
+    "occasion": "",
+    "fit": "Relaxed fit shirt with a full, ribbon-strap tutu skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641092%20(1).jpg?updatedAt=1788030606020"
@@ -20,6 +34,6 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000641092%20(1).jpg?updatedAt=1788030606020",
-  "subcategory": "girls-theme-dresses",
+  "subcategory": "girls-skirts",
   "addedOn": "2026-08-30T01:04:00.000+05:00"
 }

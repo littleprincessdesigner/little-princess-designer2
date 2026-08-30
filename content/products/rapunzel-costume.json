@@ -6,11 +6,35 @@
     {
       "available": true,
       "size": "0–3 years",
-      "price": 55
+      "price": 8500
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 10000
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "price": 11500
+    },
+    {
+      "available": true,
+      "size": "10–12 years",
+      "price": 13000
     }
   ],
   "showAccessory": true,
-  "accessoryPrice": 1500,
+  "accessoryPrice": 800,
+  "accessoryName": "Braid and Hair Band (PKR 800)",
+  "description": "A Rapunzel-themed costume in purple silk with a lace-up corset-style body and puffed sleeves trimmed in white.",
+  "description2": "The skirt is full and flows to the floor, with a soft satin finish that moves easily.",
+  "specs": {
+    "fabric": "Silk dress with a lace-up body and full skirt",
+    "occasion": "",
+    "fit": "Fitted lace-up body with a full, flowing skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000640954.jpg?updatedAt=1787434164454"
