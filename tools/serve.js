@@ -67,5 +67,5 @@ http.createServer((req, res) => {
 }).listen(PORT, () => {
   console.log("Serving dist/ on http://localhost:" + PORT);
   console.log("Admin at        http://localhost:" + PORT + "/admin/");
-  console.log("(for the admin to save locally, run `npm run cms` in a second terminal)");
+  console.log("(open the admin in Chrome/Edge and use \"Work with local repository\" to edit content/)");
 });

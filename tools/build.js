@@ -3,7 +3,7 @@
  * Builds dist/ from content/ + site/.
  *
  *   site/     hand-written sources (CSS, app.js, assets, admin) — committed
- *   content/  what Decap CMS edits — committed
+ *   content/  what the CMS (Sveltia) edits — committed
  *   dist/     build output served by Netlify — NOT committed
  *
  * Because every page is regenerated from scratch on each build, a product that
@@ -24,7 +24,7 @@ const { waLink } = require("./card");
 const ROOT = path.join(__dirname, "..");
 const SITE = path.join(ROOT, "site");
 const DIST = path.join(ROOT, "dist");
-// This directory. The admin preview is served two files from here — see the
+// This directory. tools/shared.js is copied out to dist/ from here — see the
 // copy step below.
 const TOOLS = __dirname;
 
@@ -124,18 +124,14 @@ for (const entry of ["tokens.css", "styles.css", "app.js", "carousel-3d.js", "as
 }
 
 // 1b. build code that also has to run in a browser, so it needs an address.
-// These live in tools/ (required above) and are copied out rather than kept in
-// site/ so there is exactly one copy in the repository: edit tools/card.js and
-// the site, the admin preview and the tests all move with it. Order matters at
-// load time (card.js reads shared.js and images.js off the window), which
-// index.html and render.js fix.
-//   · shared.js — every public page loads /shared.js (render.js emits it), and
-//     the admin loads /admin/shared.js, so it goes to both places.
-//   · images.js, card.js — only the admin preview loads these.
+// tools/shared.js holds the money / wa.me-link / order-message helpers; it
+// lives in tools/ (required above for the build) and is copied out so there is
+// exactly one copy in the repository — every public page loads /shared.js,
+// emitted by render.js.
+// (Before the Sveltia migration, tools/shared.js, images.js and card.js were
+// also copied into dist/admin/ for Decap's custom live-preview panel. Sveltia
+// uses its own built-in preview, so those admin copies are gone.)
 copyRecursive(path.join(TOOLS, "shared.js"), path.join(DIST, "shared.js"));
-for (const entry of ["shared.js", "images.js", "card.js"]) {
-  copyRecursive(path.join(TOOLS, entry), path.join(DIST, "admin", entry));
-}
 
 // 2. data files — the CMS-to-site contract, also handy for any future consumer
 writeFile("data/products.json", JSON.stringify({

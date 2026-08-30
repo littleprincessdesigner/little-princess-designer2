@@ -1,207 +1,179 @@
 # Setting up the admin page
 
-You need to do this once. After that, adding a product is just opening
-`yoursite.com/admin/` and filling in a form.
+The site uses **Sveltia CMS** for its admin page at `yoursite.com/admin/`.
+Sveltia is a drop-in successor to Decap CMS — same form, same config file — but
+editors sign in with a **GitHub account** instead of an email address.
 
-There are three steps: push the code to GitHub, connect Netlify, and set up
-sign-in with DecapBridge.
+You need to do the setup below **once**. After that, adding a product is just
+opening `/admin/` and filling in a form.
 
-Sign-in goes through [DecapBridge](https://decapbridge.com), which means you log
-in with an email address and password. You do **not** need a GitHub account to
-edit the site, and neither does anyone you invite later.
-
----
-
-## 1. Push the code to GitHub
-
-Create a new **private** repository on GitHub (private is fine — Netlify can
-still build it), then from this folder:
-
-```bash
-git add .
-git commit -m "Little Princess Designer site + admin"
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO.git
-git push -u origin main
-```
-
-Write down `YOUR-USERNAME/YOUR-REPO` — you need it twice below.
+If you are migrating from the old Decap + DecapBridge setup, see
+**"Migrating from the old email sign-in"** at the bottom.
 
 ---
 
-## 2. Connect Netlify
+## What you need
 
-1. Log in to [netlify.com](https://netlify.com) → **Add new site** → **Import an
-   existing project** → **GitHub** → pick your repository.
-2. Netlify reads `netlify.toml`, so the build settings should already be filled
-   in. Confirm they say:
-   - **Build command:** `npm run build`
-   - **Publish directory:** `dist`
-3. Click **Deploy**.
-
-The first deploy takes a minute or two. You will get a URL like
-`https://something-random-123.netlify.app`. You can change it under
-**Site configuration → Site details → Change site name**, or point your own
-domain at it later — which is what happened here: the shop is served from
-`littleprincessdesigner.pk`, and the `.netlify.app` address now redirects to it.
-
-Two things follow from having a custom domain, and both are worth knowing before
-they surprise you:
-
-- **Preview deploys keep their own `.netlify.app` addresses, and should.** A
-  custom domain serves one deploy — the live one. Every pull-request preview is
-  a separate copy, so Netlify gives each its own throwaway address. If previews
-  answered on the real domain, opening one would replace the live shop.
-- **The address the pages claim as their own comes from Netlify, not from this
-  repository.** The build reads the site's *primary* domain at build time and
-  stamps it into the canonical tag, `sitemap.xml`, `robots.txt` and the share
-  previews. So whichever of `littleprincessdesigner.pk` and
-  `www.littleprincessdesigner.pk` is marked **Primary domain** under
-  **Domain management** is the one Google indexes — and a change there only
-  reaches the pages on the *next* deploy.
-
-At this point the *website* works. The admin page will load but not let you in
-yet — that is step 3.
+- The site already on **GitHub** (`littleprincessdesigner/little-princess-designer2`) and **Netlify** — both already true.
+- A **GitHub account** for every person who will edit the site. Free, 2 minutes to make at [github.com](https://github.com).
+- About 20–30 minutes for the one-time setup below.
 
 ---
 
-## 3. Set up sign-in (DecapBridge)
+## 1. Add each editor as a collaborator
 
-The admin saves changes by committing to your GitHub repo, so something has to
-be allowed to do that on your behalf. DecapBridge handles it, and lets you sign
-in with an ordinary email address.
+Every editor needs write access to the repository. This is what lets their
+saves become commits.
 
-**This step is already done** — the site exists on DecapBridge and its details
-are in `site/admin/config.yml`. What follows is for reference, in case the
-DecapBridge site is ever deleted and recreated.
+1. Go to the repository on GitHub → **Settings** → **Collaborators and teams**
+   (or, for an organisation repo, **People** in the org settings).
+2. **Add people** → type their GitHub username → choose the **Write** role.
+3. They get an email invite and click **Accept**.
 
-### How it was set up
+Do this for yourself and for anyone else (e.g. Javeria). Nobody needs more than
+**Write** — they never touch anything but the admin form.
 
-1. Sign up at [decapbridge.com](https://decapbridge.com).
-2. Create a **Site** and connect it to this GitHub repository when asked.
-3. DecapBridge produces a ready-made `backend:` block. Paste it over the one in
-   `site/admin/config.yml`, keeping everything from `local_backend:` downwards
-   — that part is this site's own configuration and DecapBridge knows nothing
-   about it.
+---
 
-The site's id appears **twice**, in `auth_endpoint` and `auth_token_endpoint`.
-If you ever replace it, replace both.
+## 2. Create a GitHub OAuth app
 
-Two blocks in the config are optional but worth keeping:
+This is the thing that shows the "Sign in with GitHub" button and lets it work.
+You only make one, and it is shared by everyone.
 
-- **`auth:`** tells the admin where to find the editor's name in their
-  DecapBridge login. Without it, the names in the commit messages come out blank.
-- **`commit_messages:`** puts that name into the repository history.
+1. On GitHub, click your avatar → **Settings** → scroll down to **Developer
+   settings** (bottom of the left menu) → **OAuth Apps** → **New OAuth App**.
+2. Fill in:
+   - **Application name:** `Little Princess Designer CMS`
+   - **Homepage URL:** `https://littleprincessdesigner.pk`
+   - **Authorization callback URL:** depends on which sign-in broker you use in
+     step 3:
+     - Using **Netlify** (step 3a): `https://api.netlify.com/auth/done`
+     - Using **Cloudflare** (step 3b): `https://YOUR-WORKER.workers.dev/callback`
+       (you will know the worker address after step 3b — you can edit this
+       field afterwards)
+3. **Register application.**
+4. On the next screen, note the **Client ID**, then **Generate a new client
+   secret** and copy it somewhere safe. You will paste both into step 3.
+   The secret is shown once — if you lose it, generate another.
+
+---
+
+## 3. Set up the sign-in broker
+
+Pick **one** of these. Try 3a first; if Netlify's screen doesn't have the
+option any more, use 3b.
+
+### 3a. Netlify as the broker (nothing new to sign up for)
+
+1. In Netlify, open the site → **Site configuration** → **Access & security**
+   (older layouts: **Access control**) → scroll to **OAuth**.
+2. **Install provider** → **GitHub** → paste the **Client ID** and **Client
+   secret** from step 2 → **Install**.
+3. Done. `site/admin/config.yml` already has the matching `backend:` block
+   (`name: github`, no `base_url` line), so nothing to change in the code.
+
+### 3b. A Cloudflare worker as the broker (free, ~5 minutes)
+
+Use this if Netlify no longer shows the OAuth "Install provider" option.
+
+1. Make a free account at [cloudflare.com](https://cloudflare.com).
+2. Deploy the official **sveltia-cms-auth** worker — the one-click and manual
+   instructions are at
+   <https://github.com/sveltia/sveltia-cms-auth>. During setup it asks for the
+   **Client ID** and **Client secret** from step 2, and for
+   `ALLOWED_DOMAINS` — set that to `littleprincessdesigner.pk`.
+3. It gives you a worker address like
+   `https://sveltia-cms-auth.YOURNAME.workers.dev`.
+4. Go back to your GitHub OAuth app (step 2) and set the **Authorization
+   callback URL** to `https://sveltia-cms-auth.YOURNAME.workers.dev/callback`.
+5. Add one line to `site/admin/config.yml`, under `branch: main` in the
+   `backend:` block:
+
+   ```yaml
+   backend:
+     name: github
+     repo: littleprincessdesigner/little-princess-designer2
+     branch: main
+     base_url: https://sveltia-cms-auth.YOURNAME.workers.dev
+   ```
+
+6. Commit and push that change.
 
 ---
 
 ## 4. Log in
 
-Go to `https://littleprincessdesigner.pk/admin/` and press **Login**.
-You are sent to DecapBridge to sign in — by email and password, or with Google
-or Microsoft — and then returned to the admin. You should land on **Products**,
-with **Subcategories**, **Category pages** and **Site settings** in the sidebar.
+Go to `https://littleprincessdesigner.pk/admin/` and press **Sign in with
+GitHub**. Authorise the app once. You land on **Products**, with
+**Subcategories**, **Category pages** and **Site settings** in the sidebar.
 
-That's it. Every change you save becomes a commit, Netlify rebuilds, and the
-website updates in a minute or two.
-
----
-
-## 5. Optional: let someone else edit
-
-In your DecapBridge dashboard, open your site → **Manage collaborators** →
-invite by email. They set their own password (or sign in with Google or
-Microsoft) and can use the admin straight away.
-
-They never need a GitHub account, and they get no access to the repository
-itself — only to the admin form. Because everyone's edits are committed by
-DecapBridge rather than by their own account, `config.yml` puts the editor's
-name into each commit message so you can still tell who changed what.
-
-For that to be worth anything, each person has to fill in their **name** when
-they accept the invitation. If they leave it blank the commit message simply
-ends with a dash and nothing after it — harmless, but useless for telling who
-did what.
+Every change you save becomes a commit under your GitHub name, Netlify
+rebuilds, and the website updates in a minute or two.
 
 ---
 
-## 6. Photos: the ImageKit library
+## 5. Photos — the ImageKit library
 
-Photos do **not** go into this repository. Pressing **Choose a photo** on any
-photo row opens the shop's [ImageKit](https://imagekit.io) library instead —
-drag a photo in, or pick one already there, press **Insert**, and its address
-lands in the field.
+Photos are **not** stored in this repository. Each photo row on a product has a
+**Photo address** box. You fill it with a web address from the shop's
+[ImageKit](https://imagekit.io) account (`lpdlhr`).
+
+**To add a photo:**
+
+1. Open [imagekit.io](https://imagekit.io) in another tab and sign in to the
+   shop's account.
+2. Upload your photo (drag it into the Media Library), or find one you uploaded
+   before.
+3. Click the photo → **Copy URL** (or the copy icon next to its address). It
+   looks like `https://ik.imagekit.io/lpdlhr/blush-frock.jpg`.
+4. Back in the admin, paste that into the **Photo address** box. Add a **photo
+   description** too.
 
 Two reasons it works this way:
 
 - Anything committed to git stays in its history **forever**, even after it is
-  deleted. A hundred photos straight off a phone would sit in this repository
-  permanently and be downloaded by every copy of it.
+  deleted. Hundreds of camera photos would sit in this repository permanently.
 - ImageKit resizes on delivery. The site asks it for a 400-, 800-, 1200- or
-  1600-pixel copy depending on the screen looking at it, so a phone never
-  downloads the 4,000-pixel original. That rewriting lives in `tools/images.js`
-  and nothing else in the project knows about it.
+  1600-pixel copy depending on the screen, so a phone never downloads the
+  4,000-pixel original. That rewriting lives in `tools/images.js`.
 
-### Turning it on for a new ImageKit account
+**Why not a photo picker inside the form?** Sveltia CMS does not support
+ImageKit's in-page picker (it ignores custom photo libraries). The old Decap
+setup had one; this is the trade-off for the switch. If the copy-paste step
+becomes annoying, the site could move to Cloudinary, which Sveltia *does* have a
+built-in picker for — ask a developer.
 
-**This step is already done** — the shop's account is `lpdlhr`, served from
-`https://ik.imagekit.io/lpdlhr`, and `site/admin/config.yml` names it. What
-follows is for reference, in case the account is ever replaced.
+### Everyone who edits photos needs their own ImageKit login
 
-1. Sign up at [imagekit.io](https://imagekit.io) — the free tier is generous.
-2. On the dashboard, find your **URL endpoint** under **Developer options →
-   URL endpoints**. It looks like `https://ik.imagekit.io/lpdlhr`. The last
-   part, `lpdlhr`, is the **ImageKit ID**.
-3. Put that ID into `site/admin/config.yml`, in the `media_library` block:
+Invite them from the ImageKit dashboard, the same way they were added as a
+GitHub collaborator. There is no shared password and no API key anywhere in
+this repository.
 
-   ```yaml
-   media_library:
-     name: imagekit
-     config:
-       imagekit_id: "lpdlhr"
-   ```
+### The "…or another image link" box
 
-   This is optional and it is not a password — it is the public address every
-   photo on the site is served from, and everything in that block only saves the
-   editor a step. Leave it empty and the library still opens; it just asks which
-   ImageKit account to open first.
-4. Commit and push.
-
-There is no API key and no secret anywhere in the admin. The library asks each
-editor to sign in to ImageKit themselves, in a panel inside the page, and that
-sign-in is what grants access. Anyone you want editing photos needs their own
-ImageKit login — invite them from the ImageKit dashboard, the same way they were
-invited on DecapBridge.
+Each photo row also has a second box for a full `https://` address from
+somewhere other than ImageKit — for a photo hosted elsewhere. If both boxes are
+filled, this one wins. A non-ImageKit photo is served exactly as it is (full
+size), so keep those under ~1600px on the long edge.
 
 ### The three hero images
 
 `dress-sketch-tall.webp`, `dress-colour-tall.webp` and `dress-real-tall.webp`
-stay as files in `site/assets/`. They are part of the page design rather than
+stay as files in `site/assets/`. They are part of the page design, not
 catalogue content, so they are not editable in the admin — replace the files
-directly if you ever want to change them.
+directly to change them.
 
 ---
 
-## A note on the two ways to add a photo
+## 6. Optional: let someone else edit
 
-Each photo row in the admin has a **Choose a photo** field, which opens the
-ImageKit library, and an **…or paste an image link** field, which takes any full
-`https://` address typed in by hand.
+1. They make a free GitHub account.
+2. You add them as a **Write** collaborator (step 1).
+3. You invite them to the ImageKit account (step 5).
+4. They go to `/admin/`, sign in with GitHub, and can edit straight away.
 
-Both work and the site treats them the same way, but they are not equal:
-
-- The library is the normal route. Photos picked there get resized for phones
-  automatically, and get a properly-sized picture on WhatsApp when the link is
-  shared.
-- A pasted link is the escape hatch, for a photo hosted somewhere else or for a
-  day when the library will not open. If it does not point at ImageKit, the
-  photo is served exactly as it is — full size, however large that is.
-
-If a row has both, the pasted link wins.
-
-Keep uploads reasonably sized anyway: about 1600px on the long edge. Phone
-photos straight from the camera are typically 4–8 MB, and while ImageKit will
-shrink them for the website, the upload itself still has to happen over your
-own connection.
+Because each save is committed by that person's own GitHub account, the history
+shows exactly who changed what — automatically, with no extra configuration.
 
 ---
 
@@ -214,74 +186,62 @@ npm run build      # generate dist/
 npm start          # serve it at http://localhost:8080
 ```
 
-In a **second terminal**:
-
-```bash
-npm run cms        # local save server, so the admin can write files
-```
-
-Then open <http://localhost:8080/admin/>. Because `local_backend: true` is set,
-the admin skips the GitHub login and writes straight to your `content/` folder.
-Run `npm run build` again to see the changes on the site.
+Then open <http://localhost:8080/admin/> **in Chrome or Edge** and click
+**"Work with local repository"**. Sveltia edits the files in `content/`
+directly on your disk. Run `npm run build` again to see the changes on the
+site. (There is no `npm run cms` step any more — Sveltia does not use a local
+save-server.)
 
 ---
 
 ## If something goes wrong
 
 **The admin is stuck on "Opening the admin…"**
-Something in the `backend:` block of `config.yml` is wrong. Check it against
-your DecapBridge dashboard, and open your browser's developer console for the
-actual error.
+The CMS script did not load. Reload; check your internet connection. If it keeps
+happening, `unpkg.com` (where the script comes from) may be blocked on your
+network.
 
-**Pressing Login goes to DecapBridge and comes back with an error**
-Either the site id in `auth_endpoint` / `auth_token_endpoint` is wrong — it
-points the login at a site that isn't yours — or the email you are using has not
-been invited to this site on DecapBridge.
+**"Sign in with GitHub" does nothing, or returns an error**
+The OAuth broker (step 3) is not set up, or the callback URL in the GitHub
+OAuth app (step 2) does not match the broker. Double-check both.
 
-**Logged in, but the commit history shows a blank name**
-Either the `auth:` block is missing from `config.yml`, or that person did not
-fill in their name on DecapBridge.
-
-**Login works, but saving fails**
-DecapBridge has lost its connection to the GitHub repository. Re-connect the
-repo from the DecapBridge dashboard. This can also happen if the repository is
-renamed — `repo:` in `config.yml` has to match.
+**Signed in, but saving fails with a permissions error**
+That GitHub account is not a **Write** collaborator on the repository (step 1),
+or the invite was never accepted.
 
 **I saved a change but the website looks the same**
 Netlify needs a minute to rebuild. Check **Deploys** in Netlify — if the build
-failed, the log will say why. The most likely cause is a content problem, and
-the build prints exactly which product is at fault.
+failed, the log says why, and names the product at fault.
 
 **A product is not showing up**
 Check three things in the admin: **Show on website** is on, it has at least one
 size with a price, and its subcategory still exists.
 
-**I deleted a subcategory and its products vanished**
-That is expected — they have nowhere to live. Open each product and pick a new
-subcategory. Nothing was lost. The build log lists every affected product by
-name.
-
-**The photo library opens but will not let me sign in**
-The sign-in happens inside a panel served by imagekit.io, so a browser that
-blocks third-party cookies refuses it. Chrome's incognito windows block them by
-default. Use an ordinary window, or allow cookies for `imagekit.io` for that
-tab. Meanwhile you can still add photos with the **…or paste an image link**
-field — copy the address from the ImageKit dashboard.
-
-**Pressing "Choose a photo" pops up "The ImageKit photo library could not
-load"**
-The library's script did not download. Reload the page; if it keeps happening
-the browser or the network is blocking `unpkg.com`, which is also where the
-admin itself comes from.
-
 **A photo shows on the website but the WhatsApp preview has no picture**
-Check the photo is in the ImageKit library rather than pasted from somewhere
-else. WhatsApp drops preview images over roughly 300 KB, and the sized-down
-copy it needs can only be made for photos on a host the site knows how to ask —
-that is ImageKit, and files already under `/assets/uploads/`.
+Check the photo is an `ik.imagekit.io` address, not pasted from somewhere else.
+WhatsApp drops preview images over roughly 300 KB, and the sized-down copy it
+needs can only be made for photos on ImageKit or under `/assets/uploads/`.
 
 **The build failed with "exists in the JSON but is NOT declared in config.yml"**
 Someone hand-edited a file in `content/` and added a field the admin does not
 know about. Either add that field to `config.yml` or remove it from the JSON.
-This check exists because the admin silently deletes undeclared fields when you
-press Save — the build stops first so nothing is lost.
+
+---
+
+## Migrating from the old email sign-in (Decap + DecapBridge)
+
+If the site is still on the old setup, the switch is:
+
+1. Do steps 1–4 above (GitHub collaborators, OAuth app, broker, test login).
+2. The code changes are already on the `sveltia-cms-migration` branch:
+   `config.yml` backend swapped to `github`, the ImageKit picker turned into a
+   paste box, the Decap-only scripts and admin skin removed, `npm run cms`
+   dropped.
+3. Test the admin on that branch's Netlify **preview deploy** first — sign in,
+   open a product, change something trivial, save, confirm the commit lands.
+4. Merge the branch. The live admin switches over on the next deploy.
+5. In DecapBridge, you can delete the site — it is no longer used. The
+   subscription, if any, can be cancelled.
+
+Nothing about the live website, the product content, or the photos changes in
+this switch — only how the admin is reached and how photos are added.
