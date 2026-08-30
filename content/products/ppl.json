@@ -1,45 +1,56 @@
 {
-  "badge": "",
   "name": "ppl",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.31%20PM%20(1).jpg?updatedAt=1788088555139",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/ppl.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/ppl%20(1).jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.31%20PM%20(1).jpg?updatedAt=1788088555139",
+  "subcategory": "girls-luxury-dresses",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-07-22T12:00:00.000Z",
   "sizes": [
     {
       "size": "0–3 years",
       "price": 16000,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "4–6 years",
       "price": 18000,
+      "salePrice": null,
       "available": true
     },
     {
-      "available": true,
       "size": "7–9 years",
-      "price": 20000
+      "price": 20000,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": true,
-  "description2": "",
+  "accessoryName": "",
   "accessoryPrice": 500,
+  "description": "",
+  "description2": "",
   "specs": {
     "fabric": "",
     "occasion": "",
     "fit": "",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/ppl.jpg"
-    },
-    {
-      "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/ppl%20(1).jpg",
-      "alt": ""
-    }
-  ],
-  "description": "",
-  "subcategory": "girls-luxury-dresses",
-  "addedOn": "2026-07-22T12:00:00.000Z",
-  "image": "https://ik.imagekit.io/lpdlhr/ppl.jpg"
+  }
 }
