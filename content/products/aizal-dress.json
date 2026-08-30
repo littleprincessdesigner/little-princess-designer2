@@ -2,7 +2,12 @@
   "name": "Aizal Blue dress",
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000053528.jpg",
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.27%20PM%20(2).png?updatedAt=1788088566356",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.28%20PM.png?updatedAt=1788088564532",
       "url": "",
       "alt": ""
     },
@@ -17,7 +22,17 @@
       "alt": ""
     },
     {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.28%20PM%20(2).png?updatedAt=1788088565299",
+      "url": "",
+      "alt": ""
+    },
+    {
       "upload": "https://ik.imagekit.io/lpdlhr/1000053519.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000053528.jpg",
       "url": "",
       "alt": ""
     },
@@ -25,24 +40,9 @@
       "upload": "https://ik.imagekit.io/lpdlhr/1000084475%20(1).jpg",
       "url": "",
       "alt": ""
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.27%20PM%20(2).png?updatedAt=1788088566356",
-      "url": "",
-      "alt": ""
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.28%20PM%20(2).png?updatedAt=1788088565299",
-      "url": "",
-      "alt": ""
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.28%20PM%20(2).png?updatedAt=1788088565299",
-      "url": "",
-      "alt": ""
     }
   ],
-  "image": "https://ik.imagekit.io/lpdlhr/1000053528.jpg",
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.27%20PM%20(2).png?updatedAt=1788088566356",
   "subcategory": "girls-luxury-dresses",
   "visible": true,
   "badge": "",
