@@ -1,16 +1,24 @@
 {
   "badge": "",
-  "name": "lion ",
+  "name": "Lion Outfit Boys",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 44
+      "price": 4100
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A lion-themed boys outfit with a half sleeve cotton shirt and a lion print on the front, paired with brown shorts held up by suspenders.",
+  "description2": "The shorts have a relaxed, easy fit that's comfortable for everyday wear.",
+  "specs": {
+    "fabric": "Cotton shirt with silk suspender shorts",
+    "occasion": "",
+    "fit": "Half sleeve shirt with an easy neck and relaxed shorts",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641032%20(2).jpg"

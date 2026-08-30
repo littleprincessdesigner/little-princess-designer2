@@ -1,16 +1,24 @@
 {
   "badge": "",
-  "name": "panda",
+  "name": "Panda Outfit Boys",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 33
+      "price": 4100
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A panda-themed boys outfit with a half sleeve cotton shirt and a panda print on the front, paired with black shorts held up by suspenders.",
+  "description2": "The shorts have a relaxed, easy fit that's comfortable for everyday wear.",
+  "specs": {
+    "fabric": "Cotton shirt with silk suspender shorts",
+    "occasion": "",
+    "fit": "Half sleeve shirt with an easy neck and relaxed shorts",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641073%20(1).jpg?updatedAt=1787862585314"

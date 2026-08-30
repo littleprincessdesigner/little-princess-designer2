@@ -1,16 +1,24 @@
 {
   "badge": "",
-  "name": "cocomelon green knickers",
+  "name": "Cocomelon Green Knickers",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 33
+      "price": 4100
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A Cocomelon-themed boys outfit with a full sleeve uniform shirt, collar, and cuffs, paired with green suspender shorts.",
+  "description2": "The shorts have a relaxed, easy fit that's comfortable for everyday wear.",
+  "specs": {
+    "fabric": "Uniform shirt with silk suspender shorts",
+    "occasion": "",
+    "fit": "Full sleeve shirt with a collar and relaxed shorts",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.35%20PM%20(1).jpg"

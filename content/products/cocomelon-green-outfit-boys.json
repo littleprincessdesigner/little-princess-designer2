@@ -1,16 +1,24 @@
 {
   "badge": "",
-  "name": "cocomelon green outfit boys",
+  "name": "Cocomelon Green Outfit Boys",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 44
+      "price": 4300
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A Cocomelon-themed boys outfit with a full sleeve uniform shirt, collar, and a bow tie, paired with dark green suspender pants.",
+  "description2": "The pants are full length with a relaxed, easy fit for everyday wear.",
+  "specs": {
+    "fabric": "Uniform shirt with silk suspender pants",
+    "occasion": "",
+    "fit": "Full sleeve shirt with a collar and relaxed pants",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641076%20(1).jpg"
