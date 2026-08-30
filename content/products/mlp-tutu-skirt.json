@@ -1,5 +1,5 @@
 {
-  "name": "mlp tutu skirt",
+  "name": "My Little Pony Tutu Skirt",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/mlpp.jpg",
@@ -28,12 +28,12 @@
   "showAccessory": true,
   "accessoryName": "",
   "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "description": "A bright My Little Pony tutu skirt set. The white cotton shirt features a colorful My Little Pony graphic print, paired with a vibrant rainbow net tutu skirt finished with ribbon bows at the waist.",
+  "description2": "The tutu skirt is made of soft layered net, giving it a full, bouncy look that's easy to move in.",
   "specs": {
-    "fabric": "",
+    "fabric": "Cotton shirt with a multi-color rainbow net tutu skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Relaxed fit shirt with a full, flared tutu skirt",
     "care": ""
   }
 }
