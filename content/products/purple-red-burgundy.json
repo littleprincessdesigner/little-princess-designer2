@@ -1,38 +1,56 @@
 {
-  "badge": "",
-  "name": "purple red burgundy",
+  "name": "Multi Tier Ruffled Gown",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5752.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5757%20(1).jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5760.jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/DSC_5752.jpg",
+  "subcategory": "girls-luxury-dresses",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-19T01:46:00.000+05:00",
   "sizes": [
     {
-      "available": true,
       "size": "0–3 years",
-      "price": 14200
+      "price": 14200,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "4–6 years",
-      "price": 15200
+      "price": 15200,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "7–9 years",
-      "price": 17200
+      "price": 17200,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": true,
-  "accessoryPrice": 1500,
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5752.jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5757%20(1).jpg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5760.jpg"
-    }
-  ],
-  "subcategory": "girls-luxury-dresses",
-  "addedOn": "2026-08-19T01:46:00.000+05:00",
-  "image": "https://ik.imagekit.io/lpdlhr/DSC_5752.jpg"
+  "accessoryName": "Flower Pin (PKR 220)",
+  "accessoryPrice": 220,
+  "description": "A striking party gown featuring a smooth maroon silk upper body finished with a dainty pearl-lined neckline and a classic silk bow at the waist.",
+  "description2": "The floor-length skirt is styled with cascading net ruffles in purple, berry, magenta, and black tones for maximum volume and flair.",
+  "specs": {
+    "fabric": "Silk body and layered net ruffles",
+    "occasion": "",
+    "fit": "Fitted sleeveless silk body with a high-volume ruffle skirt",
+    "care": ""
+  }
 }
