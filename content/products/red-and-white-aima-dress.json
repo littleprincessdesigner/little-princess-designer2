@@ -1,0 +1,49 @@
+{
+  "name": "red and white aima dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%207.59.01%20PM.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%207.57.14%20PM.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%207.57.13%20PM.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "WhatsApp Image 2026-08-30 at 7.59.02 PM.jpeg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%207.59.01%20PM.jpeg",
+  "subcategory": "girls-casual-dresses",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-31T00:31",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 44,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": true,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "",
+  "description2": "",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
