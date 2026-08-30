@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "mermaid dress",
+  "name": "Mermaid Sequin Costume",
   "visible": true,
   "sizes": [
     {
@@ -9,8 +9,16 @@
       "price": 6500
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A mermaid sequin costume with a teal sequin tail and matching sequin top. Purple shell details decorate the top for a fun mermaid look.",
+  "description2": "The tail is shaped to sit like a mermaid fin, with sparkle covering the costume from top to tail.",
+  "specs": {
+    "fabric": "Sequin fabric throughout, with a fitted mermaid tail",
+    "occasion": "",
+    "fit": "Fitted sequin top with a snug mermaid tail skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641121.jpg.jpeg"
