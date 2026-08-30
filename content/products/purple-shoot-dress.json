@@ -1,52 +1,77 @@
 {
-  "badge": "",
-  "name": "purple shoot dress",
+  "name": "Lavender Fairytale Ballgown",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641162.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641150.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641149.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641160.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641163.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641161.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000641162.jpg.jpeg",
+  "subcategory": "girls-luxury-dresses",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-18T01:31:00.000+05:00",
   "sizes": [
     {
-      "available": true,
       "size": "0–3 years",
-      "price": 17500
+      "price": 17500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "4–6 years",
-      "price": 19500
+      "price": 19500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "7–9 years",
-      "price": 21500
+      "price": 21500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "10–12 years",
-      "price": 24000
+      "price": 24000,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": true,
+  "accessoryName": "Fluttering Wings and Headband (PKR 7500)",
   "accessoryPrice": 7500,
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641162.jpg.jpeg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641150.jpg.jpeg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641149.jpg.jpeg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641160.jpg.jpeg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641163.jpg.jpeg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641161.jpg.jpeg"
-    }
-  ],
-  "subcategory": "girls-luxury-dresses",
-  "addedOn": "2026-08-18T01:31:00.000+05:00",
-  "image": "https://ik.imagekit.io/lpdlhr/1000641162.jpg.jpeg"
+  "description": "A breathtaking royal fairy gown. It has a silk upper body with delicate hand-beading along the neckline and straps. The floor-sweeping net skirt is layered with sculpted, horsehair-braided waves in soft shades of purple and lilac for a grand ballgown.",
+  "description2": "The gown also comes with wearable, mechanical fairy wings at the back. They can be turned on to give a smooth, fluttering movement.",
+  "specs": {
+    "fabric": "Silk upper body and layered net tiered skirt",
+    "occasion": "",
+    "fit": "Fitted sleeveless silk body with net flare and detachable wings",
+    "care": ""
+  }
 }
