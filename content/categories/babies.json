@@ -9,7 +9,10 @@
   "catsHeading": "Shop for babies by category",
   "card": {
     "subtitle": "Shirts, rompers and baby sets",
-    "image": { "url": "", "upload": "" },
+    "image": {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641132%20-%20Copy.jpg?updatedAt=1787916895097",
+      "url": ""
+    },
     "alt": "Baby shirts, rompers and gift sets in soft pre-washed cotton"
   },
   "seo": {
