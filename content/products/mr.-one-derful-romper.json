@@ -1,5 +1,5 @@
 {
-  "name": "mr. one-derful romper",
+  "name": "Mr. One-derful Romper",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/GGGGG.jpg",
@@ -15,20 +15,20 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 55,
+      "price": 1500,
       "salePrice": null,
       "available": true
     }
   ],
   "showAccessory": true,
-  "accessoryName": "",
-  "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "accessoryName": "Hat (PKR 800)",
+  "accessoryPrice": 800,
+  "description": "A Mr. One-derful romper in soft white cotton, printed with \"Mr. ONE-derful\" in gold glitter lettering and finished with a black bow tie.",
+  "description2": "It comes with poppers at the front for easy changes and a soft, comfortable fit.",
   "specs": {
-    "fabric": "",
+    "fabric": "Soft cotton romper",
     "occasion": "",
-    "fit": "",
+    "fit": "Relaxed romper fit with poppers for easy changes",
     "care": ""
   }
 }
