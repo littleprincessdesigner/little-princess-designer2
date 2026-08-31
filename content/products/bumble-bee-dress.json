@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "bumble bee dress",
+  "name": "Bumble Bee Dress",
   "visible": true,
   "sizes": [
     {
@@ -20,12 +20,13 @@
     }
   ],
   "showAccessory": true,
-  "description2": "",
-  "accessoryPrice": 1500,
+  "description2": "The skirt features 3D bumble bee patches, finished with a bow at the back.",
+  "accessoryName": "Hat (PKR 1000)",
+  "accessoryPrice": 1000,
   "specs": {
-    "fabric": "",
+    "fabric": "Silk body with a black and yellow net skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted silk body with a knee length net skirt",
     "care": ""
   },
   "images": [
@@ -38,7 +39,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/bmbl%20bee%20dress%20(1).jpg?updatedAt=1786739027588"
     }
   ],
-  "description": "knee length dress",
+  "description": "A bumble bee dress in silk and net, with a black and yellow striped body and a knee length flared skirt.",
   "subcategory": "ready-to-wear",
   "addedOn": "2026-07-21T12:00:00.000Z",
   "image": "https://ik.imagekit.io/lpdlhr/bmbl%20bee%20dress.jpg?updatedAt=1786739027556"

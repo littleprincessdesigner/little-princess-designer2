@@ -50,12 +50,12 @@
   "showAccessory": false,
   "accessoryName": "",
   "accessoryPrice": 1500,
-  "description": "full len, cotton  shirt, silk frock",
-  "description2": "",
+  "description": "A Mickey Mouse dress with a white cotton shirt and puffed sleeves trimmed in lace, paired with a red silk tea length frock scattered with Minnie Mouse patches.",
+  "description2": "Each patch is finished with a matching polka dot bow for a playful, dressed-up look.",
   "specs": {
-    "fabric": "",
+    "fabric": "Cotton shirt with a silk frock",
     "occasion": "",
-    "fit": "",
+    "fit": "Puffed sleeve shirt with a flared silk skirt",
     "care": ""
   }
 }

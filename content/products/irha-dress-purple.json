@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "irha dress purple",
+  "name": "Flared Purple Frock",
   "visible": true,
   "sizes": [
     {
@@ -19,13 +19,13 @@
       "price": 18500
     }
   ],
-  "showAccessory": true,
-  "description2": "",
+  "showAccessory": false,
+  "description2": "A large bow with flowers sits at the back, above a tea length, flared net skirt.",
   "accessoryPrice": 1500,
   "specs": {
-    "fabric": "",
+    "fabric": "Layered net with a flared skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted net body with a flared, tea length skirt",
     "care": ""
   },
   "images": [
@@ -39,7 +39,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/1000641041.jpg"
     }
   ],
-  "description": "",
+  "description": "A flared purple frock with a net body decorated with clusters of flowers on the shoulders, finished with flowing net shoulder drapes.",
   "subcategory": "girls-luxury-dresses",
   "addedOn": "2026-07-10T12:00:00.000Z",
   "image": "https://ik.imagekit.io/lpdlhr/irha%20purple.jpg?updatedAt=1786649515647"
