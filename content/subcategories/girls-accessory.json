@@ -1,9 +1,13 @@
 {
-  "order": 100,
   "name": "Accessory",
   "parent": "girls",
+  "order": 100,
+  "defaultDescription": "",
+  "defaultDescription2": "",
   "defaultSpecs": {
+    "fabric": "",
     "occasion": "Parties, weddings, events, photo shoots, and styling everyday outfits",
-    "care": "Wipe with a soft dry cloth; store flat away from moisture and heavy pressure"
+    "fit": "",
+    "care": "Store flat, away from moisture and heavy pressure"
   }
 }
