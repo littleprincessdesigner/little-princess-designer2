@@ -1,0 +1,44 @@
+{
+  "name": "barbie low high",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20240521_074204.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20240520_182453.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20240711-101158_Instagram.png",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/20240521_074204.jpg",
+  "subcategory": "girls-theme-dresses",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-09-01T00:50",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 55,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": true,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "",
+  "description2": "",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
