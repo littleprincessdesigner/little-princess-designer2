@@ -1,0 +1,58 @@
+{
+  "name": "Pearly Fairy Wings",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20250524_111225%20(1).jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/20250524_111225%20(1).jpg",
+  "subcategory": "girls-accessory",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-22T15:30:00.000+05:00",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 950,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 950,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "7–9 years",
+      "price": 950,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "10–12 years",
+      "price": 950,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "13–16 years",
+      "price": 950,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": false,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "A delicate pair of wearable butterfly fairy wings crafted with fine white net stretched across a light wire frame. The borders and gathered center are lined with shiny pearls, with soft pearl drops sprinkled across the wings for an elegant finish.",
+  "description2": "They are lightweight, easy to wear with any dress, and sit comfortably without feeling heavy. These wings can be customized in any color to perfectly match your little one's party outfit.",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
