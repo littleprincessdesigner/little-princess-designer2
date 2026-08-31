@@ -481,18 +481,28 @@
     var gallery = $("[data-gallery]", detail);
     if (!gallery) return;
     var index = 0;
+    var prev = $("[data-gal-prev]", detail);
+    var next = $("[data-gal-next]", detail);
+
+    /* Hide whichever arrow would go nowhere: no "previous" on the first
+       photo, no "next" on the last one. */
+    function updateArrows() {
+      var count = gallery.children.length;
+      if (prev) prev.hidden = index <= 0;
+      if (next) next.hidden = index >= count - 1;
+    }
 
     function go(delta) {
       var slides = Array.prototype.slice.call(gallery.children);
       index = Math.max(0, Math.min(slides.length - 1, index + delta));
       var el = slides[index];
       if (el) gallery.scrollTo({ left: el.offsetLeft - gallery.offsetLeft, behavior: "smooth" });
+      updateArrows();
     }
 
-    var prev = $("[data-gal-prev]", detail);
-    var next = $("[data-gal-next]", detail);
     if (prev) prev.addEventListener("click", function () { go(-1); });
     if (next) next.addEventListener("click", function () { go(1); });
+    updateArrows();
 
     /* Keep the index honest when the user swipes instead of using the arrows. */
     gallery.addEventListener("scroll", raf(function () {
@@ -502,6 +512,7 @@
         var left = slides[i].offsetLeft - gallery.offsetLeft;
         if (mid >= left && mid < left + slides[i].offsetWidth) { index = i; break; }
       }
+      updateArrows();
     }), { passive: true });
   }
 
