@@ -1,34 +1,46 @@
 {
-  "badge": "",
   "name": "Handcuffs and Headband",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot%202026-08-31%20143002.jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/Screenshot%202026-08-31%20143002.jpg",
+  "subcategory": "girls-accessory",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-22T15:13:00.000+05:00",
   "sizes": [
     {
-      "available": true,
       "size": "0–3 years",
-      "price": 2500
+      "price": 2500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "4–6 years",
-      "price": 2500
+      "price": 2500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "7–9 years",
-      "price": 2500
+      "price": 2500,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": false,
+  "accessoryName": "",
   "accessoryPrice": 1500,
   "description": "A floral headband decorated with pastel flowers, foam flowers, and butterflies.",
   "description2": "Each piece is finished by hand for a soft, delicate look.",
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642840.jpg.jpeg"
-    }
-  ],
-  "subcategory": "girls-accessory",
-  "addedOn": "2026-08-22T15:13:00.000+05:00",
-  "image": "https://ik.imagekit.io/lpdlhr/1000642840.jpg.jpeg"
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
 }
