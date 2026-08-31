@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "aizal red frock",
+  "name": "Dark Fairytale Ballgown",
   "visible": true,
   "sizes": [
     {
@@ -19,13 +19,13 @@
       "price": 32000
     }
   ],
-  "showAccessory": true,
-  "description2": "",
+  "showAccessory": false,
+  "description2": "A train flows from the back, covered in gold floral details, over a voluminous layered skirt.",
   "accessoryPrice": 1500,
   "specs": {
-    "fabric": "",
+    "fabric": "Silk with gold beaded trim",
     "occasion": "",
-    "fit": "",
+    "fit": "Off-shoulder silk body with a voluminous skirt and train",
     "care": ""
   },
   "images": [
@@ -41,7 +41,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(2).jpg?updatedAt=1786649144016"
     }
   ],
-  "description": "",
+  "description": "A dark fairytale ballgown in deep burgundy satin, with off-shoulder puffed sleeves finished with fabric roses and a gold beaded trim across the body.",
   "subcategory": "girls-luxury-dresses",
   "addedOn": "2026-08-01T12:00:00.000Z",
   "image": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress.jpg?updatedAt=1786649143651"
