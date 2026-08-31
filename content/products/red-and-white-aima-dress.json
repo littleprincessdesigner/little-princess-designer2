@@ -1,5 +1,5 @@
 {
-  "name": "red and white aima dress",
+  "name": "Elegant Silk Dress",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%207.59.01%20PM.jpeg",
@@ -30,20 +30,32 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 44,
+      "price": 7500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 8500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "7–9 years",
+      "price": 10500,
       "salePrice": null,
       "available": true
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryName": "",
   "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "description": "A knee-length elegant silk dress with a lace net upper body and a flowing silk skirt below. The lace net catches the light with its delicate pattern, giving the top a soft look.",
+  "description2": "The silk skirt is smooth and structured, falling in soft folds from the waist for a graceful, polished shape that sits just above the knee.",
   "specs": {
-    "fabric": "",
+    "fabric": "Lace net body with a silk skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted lace net body with a knee-length silk skirt",
     "care": ""
   }
 }
