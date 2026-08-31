@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "blue pink blend frock",
+  "name": "Blue Pink Spring Dress",
   "visible": true,
   "sizes": [
     {
@@ -17,15 +17,20 @@
       "size": "7–9 years",
       "price": 19500,
       "available": true
+    },
+    {
+      "size": "10–12 years",
+      "price": 21500,
+      "available": true
     }
   ],
-  "showAccessory": true,
-  "description2": "",
+  "showAccessory": false,
+  "description2": "A large butterfly wing bow with flowers sits on the back, above a full blue and pink net skirt.",
   "accessoryPrice": 505,
   "specs": {
-    "fabric": "",
+    "fabric": "Layered net with a fitted body",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted net body with a full skirt and back bow",
     "care": ""
   },
   "images": [
@@ -42,7 +47,7 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/blue%20btrfly%20(2).jpg?updatedAt=1786648871361",
-  "description": "",
+  "description": "A blue pink spring dress with a turquoise net body, covered in pink and peach flowers and butterflies.",
   "subcategory": "girls-luxury-dresses",
   "addedOn": "2026-07-23T12:00:00.000Z"
 }
