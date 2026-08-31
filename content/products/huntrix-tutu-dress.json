@@ -1,0 +1,45 @@
+{
+  "name": "Huntrix Tutu Dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20260717_105223.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20260717_105227%20(1).jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/20260717_105223.jpg",
+  "subcategory": "girls-tutu-dresses",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-31T01:22",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 8500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 9500,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": false,
+  "accessoryName": "Fascinator (PKR 1200)",
+  "accessoryPrice": 1200,
+  "description": "A dark, attractive Huntrix tutu dress with a crochet body featuring kids' favorite Demon Hunters graphic on the front of three Huntrix girls.",
+  "description2": "The full tutu skirt is made with glittering net in rainbow colors, giving it a sparkly, bouncy shape.",
+  "specs": {
+    "fabric": "Crochet body and net skirt",
+    "occasion": "",
+    "fit": "Relaxed crochet body with a full net tutu skirt",
+    "care": ""
+  }
+}
