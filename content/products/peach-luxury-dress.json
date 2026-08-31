@@ -1,41 +1,36 @@
 {
   "badge": "",
-  "name": "peach luxury dress",
+  "name": "Spring Peach Dress",
   "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 6400,
+      "price": 15500,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 7300,
+      "price": 17500,
       "available": true
     },
     {
       "size": "7–9 years",
-      "price": 8200,
+      "price": 19500,
       "available": true
     },
     {
       "size": "10–12 years",
-      "price": 9100,
-      "available": true
-    },
-    {
-      "size": "13–16 years",
-      "price": 10000,
+      "price": 21500,
       "available": true
     }
   ],
-  "showAccessory": true,
-  "description2": "",
+  "showAccessory": false,
+  "description2": "The skirt flows into a long train made of layered peach net, giving it a graceful, flowing shape.",
   "accessoryPrice": 1500,
   "specs": {
-    "fabric": "",
+    "fabric": "Silk body with a layered net skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted silk body with a long, flowing train",
     "care": ""
   },
   "images": [
@@ -52,7 +47,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/1000053492.jpg"
     }
   ],
-  "description": "",
+  "description": "A spring peach dress with a peach silk body, decorated with pastel flowers in white, blue and pink all across the upper body with green leaves flowing down.",
   "subcategory": "girls-luxury-dresses",
   "addedOn": "2026-07-17T12:00:00.000Z",
   "image": "https://ik.imagekit.io/lpdlhr/1000641110.jpg.jpeg"
