@@ -1,5 +1,5 @@
 {
-  "name": "unicorn tutu dress",
+  "name": "Multi-shade Unicorn Tutu Dress",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%207.48.25%20PM%20(2).jpg",
@@ -15,20 +15,26 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 44,
+      "price": 7500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 8500,
       "salePrice": null,
       "available": true
     }
   ],
   "showAccessory": true,
-  "accessoryName": "",
-  "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "accessoryName": "Unicorn Hairband (PKR 450)",
+  "accessoryPrice": 450,
+  "description": "A multi-shade unicorn tutu dress with a white crochet body decorated with flowers and playful unicorn eyelashes.",
+  "description2": "The tutu skirt is made of layered net in rainbow shades with a soft sparkle, giving it a full, bouncy look.",
   "specs": {
-    "fabric": "",
+    "fabric": "Crochet body and net skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Relaxed crochet body with a full net tutu skirt",
     "care": ""
   }
 }

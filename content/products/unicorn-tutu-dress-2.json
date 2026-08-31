@@ -1,36 +1,28 @@
 {
   "badge": "",
-  "name": "unicorn tutu dress",
+  "name": "Bright Unicorn Tutu Dress",
   "visible": true,
   "sizes": [
     {
+      "available": true,
       "size": "0–3 years",
-      "price": 55,
-      "available": true
+      "price": 7500
     },
     {
+      "available": true,
       "size": "4–6 years",
-      "price": 4400,
-      "available": true
-    },
-    {
-      "available": true,
-      "size": "7–9 years",
-      "price": 40
-    },
-    {
-      "available": true,
-      "size": "10–12 years",
-      "price": 44
+      "price": 8500
     }
   ],
   "showAccessory": true,
-  "description2": "",
-  "accessoryPrice": 1500,
+  "accessoryPrice": 450,
+  "accessoryName": "Unicorn Hairband (PKR 450)",
+  "description": "A bright unicorn tutu dress with a white crochet body decorated with three pastel flowers and playful unicorn eyelashes.",
+  "description2": "The tutu skirt is made of soft pastel net in peach, purple and yellow, giving it a full, bouncy look.",
   "specs": {
-    "fabric": "",
+    "fabric": "Crochet body and net skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Relaxed crochet body with a full net tutu skirt",
     "care": ""
   },
   "images": [
@@ -40,8 +32,7 @@
       "alt": ""
     }
   ],
-  "description": "",
-  "subcategory": "girls-luxury-dresses",
+  "subcategory": "girls-tutu-dresses",
   "addedOn": "2026-07-25T12:00:00.000Z",
   "image": "https://ik.imagekit.io/lpdlhr/unicorn%20tutu%20dress.jpg"
 }
