@@ -1,6 +1,6 @@
 # Handoff: Little Princess Designer
 
-_Last updated: 2026-08-22. Read `README.md` first — it explains how the repo
+_Last updated: 2026-08-31. Read `README.md` first — it explains how the repo
 works. This file only carries what a fresh session cannot work out from the
 code: what is live, what has never been proved, and which roads are closed._
 
@@ -19,10 +19,17 @@ Photos live on ImageKit, not in git.
   the CMS may drop it on save. `npm run check` enforces this. (Strictly true of
   Decap; treat it as strict under Sveltia too until proven otherwise.)
 - `site/tokens.css` is a binding design system. Don't edit its values.
-- **Never claim a mobile fix is verified.** Headless Chromium ignores the
-  viewport meta, does not reproduce scrolling, and does not fire the URL-bar
-  resize events. Phone-width screenshots are capture artifacts — the existing
-  contact page "overflows" identically. Only a real device confirms.
+- **Be careful claiming a mobile fix is verified.** A plain headless-Chromium
+  screenshot is a capture artifact — it ignores the viewport meta and does not
+  reproduce scrolling, so "phone-width" shots prove little (the old contact page
+  "overflows" identically in one). The `chrome-devtools` MCP's `emulate` with a
+  `viewport` string (e.g. `390x844x3,mobile,touch`) is much closer: it honours
+  the viewport, scrolls, and lets you check a sticky header top-to-bottom — the
+  `mobile-nav-scrolling-tabs` work was checked that way. What it still cannot
+  reproduce is the phone URL-bar sliding in/out and the resize events that fire
+  with it, so anything that depends on those (and, to be safe, any layout the
+  owner will actually look at on their phone) is only truly confirmed on a real
+  device.
 
 ## Current state
 
@@ -31,16 +38,28 @@ August 2026; `littleprincessdesigner.netlify.app` redirects to it. Preview
 deploys still answer on `.netlify.app` addresses of their own, which is correct:
 a custom domain serves the live deploy only.
 
-Build succeeds: 75 live products, 82 pages, 13 sections (as of 2026-08-27).
-Every product still has at least one photo. The build prints 4 content warnings
-now (three suspiciously-low prices and one empty section — see "Waiting on the
-owner"); the ~26 slug/name mismatches were resolved by renaming the files.
+Build succeeds: 110 live products, 117 pages, 14 sections (as of 2026-08-31).
+The build prints ~36 content warnings now — mostly "suspiciously low price" on
+pieces still carrying placeholder amounts (see "Waiting on the owner"); it still
+succeeds. The ~26 slug/name mismatches were resolved by renaming the files.
 
-**Admin: migrated to Sveltia CMS on the `sveltia-cms-migration` branch
-(2026-08-30) — NOT yet merged or verified live.** See "The Sveltia migration"
-below. Under the old Decap setup, two people (Rimaz, Javeria) saved edits
-through DecapBridge with their names in the commit messages, and the ImageKit
-photo picker + resizing were confirmed working by the owner on 2026-08-05.
+**Admin: on Sveltia CMS** — the migration off Decap + DecapBridge merged to
+`main` (PR #36, then PR #42 pinned the version). See "The Sveltia migration"
+below for what changed and why. The live sign-in still depends on the owner
+finishing `docs/CMS-SETUP.md`, and nothing browser-side is verifiable from a
+sandbox. Under the old Decap setup the ImageKit photo picker + resizing were
+confirmed working by the owner on 2026-08-05.
+
+**Header nav (2026-08-31, branch `mobile-nav-scrolling-tabs`, not yet merged).**
+The phone header's hamburger menu and slide-in drawer are replaced by a single
+horizontal tab strip — `search · ‹ · tabs · ›` under the centred logo. The
+strip scrolls (swipe or arrows) on phones and shows all six tabs at once on a
+laptop. The header no longer shrinks on scroll (the `data-min` latch is gone).
+The Instagram icon was removed from the header (still in the footer and on the
+contact page). The contact page's social cards are now a 3-across, 2-row grid.
+Checked with Chrome DevTools device emulation at 390px and 1280px; the URL-bar
+resize behaviour on a real phone is still unproven here (see the constraint
+above).
 
 ## Waiting on the owner — all admin jobs, no code can fix them
 
@@ -98,11 +117,12 @@ To check what an npm package actually does, download its tarball from
 `registry.npmjs.org` and read `dist/*.js.map` `sourcesContent`. Every Decap
 claim in this repo was confirmed that way.
 
-## The Sveltia migration (2026-08-30, branch `sveltia-cms-migration`)
+## The Sveltia migration (2026-08-30, merged in PR #36)
 
 The owner asked to move off Decap + DecapBridge. Sveltia CMS is the successor
-and reads the same `config.yml`. Three conflicts were resolved with the owner
-before any code changed:
+and reads the same `config.yml`. This is now on `main`; the notes below are kept
+because the reasoning still governs how the admin is wired. Three conflicts were
+resolved with the owner before any code changed:
 
 1. **Sign-in.** Sveltia does not support git-gateway (so DecapBridge is out).
    Chosen: the **GitHub backend**, each editor a repo collaborator, sign-in
@@ -127,10 +147,9 @@ the `npm run cms` script are gone (Sveltia edits local files via the browser's
 File System Access API instead); `auth:` and the DecapBridge `commit_messages`
 wording were removed.
 
-**Still to do before this is live:** owner completes `docs/CMS-SETUP.md` steps
-1–4, we test sign-in + a save on the branch preview deploy, then merge. Three
-things are best-effort and need a real browser check on the preview deploy —
-all degrade to "still usable", none block a merge:
+**Still open:** the owner completes `docs/CMS-SETUP.md` steps 1–4, then someone
+tests sign-in + a save against the live admin. Three things are best-effort and
+still want a real browser check — all degrade to "still usable", none block use:
   - `preview.js` — does Sveltia expose `h`? does the preview iframe run the
     injected `/app.js` (interactive size/accessory recompute) or only render
     static? Static is fine; empty pane means `h` is missing and we fall back to
@@ -200,10 +219,18 @@ works once it deploys.
 
 ## Recent history
 
+- **2026-08-31** — rebuilt the phone navigation (branch
+  `mobile-nav-scrolling-tabs`, PR open). Hamburger + drawer out; one scrolling
+  tab strip in the header with a search button and two scroll arrows. Header no
+  longer minimises on scroll (`data-min` latch removed, ~120 net lines of CSS
+  gone). Instagram icon dropped from the header. Contact page social cards
+  changed to a 3×2 grid. `npm test` green; checked in Chrome DevTools at phone
+  and laptop widths.
 - **2026-08-30** — migrated the admin from Decap CMS + DecapBridge to Sveltia
-  CMS on branch `sveltia-cms-migration` (not yet merged). Full detail under "The
-  Sveltia migration" above. `npm run check`, `npm test` and `npm run build` all
-  green after the change; the browser side is unverifiable from here.
+  CMS. Merged in PR #36; PR #42 then pinned Sveltia to 0.198.0 (0.200+ broke the
+  list widget). Full detail under "The Sveltia migration" above. `npm run check`,
+  `npm test` and `npm run build` all green; the browser side is unverifiable
+  from here.
 - **2026-08-05** — DecapBridge sign-in (so helpers need no repo access), a
   stored-XSS fix in the JSON-LD block, the ImageKit photo library, and the
   link-preview resizing. PR #5, merged.
@@ -215,7 +242,9 @@ works once it deploys.
   were deleted in the same pass — every item in the review was shipped, and the
   design note pointed at folders this repo does not contain.
 - **2026-08-27** — mobile nav drawer (PR #24) and the header-icon split +
-  shorter scroll story + 1:1 product gallery (PR #25).
+  shorter scroll story + 1:1 product gallery (PR #25). _The nav drawer and the
+  header-icon split were both replaced on 2026-08-31 — see the top of this
+  list._
 - **2026-08-27** — dead-code and duplication sweep: deleted the unused
   `tools/seed-content.js`, trimmed a few unused exports and one dead CSS rule,
   and pulled the `money` / wa.me link / WhatsApp order-message helpers into
