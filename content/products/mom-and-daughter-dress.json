@@ -1,0 +1,39 @@
+{
+  "name": "mom and daughter dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20240327_093853.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/IMG_20240826_232837_154.jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/20240327_093853.jpg",
+  "subcategory": "girls-luxury-dresses",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-09-01T00:34",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 55,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": true,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "",
+  "description2": "",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
