@@ -1,41 +1,32 @@
 {
   "badge": "",
-  "name": "pink faie",
+  "name": "Sparkle Fairy Dress",
   "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 55,
+      "price": 16500,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 22100,
+      "price": 18500,
       "available": true
     },
     {
       "size": "7–9 years",
-      "price": 23000,
-      "available": true
-    },
-    {
-      "size": "10–12 years",
-      "price": 23900,
-      "available": true
-    },
-    {
-      "size": "13–16 years",
-      "price": 24800,
+      "price": 21500,
       "available": true
     }
   ],
   "showAccessory": true,
-  "description2": "",
-  "accessoryPrice": 1500,
+  "description2": "The skirt is made of layered white and pink net, giving it a full, dreamy shape.",
+  "accessoryPrice": 450,
+  "accessoryName": "Flower Tiara (PKR 450)",
   "specs": {
-    "fabric": "",
+    "fabric": "Organza and silk",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted body with a full net skirt",
     "care": ""
   },
   "images": [
@@ -55,7 +46,7 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/pink%20faie.jpg",
-  "description": "",
-  "subcategory": "girls-luxury-dresses",
+  "description": "A sparkle fairy dress with a pink sequin butterfly-wing body in soft pink and white.",
+  "subcategory": "girls-casual-dresses",
   "addedOn": "2026-06-30T12:00:00.000Z"
 }
