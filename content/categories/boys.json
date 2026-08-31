@@ -9,7 +9,10 @@
   "catsHeading": "Shop for boys by category",
   "card": {
     "subtitle": "Prince dresses, collections, theme dresses",
-    "image": { "url": "", "upload": "" },
+    "image": {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641123.jpg.jpeg?updatedAt=1787259292741",
+      "url": ""
+    },
     "alt": "Boys prince suits, waistcoat sets and themed outfits, made to order"
   },
   "seo": {
