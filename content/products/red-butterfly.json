@@ -1,21 +1,6 @@
 {
-  "name": "red butterfly",
+  "name": "Red Butterfly Dress",
   "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.34%20PM%20(1).jpeg?updatedAt=1788088555453",
-      "url": "",
-      "alt": ""
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.34%20PM.jpeg?updatedAt=1788088555059",
-      "url": "",
-      "alt": ""
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.33%20PM%20(2).jpeg?updatedAt=1788088553371",
-      "url": "",
-      "alt": ""
-    },
     {
       "upload": "https://ik.imagekit.io/lpdlhr/red%20butterfly%20(1).jpg",
       "url": "",
@@ -30,10 +15,20 @@
       "upload": "https://ik.imagekit.io/lpdlhr/red%20butterfly.jpg",
       "url": "",
       "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.34%20PM.jpeg?updatedAt=1788088555059",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.33%20PM%20(2).jpeg?updatedAt=1788088553371",
+      "url": "",
+      "alt": ""
     }
   ],
-  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.34%20PM%20(1).jpeg?updatedAt=1788088555453",
-  "subcategory": "girls-theme-dresses",
+  "image": "https://ik.imagekit.io/lpdlhr/red%20butterfly%20(1).jpg",
+  "subcategory": "girls-casual-dresses",
   "visible": true,
   "badge": "",
   "addedOn": "2026-07-05T12:00:00.000Z",
@@ -60,12 +55,12 @@
   "showAccessory": false,
   "accessoryName": "",
   "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "description": "A red butterfly dress with a fitted body trimmed with felt flowers and a full, layered net skirt.",
+  "description2": "A statement butterfly wing sits on the back, made in red satin and black felt with pearl detailing along the edges.",
   "specs": {
-    "fabric": "",
+    "fabric": "Silk body and layers of bright net",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted body with a full net skirt",
     "care": ""
   }
 }

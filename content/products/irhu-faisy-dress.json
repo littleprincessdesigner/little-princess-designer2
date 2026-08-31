@@ -32,12 +32,6 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642304.jpg.jpeg"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642306.jpg.jpeg"
-    },
-    {
       "upload": "https://ik.imagekit.io/lpdlhr/1000642308.jpg.jpeg"
     },
     {
@@ -56,7 +50,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/ffff.png"
     }
   ],
-  "image": "https://ik.imagekit.io/lpdlhr/1000642304.jpg.jpeg",
+  "image": "https://ik.imagekit.io/lpdlhr/1000642308.jpg.jpeg",
   "description": "A Butterfly Fairy dress with a silk body and net wings covered in colorful butterflies. The wings light up with LED lights for a magical effect.",
   "subcategory": "girls-casual-dresses",
   "addedOn": "2026-08-20T01:50:00.000+05:00"

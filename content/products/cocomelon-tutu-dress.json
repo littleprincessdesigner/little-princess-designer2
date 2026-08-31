@@ -1,5 +1,5 @@
 {
-  "name": "cocomelon tutu dress",
+  "name": "Cocomelon Tutu Dress",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%207.48.24%20PM.jpg",
@@ -13,27 +13,33 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%207.48.24%20PM.jpg",
-  "subcategory": "girls-theme-dresses",
+  "subcategory": "girls-tutu-dresses",
   "visible": true,
   "badge": "",
   "addedOn": "2026-08-31T01:22",
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 44,
+      "price": 8500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 9500,
       "salePrice": null,
       "available": true
     }
   ],
   "showAccessory": true,
-  "accessoryName": "",
-  "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "accessoryName": "Fascinator (PKR 1200)",
+  "accessoryPrice": 1200,
+  "description": "A rainbow Cocomelon tutu dress with a crochet body featuring kids' favorite Cocomelon graphic on the front.",
+  "description2": "The full tutu skirt is made with glittering net in rainbow colours, giving it a sparkly, bouncy shape.",
   "specs": {
-    "fabric": "",
+    "fabric": "Crochet body and net skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Relaxed crochet body with a full net tutu skirt",
     "care": ""
   }
 }

@@ -1,18 +1,18 @@
 {
-  "name": "red and gold dress",
+  "name": "Red and Gold Tutu Dress",
   "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(4).jpg",
-      "url": "",
-      "alt": ""
-    },
     {
       "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(3).jpg",
       "url": "",
       "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(4).jpg",
+      "url": "",
+      "alt": ""
     }
   ],
-  "image": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(4).jpg",
+  "image": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(3).jpg",
   "subcategory": "girls-tutu-dresses",
   "visible": true,
   "badge": "",
@@ -20,32 +20,32 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 11400,
+      "price": 8200,
       "salePrice": null,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 12300,
+      "price": 9200,
       "salePrice": null,
       "available": true
     },
     {
       "size": "7–9 years",
-      "price": 13200,
+      "price": 10200,
       "salePrice": null,
       "available": true
     }
   ],
   "showAccessory": true,
-  "accessoryName": "",
-  "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "accessoryName": "Hairband (PKR 220)",
+  "accessoryPrice": 220,
+  "description": "A red and gold tutu dress with a gold sequin body and a full red tulle skirt scattered with glittered net.",
+  "description2": "Red rose net flowers decorate the shoulder straps, matching the flower headband. It is a tea length dress.",
   "specs": {
-    "fabric": "",
+    "fabric": "Sequin and net",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted sequin body with a full, tea length tulle skirt",
     "care": ""
   }
 }
