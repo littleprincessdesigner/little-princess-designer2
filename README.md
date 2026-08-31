@@ -70,7 +70,7 @@ content/            ← what the admin edits. The source of truth for the site.
 site/               ← hand-written source, copied into dist/ as-is
   styles.css              all the site's styling
   tokens.css              the brand design system. Binding — do not edit values
-  app.js                  filters, load more, size→price, gallery, hero scroll
+  app.js                  header tab strip, filters, load more, size→price, gallery, hero scroll
   carousel-3d.js          the draggable 3D carousel on the home page
   assets/                 logo, hero images, self-hosted fonts, share card
   admin/
@@ -114,7 +114,7 @@ handoff.md          ← state of play from previous sessions
 | Change what a page **looks like** | `site/styles.css` (never `site/tokens.css` values) |
 | Change what a page **contains** | `tools/render.js` — every page is prerendered there |
 | Change the **product card** | `tools/card.js` — one file, used by the site and the admin preview |
-| Change **interactivity** (filters, gallery, sizes) | `site/app.js`. It never builds markup; it wires up what render.js emitted |
+| Change **interactivity** (filters, gallery, sizes, the header tab strip) | `site/app.js`. It never builds markup; it wires up what render.js emitted |
 | Change the **WhatsApp order message** or price format | `tools/shared.js` — one copy, used by the build and by `app.js` |
 | Change the **3D carousel** behaviour | `site/carousel-3d.js` — it lays itself out from however many children it has |
 | Change **which pieces spin** in the carousel | `chooseCarousel()` in `tools/content.js`; its settings live in `config.yml` under Site & home page |
@@ -195,10 +195,13 @@ work in a fresh clone with no `npm install`.
   `redirects.json` so the old address 301s to the new one.
 - **Prices are per product, per size**, with the size vocabulary read out of
   `config.yml` itself so the admin and the build cannot drift apart.
-- **Never claim a mobile fix is verified from a screenshot.** Headless Chromium
-  ignores the viewport meta, does not reproduce scrolling and does not fire the
-  URL-bar resize events. Phone-width captures are artifacts; only a real device
-  confirms. This has burned this project before.
+- **Be careful claiming a mobile fix is verified.** A plain headless-Chromium
+  screenshot ignores the viewport meta and does not reproduce scrolling, so
+  phone-width captures prove little on their own — this has burned this project
+  before. The `chrome-devtools` MCP's `emulate` (viewport string like
+  `390x844x3,mobile,touch`) is much closer and does reproduce scrolling and
+  sticky behaviour; the phone URL-bar resize events are the part it still can't
+  do, so treat a real device as the final word. See `handoff.md`.
 
 ## What a sandbox session cannot verify
 
