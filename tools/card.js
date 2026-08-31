@@ -466,8 +466,7 @@ ${svg(ICON.arrowRight, { size: 20, stroke: "var(--tone-deep)", width: 2 })}
     ...(isAccessory ? [] : [["Fabric", p.specs.fabric]]),
     ["Occasion", p.specs.occasion],
     ...(isAccessory ? [] : [["Fit", p.specs.fit]]),
-    ["Care", p.specs.care],
-    ["Made in", "Our own studio in Lahore, Pakistan"]
+    ["Care", p.specs.care]
   ].filter(([, v]) => v);
 
   return `<div class="lp-detail"
