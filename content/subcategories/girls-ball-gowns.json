@@ -1,0 +1,13 @@
+{
+  "parent": "girls",
+  "name": "Ball Gowns",
+  "order": 25,
+  "defaultDescription": "A full-skirted occasion gown built for a grand entrance — layered net over satin with hand-worked embellishment across the bodice.",
+  "defaultDescription2": "Every piece takes roughly three weeks in the studio and is made only on order, with two fittings before it goes home.",
+  "defaultSpecs": {
+    "fabric": "Layered net over duchess satin, hand-worked embellishment",
+    "occasion": "Weddings, birthdays, and formal events",
+    "fit": "Boned waistband holds the shape through a long evening",
+    "care": "Dry clean only, store flat in the garment bag"
+  }
+}
