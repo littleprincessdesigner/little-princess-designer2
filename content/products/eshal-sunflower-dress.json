@@ -1,41 +1,42 @@
 {
   "badge": "",
-  "name": "eshal sunflower dress",
+  "name": "Sunflower Full Gown",
   "visible": true,
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 9400,
+      "price": 12000,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 10300,
+      "price": 14000,
       "available": true
     },
     {
       "size": "7–9 years",
-      "price": 11200,
+      "price": 16000,
       "available": true
     },
     {
       "size": "10–12 years",
-      "price": 12100,
+      "price": 18000,
       "available": true
     },
     {
       "size": "13–16 years",
-      "price": 13000,
+      "price": 21000,
       "available": true
     }
   ],
   "showAccessory": true,
-  "description2": "",
-  "accessoryPrice": 1500,
+  "description2": "The skirt is made of layered yellow net, giving it a full, flowing shape.",
+  "accessoryPrice": 400,
+  "accessoryName": "Flower Tiara (PKR 400)",
   "specs": {
-    "fabric": "",
+    "fabric": "Layered net over a silk body",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted silk body with a full net skirt",
     "care": ""
   },
   "images": [
@@ -54,8 +55,8 @@
       "upload": "https://ik.imagekit.io/lpdlhr/1000641068%20(1).jpg"
     }
   ],
-  "description": "",
-  "subcategory": "girls-luxury-dresses",
+  "description": "A sunflower full gown with a yellow silk body covered in net, decorated with 3D sunflowers and white flowers cascading down one side.",
+  "subcategory": "girls-casual-dresses",
   "addedOn": "2026-06-27T12:00:00.000Z",
   "image": "https://ik.imagekit.io/lpdlhr/1000642125.jpg.jpeg"
 }
