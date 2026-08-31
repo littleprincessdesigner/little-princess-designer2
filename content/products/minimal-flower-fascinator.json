@@ -1,0 +1,58 @@
+{
+  "name": "Minimal Flower Fascinator",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20230702_173505%20(1).jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/20230702_173505%20(1).jpg",
+  "subcategory": "girls-accessory",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-31T23:33",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 950,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 950,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "7–9 years",
+      "price": 950,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "10–12 years",
+      "price": 950,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "13–16 years",
+      "price": 950,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": false,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "An elegant fascinator headpiece with a textured net base and delicate pearl accents, framed by a structured wide-mesh bow. The centerpiece is a rich satin flower surrounded by soft, airy feather wisps.",
+  "description2": "Lightweight and easy to clip on, it adds the perfect crowning touch to luxury dresses and party gowns. Available to be customized in any color to match your little one's special outfit.",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
