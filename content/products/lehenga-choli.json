@@ -1,0 +1,39 @@
+{
+  "name": "lehenga choli",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20241116_114315.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20241116_114238.jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/20241116_114315.jpg",
+  "subcategory": "girls-luxury-dresses",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-09-01T00:27",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 33,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": true,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "",
+  "description2": "",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
