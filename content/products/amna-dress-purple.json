@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "amna dress purple",
+  "name": "Purple Butterfly Half Frock",
   "visible": true,
   "sizes": [
     {
@@ -25,18 +25,15 @@
     }
   ],
   "showAccessory": true,
-  "description2": "",
-  "accessoryPrice": 700,
+  "description2": "The skirt is made of layered purple net, giving it a full, flowing shape.",
+  "accessoryPrice": 450,
   "specs": {
-    "fabric": "",
+    "fabric": "Layered net body with floral details",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted net body with a full skirt",
     "care": ""
   },
   "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/purple%20(2).jpg?updatedAt=1786648291263"
-    },
     {
       "upload": "https://ik.imagekit.io/lpdlhr/purple.jpg?updatedAt=1786648291119"
     },
@@ -44,9 +41,9 @@
       "upload": "https://ik.imagekit.io/lpdlhr/purple%20(1).jpg?updatedAt=1786648291560"
     }
   ],
-  "image": "https://ik.imagekit.io/lpdlhr/purple%20(2).jpg?updatedAt=1786648291263",
-  "description": "",
-  "accessoryName": "headband",
-  "subcategory": "girls-luxury-dresses",
+  "image": "https://ik.imagekit.io/lpdlhr/purple.jpg?updatedAt=1786648291119",
+  "description": "A purple butterfly half frock with a purple net body, decorated with a cluster of flowers and golden butterflies cascading down one side.",
+  "accessoryName": "Flower Tiara (PKR 450)",
+  "subcategory": "girls-casual-dresses",
   "addedOn": "2026-07-12T12:00:00.000Z"
 }
