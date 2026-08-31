@@ -1,0 +1,51 @@
+{
+  "name": "Lemon Blossom Ruffle Dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-01%20at%201.12.08%20AM.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-01%20at%201.11.48%20AM.jpeg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-01%20at%201.12.08%20AM.jpeg",
+  "subcategory": "girls-casual-dresses",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-07-27T12:00:00.000Z",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 7800,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 9800,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "7–9 years",
+      "price": 11800,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": false,
+  "accessoryName": "Flower Tiara (PKR 400)",
+  "accessoryPrice": 400,
+  "description": "A bright yellow ruffle dress crafted with a smooth silk upper body sprinkled with shiny pearl details and an asymmetrical, one sided floral shoulder accent.",
+  "description2": "The skirt is designed with soft, net ruffles arranged in full layers for a bouncy shape.",
+  "specs": {
+    "fabric": "Layered ruffled net and silk body",
+    "occasion": "",
+    "fit": "Fitted tiered body with a full ruffled net skirt",
+    "care": ""
+  }
+}
