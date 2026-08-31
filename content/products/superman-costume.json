@@ -1,5 +1,5 @@
 {
-  "name": "superman costume",
+  "name": "Superman Costume",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.24%20PM.jpg",
@@ -15,20 +15,26 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 44,
+      "price": 3900,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 4100,
       "salePrice": null,
       "available": true
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryName": "",
   "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "description": "A Superman costume with a white cotton shirt printed with the Superman logo and personalized with the child's name, paired with a red and blue silk cape.",
+  "description2": "1) Shirt 2) Cape 3) Head Accessory",
   "specs": {
-    "fabric": "",
+    "fabric": "Cotton and silk",
     "occasion": "",
-    "fit": "",
+    "fit": "Relaxed shirt with a flowing cape",
     "care": ""
   }
 }
