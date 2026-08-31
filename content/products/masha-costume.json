@@ -1,16 +1,29 @@
 {
   "badge": "",
-  "name": "masha costume",
+  "name": "Masha Costume",
   "visible": true,
   "sizes": [
     {
       "available": true,
       "size": "0–3 years",
-      "price": 55
+      "price": 3800
+    },
+    {
+      "available": true,
+      "size": "4–6 years",
+      "price": 4200
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A Masha costume with a smooth, flowing magenta silk gown and a white cotton shirt with puffed sleeves underneath, styled exactly like the costume from the Masha and the Bear cartoon.",
+  "description2": "It comes with a matching silk scarf, tied at the neck for a soft, finished look.",
+  "specs": {
+    "fabric": "Silk gown with a cotton shirt",
+    "occasion": "",
+    "fit": "Flowing silk gown with a puffed sleeve shirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000642289.jpg"
@@ -23,6 +36,6 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000642289.jpg",
-  "subcategory": "girls-theme-dresses",
+  "subcategory": "ready-to-wear",
   "addedOn": "2026-08-30T01:12:00.000+05:00"
 }
