@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "Rameen Miral Dress",
+  "name": "Fluffly Silk Net Gown",
   "visible": true,
   "sizes": [
     {
@@ -30,12 +30,12 @@
     }
   ],
   "showAccessory": false,
-  "description2": "",
+  "description2": "The skirt is made of layered silk net that fades from purple to blue, giving it a full, fluffy shape.",
   "accessoryPrice": 1500,
   "specs": {
-    "fabric": "",
+    "fabric": "Silk body with a layered net skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted silk body with a full net skirt",
     "care": ""
   },
   "images": [
@@ -58,7 +58,7 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000053513.jpg",
-  "description": "A three-piece prince suit in deep navy cotton-silk, with gold braid at the shoulder and cuff, a fully lined coat and an inner shirt with hand-stitched buttons.",
+  "description": "A fluffy silk net gown with a blue silk body, embroidered with floral lace details finished with beads and crystals.",
   "subcategory": "girls-luxury-dresses",
   "addedOn": "2026-07-28T12:00:00.000Z"
 }
