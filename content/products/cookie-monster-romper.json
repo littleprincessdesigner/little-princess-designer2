@@ -1,5 +1,5 @@
 {
-  "name": "cookie monster romper",
+  "name": "Cookie Monster Romper",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.33%20PM.png",
@@ -18,27 +18,27 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.33%20PM.png",
-  "subcategory": "boys-theme-dresses",
+  "subcategory": "babies-rompers",
   "visible": true,
   "badge": "",
   "addedOn": "2026-08-31T00:02",
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 55,
+      "price": 1600,
       "salePrice": null,
       "available": true
     }
   ],
   "showAccessory": true,
-  "accessoryName": "",
-  "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "accessoryName": "Hat (PKR 500)",
+  "accessoryPrice": 500,
+  "description": "A Cookie Monster romper in soft white cotton, printed with a Cookie Monster graphic and finished with a blue bow tie.",
+  "description2": "It has a relaxed, comfortable fit that's easy to move in.",
   "specs": {
-    "fabric": "",
+    "fabric": "Soft cotton romper with a front bow",
     "occasion": "",
-    "fit": "",
+    "fit": "Relaxed romper fit with poppers for easy changes",
     "care": ""
   }
 }

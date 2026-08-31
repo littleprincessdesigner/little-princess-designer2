@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "purplyyyy",
+  "name": "Spring Purple Dress",
   "visible": true,
   "sizes": [
     {
@@ -25,12 +25,13 @@
     }
   ],
   "showAccessory": true,
-  "description2": "",
-  "accessoryPrice": 1200,
+  "description2": "The skirt is made of layered purple net, giving it a full, flowing shape.",
+  "accessoryPrice": 500,
+  "accessoryName": "Flower Tiara (PKR 500)",
   "specs": {
-    "fabric": "",
+    "fabric": "Silk body with a layered net skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted silk body with flutter sleeves and a full skirt",
     "care": ""
   },
   "images": [
@@ -47,7 +48,7 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/PPLL%20(2).jpg",
-  "description": "",
+  "description": "A spring purple dress with a lilac silk body, covered in 3D flowers in blue, pink, white and purple, and golden butterflies. It has flutter sleeves.",
   "subcategory": "girls-luxury-dresses",
   "addedOn": "2026-07-26T12:00:00.000Z"
 }

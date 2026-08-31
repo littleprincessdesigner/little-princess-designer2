@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "irha yellow ruffle dress",
+  "name": "Yellow Ruffle Dress",
   "visible": true,
   "sizes": [
     {
@@ -20,12 +20,13 @@
     }
   ],
   "showAccessory": true,
-  "description2": "",
-  "accessoryPrice": 1500,
+  "description2": "The skirt is made of layered ruffled net, giving it a full, textured shape.",
+  "accessoryPrice": 400,
+  "accessoryName": "Flower Tiara (PKR 400)",
   "specs": {
-    "fabric": "",
+    "fabric": "Layered ruffled net with tiered detailing",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted tiered body with a full ruffled net skirt",
     "care": ""
   },
   "images": [
@@ -45,7 +46,7 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000001817.jpg",
-  "description": "",
-  "subcategory": "girls-luxury-dresses",
+  "description": "A yellow ruffle dress with a tiered yellow body, decorated with sunflowers and white flowers on one shoulder.",
+  "subcategory": "girls-casual-dresses",
   "addedOn": "2026-07-27T12:00:00.000Z"
 }

@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "peach dress",
+  "name": "Crystal Peach Gown",
   "visible": true,
   "sizes": [
     {
@@ -25,12 +25,12 @@
     }
   ],
   "showAccessory": false,
-  "description2": "",
+  "description2": "A large bow with a stone at the center sits at the waist, above a full peach silk skirt.",
   "accessoryPrice": 1500,
   "specs": {
-    "fabric": "",
+    "fabric": "Silk body with stone detailing",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted silk body with a full skirt",
     "care": ""
   },
   "images": [
@@ -47,7 +47,7 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/peaches%20(1).jpg",
-  "description": "",
+  "description": "A crystal peach gown with a peach silk body covered in crystal stones, finished with a pearl design at the neckline and soft feathers on the shoulders.",
   "subcategory": "girls-luxury-dresses",
   "addedOn": "2026-07-01T12:00:00.000Z"
 }

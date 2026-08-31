@@ -1,5 +1,5 @@
 {
-  "name": "prince dress romper",
+  "name": "Prince Dress Romper (3 Pieces)",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/ggggg.png?updatedAt=1788088565871",
@@ -18,27 +18,27 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/ggggg.png?updatedAt=1788088565871",
-  "subcategory": "boys-collection",
+  "subcategory": "babies-rompers",
   "visible": true,
   "badge": "",
   "addedOn": "2026-08-30T23:46",
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 44,
+      "price": 3900,
       "salePrice": null,
       "available": true
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryName": "",
   "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "description": "A prince dress romper with a white cotton shirt and a flowing blue satin cape, finished with a golden crown. It can be customized with any name.",
+  "description2": "1) Crown 2) Cape 3) Shirt",
   "specs": {
-    "fabric": "",
+    "fabric": "Soft cotton with a relaxed round neck",
     "occasion": "",
-    "fit": "",
+    "fit": "Relaxed shirt with a flowing cape",
     "care": ""
   }
 }
