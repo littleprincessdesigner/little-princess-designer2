@@ -1,0 +1,39 @@
+{
+  "name": "pink dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20240327_094104.jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20240327_090329.jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/20240327_094104.jpg",
+  "subcategory": "girls-luxury-dresses",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-09-01T00:36",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 55,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": true,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "",
+  "description2": "",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
