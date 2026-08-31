@@ -1,49 +1,57 @@
 {
-  "badge": "",
   "name": "Purple Butterfly Half Frock",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/purple.jpg?updatedAt=1786648291119",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/purple%20(1).jpg?updatedAt=1786648291560",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/purple.jpg?updatedAt=1786648291119",
+  "subcategory": "girls-luxury-dresses",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-07-12T12:00:00.000Z",
   "sizes": [
     {
       "size": "0–3 years",
       "price": 14500,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "4–6 years",
       "price": 16500,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "7–9 years",
       "price": 18500,
+      "salePrice": null,
       "available": true
     },
     {
-      "available": true,
       "size": "10–12 years",
-      "price": 20500
+      "price": 20500,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": true,
-  "description2": "The skirt is made of layered purple net, giving it a full, flowing shape.",
+  "accessoryName": "Flower Tiara (PKR 450)",
   "accessoryPrice": 450,
+  "description": "A purple butterfly half frock with a purple net body, decorated with a cluster of flowers and golden butterflies cascading down one side.",
+  "description2": "The skirt is made of layered purple net, giving it a full, flowing shape.",
   "specs": {
     "fabric": "Layered net body with floral details",
     "occasion": "",
     "fit": "Fitted net body with a full skirt",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/purple.jpg?updatedAt=1786648291119"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/purple%20(1).jpg?updatedAt=1786648291560"
-    }
-  ],
-  "image": "https://ik.imagekit.io/lpdlhr/purple.jpg?updatedAt=1786648291119",
-  "description": "A purple butterfly half frock with a purple net body, decorated with a cluster of flowers and golden butterflies cascading down one side.",
-  "accessoryName": "Flower Tiara (PKR 450)",
-  "subcategory": "girls-casual-dresses",
-  "addedOn": "2026-07-12T12:00:00.000Z"
+  }
 }
