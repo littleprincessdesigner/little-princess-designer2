@@ -1,0 +1,57 @@
+{
+  "name": "Butterfly Princess Tiara",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20231218_080734%20(1).jpg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20231218_080734%20(1).jpg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/20231218_080734%20(1).jpg",
+  "subcategory": "girls-accessory",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-22T15:30:00.000+05:00",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 1100,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 1100,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "7–9 years",
+      "price": 1100,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "10–12 years",
+      "price": 1100,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": false,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "A beautiful princess tiara crafted with golden butterflies that stand tall for a royal look. The base is woven with delicate golden wire, decorated with shiny pink pearls, smooth pink beads, and sparkling crysals.",
+  "description2": "It is lightweight and sits comfortably on the head to make your little girl feel like royalty. This crown can be customized in any color combination to match her special party dress.",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
