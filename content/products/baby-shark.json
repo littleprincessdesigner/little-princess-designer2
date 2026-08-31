@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "baby shark",
+  "name": "Baby Shark Dress",
   "visible": true,
   "sizes": [
     {
@@ -20,12 +20,13 @@
     }
   ],
   "showAccessory": true,
-  "description2": "",
-  "accessoryPrice": 400,
+  "description2": "The full length organza skirt resembles a sea view, printed with colorful sharks, fish and coral and scattered with pearls.",
+  "accessoryName": "Bow (PKR 250)",
+  "accessoryPrice": 250,
   "specs": {
-    "fabric": "",
+    "fabric": "Silk body with a full length organza skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted silk body with flutter sleeves and a full skirt",
     "care": ""
   },
   "images": [
@@ -38,7 +39,7 @@
       "alt": ""
     }
   ],
-  "description": "",
+  "description": "A baby shark dress in a kids' favorite theme, with a pale blue silk body hand-beaded in a pearl diamond lattice pattern and flutter sleeves.",
   "subcategory": "ready-to-wear",
   "addedOn": "2026-06-29T12:00:00.000Z",
   "image": "https://ik.imagekit.io/lpdlhr/bb%20shark%20(2).jpg?updatedAt=1786651536687"

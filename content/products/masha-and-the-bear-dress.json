@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "masha and the bear dress",
+  "name": "Masha and the Bear Dress",
   "visible": true,
   "sizes": [
     {
@@ -21,6 +21,14 @@
   ],
   "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "A Masha and the Bear dress with a white cotton shirt and puffed sleeves trimmed in lace, paired with a full length silk frock printed with a cute Masha graphic.",
+  "description2": "The hem is finished with a pink striped trim for a playful, coordinated look.",
+  "specs": {
+    "fabric": "Cotton shirt with a silk frock",
+    "occasion": "",
+    "fit": "Puffed sleeve shirt with a flared silk skirt",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/DSC_5986.JPG.jpg"
