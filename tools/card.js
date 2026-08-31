@@ -335,7 +335,6 @@ function findSubcategory(catalogue, id) {
    Paths lifted verbatim from the prototype so the artwork is unchanged. */
 
 const ICON = {
-  igHeader: '<rect x="3" y="3" width="18" height="18" rx="5.5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r=".9" fill="#FFFCF8" stroke="none"></circle>',
   igOutline: '<rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r=".9"></circle>',
   waOutline: '<path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.7-4.8A8.5 8.5 0 1 1 21 11.5Z"></path>',
   waOutlineDetail: '<path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.7-4.8A8.5 8.5 0 1 1 21 11.5Z"></path><path d="M8.8 8.4c.3-.1.6 0 .8.3l.9 1.6c.1.3.1.5-.1.7l-.5.6c.6 1.1 1.4 1.9 2.5 2.4l.6-.5c.2-.2.5-.2.7-.1l1.6.8c.3.2.4.5.3.8-.3.9-1.2 1.4-2.1 1.3-2.9-.4-5.3-2.8-5.7-5.7-.1-.8.3-1.7 1-2.2Z"></path>',

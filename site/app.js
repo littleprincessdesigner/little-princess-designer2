@@ -47,49 +47,19 @@
     var header = $(".lp-header");
     if (!header) return;
 
-    /* Reserve space for the header at its EXPANDED height, so the sticky hero
-       stage never jumps or gets clipped when the header minimises. */
+    /* The header is a fixed size now — all the tabs sit on one line, so it no
+       longer shrinks on scroll. This just publishes its height as --lp-header
+       so the home page's sticky hero (.lp-sticky) knows how far down to start
+       and how tall to be. */
     var measure = function () {
-      var wasMin = header.getAttribute("data-min") === "1";
-      var prevTransition = header.style.transition;
-      if (wasMin) {
-        header.style.transition = "none";
-        header.setAttribute("data-min", "0");
-      }
       var px = header.getBoundingClientRect().height;
-      if (wasMin) {
-        header.setAttribute("data-min", "1");
-        header.style.transition = prevTransition;
-      }
       document.documentElement.style.setProperty("--lp-header", px + "px");
     };
 
-    /* Where the header is allowed to start minimising.
-       On the home page that is the end of the hero story, so the drawing plays
-       all the way through to the finished dress before the header moves — two
-       things animating against each other reads as jank. Elsewhere, 120px. */
-    var story = $(".lp-story");
-    var threshold = function () {
-      if (!story) return 120;
-      var end = story.offsetTop + story.offsetHeight - window.innerHeight;
-      return Math.max(120, end);
-    };
-
-    /* One-way latch: minimise once past the threshold, expand again only back
-       at the very top. Without the latch, the reflow from minimising nudges
-       scrollY across the threshold and the header flickers. */
-    var latch = raf(function () {
-      var y = window.scrollY || 0;
-      var isMin = header.getAttribute("data-min") === "1";
-      var next = isMin ? y >= 4 : y > threshold();
-      if (next !== isMin) header.setAttribute("data-min", next ? "1" : "0");
-    });
-
     /* Mobile browsers fire `resize` continuously while the URL bar slides in and
-       out, and that only ever changes the viewport HEIGHT. Re-measuring then is
-       both pointless and costly: measure() forces a synchronous layout and
-       briefly flips data-min to "0" and back, mid-scroll. Watching width only
-       keeps the header steady on a phone while still handling rotation. */
+       out, and that only ever changes the viewport HEIGHT — nothing that
+       changes the header's height. Watching width only keeps the value steady
+       on a phone while still handling rotation and desktop resizes. */
     var lastWidth = window.innerWidth;
     var onResize = raf(function () {
       if (window.innerWidth === lastWidth) return;
@@ -99,8 +69,100 @@
 
     measure();
     window.addEventListener("resize", onResize);
-    window.addEventListener("scroll", latch, { passive: true });
-    latch();
+  }
+
+  /* --- 1b. Header tab strip ------------------------------------------- */
+
+  /**
+   * The nav is one horizontal row that scrolls. On desktop the six tabs fit,
+   * so the two arrow buttons stay hidden and it reads as a normal centred nav.
+   * On a phone the row overflows: the arrows appear, each disabled when the
+   * strip is already against that end, and clicking one pages the strip along.
+   * The strip is still swipeable — the arrows are an addition, not the only way.
+   */
+  function initNav() {
+    var nav = $(".lp-nav");
+    var prev = $("[data-nav-prev]");
+    var next = $("[data-nav-next]");
+    if (!nav || !prev || !next) return;
+
+    // Every tab is a link to another page, so a click is a full navigation —
+    // the next page's strip starts from scratch. Stashing the strip's scroll
+    // position here lets that next page pick up where this one left off and
+    // glide to its own active tab, instead of the strip snapping back to the
+    // start and re-scrolling on every click.
+    var STASH = "lp-nav-scroll";
+    var stash = function (px) {
+      try { sessionStorage.setItem(STASH, String(Math.round(px))); } catch (e) { /* private mode */ }
+    };
+    var unstash = function () {
+      try { var v = sessionStorage.getItem(STASH); return v === null ? null : Number(v); }
+      catch (e) { return null; }
+    };
+
+    function update() {
+      // 1px of slack: sub-pixel layout can leave scrollWidth a hair above
+      // clientWidth on a row that visually fits.
+      var overflow = nav.scrollWidth - nav.clientWidth;
+      var scrollable = overflow > 4;
+      nav.setAttribute("data-scrollable", scrollable ? "1" : "0");
+      prev.hidden = !scrollable;
+      next.hidden = !scrollable;
+      if (scrollable) {
+        // A few px of tolerance: sub-pixel layout leaves scrollLeft a hair
+        // short of the true maximum even when the strip is fully paged over.
+        prev.disabled = nav.scrollLeft <= 4;
+        next.disabled = nav.scrollLeft >= overflow - 4;
+      }
+    }
+
+    function page(dir) {
+      nav.scrollBy({ left: dir * Math.max(140, nav.clientWidth * 0.7), behavior: "smooth" });
+    }
+
+    /** Scroll offset that puts an element in the middle of the strip. Measured
+     *  from the rendered boxes rather than offsetLeft — .lp-nav is not a
+     *  positioned element, so offsetLeft would be relative to the whole header
+     *  and over-scroll the strip. */
+    function centreOf(el) {
+      var navRect = nav.getBoundingClientRect();
+      var elRect = el.getBoundingClientRect();
+      var raw = nav.scrollLeft + (elRect.left - navRect.left) - (nav.clientWidth - elRect.width) / 2;
+      return Math.max(0, Math.min(nav.scrollWidth - nav.clientWidth, raw));
+    }
+
+    prev.addEventListener("click", function () { page(-1); });
+    next.addEventListener("click", function () { page(1); });
+    nav.addEventListener("scroll", raf(update), { passive: true });
+    window.addEventListener("resize", raf(update));
+    // Remember the strip position as the visitor leaves for another tab.
+    $$(".lp-navlink", nav).forEach(function (link) {
+      link.addEventListener("click", function () { stash(nav.scrollLeft); });
+    });
+    window.addEventListener("pagehide", function () { stash(nav.scrollLeft); });
+
+    update();
+
+    var active = $(".lp-navlink[aria-current='page']", nav);
+    if (active && nav.scrollWidth - nav.clientWidth > 1) {
+      var target = centreOf(active);
+      var from = unstash();
+      if (from !== null && Math.abs(from - target) > 4) {
+        // Came from another tab: start where that page's strip ended and glide
+        // across to this tab, so the six-tab row reads as one continuous strip
+        // the selection slides along.
+        nav.scrollLeft = Math.max(0, Math.min(nav.scrollWidth - nav.clientWidth, from));
+        update();
+        requestAnimationFrame(function () {
+          nav.scrollTo({ left: target, behavior: "smooth" });
+        });
+      } else {
+        // First view in this tab session, or a reload — just sit on the tab.
+        nav.scrollLeft = target;
+        update();
+      }
+      stash(target);
+    }
   }
 
   /* --- 2. Hero scroll story ------------------------------------------- */
@@ -662,14 +724,15 @@
   /* --- boot ----------------------------------------------------------- */
 
   function boot() {
-    // initSearch first, and deliberately. It reveals the search button, which
-    // is `hidden` in the markup — and on a narrow screen that extra button
-    // makes the nav wrap, so the header gets taller. initHeader measures the
-    // header once and caches the height in --lp-header, which .lp-sticky uses
-    // for both its top offset and its height. Measuring before the button
-    // appeared left that value up to 44px short at 390px wide, and the sticky
-    // header then clipped the hero headline on scroll.
+    // Order matters here. initSearch reveals the search button and initNav
+    // reveals the tab-strip arrows (both `hidden` in the markup) — together
+    // they set the header's final height. initHeader then measures it once and
+    // caches it in --lp-header, which the home page's sticky hero (.lp-sticky)
+    // uses for both its top offset and its height. Measuring before those
+    // controls appeared once left the value short and clipped the hero
+    // headline on scroll.
     initSearch();
+    initNav();
     initHeader();
     initStory();
     initCards();
