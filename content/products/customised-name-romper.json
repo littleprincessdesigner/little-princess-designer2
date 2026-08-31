@@ -1,5 +1,5 @@
 {
-  "name": "customised name romper",
+  "name": "Customized Name Romper",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/20241125_170601.jpg",
@@ -20,20 +20,20 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 44,
+      "price": 3300,
       "salePrice": null,
       "available": true
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryName": "",
   "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "description": "A customized name romper made from soft cotton, with the baby's name printed in bold letters on the front.",
+  "description2": "1) Romper 2) Cap",
   "specs": {
-    "fabric": "",
+    "fabric": "Soft cotton",
     "occasion": "",
-    "fit": "",
+    "fit": "Relaxed romper fit with a matching cap",
     "care": ""
   }
 }
