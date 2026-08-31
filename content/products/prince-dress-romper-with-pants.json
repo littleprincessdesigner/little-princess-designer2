@@ -1,5 +1,5 @@
 {
-  "name": "prince dress romper with pants",
+  "name": "Prince Dress Romper with Shorts (4 Pieces)",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.29%20PM.jpg?updatedAt=1788088555680",
@@ -13,27 +13,27 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.29%20PM.jpg?updatedAt=1788088555680",
-  "subcategory": "boys-prince-dresses",
+  "subcategory": "babies-rompers",
   "visible": true,
   "badge": "",
   "addedOn": "2026-08-31T00:19",
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 44,
+      "price": 4700,
       "salePrice": null,
       "available": true
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryName": "",
   "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "description": "A prince dress romper with shorts, featuring a white cotton shirt and blue satin shorts, paired with a flowing blue cape. It can be customized with any name.",
+  "description2": "1) Crown 2) Cape 3) Shirt 4) Shorts",
   "specs": {
-    "fabric": "",
+    "fabric": "Soft cotton with a relaxed round neck",
     "occasion": "",
-    "fit": "",
+    "fit": "Relaxed shirt and shorts with a flowing cape",
     "care": ""
   }
 }
