@@ -1,5 +1,5 @@
 {
-  "name": "hello world romper",
+  "name": "Hello World Romper",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.32%20PM%20(1).jpg?updatedAt=1788088553376",
@@ -15,20 +15,20 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 44,
+      "price": 3300,
       "salePrice": null,
       "available": true
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryName": "",
   "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "description": "A Hello World romper made from soft cotton, printed with a cute bear and stars design along with the baby's name.",
+  "description2": "1) Romper 2) Cap",
   "specs": {
-    "fabric": "",
+    "fabric": "Soft cotton",
     "occasion": "",
-    "fit": "",
+    "fit": "Relaxed romper fit with a matching cap",
     "care": ""
   }
 }

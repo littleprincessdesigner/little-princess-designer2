@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "red",
+  "name": "Ruby Red Dress",
   "visible": true,
   "sizes": [
     {
@@ -30,27 +30,27 @@
     }
   ],
   "showAccessory": false,
-  "description2": "",
+  "description2": "An ornate jeweled belt sits at the waist, above a full, sparkling red net skirt scattered with sequins.",
   "accessoryPrice": 1500,
   "specs": {
-    "fabric": "",
+    "fabric": "Silk body with a layered net skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted silk body with puffed sleeves and a full net skirt",
     "care": ""
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/red.jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/red%20(2).jpg"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/red%20(2).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/red.jpg"
     },
     {
       "upload": "https://ik.imagekit.io/lpdlhr/red%20(1).jpg"
     }
   ],
-  "description": "",
+  "description": "A ruby red dress with a fitted silk body and puffed sleeves, finished with a large bow with pearls at the neckline.",
   "subcategory": "girls-luxury-dresses",
   "addedOn": "2026-07-13T12:00:00.000Z",
-  "image": "https://ik.imagekit.io/lpdlhr/red.jpg"
+  "image": "https://ik.imagekit.io/lpdlhr/red%20(2).jpg"
 }

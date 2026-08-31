@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "huda dress pink",
+  "name": "Ruffled Moonlight Dress",
   "visible": true,
   "sizes": [
     {
@@ -30,12 +30,12 @@
     }
   ],
   "showAccessory": false,
-  "description2": "",
+  "description2": "The skirt is made of pleated moonlight fabric, giving it a full, structured shape that flares out beautifully.",
   "accessoryPrice": 1500,
   "specs": {
-    "fabric": "",
+    "fabric": "Moonlight",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted body with an oversized bow and a full, pleated skirt",
     "care": ""
   },
   "images": [
@@ -60,7 +60,7 @@
       "upload": "https://ik.imagekit.io/lpdlhr/1000641158.jpg.jpeg"
     }
   ],
-  "description": "",
+  "description": "A ruffled moonlight dress with a soft pink body and an oversized bow at the shoulder.",
   "subcategory": "girls-luxury-dresses",
   "addedOn": "2026-08-03T12:00:00.000Z",
   "image": "https://ik.imagekit.io/lpdlhr/1000641156.jpg.jpeg"

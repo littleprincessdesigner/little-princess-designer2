@@ -1,5 +1,5 @@
 {
-  "name": "king crown",
+  "name": "King Crown",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.47%20PM.jpeg?updatedAt=1788088556401",
@@ -15,18 +15,24 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 44,
+      "price": 3200,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 3200,
       "salePrice": null,
       "available": true
     }
   ],
-  "showAccessory": true,
-  "accessoryName": "king crown",
+  "showAccessory": false,
+  "accessoryName": "",
   "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "description": "A king crown in blue silk, decorated with a heart-shaped design outlined in pearls and finished with gold glitter details.",
+  "description2": "The base is trimmed with pearls and blue gems, with gold crown points along the top edge.",
   "specs": {
-    "fabric": "",
+    "fabric": "Pearl linings, silk, glitter",
     "occasion": "",
     "fit": "",
     "care": ""

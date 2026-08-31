@@ -1,6 +1,6 @@
 {
   "badge": "",
-  "name": "Elephant baby set",
+  "name": "Elephant Baby Set",
   "visible": true,
   "sizes": [
     {
@@ -11,6 +11,14 @@
   ],
   "showAccessory": false,
   "accessoryPrice": 1500,
+  "description": "An Elephant Baby Set made from soft cotton, printed with a cute elephant graphic and the baby's name and age in months.",
+  "description2": "1) Cap 2) Shirt 3) Shoes 4) Pants",
+  "specs": {
+    "fabric": "Cotton and silk pants",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  },
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000641059.jpg"
