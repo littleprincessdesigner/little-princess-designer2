@@ -13,7 +13,7 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%2012.00.47%20PM.jpg",
-  "subcategory": "boys-prince-dresses",
+  "subcategory": "boys-accessory-collection",
   "visible": true,
   "badge": "",
   "addedOn": "2026-08-30T23:59",
@@ -26,6 +26,18 @@
     },
     {
       "size": "4–6 years",
+      "price": 3200,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "7–9 years",
+      "price": 3200,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "10–12 years",
       "price": 3200,
       "salePrice": null,
       "available": true
