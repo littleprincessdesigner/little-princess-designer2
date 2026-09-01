@@ -1,5 +1,5 @@
 {
-  "name": "Muhammad Baby Romper with Pillow",
+  "name": "Baby Romper with Pillow",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/DSC_6064.jpg.jpeg?updatedAt=1788272430227",
@@ -13,22 +13,22 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/DSC_6064.jpg.jpeg?updatedAt=1788272430227",
-  "subcategory": "ready-to-wear",
+  "subcategory": "babies-baby-sets",
   "visible": true,
-  "badge": "Sale",
+  "badge": "",
   "addedOn": "2026-08-21T16:27:00.000+05:00",
   "sizes": [
     {
       "size": "0–3 years",
       "price": 4000,
-      "salePrice": 2500,
+      "salePrice": null,
       "available": true
     }
   ],
   "showAccessory": false,
   "accessoryName": "",
   "accessoryPrice": 1500,
-  "description": "A newborn baby set made from soft cotton. Soft pillow finished with lace trim with a crown design on the romper and cap.",
+  "description": "A newborn baby set made from soft cotton. Soft pillow finished with lace trim, with a crown design on the romper and cap. It can be customized in any color or name.",
   "description2": "1) Pillow 2) Cap 3) Romper",
   "specs": {
     "fabric": "Soft cotton with red trim across all pieces",
