@@ -36,15 +36,17 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/PPLL%20(2).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/PPLL%20(2).jpg",
+      "alt": "Spring Purple Dress – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
     },
     {
       "url": "",
       "upload": "https://ik.imagekit.io/lpdlhr/ppll%20(1).jpg",
-      "alt": ""
+      "alt": "Spring Purple Dress – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/ppll.jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/ppll.jpg",
+      "alt": "Spring Purple Dress – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/PPLL%20(2).jpg",

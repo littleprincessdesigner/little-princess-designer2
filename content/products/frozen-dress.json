@@ -32,10 +32,12 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641035%20(1).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641035%20(1).jpg",
+      "alt": "Frozen Dress – handmade girls outfit, sequin and satin silk with net sleeves, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000083467%20(1).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000083467%20(1).jpg",
+      "alt": "Frozen Dress – handmade girls outfit, sequin and satin silk with net sleeves, made to order in Pakistan"
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000641035%20(1).jpg",

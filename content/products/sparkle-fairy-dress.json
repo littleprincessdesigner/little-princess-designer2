@@ -31,18 +31,21 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie.jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie.jpg",
+      "alt": "Sparkle Fairy Dress – handmade girls outfit, organza skirt with a silk body, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie%20(2).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie%20(2).jpg",
+      "alt": "Sparkle Fairy Dress – handmade girls outfit, organza skirt with a silk body, made to order in Pakistan"
     },
     {
       "url": "",
       "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie%20(1).jpg",
-      "alt": ""
+      "alt": "Sparkle Fairy Dress – handmade girls outfit, organza skirt with a silk body, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie%20(3).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/pink%20faie%20(3).jpg",
+      "alt": "Sparkle Fairy Dress – handmade girls outfit, organza skirt with a silk body, made to order in Pakistan"
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/pink%20faie.jpg",

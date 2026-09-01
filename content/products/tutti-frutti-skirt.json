@@ -26,10 +26,12 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/fruity.jpg?updatedAt=1786651642862"
+      "upload": "https://ik.imagekit.io/lpdlhr/fruity.jpg?updatedAt=1786651642862",
+      "alt": "Tutti Frutti Skirt – handmade girls outfit, cotton shirt with a net tutu skirt and ribbon straps, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/fruity%20(1).jpg?updatedAt=1786651642601"
+      "upload": "https://ik.imagekit.io/lpdlhr/fruity%20(1).jpg?updatedAt=1786651642601",
+      "alt": "Tutti Frutti Skirt – handmade girls outfit, cotton shirt with a net tutu skirt and ribbon straps, made to order in Pakistan"
     }
   ],
   "description": "A tutti frutti tutu skirt set. The cotton shirt has colorful fruit prints, paired with a pink net tutu skirt trimmed with orange, yellow, and green ribbons.",

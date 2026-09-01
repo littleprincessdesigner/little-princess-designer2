@@ -19,10 +19,12 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641137.jpg.jpeg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641137.jpg.jpeg",
+      "alt": "New Born Girl Set – handmade baby outfit, soft cotton with pink trim across all pieces, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000085127.jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000085127.jpg",
+      "alt": "New Born Girl Set – handmade baby outfit, soft cotton with pink trim across all pieces, made to order in Pakistan"
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000641137.jpg.jpeg",

@@ -40,13 +40,16 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/red%20(2).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/red%20(2).jpg",
+      "alt": "Ruby Red Dress – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/red.jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/red.jpg",
+      "alt": "Ruby Red Dress – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/red%20(1).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/red%20(1).jpg",
+      "alt": "Ruby Red Dress – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
     }
   ],
   "description": "A ruby red dress with a fitted silk body and puffed sleeves, finished with a large bow with pearls at the neckline.",

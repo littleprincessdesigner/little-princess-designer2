@@ -32,10 +32,12 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000640932.jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640932.jpg",
+      "alt": "Sequin Pink Tutu Dress – handmade girls outfit, sequin body with a layered net tutu skirt, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000640934.jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640934.jpg",
+      "alt": "Sequin Pink Tutu Dress – handmade girls outfit, sequin body with a layered net tutu skirt, made to order in Pakistan"
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000640932.jpg",

@@ -35,15 +35,17 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/peaches%20(1).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/peaches%20(1).jpg",
+      "alt": "Crystal Peach Gown – handmade girls outfit, silk body with stone detailing, made to order in Pakistan"
     },
     {
       "url": "",
       "upload": "https://ik.imagekit.io/lpdlhr/peaches.jpg",
-      "alt": ""
+      "alt": "Crystal Peach Gown – handmade girls outfit, silk body with stone detailing, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/peaches%20(2).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/peaches%20(2).jpg",
+      "alt": "Crystal Peach Gown – handmade girls outfit, silk body with stone detailing, made to order in Pakistan"
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/peaches%20(1).jpg",

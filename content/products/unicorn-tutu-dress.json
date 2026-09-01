@@ -22,10 +22,12 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000640936.jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640936.jpg",
+      "alt": "Unicorn Tutu Dress – handmade girls outfit, cotton shirt with a multicolor net tutu skirt, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/image-0%20(1).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/image-0%20(1).jpg",
+      "alt": "Unicorn Tutu Dress – handmade girls outfit, cotton shirt with a multicolor net tutu skirt, made to order in Pakistan"
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000640936.jpg",

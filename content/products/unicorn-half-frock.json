@@ -31,10 +31,12 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642133%20(1).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642133%20(1).jpg",
+      "alt": "Unicorn Half Frock – handmade girls outfit, white silk upper body, net skirt lined with silk underneath, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/image-0%20(1).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/image-0%20(1).jpg",
+      "alt": "Unicorn Half Frock – handmade girls outfit, white silk upper body, net skirt lined with silk underneath, made to order in Pakistan"
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000642133%20(1).jpg",
