@@ -1,46 +1,56 @@
 {
-  "badge": "",
   "name": "Baby Shark Dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-01%20at%207.00.22%20AM.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/bb%20shark%20(2).jpg?updatedAt=1786651536687",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/bb%20shark%20(1).jpg?updatedAt=1786651536910",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-01%20at%207.00.22%20AM.jpeg",
+  "subcategory": "ready-to-wear",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-06-29T12:00:00.000Z",
   "sizes": [
     {
       "size": "0–3 years",
       "price": 11500,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "4–6 years",
       "price": 12500,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "7–9 years",
       "price": 13500,
+      "salePrice": null,
       "available": true
     }
   ],
   "showAccessory": true,
-  "description2": "The full length organza skirt resembles a sea view, printed with colorful sharks, fish and coral and scattered with pearls.",
   "accessoryName": "Bow (PKR 250)",
   "accessoryPrice": 250,
+  "description": "A baby shark dress in a kids' favorite theme, with a pale blue silk body hand-beaded in a pearl diamond lattice pattern and flutter sleeves.",
+  "description2": "The full length organza skirt resembles a sea view, printed with colorful sharks, fish and coral and scattered with pearls.",
   "specs": {
     "fabric": "Silk body with a full length organza skirt",
     "occasion": "",
     "fit": "Fitted silk body with flutter sleeves and a full skirt",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/bb%20shark%20(2).jpg?updatedAt=1786651536687"
-    },
-    {
-      "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/bb%20shark%20(1).jpg?updatedAt=1786651536910",
-      "alt": ""
-    }
-  ],
-  "description": "A baby shark dress in a kids' favorite theme, with a pale blue silk body hand-beaded in a pearl diamond lattice pattern and flutter sleeves.",
-  "subcategory": "ready-to-wear",
-  "addedOn": "2026-06-29T12:00:00.000Z",
-  "image": "https://ik.imagekit.io/lpdlhr/bb%20shark%20(2).jpg?updatedAt=1786651536687"
+  }
 }
