@@ -95,6 +95,18 @@ _Refreshed 2026-08-27 against the current catalogue._
 6. **`content/settings-products.json` `accessoryPriceDefault` is `95`**, which
    looks like leftover test data (real per-product accessory prices are
    250–7500). Set it to the intended default.
+7. **The Google Merchant Center feed's `color` and `pattern` columns are
+   mostly blank** (`tools/feed.js`, added 2026-09-01). There's no `color` or
+   `pattern` field on products today, so the feed only fills these in when a
+   product's name/description names one clearly (e.g. "Aizal Blue Dress" →
+   Blue) — most products get left blank rather than guessed. Google marks
+   `color` "required for apparel products", so this is worth closing:
+   add `color` (and optionally `pattern`) fields to the products collection
+   in `site/admin/config.yml`, have the owner fill them in per product, and
+   update `tools/feed.js` to read the real field instead of guessing from
+   text. Deferred at the owner's request on 2026-09-01 — not urgent, but
+   flagged since it's the one feed column actually required for this
+   product type.
 
 ## Never verified from this environment
 
