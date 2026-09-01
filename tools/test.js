@@ -271,12 +271,16 @@ check("waLink keeps digits only and appends an encoded message",
 check("waLink with no message is just the number",
   shared.waLink("923217152723"), "https://wa.me/923217152723");
 check("the WhatsApp order message is exactly the text the product link carries",
-  shared.waOrderMessage({ name: "Aurora Gown", size: "0–3 years", accessory: false, total: 16500 }),
+  shared.waOrderMessage({ url: "https://example.test/product/aurora-gown/", name: "Aurora Gown", size: "0–3 years", accessory: false, total: 16500 }),
+  "https://example.test/product/aurora-gown/\n" +
   "Hello Little Princess Designer, I'd like to order:\nAurora Gown\n" +
   "Size: 0–3 years\nMatching accessory: no\nTotal shown: PKR 16,500");
-checkTrue("…and it says \"yes\" once the matching accessory is ticked",
-  shared.waOrderMessage({ name: "X", size: "S", accessory: true, total: 100 })
-    .includes("Matching accessory: yes"));
+checkTrue("…and it says \"yes (PKR ...)\" with the accessory price once the matching accessory is ticked",
+  shared.waOrderMessage({ name: "X", size: "S", accessory: true, accessoryPrice: 1500, total: 100 })
+    .includes("Matching accessory: yes (PKR 1,500)"));
+check("with no url given, the message skips straight to the greeting",
+  shared.waOrderMessage({ name: "X", size: "S", accessory: false, total: 100 }).slice(0, 5),
+  "Hello");
 
 /* safeHref survived being moved. The scheme allowlist is a security guard: every
    link field in the admin is free text, editors hold no repo access, and a
@@ -417,7 +421,7 @@ check("…and on their descriptions", mapped.images.map(i => i.alt), built.image
  */
 
 const detailProduct = byName["On sale"];
-const detailHtml = card.productDetail(detailProduct, model.settings);
+const detailHtml = card.productDetail(detailProduct, model.settings, "https://example.test");
 
 checkTrue("the shared block is what the build's product page contains",
   render.renderProduct(model, detailProduct, "https://example.test").includes(detailHtml));
@@ -432,9 +436,11 @@ checkTrue("…and the order button, addressed to the shop's number",
 checkTrue("…with the exact pre-filled message shared.waOrderMessage builds — " +
   "the same text app.js rebuilds when the size changes",
   detailHtml.includes(card.esc(encodeURIComponent(shared.waOrderMessage({
+    url: "https://example.test" + detailProduct.href,
     name: detailProduct.name,
     size: detailProduct.sizes[0].size,
     accessory: false,
+    accessoryPrice: detailProduct.accessoryPrice,
     total: detailProduct.sizes[0].price
   })))));
 

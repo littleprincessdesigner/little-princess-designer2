@@ -18,9 +18,10 @@
   var LP = window.LPShared || {};
   var money = LP.money || function (n) { return "PKR " + Number(n).toLocaleString("en-US"); };
   var waMessage = LP.waOrderMessage || function (o) {
-    return "Hello Little Princess Designer, I'd like to order:\n" + o.name +
+    return (o.url ? o.url + "\n" : "") +
+      "Hello Little Princess Designer, I'd like to order:\n" + o.name +
       "\nSize: " + o.size +
-      "\nMatching accessory: " + (o.accessory ? "yes" : "no") +
+      "\nMatching accessory: " + (o.accessory ? "yes (" + money(o.accessoryPrice) + ")" : "no") +
       "\nTotal shown: " + money(o.total);
   };
   var waLink = LP.waLink || function (num, text) {
@@ -507,6 +508,7 @@
 
     var waNumber = String(detail.getAttribute("data-wa") || "").replace(/[^0-9]/g, "");
     var name = detail.getAttribute("data-name") || "";
+    var url = detail.getAttribute("data-url") || "";
     var accessoryPrice = Number(detail.getAttribute("data-accessory-price") || 0);
 
     function paint() {
@@ -527,9 +529,11 @@
 
       if (orderLink) {
         orderLink.href = waLink(waNumber, waMessage({
+          url: url,
           name: name,
           size: opt.textContent.trim(),
           accessory: withAccessory,
+          accessoryPrice: accessoryPrice,
           total: total
         }));
       }
