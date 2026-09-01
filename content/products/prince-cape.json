@@ -1,13 +1,13 @@
 {
-  "name": "Prince Cape and crown",
+  "name": "Prince Cape",
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-01%20at%205.56.14%20PM.jpeg?updatedAt=1788272429337",
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-01%20at%205.56.41%20PM.jpeg?updatedAt=1788272429489",
       "url": "",
-      "alt": ""
+      "alt": "Prince Cape – handmade boys outfit, silk cape with bow detail, made to order in Pakistan"
     }
   ],
-  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-01%20at%205.56.14%20PM.jpeg?updatedAt=1788272429337",
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-01%20at%205.56.41%20PM.jpeg?updatedAt=1788272429489",
   "subcategory": "boys-accessory-collection",
   "visible": true,
   "badge": "",
@@ -15,14 +15,14 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 2400,
-      "salePrice": 2000,
+      "price": 1800,
+      "salePrice": 1600,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 2400,
-      "salePrice": 2000,
+      "price": 1800,
+      "salePrice": 1600,
       "available": true
     }
   ],
@@ -30,7 +30,7 @@
   "accessoryName": "",
   "accessoryPrice": 1500,
   "description": "Elegant silk prince cape/cloak with bow around the neck. Boy's name is customized on it.",
-  "description2": "This set also comes with a matching golden crown. It can be made in any colour.",
+  "description2": "This set can be made in any colour.",
   "specs": {
     "fabric": "",
     "occasion": "",
