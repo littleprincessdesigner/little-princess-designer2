@@ -1,0 +1,40 @@
+{
+  "name": "Prince Cape",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-01%20at%205.56.41%20PM.jpeg?updatedAt=1788272429489",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-01%20at%205.56.41%20PM.jpeg?updatedAt=1788272429489",
+  "subcategory": "boys-accessory-collection",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-09-01T19:45",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 1800,
+      "salePrice": 1600,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 1800,
+      "salePrice": 1600,
+      "available": true
+    }
+  ],
+  "showAccessory": false,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "Elegant silk prince cape/cloak with bow around the neck. Boy's name is customized on it.",
+  "description2": "This set can be made in any colour.",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}

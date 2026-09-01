@@ -1,0 +1,39 @@
+{
+  "name": "Baby Romper with Pillow",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_6064.jpg.jpeg?updatedAt=1788272430227",
+      "url": "",
+      "alt": "Baby Set with Pillow – handmade baby outfit, soft cotton with red trim across all pieces, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_6059.jpg.jpeg?updatedAt=1788272429904",
+      "url": "",
+      "alt": "Baby Set with Pillow – handmade baby outfit, soft cotton with red trim across all pieces, made to order in Pakistan"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/DSC_6064.jpg.jpeg?updatedAt=1788272430227",
+  "subcategory": "babies-baby-sets",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-21T16:27:00.000+05:00",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 4000,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": false,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "A newborn baby set made from soft cotton. Soft pillow finished with lace trim, with a crown design on the romper and cap. It can be customized in any color or name.",
+  "description2": "1) Pillow 2) Cap 3) Romper",
+  "specs": {
+    "fabric": "Soft cotton with red trim across all pieces",
+    "occasion": "",
+    "fit": "Romper and cap in a relaxed newborn fit",
+    "care": ""
+  }
+}
