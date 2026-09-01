@@ -1,55 +1,57 @@
 {
-  "badge": "",
   "name": "Blue Pink Spring Dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/blue%20btrfly%20(2).jpg?updatedAt=1786648871361",
+      "url": "",
+      "alt": "Blue Pink Spring Dress – handmade girls outfit, layered net with a fitted body, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/blue%20btrfly%20(1).jpg?updatedAt=1786648867953",
+      "url": "",
+      "alt": "Blue Pink Spring Dress – handmade girls outfit, layered net with a fitted body, made to order in Pakistan"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/blue%20btrfly%20(2).jpg?updatedAt=1786648871361",
+  "subcategory": "girls-flower-fairy",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-07-23T12:00:00.000Z",
   "sizes": [
     {
       "size": "0–3 years",
       "price": 15500,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "4–6 years",
       "price": 17500,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "7–9 years",
       "price": 19500,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "10–12 years",
       "price": 21500,
+      "salePrice": null,
       "available": true
     }
   ],
   "showAccessory": false,
-  "description2": "A large butterfly wing bow with flowers sits on the back, above a full blue and pink net skirt.",
+  "accessoryName": "",
   "accessoryPrice": 505,
+  "description": "A blue pink spring dress with a turquoise net body, covered in pink and peach flowers and butterflies.",
+  "description2": "A large butterfly wing bow with flowers sits on the back, above a full blue and pink net skirt.",
   "specs": {
     "fabric": "Layered net with a fitted body",
     "occasion": "",
     "fit": "Fitted net body with a full skirt and back bow",
     "care": ""
-  },
-  "images": [
-    {
-      "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/blue%20btrfly%20(2).jpg?updatedAt=1786648871361",
-      "alt": "Blue Pink Spring Dress – handmade girls outfit, layered net with a fitted body, made to order in Pakistan"
-    },
-    {
-      "upload": "",
-      "alt": "Blue Pink Spring Dress – handmade girls outfit, layered net with a fitted body, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/blue%20btrfly%20(1).jpg?updatedAt=1786648867953",
-      "alt": "Blue Pink Spring Dress – handmade girls outfit, layered net with a fitted body, made to order in Pakistan"
-    }
-  ],
-  "image": "https://ik.imagekit.io/lpdlhr/blue%20btrfly%20(2).jpg?updatedAt=1786648871361",
-  "description": "A blue pink spring dress with a turquoise net body, covered in pink and peach flowers and butterflies.",
-  "subcategory": "girls-flower-fairy",
-  "addedOn": "2026-07-23T12:00:00.000Z"
+  }
 }
