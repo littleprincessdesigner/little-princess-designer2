@@ -86,6 +86,7 @@ tools/              ← the build. Plain Node, no dependencies.
   card.js                 the product card — shared by the build AND the admin preview
   shared.js               money / wa.me / order-message — shared by build + app.js
   images.js               the one place any photo host is described (ImageKit)
+  feed.js                 builds product-feed.csv (Google Merchant Center) from the model
   build.js                orchestrates a build; writes dist/
   check-config.js         fails the build if content/ and config.yml disagree
   yaml.js                 hand-rolled YAML reader used by the two above
@@ -121,6 +122,7 @@ handoff.md          ← state of play from previous sessions
 | Add or change a **field an editor fills in** | `site/admin/config.yml` **and** the matching key in `content/` — both, always |
 | Change how content is **read or validated** | `tools/content.js` — the wording cascade, price filtering, warnings |
 | Change **photo handling, sizes or share images** | `tools/images.js`, then `tools/warm-previews.js` |
+| Change the **Google Merchant Center feed** (`product-feed.csv`) | `tools/feed.js` |
 | Change the **admin loading screen** | `site/admin/index.html` — Sveltia's own UI past that point is not themeable |
 | Change the **admin's product preview** | `site/admin/preview.js` + `tools/card.js` (adapted for Sveltia; degrades quietly if its preview API shifts) |
 | Change **build outputs, sitemap, robots** | `tools/build.js` |

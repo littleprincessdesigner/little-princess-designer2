@@ -1,6 +1,6 @@
 # Handoff: Little Princess Designer
 
-_Last updated: 2026-08-31. Read `README.md` first — it explains how the repo
+_Last updated: 2026-09-01. Read `README.md` first — it explains how the repo
 works. This file only carries what a fresh session cannot work out from the
 code: what is live, what has never been proved, and which roads are closed._
 
@@ -38,63 +38,74 @@ August 2026; `littleprincessdesigner.netlify.app` redirects to it. Preview
 deploys still answer on `.netlify.app` addresses of their own, which is correct:
 a custom domain serves the live deploy only.
 
-Build succeeds: 110 live products, 117 pages, 14 sections (as of 2026-08-31).
-The build prints ~36 content warnings now — mostly "suspiciously low price" on
-pieces still carrying placeholder amounts (see "Waiting on the owner"); it still
-succeeds. The ~26 slug/name mismatches were resolved by renaming the files.
+Build succeeds: 145 live products, 152 pages, 16 subcategories (as of
+2026-09-01). The build prints 2 content warnings now — "suspiciously low
+price" on two new fascinators (see "Waiting on the owner"); it still succeeds.
 
-**Admin: on Sveltia CMS** — the migration off Decap + DecapBridge merged to
-`main` (PR #36, then PR #42 pinned the version). See "The Sveltia migration"
-below for what changed and why. The live sign-in still depends on the owner
-finishing `docs/CMS-SETUP.md`, and nothing browser-side is verifiable from a
-sandbox. Under the old Decap setup the ImageKit photo picker + resizing were
-confirmed working by the owner on 2026-08-05.
+**Admin: on Sveltia CMS, confirmed working.** The migration off Decap +
+DecapBridge merged to `main` (PR #36, then PR #42 pinned the version). See
+"The Sveltia migration" below for what changed and why. Sign-in and saving
+are no longer just "should work" — commit history from 2026-08-30 onward
+shows dozens of product/category saves authored by the owner's own GitHub
+account (no more "via DecapBridge" suffix), so the owner has completed
+`docs/CMS-SETUP.md` and is actively using the admin. The three finer,
+best-effort items under "The Sveltia migration" (the preview iframe's
+interactivity, the tile-photo thumbnail hook) are still unconfirmed from a
+sandbox, but nothing has surfaced as broken in practice.
 
-**Header nav (2026-08-31, branch `mobile-nav-scrolling-tabs`, not yet merged).**
-The phone header's hamburger menu and slide-in drawer are replaced by a single
-horizontal tab strip — `search · ‹ · tabs · ›` under the centred logo. The
-strip scrolls (swipe or arrows) on phones and shows all six tabs at once on a
-laptop. The header no longer shrinks on scroll (the `data-min` latch is gone).
-The Instagram icon was removed from the header (still in the footer and on the
-contact page). The contact page's social cards are now a 3-across, 2-row grid.
-Checked with Chrome DevTools device emulation at 390px and 1280px; the URL-bar
-resize behaviour on a real phone is still unproven here (see the constraint
-above).
+**Header nav.** The phone header's hamburger menu and slide-in drawer were
+replaced by a single horizontal tab strip — `search · ‹ · tabs · ›` under the
+centred logo (PR #59, merged 2026-08-31). The strip scrolls (swipe or arrows)
+on phones and shows all six tabs at once on a laptop. The header no longer
+shrinks on scroll (the `data-min` latch is gone). The Instagram icon was
+removed from the header (still in the footer and on the contact page). The
+contact page's social cards are a 3-across, 2-row grid. Checked with Chrome
+DevTools device emulation at 390px and 1280px; the URL-bar resize behaviour on
+a real phone is still unproven here (see the constraint above).
+
+**Google Merchant Center feed** — `product-feed.csv`, built by `tools/feed.js`
+from the same product model as the rest of the site, published at
+`/product-feed.csv` (see "Recent history"). Follows Google's full product feed
+template column-for-column; see item 4 below for what's still incomplete.
 
 ## Waiting on the owner — all admin jobs, no code can fix them
 
-_Refreshed 2026-08-27 against the current catalogue._
+_Refreshed 2026-09-01 against the current catalogue. Since the previous pass
+(2026-08-27): all four category card photos were filled in, the empty Tutu
+Dresses section was populated, the HEIC photo was replaced, and every
+placeholder price named below was fixed — those items are gone from this
+list._
 
-1. **All four category card photos are still empty** (`content/categories/*.json`,
-   `card.image`). This is why category links preview with the generic card and
-   why the home page shows "GIRLS PHOTO" placeholders.
-2. **Renaming a product in the admin still changes its web address.** The ~26
-   products whose slug no longer matched their name were renamed to match
-   (2026-08-27), and `redirects.json` → `dist/_redirects` now points every old
-   `/product/<old-slug>/` at its new address so shared links and search results
-   keep working. **From here on**, if a product is renamed in the admin, add its
-   old→new path to `redirects.json` when the slug is next tidied up — or better,
-   create a **New Product** instead of editing an existing one into a different
-   piece. A few of the resulting URLs are as rough as the names the owner
-   typed (`/product/red/`, `/product/ppl/`, `/product/purplyyyy/`); rename those
-   properly in the admin if wanted, and add the redirect.
-3. **One empty section**: `content/subcategories/girls-tutu-dresses.json`
-   ("Tutu Dresses") has no products and prints an empty heading with a "New
-   pieces … on the way" line on the Girls page. Fill it or delete it. (The five
-   sections this list used to name are all populated now.) Two different product
-   files are both named "unicorn tutu dress" and both filed under Girls → Luxury
-   dresses — `unicorn-tutu-dress.json` and the one now at
-   `unicorn-tutu-dress-2.json` (was `soft-cotton-baby-shirt.json`). Merge or
-   delete one.
-4. **Placeholder prices still live** — the build flags "suspiciously low price"
-   on "pink faie" (PKR 55), "unicorn tutu dress" (PKR 55 / 40 / 44) and
-   "welcome home daddy romperr" (PKR 33). Set real prices or hide the pieces.
-5. **`welcome-home-daddy-romperr.json`'s first photo is a `.heic` file**
-   (`1000641071.heic`). Browsers can't display HEIC — the card shows an empty
-   frame. Re-upload it as a JPEG through the ImageKit library.
-6. **`content/settings-products.json` `accessoryPriceDefault` is `95`**, which
+1. **Renaming a product in the admin still changes its web address** — this
+   is inherent to how products are filed (filename = URL), not a bug to fix.
+   Two large batches of renames have gone through cleanly since this was first
+   flagged (35 products on 2026-08-27, 73 more on 2026-09-01), each paired
+   with matching entries in `redirects.json` → `dist/_redirects` so old links
+   still 301 to the new address. Keep doing it that way: if a product is
+   renamed in the admin, add its old→new path to `redirects.json` in the same
+   change — or create a **New Product** instead of editing an existing one
+   into a different piece.
+2. **Two new placeholder-range prices**: the build flags "suspiciously low
+   price" on "Ivory Bloom Feather Fascinator" and "Minimal Flower Fascinator"
+   (PKR 950 flat across every size — just under the site's PKR 1,000 floor).
+   Every other fascinator was standardized to PKR 1,100 on 2026-08-31/09-01;
+   confirm whether these two are meant to match or are genuinely cheaper, and
+   update or hide them.
+3. **`content/settings-products.json` `accessoryPriceDefault` is still `95`**, which
    looks like leftover test data (real per-product accessory prices are
    250–7500). Set it to the intended default.
+4. **The Google Merchant Center feed's `color` and `pattern` columns are
+   mostly blank** (`tools/feed.js`, added 2026-09-01). There's no `color` or
+   `pattern` field on products today, so the feed only fills these in when a
+   product's name/description names one clearly (e.g. "Aizal Blue Dress" →
+   Blue) — most products get left blank rather than guessed. Google marks
+   `color` "required for apparel products", so this is worth closing:
+   add `color` (and optionally `pattern`) fields to the products collection
+   in `site/admin/config.yml`, have the owner fill them in per product, and
+   update `tools/feed.js` to read the real field instead of guessing from
+   text. Deferred at the owner's request on 2026-09-01 — not urgent, but
+   flagged since it's the one feed column actually required for this
+   product type.
 
 ## Never verified from this environment
 
@@ -147,9 +158,13 @@ the `npm run cms` script are gone (Sveltia edits local files via the browser's
 File System Access API instead); `auth:` and the DecapBridge `commit_messages`
 wording were removed.
 
-**Still open:** the owner completes `docs/CMS-SETUP.md` steps 1–4, then someone
-tests sign-in + a save against the live admin. Three things are best-effort and
-still want a real browser check — all degrade to "still usable", none block use:
+**Sign-in + saving: confirmed working, not just set up.** Commit history from
+2026-08-30 onward shows dozens of product/category/subcategory saves authored
+by the owner's own GitHub account (no more "via DecapBridge" suffix on the
+commit message) — proof the owner finished `docs/CMS-SETUP.md` and has been
+using the admin day-to-day since. **Still open**, three things are best-effort
+and still want a real browser check — all degrade to "still usable", none
+block use, and nothing has surfaced as actually broken:
   - `preview.js` — does Sveltia expose `h`? does the preview iframe run the
     injected `/app.js` (interactive size/accessory recompute) or only render
     static? Static is fine; empty pane means `h` is missing and we fall back to
@@ -219,13 +234,36 @@ works once it deploys.
 
 ## Recent history
 
-- **2026-08-31** — rebuilt the phone navigation (branch
-  `mobile-nav-scrolling-tabs`, PR open). Hamburger + drawer out; one scrolling
-  tab strip in the header with a search button and two scroll arrows. Header no
-  longer minimises on scroll (`data-min` latch removed, ~120 net lines of CSS
-  gone). Instagram icon dropped from the header. Contact page social cards
-  changed to a 3×2 grid. `npm test` green; checked in Chrome DevTools at phone
-  and laptop widths.
+- **2026-09-01** — expanded the Google Merchant Center feed (`tools/feed.js`)
+  from a handful of columns to Google's full product feed template,
+  column-for-column. Fills in gender, age_group, material, color, pattern,
+  product_detail and additional images from real product data where the site
+  has it; leaves columns blank rather than guessing where it doesn't (gtin,
+  mpn, energy/unit-pricing fields, etc. — see "Waiting on the owner" item 4
+  for the one gap worth closing). Built on top of the feed first added
+  2026-08-31/09-01 (below). `npm test` and `npm run build` green.
+- **2026-08-31 to 2026-09-01** — a large content and SEO pass across many
+  small merged PRs (#53–#75), the bulk of it: a Google Merchant Center feed
+  published for the first time (`product-feed.csv`, auto-built from the same
+  product model as the site) and then given a `product_type` column; the
+  Google Analytics tag added to every page; category/subcategory
+  reorganisation (new Ball Gowns and Flower Fairy Collection sections, Tutu
+  Dresses and Skirts categories reshuffled, Accessory renamed to Accessory
+  Collection); 73 more product files renamed so their URL matches their name
+  (on top of the 35 from 2026-08-27), each with a matching `redirects.json`
+  entry; a round of price fixes (fascinators standardized to PKR 1,100,
+  Butterfly Princess Tiara corrected); Fabric/Fit specs hidden on accessory
+  product pages; wording fixes (typos, "cape sleeves" → "drape", American
+  spelling); an SEO rewrite of meta titles/descriptions and category blurbs,
+  plus alt text added to every product image; and WhatsApp order message,
+  homepage heading and category tab wording updates (#70). `npm test` and
+  `npm run check` green throughout; nothing browser-side re-verified here.
+- **2026-08-31** — rebuilt the phone navigation (PR #59, merged). Hamburger +
+  drawer out; one scrolling tab strip in the header with a search button and
+  two scroll arrows. Header no longer minimises on scroll (`data-min` latch
+  removed, ~120 net lines of CSS gone). Instagram icon dropped from the
+  header. Contact page social cards changed to a 3×2 grid. `npm test` green;
+  checked in Chrome DevTools at phone and laptop widths.
 - **2026-08-30** — migrated the admin from Decap CMS + DecapBridge to Sveltia
   CMS. Merged in PR #36; PR #42 then pinned Sveltia to 0.198.0 (0.200+ broke the
   list widget). Full detail under "The Sveltia migration" above. `npm run check`,
