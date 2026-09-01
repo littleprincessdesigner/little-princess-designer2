@@ -576,7 +576,7 @@ function renderProduct(model, p, siteUrl) {
 </ol>
 </nav>
 <a class="lp-back" href="${cat.href}">← Back to ${esc(cat.title)}</a>
-${card.productDetail(p, s)}
+${card.productDetail(p, s, siteUrl)}
 </main>`;
 
   return page(model, {

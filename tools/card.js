@@ -388,7 +388,8 @@ const GALLERY_VIEWS = ["front", "side", "back"];
  * price, the delivery note. The build has them from content/settings.json; the
  * panel fetches the copy the build publishes to /data/settings.json.
  */
-function productDetail(p, s) {
+function productDetail(p, s, siteUrl) {
+  const productUrl = siteUrl ? siteUrl + p.href : "";
   const galleryImages = p.images.length ? p.images : [null, null, null];
   const slides = galleryImages.slice(0, Math.max(3, galleryImages.length));
   const gallery = slides.map((img, i) => {
@@ -424,7 +425,7 @@ function productDetail(p, s) {
   const orderCta = soldOut
     ? `<span class="lp-wa lp-wa--off" aria-disabled="true">Currently unavailable</span>`
     : `<a class="lp-wa" target="_blank" rel="noopener" href="${safeHref(shared.waLink(s.whatsappNumber,
-  shared.waOrderMessage({ name: p.name, size: first.size, accessory: false, total: first.price })))}" data-wa-order>
+  shared.waOrderMessage({ url: productUrl, name: p.name, size: first.size, price: first.price, accessory: false, accessoryPrice: p.accessoryPrice, total: first.price })))}" data-wa-order>
 ${svg(ICON.waFilled, { size: 20, viewBox: "0 0 32 32", stroke: "none", width: 0 })}
 Order on WhatsApp</a>`;
 
@@ -472,6 +473,7 @@ ${svg(ICON.arrowRight, { size: 20, stroke: "var(--tone-deep)", width: 2 })}
   data-detail
   data-wa="${esc(String(s.whatsappNumber))}"
   data-name="${esc(p.name)}"
+  data-url="${esc(productUrl)}"
   data-accessory-price="${p.accessoryPrice}">
 <div class="lp-galwrap">
 <div class="lp-gallery" data-gallery>
