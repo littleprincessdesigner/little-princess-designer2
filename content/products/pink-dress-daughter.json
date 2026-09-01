@@ -1,5 +1,5 @@
 {
-  "name": "pink dress daughter",
+  "name": "Pink Ruffle High Low",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/20240327_094614.jpg",
@@ -25,20 +25,44 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 44,
+      "price": 17500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 19500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "7–9 years",
+      "price": 21500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "10–12 years",
+      "price": 24500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "13–16 years",
+      "price": 28500,
       "salePrice": null,
       "available": true
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryName": "",
   "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "description": "A pink ruffle high low dress with a sequin body and a flower at the shoulder.",
+  "description2": "The skirt is made of layered pink net ruffles, short at the front and dramatically longer at the back.",
   "specs": {
-    "fabric": "",
+    "fabric": "Sequin body with a ruffled net skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted sequin body with a high-low ruffled skirt",
     "care": ""
   }
 }

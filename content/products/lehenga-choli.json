@@ -1,5 +1,5 @@
 {
-  "name": "lehenga choli",
+  "name": "Lehenga Choli",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/20241116_114315.jpg",
@@ -13,27 +13,51 @@
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/20241116_114315.jpg",
-  "subcategory": "girls-luxury-dresses",
+  "subcategory": "girls-casual-dresses",
   "visible": true,
   "badge": "",
   "addedOn": "2026-09-01T00:27",
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 33,
+      "price": 10000,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 11000,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "7–9 years",
+      "price": 12000,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "10–12 years",
+      "price": 14000,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "13–16 years",
+      "price": 16000,
       "salePrice": null,
       "available": true
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryName": "",
   "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "description": "A lehenga choli with a gold sequin choli, paired with a dark pink tiered net lehenga trimmed in gold.",
+  "description2": "It comes with a matching dark pink net dupatta draped over the shoulder.",
   "specs": {
-    "fabric": "",
+    "fabric": "Sequin choli with a net lehenga",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted choli with a tiered net lehenga",
     "care": ""
   }
 }
