@@ -19,6 +19,7 @@ const path = require("path");
 const { execFileSync } = require("child_process");
 const content = require("./content");
 const render = require("./render");
+const feed = require("./feed");
 const { waLink } = require("./card");
 
 const ROOT = path.join(__dirname, "..");
@@ -224,6 +225,12 @@ const redirectLines = Object.entries(redirectMap).flatMap(([from, to]) => {
 });
 if (redirectLines.length) writeFile("_redirects", redirectLines.join("\n") + "\n");
 
+// 4c. Google Merchant Center product feed — regenerated from the same model
+// as the shop pages on every build, so it never drifts from what the site
+// actually shows. Point Merchant Center's "scheduled fetch" at
+// SITE_URL + "/product-feed.csv" once, and it stays current on its own.
+writeFile("product-feed.csv", feed.productFeedCsv(model, SITE_URL));
+
 // A short, plain-English "about this site" file some AI assistants read
 // directly. Not required by any major crawler and ignored by Google Search
 // specifically, but costs nothing to publish. Built from the same settings
@@ -266,6 +273,7 @@ console.log("  " + st.subcategories + " subcategories, " + st.products + " live 
   (st.hidden ? ", " + st.hidden + " hidden by the admin" : ""));
 console.log("  " + urls.length + " urls in sitemap.xml");
 if (redirectLines.length) console.log("  " + redirectLines.length + " lines in _redirects");
+console.log("  " + model.products.length + " products in product-feed.csv");
 
 if (st.warnings) {
   console.log("\n" + st.warnings + " content warning(s) above — the build still succeeded.");
