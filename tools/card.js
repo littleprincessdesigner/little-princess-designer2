@@ -460,8 +460,11 @@ ${svg(ICON.arrowRight, { size: 20, stroke: "var(--tone-deep)", width: 2 })}
 `;
 
   // Fabric and Fit don't apply to hair accessories (a beaded tiara has no
-  // "fit"), so the Accessory subcategory skips straight to Occasion and Care.
-  const isAccessory = p.subcategoryName === "Accessory";
+  // "fit"), so any accessory subcategory — girls, boys, or future — skips
+  // straight to Occasion and Care. Matched on the subcategory id rather than
+  // its display name, so renaming the tab (as happened once already) can't
+  // silently break this again.
+  const isAccessory = /accessor/i.test(p.subcategory);
   const specRows = [
     ...(isAccessory ? [] : [["Fabric", p.specs.fabric]]),
     ["Occasion", p.specs.occasion],
