@@ -24,6 +24,12 @@
       "price": 8500,
       "salePrice": null,
       "available": true
+    },
+    {
+      "size": "7–9 years",
+      "price": 9500,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": true,
