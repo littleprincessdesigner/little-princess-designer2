@@ -21,10 +21,12 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641073%20(1).jpg?updatedAt=1787862585314"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641073%20(1).jpg?updatedAt=1787862585314",
+      "alt": "Panda Outfit Boys – handmade boys outfit, cotton shirt with silk suspender shorts, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641061.jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641061.jpg",
+      "alt": "Panda Outfit Boys – handmade boys outfit, cotton shirt with silk suspender shorts, made to order in Pakistan"
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000641073%20(1).jpg?updatedAt=1787862585314",

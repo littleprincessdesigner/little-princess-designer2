@@ -22,10 +22,12 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000640937.jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640937.jpg",
+      "alt": "Hello Kitty Tutu Skirt – handmade girls outfit, cotton shirt with a pink net tutu skirt, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/image-0%20(2).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/image-0%20(2).jpg",
+      "alt": "Hello Kitty Tutu Skirt – handmade girls outfit, cotton shirt with a pink net tutu skirt, made to order in Pakistan"
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000640937.jpg",

@@ -40,15 +40,17 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/belle.jpg?updatedAt=1786652149994"
+      "upload": "https://ik.imagekit.io/lpdlhr/belle.jpg?updatedAt=1786652149994",
+      "alt": "Belle Costume – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
     },
     {
       "url": "",
       "upload": "https://ik.imagekit.io/lpdlhr/belle%20(1).jpg?updatedAt=1786652149399",
-      "alt": ""
+      "alt": "Belle Costume – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/belle%20(2).jpg?updatedAt=1786652148098"
+      "upload": "https://ik.imagekit.io/lpdlhr/belle%20(2).jpg?updatedAt=1786652148098",
+      "alt": "Belle Costume – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
     }
   ],
   "description": "A Belle-themed costume in yellow silk with an off-shoulder neckline and an oversized bow at the collar.",

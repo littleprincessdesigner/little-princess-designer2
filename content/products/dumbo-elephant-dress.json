@@ -41,15 +41,17 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000640987.jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000640987.jpg",
+      "alt": "Dumbo Elephant Dress – handmade girls outfit, crochet body with a silk drape and net skirt, made to order in Pakistan"
     },
     {
       "url": "",
       "upload": "https://ik.imagekit.io/lpdlhr/1000640988.jpg",
-      "alt": ""
+      "alt": "Dumbo Elephant Dress – handmade girls outfit, crochet body with a silk drape and net skirt, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/dumbo.jpg?updatedAt=1786651980632"
+      "upload": "https://ik.imagekit.io/lpdlhr/dumbo.jpg?updatedAt=1786651980632",
+      "alt": "Dumbo Elephant Dress – handmade girls outfit, crochet body with a silk drape and net skirt, made to order in Pakistan"
     }
   ],
   "description": "A Dumbo-themed dress with a crochet body and a red and yellow silk sash draped across the upper body.",

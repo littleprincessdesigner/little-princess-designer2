@@ -26,13 +26,16 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641052%20(1).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641052%20(1).jpg",
+      "alt": "Pink Pageant Dress – handmade girls outfit, silk upper body with a layered organza skirt, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641053%20(1).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641053%20(1).jpg",
+      "alt": "Pink Pageant Dress – handmade girls outfit, silk upper body with a layered organza skirt, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/image-cache.webp"
+      "upload": "https://ik.imagekit.io/lpdlhr/image-cache.webp",
+      "alt": "Pink Pageant Dress – handmade girls outfit, silk upper body with a layered organza skirt, made to order in Pakistan"
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000641052%20(1).jpg",

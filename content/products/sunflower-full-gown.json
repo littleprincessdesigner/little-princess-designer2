@@ -41,13 +41,16 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641068%20(1).jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641068%20(1).jpg",
+      "alt": "Sunflower Full Gown – handmade girls outfit, layered net over a silk body, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642125.jpg.jpeg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642125.jpg.jpeg",
+      "alt": "Sunflower Full Gown – handmade girls outfit, layered net over a silk body, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642126.jpg.jpeg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000642126.jpg.jpeg",
+      "alt": "Sunflower Full Gown – handmade girls outfit, layered net over a silk body, made to order in Pakistan"
     }
   ],
   "description": "A sunflower full gown with a yellow silk body covered in net, decorated with 3D sunflowers and white flowers cascading down one side.",

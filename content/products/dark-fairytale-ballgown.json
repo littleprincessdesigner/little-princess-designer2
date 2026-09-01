@@ -30,15 +30,17 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress.jpg?updatedAt=1786649143651"
+      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress.jpg?updatedAt=1786649143651",
+      "alt": "Dark Fairytale Ballgown – handmade girls outfit, silk with gold beaded trim, made to order in Pakistan"
     },
     {
       "url": "",
       "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(1).jpg?updatedAt=1786649143772",
-      "alt": ""
+      "alt": "Dark Fairytale Ballgown – handmade girls outfit, silk with gold beaded trim, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(2).jpg?updatedAt=1786649144016"
+      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(2).jpg?updatedAt=1786649144016",
+      "alt": "Dark Fairytale Ballgown – handmade girls outfit, silk with gold beaded trim, made to order in Pakistan"
     }
   ],
   "description": "A dark fairytale ballgown in deep burgundy satin, with off-shoulder puffed sleeves finished with fabric roses and a gold beaded trim across the body.",

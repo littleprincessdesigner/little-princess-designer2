@@ -21,10 +21,12 @@
   },
   "images": [
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641121.jpg.jpeg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641121.jpg.jpeg",
+      "alt": "Mermaid Sequin Costume – handmade girls outfit, sequin fabric throughout, with a fitted mermaid tail, made to order in Pakistan"
     },
     {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641134.jpg"
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641134.jpg",
+      "alt": "Mermaid Sequin Costume – handmade girls outfit, sequin fabric throughout, with a fitted mermaid tail, made to order in Pakistan"
     }
   ],
   "image": "https://ik.imagekit.io/lpdlhr/1000641121.jpg.jpeg",
