@@ -10,10 +10,15 @@
 
 "use strict";
 
-/** Google's required column names, in the order Merchant Center expects. */
+/**
+ * Google's required column names, in the order Merchant Center expects,
+ * plus "product_type" — the merchant's own category for the item (e.g.
+ * "Girls > Luxury dresses"). Optional, but Google uses it to file the
+ * item correctly and match it to the right searches.
+ */
 const COLUMNS = [
   "id", "title", "description", "link", "image_link",
-  "availability", "price", "brand", "condition", "identifier_exists"
+  "availability", "price", "brand", "product_type", "condition", "identifier_exists"
 ];
 
 /** RFC 4180: quote a field if it holds a comma, quote or newline; double up internal quotes. */
@@ -39,6 +44,7 @@ function productRow(p, siteUrl) {
     availability: p.badge === "Sold out" ? "out_of_stock" : "in_stock",
     price: p.minPrice + " PKR",
     brand: "Little Princess Designer",
+    product_type: p.tabLabel + " > " + p.subcategoryName,
     condition: "new",
     identifier_exists: "no"
   };
