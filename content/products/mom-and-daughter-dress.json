@@ -1,5 +1,5 @@
 {
-  "name": "mom and daughter dress",
+  "name": "Baby and Mommy Gown Set",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/20240327_093853.jpg",
@@ -20,20 +20,44 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 55,
+      "price": 42500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 44500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "7–9 years",
+      "price": 46500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "10–12 years",
+      "price": 49500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "13–16 years",
+      "price": 53500,
       "salePrice": null,
       "available": true
     }
   ],
-  "showAccessory": true,
+  "showAccessory": false,
   "accessoryName": "",
   "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "description": "A baby and mommy gown set with matching pink sequin bodies. The daughter's dress has a ruffled high-low net skirt, while the mommy's dress has a long-sleeve body and a full, flowing net skirt.",
+  "description2": "The price for the mommy dress is fixed; the total price includes both the baby and mommy dresses together.",
   "specs": {
-    "fabric": "",
+    "fabric": "Sequin body with a flowing net skirt",
     "occasion": "",
-    "fit": "",
+    "fit": "Fitted sequin bodies with matching net skirts",
     "care": ""
   }
 }

@@ -1,18 +1,18 @@
 {
-  "name": "blue boy set",
+  "name": "Blue Gentleman Set",
   "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/20250224_123237%20(1).jpg",
-      "url": "",
-      "alt": ""
-    },
     {
       "upload": "https://ik.imagekit.io/lpdlhr/20250224_104145.jpg",
       "url": "",
       "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/20250224_123237%20(1).jpg",
+      "url": "",
+      "alt": ""
     }
   ],
-  "image": "https://ik.imagekit.io/lpdlhr/20250224_123237%20(1).jpg",
+  "image": "https://ik.imagekit.io/lpdlhr/20250224_104145.jpg",
   "subcategory": "boys-collection",
   "visible": true,
   "badge": "",
@@ -20,20 +20,26 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 44,
+      "price": 6200,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 6500,
       "salePrice": null,
       "available": true
     }
   ],
   "showAccessory": true,
-  "accessoryName": "",
-  "accessoryPrice": 1500,
-  "description": "",
-  "description2": "",
+  "accessoryName": "Crown (PKR 500)",
+  "accessoryPrice": 500,
+  "description": "A blue gentleman set with a cream cotton shirt and blue silk suspender pants, finished with a matching bow tie.",
+  "description2": "1) Shirt 2) Suspender Pants",
   "specs": {
-    "fabric": "",
+    "fabric": "Cotton shirt with silk suspender pants",
     "occasion": "",
-    "fit": "",
+    "fit": "Relaxed shirt with adjustable suspender pants",
     "care": ""
   }
 }

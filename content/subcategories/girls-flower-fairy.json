@@ -1,0 +1,13 @@
+{
+  "parent": "girls",
+  "name": "Flower Fairy Collection",
+  "order": 50,
+  "defaultDescription": "A fairy-themed party dress with a fitted body and a full net skirt, decorated with flowers. A matching hair accessory is available. Tell us the theme colours and we will match them.",
+  "defaultDescription2": "Flowers and trims are stitched on by hand in our Lahore studio. Tell us the theme colours and we match them before we cut.",
+  "defaultSpecs": {
+    "fabric": "Fitted silk body with layered soft net skirt",
+    "occasion": "Birthday parties, themed shoots, fairy-themed dress-up days",
+    "fit": "Fitted body, full skirt; matching hair accessory available",
+    "care": "Dry clean only; store on a padded hanger inside a garment bag"
+  }
+}
