@@ -1,58 +1,67 @@
 {
-  "badge": "",
   "name": "Spring Peach Dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641110.jpg.jpeg",
+      "url": "",
+      "alt": "Spring Peach Dress – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000053497.jpg",
+      "url": "",
+      "alt": "Spring Peach Dress – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000053487.jpg",
+      "url": "",
+      "alt": "Spring Peach Dress – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000053492.jpg",
+      "url": "",
+      "alt": "Spring Peach Dress – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000641110.jpg.jpeg",
+  "subcategory": "girls-flower-fairy",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-07-17T12:00:00.000Z",
   "sizes": [
     {
       "size": "0–3 years",
       "price": 15500,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "4–6 years",
       "price": 17500,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "7–9 years",
       "price": 19500,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "10–12 years",
       "price": 21500,
+      "salePrice": null,
       "available": true
     }
   ],
   "showAccessory": false,
-  "description2": "The skirt flows into a long train made of layered peach net, giving it a graceful, flowing shape.",
+  "accessoryName": "",
   "accessoryPrice": 1500,
+  "description": "A spring peach dress with a peach silk body, decorated with pastel flowers in white, blue and pink all across the upper body with green leaves flowing down.",
+  "description2": "The skirt flows into a long train made of layered peach net, giving it a flowing shape. It has a long, trailing tail with it that is also detachable.",
   "specs": {
     "fabric": "Silk body with a layered net skirt",
     "occasion": "",
     "fit": "Fitted silk body with a long, flowing train",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641110.jpg.jpeg",
-      "alt": "Spring Peach Dress – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000053497.jpg",
-      "alt": "Spring Peach Dress – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000053487.jpg",
-      "alt": "Spring Peach Dress – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000053492.jpg",
-      "alt": "Spring Peach Dress – handmade girls outfit, silk body with a layered net skirt, made to order in Pakistan"
-    }
-  ],
-  "description": "A spring peach dress with a peach silk body, decorated with pastel flowers in white, blue and pink all across the upper body with green leaves flowing down.",
-  "subcategory": "girls-flower-fairy",
-  "addedOn": "2026-07-17T12:00:00.000Z",
-  "image": "https://ik.imagekit.io/lpdlhr/1000641110.jpg.jpeg"
+  }
 }
