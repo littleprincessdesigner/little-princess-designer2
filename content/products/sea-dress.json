@@ -13,6 +13,12 @@
       "size": "4–6 years",
       "salePrice": "",
       "price": 9500
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "salePrice": "",
+      "price": 10500
     }
   ],
   "showAccessory": true,

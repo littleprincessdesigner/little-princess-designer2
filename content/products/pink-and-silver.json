@@ -12,6 +12,11 @@
       "available": true,
       "size": "4–6 years",
       "price": 8800
+    },
+    {
+      "available": true,
+      "size": "7–9 years",
+      "price": 9800
     }
   ],
   "showAccessory": true,
