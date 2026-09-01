@@ -41,22 +41,17 @@
   },
   "images": [
     {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641068%20(1).jpg"
+    },
+    {
       "upload": "https://ik.imagekit.io/lpdlhr/1000642125.jpg.jpeg"
     },
     {
       "upload": "https://ik.imagekit.io/lpdlhr/1000642126.jpg.jpeg"
-    },
-    {
-      "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/1000014298.jpg",
-      "alt": ""
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641068%20(1).jpg"
     }
   ],
   "description": "A sunflower full gown with a yellow silk body covered in net, decorated with 3D sunflowers and white flowers cascading down one side.",
-  "subcategory": "girls-casual-dresses",
+  "subcategory": "girls-flower-fairy",
   "addedOn": "2026-06-27T12:00:00.000Z",
-  "image": "https://ik.imagekit.io/lpdlhr/1000642125.jpg.jpeg"
+  "image": "https://ik.imagekit.io/lpdlhr/1000641068%20(1).jpg"
 }
