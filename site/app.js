@@ -20,7 +20,7 @@
   var waMessage = LP.waOrderMessage || function (o) {
     return (o.url ? o.url + "\n" : "") +
       "Hello Little Princess Designer, I'd like to order:\n" + o.name +
-      "\nSize: " + o.size +
+      "\nSize: " + o.size + " (" + money(o.price) + ")" +
       "\nMatching accessory: " + (o.accessory ? "yes (" + money(o.accessoryPrice) + ")" : "no") +
       "\nTotal shown: " + money(o.total);
   };
@@ -532,6 +532,7 @@
           url: url,
           name: name,
           size: opt.textContent.trim(),
+          price: price,
           accessory: withAccessory,
           accessoryPrice: accessoryPrice,
           total: total

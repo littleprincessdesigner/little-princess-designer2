@@ -38,10 +38,10 @@ const waLink = (num, text) =>
  * link `card.js` writes into the product page, and rebuilt with the same text
  * by `app.js` when the size or the matching-accessory tick-box changes.
  */
-const waOrderMessage = ({ url, name, size, accessory, accessoryPrice, total }) =>
+const waOrderMessage = ({ url, name, size, price, accessory, accessoryPrice, total }) =>
   (url ? url + "\n" : "") +
   "Hello Little Princess Designer, I'd like to order:\n" + name +
-  "\nSize: " + size +
+  "\nSize: " + size + " (" + money(price) + ")" +
   "\nMatching accessory: " + (accessory ? "yes (" + money(accessoryPrice) + ")" : "no") +
   "\nTotal shown: " + money(total);
 

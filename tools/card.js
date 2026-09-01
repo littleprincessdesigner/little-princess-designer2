@@ -425,7 +425,7 @@ function productDetail(p, s, siteUrl) {
   const orderCta = soldOut
     ? `<span class="lp-wa lp-wa--off" aria-disabled="true">Currently unavailable</span>`
     : `<a class="lp-wa" target="_blank" rel="noopener" href="${safeHref(shared.waLink(s.whatsappNumber,
-  shared.waOrderMessage({ url: productUrl, name: p.name, size: first.size, accessory: false, accessoryPrice: p.accessoryPrice, total: first.price })))}" data-wa-order>
+  shared.waOrderMessage({ url: productUrl, name: p.name, size: first.size, price: first.price, accessory: false, accessoryPrice: p.accessoryPrice, total: first.price })))}" data-wa-order>
 ${svg(ICON.waFilled, { size: 20, viewBox: "0 0 32 32", stroke: "none", width: 0 })}
 Order on WhatsApp</a>`;
 
