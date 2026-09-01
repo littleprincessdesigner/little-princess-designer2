@@ -1,20 +1,43 @@
 {
-  "badge": "",
   "name": "Masha Costume",
-  "visible": true,
-  "sizes": [
+  "images": [
     {
-      "available": true,
-      "size": "0–3 years",
-      "price": 3800
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-01%20at%205.34.01%20PM.jpeg",
+      "url": "",
+      "alt": "Masha Costume – handmade kids outfit, silk gown with a cotton shirt, made to order in Pakistan"
     },
     {
-      "available": true,
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_6046%20(1).jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_6042.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-01%20at%205.34.01%20PM.jpeg",
+  "subcategory": "ready-to-wear",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-30T01:12:00.000+05:00",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 3800,
+      "salePrice": null,
+      "available": true
+    },
+    {
       "size": "4–6 years",
-      "price": 4200
+      "price": 4200,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": false,
+  "accessoryName": "",
   "accessoryPrice": 1500,
   "description": "A Masha costume with a smooth, flowing magenta silk gown and a white cotton shirt with puffed sleeves underneath, styled exactly like the costume from the Masha and the Bear cartoon.",
   "description2": "It comes with a matching silk scarf, tied at the neck for a soft, finished look.",
@@ -23,22 +46,5 @@
     "occasion": "",
     "fit": "Flowing silk gown with a puffed sleeve shirt",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642289.jpg",
-      "alt": "Masha Costume – handmade kids outfit, silk gown with a cotton shirt, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642288.jpg",
-      "alt": "Masha Costume – handmade kids outfit, silk gown with a cotton shirt, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000642287.jpg",
-      "alt": "Masha Costume – handmade kids outfit, silk gown with a cotton shirt, made to order in Pakistan"
-    }
-  ],
-  "image": "https://ik.imagekit.io/lpdlhr/1000642289.jpg",
-  "subcategory": "ready-to-wear",
-  "addedOn": "2026-08-30T01:12:00.000+05:00"
+  }
 }
