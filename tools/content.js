@@ -231,6 +231,48 @@ function readSettings(dir) {
   return merged;
 }
 
+/**
+ * Why this file is read on its own rather than joining SETTINGS_FILES — it
+ * carries `seo`, and settings.json already does, so the merge would flag a
+ * clash and give the Sale page the home page's search listing. Nothing else
+ * reads these values, so they ride on the model as model.sale instead of on
+ * settings.
+ */
+const SALE_DEFAULTS = {
+  eyebrow: "Reduced for a limited time",
+  h1: "Sale",
+  blurb: "Handmade pieces from the studio, now at a reduced price. Same fabrics, " +
+    "same finishing — a lower price while stock and time allow.",
+  empty: "Nothing is on sale right now.",
+  seo: {
+    title: "Sale — Handmade Kids' Dresses at a Reduced Price | Little Princess Designer",
+    description: "Handmade girls dresses, boys prince suits and baby sets from our Lahore " +
+      "studio, now at a reduced price while stock lasts."
+  }
+};
+
+/**
+ * Field by field rather than Object.assign, so one box cleared in the admin
+ * falls back to the built-in wording instead of leaving the page with a blank
+ * heading. The file is optional: a catalogue that has never had it — the test
+ * fixtures, or this site before today — builds the page from the defaults
+ * alone.
+ */
+function readSale(dir) {
+  const file = readJson(path.join(dir, "settings-sale.json"), { required: false }) || {};
+  const seo = file.seo || {};
+  return {
+    eyebrow: nonEmpty(file.eyebrow, SALE_DEFAULTS.eyebrow),
+    h1: nonEmpty(file.h1, SALE_DEFAULTS.h1),
+    blurb: nonEmpty(file.blurb, SALE_DEFAULTS.blurb),
+    empty: nonEmpty(file.empty, SALE_DEFAULTS.empty),
+    seo: {
+      title: nonEmpty(seo.title, SALE_DEFAULTS.seo.title),
+      description: nonEmpty(seo.description, SALE_DEFAULTS.seo.description)
+    }
+  };
+}
+
 /* --- the home carousel --------------------------------------------------- */
 
 /**
@@ -591,6 +633,9 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
 
   return {
     settings,
+    // The Sale page's own wording — see readSale for why it is not merged in
+    // with the other settings files.
+    sale: readSale(dir),
     sizes: SIZES,
     // Which pieces spin on the home page. Decided here rather than in the
     // renderer because it is a content rule — it reads Site Settings and the
@@ -612,4 +657,4 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
   };
 }
 
-module.exports = { load, SIZES, readSettings, chooseCarousel, warnings };
+module.exports = { load, SIZES, readSettings, readSale, chooseCarousel, warnings };

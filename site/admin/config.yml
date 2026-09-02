@@ -783,3 +783,30 @@ collections:
 
           - { label: "Footer line", name: footerNote, widget: string }
           - { label: "Floating button label", name: floatingLabel, widget: string }
+
+      # --- 4. the Sale page's own wording ------------------------------------
+      # Which pieces appear on /sale/ is not set here and cannot be: a piece is
+      # on sale when one of its sizes has a sale price, and nothing else. This
+      # page is only the words around them.
+      - name: sale
+        label: "Sale page"
+        file: content/settings-sale.json
+        description: >
+          The wording on the Sale page. Which pieces appear there is decided by
+          the pieces themselves — fill in a size's sale price and it appears,
+          clear it and it goes. Nothing on this page changes that.
+        fields:
+          - { label: "Eyebrow", name: eyebrow, widget: string, hint: "The small line above the heading." }
+          - { label: "Heading", name: h1, widget: string }
+          - { label: "Intro", name: blurb, widget: text, hint: "Leave a blank line between paragraphs to split them." }
+          - label: "When nothing is on sale"
+            name: empty
+            widget: string
+            hint: "The single line the page shows when no piece has a sale price. A link back to the collection is added under it automatically."
+          - label: "Search engine listing"
+            name: seo
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Page title", name: title, widget: string }
+              - { label: "Description", name: description, widget: text }

@@ -640,6 +640,36 @@ checkTrue("nothing else is reported as a clash",
 // file were lost. Every check above this line ran against it.
 check("a directory with only settings.json still loads", model.settings.brandName, "Fixture Designer");
 
+/* --- the Sale page's own wording -----------------------------------------
+ *
+ * A fourth settings file, read on its own rather than merged into `settings`
+ * with the other three. It has to be: it carries a `seo` object and so does
+ * settings.json, and the merge would report the two as a clash and hand the
+ * home page's search listing to the Sale page.
+ *
+ * Every field has a built-in default, so a site whose owner has not opened
+ * that admin page yet still gets a Sale page that reads properly — which is
+ * exactly what tools/fixtures/content is.
+ */
+
+const { readSale } = require("./content");
+
+check("with no file at all, the built-in wording is used",
+  [model.sale.h1, model.sale.eyebrow], ["Sale", "Reduced for a limited time"]);
+checkTrue("…including a search listing, so the page is never untitled",
+  model.sale.seo.title.includes("Sale") && model.sale.seo.description.length > 20);
+checkTrue("…and a line to show when nothing is reduced",
+  model.sale.empty.length > 10);
+
+const saleSettings = readSale(SPLIT_SETTINGS);
+check("a file that is there wins over the built-in wording",
+  [saleSettings.h1, saleSettings.eyebrow], ["SALE h1", "SALE eyebrow"]);
+check("…field by field, so one blank box does not blank the page",
+  saleSettings.blurb, model.sale.blurb);
+check("…and the same for the search listing",
+  [saleSettings.seo.title, saleSettings.seo.description],
+  ["SALE title", model.sale.seo.description]);
+
 /* --- the home carousel --------------------------------------------------- */
 
 // chooseCarousel() reads Site Settings, which the fixture deliberately does not
