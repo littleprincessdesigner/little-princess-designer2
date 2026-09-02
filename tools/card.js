@@ -450,11 +450,20 @@ function productDetail(p, s, siteUrl) {
 
   // data-was carries the crossed-out original for a discounted size, empty for
   // one at its usual price — app.js repaints from these as the size changes.
+  // A piece reduced in only one band used to open on whichever size came
+  // first, so someone arriving from /sale/ having just seen a lower price
+  // landed on the full one. Open on the first reduced size instead — in normal
+  // size order, so it is still the smallest of them. Every size stays
+  // selectable and app.js repaints on change; a server-rendered `selected` is
+  // what it reads on load. findIndex returns -1 when nothing is reduced, and
+  // Math.max puts that back to 0 — the behaviour every full-price piece has
+  // always had.
+  const firstIndex = Math.max(0, p.sizes.findIndex(sz => sz.wasPrice));
   const opts = p.sizes.map((sz, i) =>
     '<option value="' + i + '" data-price="' + sz.price + '" data-was="' +
-    (sz.wasPrice || "") + '">' + esc(sz.size) + "</option>"
+    (sz.wasPrice || "") + '"' + (i === firstIndex ? " selected" : "") + ">" + esc(sz.size) + "</option>"
   ).join("");
-  const first = p.sizes[0];
+  const first = p.sizes[firstIndex];
 
   // A sold-out piece cannot be supplied, so it does not get an order button —
   // customers were ordering them. Everything else on the page stays live: the

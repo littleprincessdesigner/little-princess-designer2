@@ -753,6 +753,33 @@ checkTrue("…and no Sale tab in the header, on any page",
   !emptyHtml.includes('href="/sale/"') &&
   !render.renderProduct(noSale, byName["Own words"], "https://example.test").includes('href="/sale/"'));
 
+/* --- a discounted product opens on the size that is actually reduced ------
+ *
+ * The dropdown used to open on sizes[0], which on a piece reduced in only one
+ * band showed the full price to someone who arrived from the Sale page and had
+ * just been shown a lower one. Every size stays selectable; app.js repaints on
+ * change exactly as before, because a server-rendered `selected` is honoured.
+ */
+
+/** The label of the option a product page opens on. */
+const openingSize = html => (html.match(/<option[^>]*\bselected[^>]*>([^<]+)</) || [])[1];
+
+const partlyReduced = card.productDetail(byName["Boys on sale"], model.settings, "https://example.test");
+check("the dropdown opens on the reduced size, not the first one",
+  openingSize(partlyReduced), "4–6 years");
+checkTrue("…so the price block opens showing the saving",
+  partlyReduced.includes("lp-detail-price--sale") &&
+  partlyReduced.includes("PKR 9,000") && partlyReduced.includes("PKR 12,000"));
+checkTrue("…and the total is what that size actually costs",
+  partlyReduced.includes('data-total>PKR 9,000<'));
+check("every size is still there to pick from",
+  (partlyReduced.match(/<option/g) || []).length, 2);
+check("a piece with nothing reduced still opens on its first size",
+  openingSize(card.productDetail(byName["Photos"], model.settings, "https://example.test")),
+  "13–16 years");
+check("exactly one option is marked, or the browser picks for itself",
+  (partlyReduced.match(/\bselected\b/g) || []).length, 1);
+
 /* --- the home carousel --------------------------------------------------- */
 
 // chooseCarousel() reads Site Settings, which the fixture deliberately does not
