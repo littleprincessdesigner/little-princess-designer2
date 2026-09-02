@@ -239,6 +239,34 @@ for (const [what, html] of publicPages) {
       html.indexOf('<script src="/ga.js"></script>'));
 }
 
+/* --- the Content-Security-Policy is enforced, not a dry run ---------------
+ *
+ * netlify.toml is not exercised by any build step, so nothing else would
+ * notice it drifting back to Report-Only or gaining an 'unsafe-inline' that
+ * hands the whole point away. These are string checks on the file, which is
+ * all that is available from Node — the header itself can only be seen on a
+ * real Netlify deploy.
+ */
+
+const netlifyToml = require("fs").readFileSync(path.join(__dirname, "..", "netlify.toml"), "utf8");
+
+checkTrue("the public policy blocks rather than only reporting",
+  /\n\s*Content-Security-Policy = "/.test(netlifyToml) &&
+  !netlifyToml.includes("Content-Security-Policy-Report-Only"));
+checkTrue("script-src allows this site and the gtag loader, and nothing inline",
+  netlifyToml.includes("script-src 'self' https://www.googletagmanager.com") &&
+  !/script-src[^"]*'unsafe-inline'/.test(netlifyToml));
+checkTrue("the analytics beacon hosts are reachable, or visits stop being recorded",
+  netlifyToml.includes("connect-src 'self' https://www.googletagmanager.com " +
+    "https://*.google-analytics.com https://*.analytics.google.com"));
+checkTrue("ImageKit is still allowed to serve the photographs",
+  /img-src[^"]*https:\/\/ik\.imagekit\.io/.test(netlifyToml));
+checkTrue("inline style= attributes still work — the home page hero is built on them",
+  /style-src 'self' 'unsafe-inline'/.test(netlifyToml));
+checkTrue("the admin gets a policy of its own, so the CMS and GitHub sign-in are not blocked",
+  netlifyToml.includes(
+    "Content-Security-Policy = \"default-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: https:\""));
+
 /* --- sale prices ---------------------------------------------------------
  *
  * A discounted row carries what the customer pays as `price`, with the old
