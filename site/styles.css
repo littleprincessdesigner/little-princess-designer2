@@ -635,6 +635,48 @@ carousel-3d:active{cursor:grabbing}
   .lp-load-badge{box-shadow:0 1px 3px color-mix(in oklab,var(--tone-deep) 28%,transparent)}
 }
 
+/* --- 11b. Sale page ----------------------------------------------------- */
+
+/* The category jump row. Everything else on /sale/ reuses the shop classes;
+   this is the one piece the shop pages have no equivalent of, because they
+   only ever show one category at a time.
+
+   It sticks under the header rather than at the top of the viewport: the
+   header is itself sticky, and app.js measures its real height into
+   --lp-header on load (see .lp-sticky, which does the same). The fallback
+   figure is what the header measures to on a desktop — a row that overlaps
+   for one frame on a slow load is better than one that never sticks at all if
+   the script has not run.
+
+   Horizontal scroll rather than wrapping, and the scrollbar hidden, for the
+   same reason as .lp-nav: on a phone four pills do not fit, and a row that
+   wraps to two lines pushes the first card off the screen. */
+.lp-salenav{
+  position:sticky;top:var(--lp-header,92px);z-index:30;
+  display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;
+  scrollbar-width:none;-ms-overflow-style:none;
+  max-width:var(--lp-gridmax);margin:0 auto var(--space-6);
+  padding:10px 0;background:var(--paper-050);
+}
+.lp-salenav::-webkit-scrollbar{display:none}
+.lp-salenav a{
+  flex:0 0 auto;text-decoration:none;
+  font:var(--weight-bold) 0.9375rem/1 var(--font-ui);color:var(--tone-deep);
+  background:var(--tone-soft);border:2px solid var(--tone-edge);
+  border-radius:var(--radius-pill);padding:10px 16px;
+}
+.lp-salenav a:hover{filter:brightness(.97)}
+
+/* Jumping to a section has to clear both the header and the sticky row above,
+   so the heading lands below them rather than behind them. The generic
+   .lp-anchor 6rem is not enough once there are two sticky bars. */
+.lp-salesect h3{scroll-margin-top:calc(var(--lp-header,92px) + 5rem)}
+
+/* The way back into the collection when nothing is reduced. .lp-back is built
+   for the top-left of a product page, so it is centred under the empty line
+   here rather than left-aligned against a page with nothing else on it. */
+.lp-empty + .lp-back{display:block;width:max-content;margin:var(--space-5) auto 0}
+
 /* --- 12. Filters panel ------------------------------------------------- */
 
 .lp-scrim{
