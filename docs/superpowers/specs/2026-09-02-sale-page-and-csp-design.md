@@ -355,5 +355,19 @@ Part 2:
 - `netlify.toml` sends an enforced `Content-Security-Policy` on `/*` and a
   permissive one on `/admin/*`; `/ga.js` is in `dist/` and referenced from every
   page; no inline `<script>` remains on public pages.
+- **Local browser pass over the built `dist/` (Chrome DevTools MCP), reported to
+  the owner:**
+  - Public side: home, one category (Boys or Ready to wear — has sale items),
+    one sale product page, `/sale/` itself, `/contact/`, `/404.html`. Check the
+    console for errors, check no broken images, check the sale card / tag / size
+    behaviour and the filter panel.
+  - Admin side: load `/admin/`, confirm it boots to the Sveltia login screen
+    with no console errors from our files (`shared.js` / `images.js` / `card.js`
+    / `preview.js` / `boot` scripts). The proxy blocks the unpkg CMS bundle and
+    GitHub sign-in from this environment, so a *full* admin sign-in test is the
+    owner's to do on the deploy preview — say so plainly.
+  - Note that the CSP headers themselves are Netlify-only and cannot be
+    exercised by the local `serve.js`; the owner verifies those on the deploy
+    preview per the Part 1 list.
 - PR opened with auto-merge enabled; the owner-side verification list (CSP/admin,
   GA Realtime) recorded in the PR description.
