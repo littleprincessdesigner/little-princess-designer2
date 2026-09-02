@@ -355,6 +355,15 @@ checkTrue("a sale price that is not below the normal one still counts for nothin
 checkTrue("nothing is warned about a badge and a discount disagreeing any more",
   !warned(w, "badged", "no size has a sale price"));
 
+/* the "Sale" badge option is gone for good — the tag is computed, never typed */
+
+const adminConfig = require("fs").readFileSync(
+  path.join(__dirname, "..", "site", "admin", "config.yml"), "utf8");
+checkTrue("the admin no longer offers a Sale badge to set by hand",
+  !adminConfig.includes('{ label: "Sale", value: "Sale" }'));
+checkTrue("…and no piece in the catalogue still stores one",
+  !model.products.some(p => p.badge === "Sale"));
+
 /* --- tools/card.js: the card the site and the admin preview share --------
  *
  * The card was pulled out of render.js so the admin's preview panel could draw
@@ -473,7 +482,6 @@ check("a photo with no description falls back to the product name",
 
 const salePreview = card.fromCmsEntry({
   name: "Preview sale",
-  badge: "Sale",
   sizes: [
     { size: "0–3 years", price: 8000, salePrice: 6000 },
     { size: "4–6 years", price: 9000 },
@@ -493,6 +501,9 @@ checkTrue("the drawn card carries both prices",
   card.productCard(null, salePreview.product).includes("PKR 6,000"));
 checkTrue("…and marks itself as a sale card so the styling applies",
   card.productCard(null, salePreview.product).includes("lp-card-price--sale"));
+checkTrue("…and the preview shows the Sale tag from the prices alone, with no badge set",
+  card.productCard(null, salePreview.product)
+    .includes('<span class="lp-badge" data-badge="Sale">Sale</span>'));
 checkTrue("a card at its usual price hides the struck-through line rather than leaving a gap",
   card.productCard(null, typed.product).includes('data-price-was hidden'));
 check("the subcategory code resolves to its readable name",

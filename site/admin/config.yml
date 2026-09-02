@@ -214,10 +214,9 @@ collections:
         options:
           - { label: "None", value: "" }
           - { label: "New", value: "New" }
-          - { label: "Sale", value: "Sale" }
           - { label: "Made to order", value: "Made to order" }
           - { label: "Sold out", value: "Sold out" }
-        hint: "Optional corner label on the photo. \"Sold out\" keeps the piece visible but marks it clearly. \"Sale\" is the label only — the discount itself comes from the sale prices in the sizes below, and the two are set separately so you can mark a sale before pricing it."
+        hint: "Optional corner label on the photo. \"Sold out\" keeps the piece visible but marks it clearly. There is no \"Sale\" option any more: a sale is created purely by filling in a size's sale price below, and the SALE label then appears by itself — on the card, on the product page, and on the Sale page. Clear the sale price and it all goes away together."
 
       - label: "Added on"
         name: addedOn
