@@ -34,7 +34,7 @@ Then work on the branch the session names, and run `npm test` and
 ## The whole system in a paragraph
 
 `content/` holds plain JSON — one file per product, one per subcategory, one per
-category page, three settings files. `npm run build` reads that with
+category page, four settings files. `npm run build` reads that with
 `tools/content.js`, renders every page with `tools/render.js`, and writes a
 finished static site into `dist/`. Netlify runs that on every push to `main` and
 serves `dist/`. The admin at `/admin/` is Sveltia CMS: an editor fills in a form,
@@ -63,6 +63,7 @@ content/            ← what the admin edits. The source of truth for the site.
   settings.json           the site itself: business name, home page, footer
   settings-contact.json   phone, email, social links, the whole contact page
   settings-products.json  the wording and prices every product falls back on
+  settings-sale.json      the wording on the /sale/ page (not which pieces show)
   categories/             the four shop tabs — girls, boys, babies, ready
   subcategories/          the sections inside them, one file each
   products/               one file per product; the filename is its web address
@@ -72,6 +73,7 @@ site/               ← hand-written source, copied into dist/ as-is
   tokens.css              the brand design system. Binding — do not edit values
   app.js                  header tab strip, filters, load more, size→price, gallery, hero scroll
   carousel-3d.js          the draggable 3D carousel on the home page
+  ga.js                   the Google Analytics setup, moved out of an inline <script> for the CSP
   assets/                 logo, hero images, self-hosted fonts, share card
   admin/
     index.html            the CMS shell; branded loading screen; pins @sveltia/cms
@@ -226,6 +228,7 @@ Every page is generated; `npm run build` prints the current counts.
 |---|---|
 | `/` | Home — scroll-driven hero, features, about, 3D carousel, category cards |
 | `/girls/` `/boys/` `/babies/` `/ready/` | Shop, split into subcategory sections with filters and load-more |
+| `/sale/` | Every reduced piece in one place, grouped by category. Built on every build (in `sitemap.xml` and `llms.txt`); the header "Sale" tab only shows while something is actually reduced |
 | `/product/<name>/` | Product page — gallery, per-size price, accessory total, WhatsApp order |
 | `/contact/` | Ordering steps, FAQs, social links, feedback |
 | `/404.html` | Served by Netlify for anything that matches nothing else |

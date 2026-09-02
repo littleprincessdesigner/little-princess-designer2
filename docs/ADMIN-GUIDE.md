@@ -14,9 +14,9 @@ There are four things in the sidebar:
 | **Products** | Every piece in the shop |
 | **Subcategories** | The sections inside each tab — "Casual dresses", "Rompers" |
 | **Category pages** | The wording at the top of Girls / Boys / Babies / Ready to wear |
-| **Site settings** | Three pages: **Contact details**, **Product defaults**, **Site & home page** |
+| **Site settings** | Four pages: **Contact details**, **Product defaults**, **Site & home page**, **Sale page** |
 
-**Site settings** is split into three pages so you are not scrolling past the
+**Site settings** is split into four pages so you are not scrolling past the
 hero headlines to change a phone number:
 
 | Page | What's on it |
@@ -24,6 +24,7 @@ hero headlines to change a phone number:
 | **Contact details** | Phone number, email, social links, and the whole contact page |
 | **Product defaults** | The wording and prices every product falls back on |
 | **Site & home page** | Business name, hero, features, banner, about, carousel, footer |
+| **Sale page** | The wording at the top of the `/sale/` page, and the line it shows when nothing is reduced. It does **not** decide which pieces are on sale — that comes from the pieces themselves (see "How a sale works" below) |
 
 ---
 
@@ -111,6 +112,30 @@ photographed yet. **Delete** is for mistakes — it is permanent.
 
 If you want a piece to stay visible but marked as unavailable, leave it on and
 set **Badge** to "Sold out" instead.
+
+---
+
+## How a sale works
+
+You put a piece on sale by filling in a **sale price** on the size that is
+reduced, in the **Sizes and prices** list — nothing else. There is no "Sale"
+badge to pick any more; that option is gone.
+
+Once a size has a sale price below its normal one:
+
+- a pink **SALE** label appears on its own — on the card in the shop, on the
+  product page, and on the **`/sale/` page**, which gathers every reduced piece
+  in one place. A "Sale" tab appears in the site header while anything is on
+  sale, and disappears when nothing is.
+- the product page and the card show the old price struck through next to the
+  new one.
+
+**Clear the sale price and all of it goes away together** — the label, the
+struck-through price, and the piece's spot on the Sale page.
+
+One exception: a piece whose **Badge** is set to "Sold out" is kept off the
+Sale page even if it is discounted (there is nothing to buy), though its
+struck-through prices still show on its own product page.
 
 ---
 

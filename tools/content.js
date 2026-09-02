@@ -14,6 +14,10 @@ const fs = require("fs");
 const path = require("path");
 const images = require("./images");
 const { parseYaml } = require("./yaml");
+// The sale rule is in tools/card.js because the admin's preview panel needs it
+// in a browser, where this file cannot run. Read from there rather than kept in
+// step by hand — the MIRRORED notes elsewhere in this file are what that costs.
+const { discountedSizes } = require("./card");
 
 const ROOT = path.join(__dirname, "..");
 const CONTENT = path.join(ROOT, "content");
@@ -229,6 +233,48 @@ function readSettings(dir) {
     }
   }
   return merged;
+}
+
+/**
+ * Why this file is read on its own rather than joining SETTINGS_FILES — it
+ * carries `seo`, and settings.json already does, so the merge would flag a
+ * clash and give the Sale page the home page's search listing. Nothing else
+ * reads these values, so they ride on the model as model.sale instead of on
+ * settings.
+ */
+const SALE_DEFAULTS = {
+  eyebrow: "Reduced for a limited time",
+  h1: "Sale",
+  blurb: "Handmade pieces from the studio, now at a reduced price. Same fabrics, " +
+    "same finishing — a lower price while stock and time allow.",
+  empty: "Nothing is on sale right now.",
+  seo: {
+    title: "Sale — Handmade Kids' Dresses at a Reduced Price | Little Princess Designer",
+    description: "Handmade girls dresses, boys prince suits and baby sets from our Lahore " +
+      "studio, now at a reduced price while stock lasts."
+  }
+};
+
+/**
+ * Field by field rather than Object.assign, so one box cleared in the admin
+ * falls back to the built-in wording instead of leaving the page with a blank
+ * heading. The file is optional: a catalogue that has never had it — the test
+ * fixtures, or this site before today — builds the page from the defaults
+ * alone.
+ */
+function readSale(dir) {
+  const file = readJson(path.join(dir, "settings-sale.json"), { required: false }) || {};
+  const seo = file.seo || {};
+  return {
+    eyebrow: nonEmpty(file.eyebrow, SALE_DEFAULTS.eyebrow),
+    h1: nonEmpty(file.h1, SALE_DEFAULTS.h1),
+    blurb: nonEmpty(file.blurb, SALE_DEFAULTS.blurb),
+    empty: nonEmpty(file.empty, SALE_DEFAULTS.empty),
+    seo: {
+      title: nonEmpty(seo.title, SALE_DEFAULTS.seo.title),
+      description: nonEmpty(seo.description, SALE_DEFAULTS.seo.description)
+    }
+  };
 }
 
 /* --- the home carousel --------------------------------------------------- */
@@ -478,16 +524,6 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
       continue;
     }
 
-    // The badge and the sale prices are set in two different places on the
-    // form, so it is easy to do one and forget the other. Neither half is
-    // wrong on its own — a sale can be marked before it is priced, and a
-    // quiet discount is a fair thing to want — but a "Sale" badge over
-    // undiscounted prices is the one combination that misleads a customer.
-    if (nonEmpty(data.badge) === "Sale" && !sizes.some(s => s.wasPrice)) {
-      warn('product "' + name + '" is badged "Sale" but no size has a sale price — ' +
-           'customers see the badge and the usual price');
-    }
-
     const lowPriced = sizes.filter(s => s.price < LOW_PRICE_FLOOR);
     if (lowPriced.length) {
       warn('product "' + name + '" has a suspiciously low price for ' +
@@ -563,6 +599,23 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
     if (!s.products.length) warn('subcategory "' + s.name + '" (' + s.id + ') has no visible products');
   }
 
+  // --- the sale set --------------------------------------------------------
+  // One rule and no switch — a piece is on sale when a size it still offers is
+  // reduced. Sold-out pieces are excluded because /sale/ is somewhere to buy
+  // from; their crossed-out prices still show on their own pages. Sorted here
+  // rather than in the renderer for the same reason the carousel is: it is a
+  // content decision, and it has to match the newest-first order the shop pages
+  // already use.
+  const saleCategories = categories.map(c => ({
+    key: c.key,
+    label: c.label,
+    href: c.href,
+    products: c.subcategories
+      .flatMap(sub => sub.products)
+      .filter(p => p.badge !== "Sold out" && discountedSizes(p).length)
+      .sort((a, b) => b.addedOn - a.addedOn || a.name.localeCompare(b.name))
+  })).filter(c => c.products.length);
+
   // A product's first photo becomes its link preview. WhatsApp and Facebook do
   // not render WebP previews, so those links share as bare text — which is
   // invisible from the admin and easy to leave broken for months.
@@ -591,6 +644,9 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
 
   return {
     settings,
+    // The Sale page's own wording — see readSale for why it is not merged in
+    // with the other settings files.
+    sale: readSale(dir),
     sizes: SIZES,
     // Which pieces spin on the home page. Decided here rather than in the
     // renderer because it is a content rule — it reads Site Settings and the
@@ -603,13 +659,17 @@ function load({ dir = CONTENT, quiet: silent = false } = {}) {
     categories,
     subcategories: subs,
     products,
+    // Empty when nothing is reduced — which is what makes the "Sale" tab
+    // disappear and /sale/ show its one friendly line instead.
+    saleCategories,
     stats: {
       products: products.length,
       hidden: hiddenCount,
       subcategories: subs.length,
+      saleProducts: saleCategories.reduce((n, c) => n + c.products.length, 0),
       warnings: warnings.length
     }
   };
 }
 
-module.exports = { load, SIZES, readSettings, chooseCarousel, warnings };
+module.exports = { load, SIZES, readSettings, readSale, chooseCarousel, warnings };

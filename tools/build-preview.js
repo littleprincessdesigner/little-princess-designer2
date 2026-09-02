@@ -61,6 +61,9 @@ const PAGES = [
   { key: "boys", label: "Boys", file: "boys/index.html" },
   { key: "babies", label: "Babies", file: "babies/index.html" },
   { key: "ready", label: "Ready to wear", file: "ready/index.html" },
+  // /sale/ is written on every build (empty page when nothing is reduced), and
+  // its "Sale" tab is in the header of every page the preview packs.
+  { key: "sale", label: "Sale", file: "sale/index.html" },
   { key: "contact", label: "Contact us", file: "contact/index.html" }
 ];
 
@@ -88,7 +91,7 @@ for (const p of PAGES) {
     .replace(/(src|href)="(\/assets\/[^"]+)"/g, (mm, attr, p2) => attr + '="' + dataUri(p2) + '"')
     // internal links become router hashes
     .replace(/href="\/"/g, 'href="#/home"')
-    .replace(/href="\/(girls|boys|babies|ready|contact)\/"/g, 'href="#/$1"')
+    .replace(/href="\/(girls|boys|babies|ready|sale|contact)\/"/g, 'href="#/$1"')
     .replace(/href="\/product\/([^/"]+)\/"/g, 'href="#/product/$1"')
     .replace(/href="\/(girls|boys|babies|ready)\/#([^"]+)"/g, 'href="#/$1"')
     .replace(/href="\/#([^"]+)"/g, 'href="#/home"');

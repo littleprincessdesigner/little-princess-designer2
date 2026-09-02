@@ -35,9 +35,12 @@
 const path = require("path");
 const { load, SIZES, readSettings, chooseCarousel, warnings } = require("./content");
 const images = require("./images");
+const card = require("./card");
+const render = require("./render");
+const shared = require("./shared");
 
 const FIXTURE = path.join(__dirname, "fixtures", "content");
-// Three settings files rather than one — see its README.
+// Four settings files rather than one — see its README.
 const SPLIT_SETTINGS = path.join(__dirname, "fixtures", "settings-split");
 
 /* --- tiny harness ------------------------------------------------------- */
@@ -73,7 +76,7 @@ console.log("Checking tools/content.js against tools/fixtures/content, and tools
 /* which products survive */
 
 check("visible products", model.products.map(p => p.name).sort(),
-  ["Bad size row", "Badged sale only", "Completely unrelated name", "Inherits site", "Inherits sub",
+  ["Bad size row", "Boys on sale", "Completely unrelated name", "Inherits site", "Inherits sub",
     "On sale", "Own words", "Photos", "Some sizes off", "Undated"]);
 check("hidden products are counted, not rendered", model.stats.hidden, 1);
 checkTrue("a product with no usable price is dropped, with a warning",
@@ -137,7 +140,7 @@ check("products sort newest-first within a subcategory, not by filename",
 check("a product with no date sorts last rather than first",
   model.categories.find(c => c.key === "girls").subcategories
     .find(s => s.id === "s2").products.map(p => p.name),
-  ["Inherits site", "On sale", "Badged sale only", "Photos", "Undated"]);
+  ["Inherits site", "On sale", "Photos", "Undated"]);
 check("a missing date is 0, not NaN — NaN would make the sort incoherent",
   byName["Undated"].addedOn, 0);
 check("a date is parsed to milliseconds for sorting",
@@ -145,7 +148,7 @@ check("a date is parsed to milliseconds for sorting",
 // The id used to be typed into the admin, and two sections were given the same
 // one. It is the file name now, so a clash cannot be expressed: s1.json is "s1"
 // and nothing in the file can say otherwise.
-check("a section's id is its file name", model.subcategories.map(s => s.id).sort(), ["s1", "s2"]);
+check("a section's id is its file name", model.subcategories.map(s => s.id).sort(), ["b1", "s1", "s2"]);
 checkTrue("a subcategory under an unknown parent is skipped, with a warning",
   !model.subcategories.some(s => s.id === "orphan") && warned(w, "orphan", "not a category"));
 
@@ -205,6 +208,65 @@ check("product id and href come from the filename",
   [byName["Own words"].id, byName["Own words"].href], ["own-words", "/product/own-words/"]);
 check("category href", model.categories.find(c => c.key === "girls").href, "/girls/");
 
+/* --- no inline scripts on a public page ----------------------------------
+ *
+ * The enforced Content-Security-Policy in netlify.toml has no 'unsafe-inline'
+ * in script-src, so an inline <script> anywhere on a public page is not a
+ * style question — the browser refuses to run it and whatever it did stops
+ * happening silently. The Google Analytics setup was exactly that block until
+ * it moved to /ga.js. ld+json is exempt: CSP does not gate a data block.
+ *
+ * renderHome/renderShop/renderContact are not exercised here because the
+ * fixture settings.json deliberately has no `seo` or `contact` object — the
+ * two pages checked go through the same head() as every other page.
+ */
+
+/** Every <script> opening tag on a page. */
+const scriptTags = html => html.match(/<script\b[^>]*>/g) || [];
+
+const publicPages = [
+  ["a product page", render.renderProduct(model, byName["On sale"], "https://example.test")],
+  ["the 404 page", render.render404(model, "https://example.test")]
+];
+
+for (const [what, html] of publicPages) {
+  checkTrue("no inline <script> on " + what + " — the enforced CSP would block it",
+    scriptTags(html).every(t => t.includes(" src=") || t.includes('type="application/ld+json"')));
+  checkTrue("…and the analytics setup is loaded from /ga.js instead",
+    html.includes('<script defer src="/ga.js"></script>'));
+  checkTrue("…and the gtag loader tag is emitted alongside it — order does not matter, GA tolerates either",
+    html.includes('<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0TV7SBWFP"></script>') &&
+    html.includes('<script defer src="/ga.js"></script>'));
+}
+
+/* --- the Content-Security-Policy is enforced, not a dry run ---------------
+ *
+ * netlify.toml is not exercised by any build step, so nothing else would
+ * notice it drifting back to Report-Only or gaining an 'unsafe-inline' that
+ * hands the whole point away. These are string checks on the file, which is
+ * all that is available from Node — the header itself can only be seen on a
+ * real Netlify deploy.
+ */
+
+const netlifyToml = require("fs").readFileSync(path.join(__dirname, "..", "netlify.toml"), "utf8");
+
+checkTrue("the public policy blocks rather than only reporting",
+  /\n\s*Content-Security-Policy = "/.test(netlifyToml) &&
+  !netlifyToml.includes("Content-Security-Policy-Report-Only"));
+checkTrue("script-src allows this site and the gtag loader, and nothing inline",
+  netlifyToml.includes("script-src 'self' https://www.googletagmanager.com") &&
+  !/script-src[^"]*'unsafe-inline'/.test(netlifyToml));
+checkTrue("the analytics beacon hosts are reachable, or visits stop being recorded",
+  netlifyToml.includes("connect-src 'self' https://www.googletagmanager.com " +
+    "https://*.google-analytics.com https://*.analytics.google.com"));
+checkTrue("ImageKit is still allowed to serve the photographs",
+  /img-src[^"]*https:\/\/ik\.imagekit\.io/.test(netlifyToml));
+checkTrue("inline style= attributes still work — the home page hero is built on them",
+  /style-src 'self' 'unsafe-inline'/.test(netlifyToml));
+checkTrue("the admin gets a policy of its own, so the CMS and GitHub sign-in are not blocked",
+  netlifyToml.includes(
+    "Content-Security-Policy = \"default-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: https:\""));
+
 /* --- sale prices ---------------------------------------------------------
  *
  * A discounted row carries what the customer pays as `price`, with the old
@@ -228,13 +290,80 @@ checkTrue("…and that is warned about, since it is a typo not a choice",
 check("the lowest price — filters, and the 'from PKR' line — follows the sale",
   sale.minPrice, 6000);
 
-// The badge and the prices are set in different places on the form, so the one
-// combination that misleads a customer — badge on, nothing actually discounted
-// — gets its own warning. The piece still builds; it is a warning, not a bar.
-checkTrue('a "Sale" badge with no sale price anywhere is warned about',
-  warned(w, "Badged sale only", "no size has a sale price"));
-checkTrue("…and that piece still reaches the site", !!byName["Badged sale only"]);
-check("…at its ordinary price", byName["Badged sale only"].sizes[0].wasPrice, null);
+/* --- the tag a visitor actually sees -------------------------------------
+ *
+ * There is no "Sale" switch any more. A piece is on sale when a size it still
+ * offers is discounted, and the tag is worked out from that — so the tag and
+ * the prices cannot disagree, which is the state the old badge dropdown made
+ * possible and the build could only warn about.
+ */
+
+check("a discounted piece wears the Sale tag without anyone setting one",
+  card.effectiveBadge(byName["On sale"]), "Sale");
+check("a piece with nothing discounted keeps the badge it was given",
+  card.effectiveBadge(Object.assign({}, byName["Own words"], { badge: "New" })), "New");
+check("sold out beats a discount — there is nothing to buy",
+  card.effectiveBadge(Object.assign({}, byName["On sale"], { badge: "Sold out" })), "Sold out");
+check("a piece with neither wears nothing",
+  card.effectiveBadge(byName["Own words"]), "");
+
+checkTrue("the card draws the tag from the effective badge, not the raw field",
+  card.productCard(model, byName["On sale"])
+    .includes('<span class="lp-badge" data-badge="Sale">Sale</span>'));
+checkTrue("…and the product page shows the same tag over its gallery",
+  card.productDetail(byName["On sale"], model.settings, "https://example.test")
+    .includes('<span class="lp-badge" data-badge="Sale">Sale</span>'));
+checkTrue("a piece with no tag gets no empty pill on either view",
+  !card.productCard(model, byName["Own words"]).includes("lp-badge") &&
+  !card.productDetail(byName["Own words"], model.settings, "https://example.test").includes("lp-badge"));
+
+/* the copy of a product a Sale-page card is drawn from */
+
+const saleCardProduct = card.saleCopy(byName["On sale"]);
+check("a Sale-page card offers only the sizes that are actually reduced",
+  saleCardProduct.sizes.map(s => s.size), ["0–3 years"]);
+check("…and its lowest price follows those sizes",
+  saleCardProduct.minPrice, 6000);
+check("…while the piece it was copied from is left alone",
+  byName["On sale"].sizes.length, 3);
+check("a piece with nothing discounted is handed back untouched",
+  card.saleCopy(byName["Own words"]).sizes, byName["Own words"].sizes);
+
+/* --- which pieces the Sale page lists ------------------------------------
+ *
+ * Grouped under the four top-level categories, in the order the tabs run,
+ * newest first inside each — the same order the shop pages use, so a visitor
+ * moving between them sees the catalogue arranged the one way.
+ *
+ * A sold-out piece is left out even when it is discounted: /sale/ is somewhere
+ * to buy from, and there is nothing to buy. Its crossed-out prices still show
+ * on its own pages, which is why "Undated" is discounted here and still absent.
+ */
+
+check("the sale set is grouped by category, in tab order, newest first",
+  model.saleCategories.map(c => [c.key, c.products.map(p => p.name)]),
+  [["girls", ["On sale"]], ["boys", ["Boys on sale"]]]);
+checkTrue("a category with nothing reduced gets no heading at all",
+  !model.saleCategories.some(c => c.key === "babies" || c.key === "ready"));
+check("a discounted piece that is sold out is kept off the page",
+  [card.discountedSizes(byName["Undated"]).length,
+   model.saleCategories.some(c => c.products.some(p => p.name === "Undated"))],
+  [1, false]);
+check("…and the count the build reports agrees with the list",
+  model.stats.saleProducts, 2);
+check("a sale price that is not below the normal one still counts for nothing",
+  card.discountedSizes(byName["On sale"]).map(s => s.size), ["0–3 years"]);
+checkTrue("nothing is warned about a badge and a discount disagreeing any more",
+  !warned(w, "badged", "no size has a sale price"));
+
+/* the "Sale" badge option is gone for good — the tag is computed, never typed */
+
+const adminConfig = require("fs").readFileSync(
+  path.join(__dirname, "..", "site", "admin", "config.yml"), "utf8");
+checkTrue("the admin no longer offers a Sale badge to set by hand",
+  !adminConfig.includes('{ label: "Sale", value: "Sale" }'));
+checkTrue("…and no piece in the catalogue still stores one",
+  !model.products.some(p => p.badge === "Sale"));
 
 /* --- tools/card.js: the card the site and the admin preview share --------
  *
@@ -243,10 +372,6 @@ check("…at its ordinary price", byName["Badged sale only"].sizes[0].wasPrice, 
  * the two halves agree, and neither half can be checked in a browser from here
  * — the admin loads Decap from a CDN. So the agreement is pinned in Node.
  */
-
-const card = require("./card");
-const render = require("./render");
-const shared = require("./shared");
 
 /* the move itself: render.js must be using the shared copies, not its own */
 
@@ -358,7 +483,6 @@ check("a photo with no description falls back to the product name",
 
 const salePreview = card.fromCmsEntry({
   name: "Preview sale",
-  badge: "Sale",
   sizes: [
     { size: "0–3 years", price: 8000, salePrice: 6000 },
     { size: "4–6 years", price: 9000 },
@@ -378,6 +502,9 @@ checkTrue("the drawn card carries both prices",
   card.productCard(null, salePreview.product).includes("PKR 6,000"));
 checkTrue("…and marks itself as a sale card so the styling applies",
   card.productCard(null, salePreview.product).includes("lp-card-price--sale"));
+checkTrue("…and the preview shows the Sale tag from the prices alone, with no badge set",
+  card.productCard(null, salePreview.product)
+    .includes('<span class="lp-badge" data-badge="Sale">Sale</span>'));
 checkTrue("a card at its usual price hides the struck-through line rather than leaving a gap",
   card.productCard(null, typed.product).includes('data-price-was hidden'));
 check("the subcategory code resolves to its readable name",
@@ -542,6 +669,117 @@ checkTrue("nothing else is reported as a clash",
 // site looks like before the split — and what one would look like again if a
 // file were lost. Every check above this line ran against it.
 check("a directory with only settings.json still loads", model.settings.brandName, "Fixture Designer");
+
+/* --- the Sale page's own wording -----------------------------------------
+ *
+ * A fourth settings file, read on its own rather than merged into `settings`
+ * with the other three. It has to be: it carries a `seo` object and so does
+ * settings.json, and the merge would report the two as a clash and hand the
+ * home page's search listing to the Sale page.
+ *
+ * Every field has a built-in default, so a site whose owner has not opened
+ * that admin page yet still gets a Sale page that reads properly — which is
+ * exactly what tools/fixtures/content is.
+ */
+
+const { readSale } = require("./content");
+
+check("with no file at all, the built-in wording is used",
+  [model.sale.h1, model.sale.eyebrow], ["Sale", "Reduced for a limited time"]);
+checkTrue("…including a search listing, so the page is never untitled",
+  model.sale.seo.title.includes("Sale") && model.sale.seo.description.length > 20);
+checkTrue("…and a line to show when nothing is reduced",
+  model.sale.empty.length > 10);
+
+const saleSettings = readSale(SPLIT_SETTINGS);
+check("a file that is there wins over the built-in wording",
+  [saleSettings.h1, saleSettings.eyebrow], ["SALE h1", "SALE eyebrow"]);
+check("…field by field, so one blank box does not blank the page",
+  saleSettings.blurb, model.sale.blurb);
+check("…and the same for the search listing",
+  [saleSettings.seo.title, saleSettings.seo.description],
+  ["SALE title", model.sale.seo.description]);
+
+/* --- the Sale page -------------------------------------------------------
+ *
+ * Built out of the same markup shape as a shop page on purpose — [data-subsect]
+ * with a [data-grid] inside, size chips, the price slider — because that is
+ * what site/app.js's initShop() keys off. Get the shape right and the filters,
+ * Load more and the price repainting all work here with no JavaScript of their
+ * own. These checks are what keep that shape from drifting.
+ */
+
+const saleHtml = render.renderSale(model, "https://example.test");
+
+checkTrue("the page carries the filter markup app.js drives",
+  saleHtml.includes("data-subsect") && saleHtml.includes("data-grid") &&
+  saleHtml.includes("data-size-chip") && saleHtml.includes("data-fmax") &&
+  saleHtml.includes("data-loadwrap") && saleHtml.includes("data-noresults"));
+check("one section per category that has something reduced, in tab order",
+  (saleHtml.match(/<h2 id="sale-([a-z]+)"/g) || []).join(),
+  '<h2 id="sale-girls",<h2 id="sale-boys"');
+checkTrue("a jump button per section, so the categories are reachable on a phone",
+  saleHtml.includes('<a href="#sale-girls">') && saleHtml.includes('<a href="#sale-boys">'));
+checkTrue("the cards show only the reduced sizes",
+  saleHtml.includes('data-sizes="0–3 years"') && saleHtml.includes('data-sizes="4–6 years"') &&
+  !saleHtml.includes('data-sizes="0–3 years|4–6 years|7–9 years"'));
+checkTrue("…each wearing the Sale tag",
+  (saleHtml.match(/data-badge="Sale"/g) || []).length === 2);
+checkTrue("the page is indexable and canonical to itself",
+  !saleHtml.includes('name="robots" content="noindex"') &&
+  saleHtml.includes('<link rel="canonical" href="https://example.test/sale/">'));
+checkTrue("…and says what it is to a search engine",
+  saleHtml.includes('"@type":"CollectionPage"') && saleHtml.includes('"@type":"BreadcrumbList"'));
+checkTrue("no inline <script> here either",
+  scriptTags(saleHtml).every(t => t.includes(" src=") || t.includes('type="application/ld+json"')));
+
+/* the nav entry appears only while there is something to see */
+
+checkTrue("the Sale tab sits between Ready to wear and Contact us",
+  saleHtml.indexOf('href="/ready/"') < saleHtml.indexOf('href="/sale/"') &&
+  saleHtml.indexOf('href="/sale/"') < saleHtml.indexOf('href="/contact/"'));
+
+/* nothing on sale: the page still builds, and the tab goes away */
+
+const noSale = Object.assign({}, model, { saleCategories: [] });
+const emptyHtml = render.renderSale(noSale, "https://example.test");
+checkTrue("with nothing reduced the page says so in one line",
+  emptyHtml.includes('class="lp-empty"') && emptyHtml.includes(card.esc(model.sale.empty)));
+checkTrue("…with a way back into the collection",
+  emptyHtml.includes('href="/girls/"'));
+checkTrue("…and no sections, no filters and no jump row to work with",
+  !emptyHtml.includes("data-subsect") && !emptyHtml.includes("data-size-chip") &&
+  !emptyHtml.includes("lp-salenav"));
+checkTrue("…and no Sale tab in the header, on any page",
+  !emptyHtml.includes('href="/sale/"') &&
+  !render.renderProduct(noSale, byName["Own words"], "https://example.test").includes('href="/sale/"'));
+
+/* --- a discounted product opens on the size that is actually reduced ------
+ *
+ * The dropdown used to open on sizes[0], which on a piece reduced in only one
+ * band showed the full price to someone who arrived from the Sale page and had
+ * just been shown a lower one. Every size stays selectable; app.js repaints on
+ * change exactly as before, because a server-rendered `selected` is honoured.
+ */
+
+/** The label of the option a product page opens on. */
+const openingSize = html => (html.match(/<option[^>]*\bselected[^>]*>([^<]+)</) || [])[1];
+
+const partlyReduced = card.productDetail(byName["Boys on sale"], model.settings, "https://example.test");
+check("the dropdown opens on the reduced size, not the first one",
+  openingSize(partlyReduced), "4–6 years");
+checkTrue("…so the price block opens showing the saving",
+  partlyReduced.includes("lp-detail-price--sale") &&
+  partlyReduced.includes("PKR 9,000") && partlyReduced.includes("PKR 12,000"));
+checkTrue("…and the total is what that size actually costs",
+  partlyReduced.includes('data-total>PKR 9,000<'));
+check("every size is still there to pick from",
+  (partlyReduced.match(/<option/g) || []).length, 2);
+check("a piece with nothing reduced still opens on its first size",
+  openingSize(card.productDetail(byName["Photos"], model.settings, "https://example.test")),
+  "13–16 years");
+check("exactly one option is marked, or the browser picks for itself",
+  (partlyReduced.match(/\bselected\b/g) || []).length, 1);
 
 /* --- the home carousel --------------------------------------------------- */
 

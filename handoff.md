@@ -123,6 +123,21 @@ promise to check them. What that leaves unproved:
   share on `littleprincessdesigner.pk` — not a `<deploy-id>--…netlify.app`
   snapshot — with `?1` appended to defeat WhatsApp's per-URL preview cache.
 - **Anything on a phone.** See the constraint above.
+- **Whether Netlify's header merge lets `/admin/*` override the public CSP**
+  (added on the `sale-page-and-csp` branch, 2026-09-02). The site now ships an
+  *enforced* Content-Security-Policy on `/*`, with a separate looser one on
+  `/admin/*`. Both use the same header name. If Netlify concatenates the two
+  instead of letting the more specific path win, the admin gets both policies,
+  the strict one blocks the Sveltia CMS bundle from unpkg, and **the CMS is
+  down in production** — the public site is unaffected. Owner check on the
+  deploy preview: open `/admin/`, sign in, edit a product, Save, confirm the
+  commit lands. If it fails, the fallback is the tuned Sveltia policy in
+  `docs/superpowers/specs/2026-09-02-sale-page-and-csp-design.md`, section
+  "Netlify header-merge assumption".
+- **Whether Google Analytics is still recording** after the inline GA snippet
+  moved out to `/ga.js` on the same branch (the enforced CSP forbids inline
+  scripts). Owner check: open GA Realtime, load a page on the deploy preview,
+  confirm the visit registers.
 
 To check what an npm package actually does, download its tarball from
 `registry.npmjs.org` and read `dist/*.js.map` `sourcesContent`. Every Decap

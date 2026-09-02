@@ -20,7 +20,7 @@ const { execFileSync } = require("child_process");
 const content = require("./content");
 const render = require("./render");
 const feed = require("./feed");
-const { waLink } = require("./card");
+const { waLink, effectiveBadge } = require("./card");
 
 const ROOT = path.join(__dirname, "..");
 const SITE = path.join(ROOT, "site");
@@ -119,7 +119,7 @@ const model = content.load();
 const s = model.settings;
 
 // 1. passthrough sources
-for (const entry of ["tokens.css", "styles.css", "app.js", "carousel-3d.js", "assets", "admin"]) {
+for (const entry of ["tokens.css", "styles.css", "app.js", "carousel-3d.js", "ga.js", "assets", "admin"]) {
   const from = path.join(SITE, entry);
   if (fs.existsSync(from)) copyRecursive(from, path.join(DIST, entry));
 }
@@ -158,7 +158,10 @@ writeFile("data/products.json", JSON.stringify({
       products: sub.products.map(p => p.id)
     }))
   })),
-  products: model.products
+  // The tag a visitor actually sees, not the field on the form — the header
+  // search reads this file and would otherwise say "Sale" only for pieces that
+  // still had the retired badge stored on them.
+  products: model.products.map(p => Object.assign({}, p, { badge: effectiveBadge(p) }))
 }, null, 2) + "\n");
 
 writeFile("data/settings.json", JSON.stringify(s, null, 2) + "\n");
@@ -168,6 +171,10 @@ writeFile("index.html", render.renderHome(model, SITE_URL));
 writeFile("contact/index.html", render.renderContact(model, SITE_URL));
 // Netlify serves this for any address that matches nothing else.
 writeFile("404.html", render.render404(model, SITE_URL));
+// Always written, even with nothing reduced: /sale/ is a permanent address
+// that gets shared and linked, and a page that 404s between sales is worse
+// than one that says there is nothing on right now.
+writeFile("sale/index.html", render.renderSale(model, SITE_URL));
 for (const cat of model.categories) {
   writeFile(cat.key + "/index.html", render.renderShop(model, cat, SITE_URL));
 }
@@ -183,6 +190,7 @@ for (const p of model.products) {
 const urls = [
   ["/", "content/settings.json"],
   ["/contact/", "content/settings-contact.json"],
+  ["/sale/", "content/settings-sale.json"],
   ...model.categories.map(c => [c.href, "content/categories/" + c.key + ".json"]),
   ...model.products.map(p => [p.href, "content/products/" + p.id + ".json"])
 ];
@@ -240,7 +248,8 @@ writeFile("llms.txt",
   "> " + s.seo.description + "\n\n" +
   (s.contact && s.contact.intro ? s.contact.intro + "\n\n" : "") +
   "## Sections\n\n" +
-  model.categories.map(c => "- " + c.label + ": " + SITE_URL + c.href).join("\n") + "\n\n" +
+  model.categories.map(c => "- " + c.label + ": " + SITE_URL + c.href).join("\n") + "\n" +
+  "- Sale: " + SITE_URL + "/sale/\n\n" +
   "## Contact\n\n" +
   "- How to order / FAQ: " + SITE_URL + "/contact/\n" +
   "- WhatsApp: " + waLink(s.whatsappNumber) + "\n" +
@@ -267,10 +276,13 @@ writeFile(".well-known/security.txt",
 const st = model.stats;
 console.log("\nBuilt:");
 console.log("  " + pagesWritten.length + " pages" +
-  "  (home, contact, 404, " + model.categories.length + " category, " +
+  "  (home, contact, 404, sale, " + model.categories.length + " category, " +
   model.products.length + " product)");
 console.log("  " + st.subcategories + " subcategories, " + st.products + " live products" +
   (st.hidden ? ", " + st.hidden + " hidden by the admin" : ""));
+console.log("  " + st.saleProducts + " product(s) on sale" +
+  (st.saleProducts ? " across " + model.saleCategories.length + " categor" +
+    (model.saleCategories.length === 1 ? "y" : "ies") : " — the Sale tab is hidden"));
 console.log("  " + urls.length + " urls in sitemap.xml");
 if (redirectLines.length) console.log("  " + redirectLines.length + " lines in _redirects");
 console.log("  " + model.products.length + " products in product-feed.csv");
