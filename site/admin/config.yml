@@ -801,7 +801,7 @@ collections:
           - label: "When nothing is on sale"
             name: empty
             widget: string
-            hint: "The single line the page shows when no piece has a sale price. A link back to the collection is added under it automatically."
+            hint: "The single line the page shows when no piece has a sale price. A link back to the collection — to the first shop tab (Girls) — is added under it automatically."
           - label: "Search engine listing"
             name: seo
             widget: object

@@ -123,9 +123,11 @@ function head({ title, description, canonical, jsonLd, share, ogType = "website"
 <head>
 <!-- Google tag (gtag.js). The setup that used to sit inline here is in
      site/ga.js — see the enforced Content-Security-Policy in netlify.toml,
-     which has no 'unsafe-inline' in script-src. Loader first, setup second. -->
+     which has no 'unsafe-inline' in script-src. The loader is async and
+     /ga.js is deferred, so neither blocks HTML parsing ahead of the
+     stylesheets; GA records whichever of the two runs first (see site/ga.js). -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0TV7SBWFP"></script>
-<script src="/ga.js"></script>
+<script defer src="/ga.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
@@ -583,7 +585,7 @@ function renderSale(model, siteUrl) {
 <div class="lp-eyebrow lp-shop-eyebrow">${esc(sale.eyebrow)}</div>
 <h1 class="lp-shop-h1">${esc(sale.h1)}</h1>
 <p class="lp-empty">${esc(sale.empty)}</p>
-<a class="lp-back" href="/girls/">Browse the collection →</a>
+<a class="lp-back" href="${model.categories[0].href}">Browse the collection →</a>
 </main>`;
     return saleShell(model, siteUrl, emptyBody);
   }
@@ -593,7 +595,7 @@ ${groups.map(g => '<a href="#sale-' + esc(g.key) + '">' + esc(g.label) + "</a>")
 </nav>`;
 
   const sections = groups.map(g => `<section class="lp-subsect lp-salesect" data-subsect data-step="${LOAD_STEP}" data-visible="${INITIAL_VISIBLE}">
-<h3 id="sale-${esc(g.key)}">${esc(g.label)}</h3>
+<h2 id="sale-${esc(g.key)}">${esc(g.label)}</h2>
 <div class="lp-grid" data-grid${g.products.length > INITIAL_VISIBLE ? " data-preload" : ""}>
 ${g.products.map(p => productCard(model, saleCopy(p))).join("\n")}
 </div>

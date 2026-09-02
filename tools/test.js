@@ -40,7 +40,7 @@ const render = require("./render");
 const shared = require("./shared");
 
 const FIXTURE = path.join(__dirname, "fixtures", "content");
-// Three settings files rather than one — see its README.
+// Four settings files rather than one — see its README.
 const SPLIT_SETTINGS = path.join(__dirname, "fixtures", "settings-split");
 
 /* --- tiny harness ------------------------------------------------------- */
@@ -233,10 +233,10 @@ for (const [what, html] of publicPages) {
   checkTrue("no inline <script> on " + what + " — the enforced CSP would block it",
     scriptTags(html).every(t => t.includes(" src=") || t.includes('type="application/ld+json"')));
   checkTrue("…and the analytics setup is loaded from /ga.js instead",
-    html.includes('<script src="/ga.js"></script>'));
-  checkTrue("…with the gtag loader still ahead of it",
-    html.indexOf('googletagmanager.com/gtag/js?id=G-K0TV7SBWFP') <
-      html.indexOf('<script src="/ga.js"></script>'));
+    html.includes('<script defer src="/ga.js"></script>'));
+  checkTrue("…and the gtag loader tag is emitted alongside it — order does not matter, GA tolerates either",
+    html.includes('<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0TV7SBWFP"></script>') &&
+    html.includes('<script defer src="/ga.js"></script>'));
 }
 
 /* --- the Content-Security-Policy is enforced, not a dry run ---------------
@@ -345,13 +345,14 @@ check("the sale set is grouped by category, in tab order, newest first",
   [["girls", ["On sale"]], ["boys", ["Boys on sale"]]]);
 checkTrue("a category with nothing reduced gets no heading at all",
   !model.saleCategories.some(c => c.key === "babies" || c.key === "ready"));
-checkTrue("a discounted piece that is sold out is kept off the page",
-  card.discountedSizes(byName["Undated"]).length === 1 &&
-  !model.saleCategories.some(c => c.products.some(p => p.name === "Undated")));
+check("a discounted piece that is sold out is kept off the page",
+  [card.discountedSizes(byName["Undated"]).length,
+   model.saleCategories.some(c => c.products.some(p => p.name === "Undated"))],
+  [1, false]);
 check("…and the count the build reports agrees with the list",
   model.stats.saleProducts, 2);
-checkTrue("a sale price that is not below the normal one still counts for nothing",
-  card.discountedSizes(byName["On sale"]).map(s => s.size).join() === "0–3 years");
+check("a sale price that is not below the normal one still counts for nothing",
+  card.discountedSizes(byName["On sale"]).map(s => s.size), ["0–3 years"]);
 checkTrue("nothing is warned about a badge and a discount disagreeing any more",
   !warned(w, "badged", "no size has a sale price"));
 
@@ -715,8 +716,8 @@ checkTrue("the page carries the filter markup app.js drives",
   saleHtml.includes("data-size-chip") && saleHtml.includes("data-fmax") &&
   saleHtml.includes("data-loadwrap") && saleHtml.includes("data-noresults"));
 check("one section per category that has something reduced, in tab order",
-  (saleHtml.match(/<h3 id="sale-([a-z]+)"/g) || []).join(),
-  '<h3 id="sale-girls",<h3 id="sale-boys"');
+  (saleHtml.match(/<h2 id="sale-([a-z]+)"/g) || []).join(),
+  '<h2 id="sale-girls",<h2 id="sale-boys"');
 checkTrue("a jump button per section, so the categories are reachable on a phone",
   saleHtml.includes('<a href="#sale-girls">') && saleHtml.includes('<a href="#sale-boys">'));
 checkTrue("the cards show only the reduced sizes",
@@ -740,7 +741,7 @@ checkTrue("the Sale tab sits between Ready to wear and Contact us",
 
 /* nothing on sale: the page still builds, and the tab goes away */
 
-const noSale = Object.assign({}, model, { saleCategories: [], stats: model.stats });
+const noSale = Object.assign({}, model, { saleCategories: [] });
 const emptyHtml = render.renderSale(noSale, "https://example.test");
 checkTrue("with nothing reduced the page says so in one line",
   emptyHtml.includes('class="lp-empty"') && emptyHtml.includes(card.esc(model.sale.empty)));
