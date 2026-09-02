@@ -18,6 +18,12 @@
       "price": 233,
       "salePrice": 23,
       "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 424,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": true,
