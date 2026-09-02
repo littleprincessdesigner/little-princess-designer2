@@ -35,6 +35,9 @@
 const path = require("path");
 const { load, SIZES, readSettings, chooseCarousel, warnings } = require("./content");
 const images = require("./images");
+const card = require("./card");
+const render = require("./render");
+const shared = require("./shared");
 
 const FIXTURE = path.join(__dirname, "fixtures", "content");
 // Three settings files rather than one — see its README.
@@ -205,6 +208,37 @@ check("product id and href come from the filename",
   [byName["Own words"].id, byName["Own words"].href], ["own-words", "/product/own-words/"]);
 check("category href", model.categories.find(c => c.key === "girls").href, "/girls/");
 
+/* --- no inline scripts on a public page ----------------------------------
+ *
+ * The enforced Content-Security-Policy in netlify.toml has no 'unsafe-inline'
+ * in script-src, so an inline <script> anywhere on a public page is not a
+ * style question — the browser refuses to run it and whatever it did stops
+ * happening silently. The Google Analytics setup was exactly that block until
+ * it moved to /ga.js. ld+json is exempt: CSP does not gate a data block.
+ *
+ * renderHome/renderShop/renderContact are not exercised here because the
+ * fixture settings.json deliberately has no `seo` or `contact` object — the
+ * two pages checked go through the same head() as every other page.
+ */
+
+/** Every <script> opening tag on a page. */
+const scriptTags = html => html.match(/<script\b[^>]*>/g) || [];
+
+const publicPages = [
+  ["a product page", render.renderProduct(model, byName["On sale"], "https://example.test")],
+  ["the 404 page", render.render404(model, "https://example.test")]
+];
+
+for (const [what, html] of publicPages) {
+  checkTrue("no inline <script> on " + what + " — the enforced CSP would block it",
+    scriptTags(html).every(t => t.includes(" src=") || t.includes('type="application/ld+json"')));
+  checkTrue("…and the analytics setup is loaded from /ga.js instead",
+    html.includes('<script src="/ga.js"></script>'));
+  checkTrue("…with the gtag loader still ahead of it",
+    html.indexOf('googletagmanager.com/gtag/js?id=G-K0TV7SBWFP') <
+      html.indexOf('<script src="/ga.js"></script>'));
+}
+
 /* --- sale prices ---------------------------------------------------------
  *
  * A discounted row carries what the customer pays as `price`, with the old
@@ -243,10 +277,6 @@ check("…at its ordinary price", byName["Badged sale only"].sizes[0].wasPrice, 
  * the two halves agree, and neither half can be checked in a browser from here
  * — the admin loads Decap from a CDN. So the agreement is pinned in Node.
  */
-
-const card = require("./card");
-const render = require("./render");
-const shared = require("./shared");
 
 /* the move itself: render.js must be using the shared copies, not its own */
 

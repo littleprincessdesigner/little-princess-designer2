@@ -121,15 +121,11 @@ function head({ title, description, canonical, jsonLd, share, ogType = "website"
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js). The setup that used to sit inline here is in
+     site/ga.js — see the enforced Content-Security-Policy in netlify.toml,
+     which has no 'unsafe-inline' in script-src. Loader first, setup second. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0TV7SBWFP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-K0TV7SBWFP');
-</script>
+<script src="/ga.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>

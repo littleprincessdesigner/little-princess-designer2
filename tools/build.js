@@ -119,7 +119,7 @@ const model = content.load();
 const s = model.settings;
 
 // 1. passthrough sources
-for (const entry of ["tokens.css", "styles.css", "app.js", "carousel-3d.js", "assets", "admin"]) {
+for (const entry of ["tokens.css", "styles.css", "app.js", "carousel-3d.js", "ga.js", "assets", "admin"]) {
   const from = path.join(SITE, entry);
   if (fs.existsSync(from)) copyRecursive(from, path.join(DIST, entry));
 }
