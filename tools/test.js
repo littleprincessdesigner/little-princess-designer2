@@ -76,7 +76,7 @@ console.log("Checking tools/content.js against tools/fixtures/content, and tools
 /* which products survive */
 
 check("visible products", model.products.map(p => p.name).sort(),
-  ["Bad size row", "Badged sale only", "Completely unrelated name", "Inherits site", "Inherits sub",
+  ["Bad size row", "Boys on sale", "Completely unrelated name", "Inherits site", "Inherits sub",
     "On sale", "Own words", "Photos", "Some sizes off", "Undated"]);
 check("hidden products are counted, not rendered", model.stats.hidden, 1);
 checkTrue("a product with no usable price is dropped, with a warning",
@@ -140,7 +140,7 @@ check("products sort newest-first within a subcategory, not by filename",
 check("a product with no date sorts last rather than first",
   model.categories.find(c => c.key === "girls").subcategories
     .find(s => s.id === "s2").products.map(p => p.name),
-  ["Inherits site", "On sale", "Badged sale only", "Photos", "Undated"]);
+  ["Inherits site", "On sale", "Photos", "Undated"]);
 check("a missing date is 0, not NaN — NaN would make the sort incoherent",
   byName["Undated"].addedOn, 0);
 check("a date is parsed to milliseconds for sorting",
@@ -148,7 +148,7 @@ check("a date is parsed to milliseconds for sorting",
 // The id used to be typed into the admin, and two sections were given the same
 // one. It is the file name now, so a clash cannot be expressed: s1.json is "s1"
 // and nothing in the file can say otherwise.
-check("a section's id is its file name", model.subcategories.map(s => s.id).sort(), ["s1", "s2"]);
+check("a section's id is its file name", model.subcategories.map(s => s.id).sort(), ["b1", "s1", "s2"]);
 checkTrue("a subcategory under an unknown parent is skipped, with a warning",
   !model.subcategories.some(s => s.id === "orphan") && warned(w, "orphan", "not a category"));
 
@@ -290,14 +290,6 @@ checkTrue("…and that is warned about, since it is a typo not a choice",
 check("the lowest price — filters, and the 'from PKR' line — follows the sale",
   sale.minPrice, 6000);
 
-// The badge and the prices are set in different places on the form, so the one
-// combination that misleads a customer — badge on, nothing actually discounted
-// — gets its own warning. The piece still builds; it is a warning, not a bar.
-checkTrue('a "Sale" badge with no sale price anywhere is warned about',
-  warned(w, "Badged sale only", "no size has a sale price"));
-checkTrue("…and that piece still reaches the site", !!byName["Badged sale only"]);
-check("…at its ordinary price", byName["Badged sale only"].sizes[0].wasPrice, null);
-
 /* --- the tag a visitor actually sees -------------------------------------
  *
  * There is no "Sale" switch any more. A piece is on sale when a size it still
@@ -336,6 +328,32 @@ check("…while the piece it was copied from is left alone",
   byName["On sale"].sizes.length, 3);
 check("a piece with nothing discounted is handed back untouched",
   card.saleCopy(byName["Own words"]).sizes, byName["Own words"].sizes);
+
+/* --- which pieces the Sale page lists ------------------------------------
+ *
+ * Grouped under the four top-level categories, in the order the tabs run,
+ * newest first inside each — the same order the shop pages use, so a visitor
+ * moving between them sees the catalogue arranged the one way.
+ *
+ * A sold-out piece is left out even when it is discounted: /sale/ is somewhere
+ * to buy from, and there is nothing to buy. Its crossed-out prices still show
+ * on its own pages, which is why "Undated" is discounted here and still absent.
+ */
+
+check("the sale set is grouped by category, in tab order, newest first",
+  model.saleCategories.map(c => [c.key, c.products.map(p => p.name)]),
+  [["girls", ["On sale"]], ["boys", ["Boys on sale"]]]);
+checkTrue("a category with nothing reduced gets no heading at all",
+  !model.saleCategories.some(c => c.key === "babies" || c.key === "ready"));
+checkTrue("a discounted piece that is sold out is kept off the page",
+  card.discountedSizes(byName["Undated"]).length === 1 &&
+  !model.saleCategories.some(c => c.products.some(p => p.name === "Undated")));
+check("…and the count the build reports agrees with the list",
+  model.stats.saleProducts, 2);
+checkTrue("a sale price that is not below the normal one still counts for nothing",
+  card.discountedSizes(byName["On sale"]).map(s => s.size).join() === "0–3 years");
+checkTrue("nothing is warned about a badge and a discount disagreeing any more",
+  !warned(w, "badged", "no size has a sale price"));
 
 /* --- tools/card.js: the card the site and the admin preview share --------
  *

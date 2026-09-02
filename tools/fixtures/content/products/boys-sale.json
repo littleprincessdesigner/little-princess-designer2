@@ -1,13 +1,17 @@
 {
-  "name": "Badged sale only",
-  "subcategory": "s2",
-  "badge": "Sale",
+  "name": "Boys on sale",
+  "subcategory": "b1",
   "addedOn": "2026-08-04T11:00:00.000Z",
   "images": [],
   "sizes": [
     {
       "size": "0–3 years",
       "price": 5000
+    },
+    {
+      "size": "4–6 years",
+      "price": 12000,
+      "salePrice": 9000
     }
   ]
 }

@@ -1,10 +1,12 @@
 {
   "name": "Undated",
   "subcategory": "s2",
+  "badge": "Sold out",
   "sizes": [
     {
       "size": "4–6 years",
-      "price": 1200
+      "price": 2000,
+      "salePrice": 1200
     }
   ]
 }
