@@ -298,6 +298,45 @@ checkTrue('a "Sale" badge with no sale price anywhere is warned about',
 checkTrue("…and that piece still reaches the site", !!byName["Badged sale only"]);
 check("…at its ordinary price", byName["Badged sale only"].sizes[0].wasPrice, null);
 
+/* --- the tag a visitor actually sees -------------------------------------
+ *
+ * There is no "Sale" switch any more. A piece is on sale when a size it still
+ * offers is discounted, and the tag is worked out from that — so the tag and
+ * the prices cannot disagree, which is the state the old badge dropdown made
+ * possible and the build could only warn about.
+ */
+
+check("a discounted piece wears the Sale tag without anyone setting one",
+  card.effectiveBadge(byName["On sale"]), "Sale");
+check("a piece with nothing discounted keeps the badge it was given",
+  card.effectiveBadge(Object.assign({}, byName["Own words"], { badge: "New" })), "New");
+check("sold out beats a discount — there is nothing to buy",
+  card.effectiveBadge(Object.assign({}, byName["On sale"], { badge: "Sold out" })), "Sold out");
+check("a piece with neither wears nothing",
+  card.effectiveBadge(byName["Own words"]), "");
+
+checkTrue("the card draws the tag from the effective badge, not the raw field",
+  card.productCard(model, byName["On sale"])
+    .includes('<span class="lp-badge" data-badge="Sale">Sale</span>'));
+checkTrue("…and the product page shows the same tag over its gallery",
+  card.productDetail(byName["On sale"], model.settings, "https://example.test")
+    .includes('<span class="lp-badge" data-badge="Sale">Sale</span>'));
+checkTrue("a piece with no tag gets no empty pill on either view",
+  !card.productCard(model, byName["Own words"]).includes("lp-badge") &&
+  !card.productDetail(byName["Own words"], model.settings, "https://example.test").includes("lp-badge"));
+
+/* the copy of a product a Sale-page card is drawn from */
+
+const saleCardProduct = card.saleCopy(byName["On sale"]);
+check("a Sale-page card offers only the sizes that are actually reduced",
+  saleCardProduct.sizes.map(s => s.size), ["0–3 years"]);
+check("…and its lowest price follows those sizes",
+  saleCardProduct.minPrice, 6000);
+check("…while the piece it was copied from is left alone",
+  byName["On sale"].sizes.length, 3);
+check("a piece with nothing discounted is handed back untouched",
+  card.saleCopy(byName["Own words"]).sizes, byName["Own words"].sizes);
+
 /* --- tools/card.js: the card the site and the admin preview share --------
  *
  * The card was pulled out of render.js so the admin's preview panel could draw

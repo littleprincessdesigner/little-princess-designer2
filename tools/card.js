@@ -170,6 +170,46 @@ function priceBlock(sz, cls) {
     '<span class="' + cls + '" data-price-now>' + shared.money(sz.price) + "</span>";
 }
 
+/**
+ * Why the sale rule lives here and not in content.js: the admin's preview
+ * panel draws these same cards in a browser, where content.js (which reads the
+ * content directory) cannot run. Everything that decides how a sale looks
+ * therefore has to be reachable from this file. tools/content.js requires it
+ * from here rather than repeating it.
+ */
+function discountedSizes(p) {
+  return ((p && p.sizes) || []).filter(s => s.wasPrice);
+}
+
+/**
+ * The one rule for the tag over the photo. "Sold out" wins because a piece
+ * that cannot be supplied has nothing to advertise; "Sale" is computed from
+ * the prices rather than typed, so the tag and the prices can never disagree
+ * the way they could when "Sale" was a dropdown option.
+ */
+function effectiveBadge(p) {
+  if (!p) return "";
+  if (p.badge === "Sold out") return "Sold out";
+  if (discountedSizes(p).length) return "Sale";
+  return p.badge || "";
+}
+
+/**
+ * The /sale/ page shows a piece by what is reduced on it, so its card is drawn
+ * from a copy holding only the discounted sizes. Shallow, so the original
+ * keeps every size on its own pages. A piece with nothing discounted comes
+ * back untouched rather than with an empty size list, which would make
+ * Math.min() return Infinity and print "PKR ∞".
+ */
+function saleCopy(p) {
+  const sizes = discountedSizes(p);
+  if (!sizes.length) return p;
+  return Object.assign({}, p, {
+    sizes,
+    minPrice: Math.min(...sizes.map(s => s.price))
+  });
+}
+
 function productCard(model, p) {
   // data-was rides along on each option so the dropdown carries both prices;
   // empty on a size that is not discounted.
@@ -178,6 +218,8 @@ function productCard(model, p) {
     (s.wasPrice || "") + '">' + esc(s.size) + "</option>"
   ).join("");
   const first = p.sizes[0];
+  // The tag over the photo: worked out from the prices, not read off the form.
+  const tag = effectiveBadge(p);
   const alt = p.images[0]
     ? p.images[0].alt
     : p.name + " — handmade " + p.subcategoryName.toLowerCase() + " for " + p.tabLabel.toLowerCase();
@@ -185,7 +227,7 @@ function productCard(model, p) {
   return `<article class="lp-card" data-product data-min-price="${p.minPrice}" data-sizes="${esc(p.sizes.map(s => s.size).join("|"))}">
 <a class="lp-card-imgbtn" href="${safeHref(p.href)}" aria-label="${esc("View " + p.name + " — " + p.subcategoryName + " for " + p.tabLabel)}">
 <div class="lp-card-photo">
-${p.badge ? '<span class="lp-badge" data-badge="' + esc(p.badge) + '">' + esc(p.badge) + "</span>" : ""}
+${tag ? '<span class="lp-badge" data-badge="' + esc(tag) + '">' + esc(tag) + "</span>" : ""}
 ${frame(p.images[0] ? { src: p.images[0].src, alt } : null, { placeholder: "Photo coming soon", sizes: IMG_SIZES.product })}
 </div>
 </a>
@@ -419,7 +461,12 @@ function productDetail(p, s, siteUrl) {
   // size dropdown, the price and the total still work, and the floating
   // WhatsApp button is still there to ask about it. No data-wa-order attribute,
   // so app.js leaves this alone while it carries on repricing.
-  const soldOut = p.badge === "Sold out";
+  // Same tag as the card, over the gallery. .lp-galwrap is already
+  // position:relative, so .lp-badge lands top-left with no CSS of its own.
+  // soldOut reads the effective badge too, so there is one answer to "is this
+  // sold out", not two.
+  const tag = effectiveBadge(p);
+  const soldOut = tag === "Sold out";
   // The message text is shared.waOrderMessage — the same builder app.js calls
   // to rewrite this link when the size or the accessory tick-box changes.
   const orderCta = soldOut
@@ -479,6 +526,7 @@ ${svg(ICON.arrowRight, { size: 20, stroke: "var(--tone-deep)", width: 2 })}
   data-url="${esc(productUrl)}"
   data-accessory-price="${p.accessoryPrice}">
 <div class="lp-galwrap">
+${tag ? '<span class="lp-badge" data-badge="' + esc(tag) + '">' + esc(tag) + "</span>" : ""}
 <div class="lp-gallery" data-gallery>
 ${gallery}
 </div>
@@ -567,7 +615,8 @@ function applyWording(data, sub, settings) {
  */
 const CARD_API = {
   esc, safeHref, money: shared.money, frame, IMG_SIZES, productCard,
-  svg, ICON, waLink: shared.waLink, productDetail, applyWording, fromCmsEntry
+  svg, ICON, waLink: shared.waLink, productDetail, applyWording, fromCmsEntry,
+  discountedSizes, effectiveBadge, saleCopy
 };
 
 if (typeof module === "object" && module.exports) {
