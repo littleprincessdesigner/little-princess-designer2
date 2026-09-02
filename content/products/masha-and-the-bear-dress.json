@@ -1,25 +1,59 @@
 {
-  "badge": "",
   "name": "Masha and the Bear Dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5986.JPG.jpg",
+      "url": "",
+      "alt": "Masha and the Bear Dress – handmade kids outfit, cotton shirt with a silk frock, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5987.JPG%20(1).jpg",
+      "url": "",
+      "alt": "Masha and the Bear Dress – handmade kids outfit, cotton shirt with a silk frock, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/masha%20(3).jpg?updatedAt=1786739296641",
+      "url": "",
+      "alt": "Masha and the Bear Dress – handmade kids outfit, cotton shirt with a silk frock, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5992.JPG.jpg",
+      "url": "",
+      "alt": "Masha and the Bear Dress – handmade kids outfit, cotton shirt with a silk frock, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5995.JPG.jpg",
+      "url": "",
+      "alt": "Masha and the Bear Dress – handmade kids outfit, cotton shirt with a silk frock, made to order in Pakistan"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/DSC_5986.JPG.jpg",
+  "subcategory": "ready-to-wear",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-22T14:55:00.000+05:00",
   "sizes": [
     {
-      "available": true,
       "size": "0–3 years",
-      "price": 6500
+      "price": 6500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "4–6 years",
-      "price": 8500
+      "price": 7500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "7–9 years",
-      "price": 10500
+      "price": 8500,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": false,
+  "accessoryName": "",
   "accessoryPrice": 1500,
   "description": "A Masha and the Bear dress with a white cotton shirt and puffed sleeves trimmed in lace, paired with a full length silk frock printed with a cute Masha graphic.",
   "description2": "The hem is finished with a pink striped trim for a playful, coordinated look.",
@@ -28,30 +62,5 @@
     "occasion": "",
     "fit": "Puffed sleeve shirt with a flared silk skirt",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5986.JPG.jpg",
-      "alt": "Masha and the Bear Dress – handmade kids outfit, cotton shirt with a silk frock, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5987.JPG%20(1).jpg",
-      "alt": "Masha and the Bear Dress – handmade kids outfit, cotton shirt with a silk frock, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/masha%20(3).jpg?updatedAt=1786739296641",
-      "alt": "Masha and the Bear Dress – handmade kids outfit, cotton shirt with a silk frock, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5992.JPG.jpg",
-      "alt": "Masha and the Bear Dress – handmade kids outfit, cotton shirt with a silk frock, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/DSC_5995.JPG.jpg",
-      "alt": "Masha and the Bear Dress – handmade kids outfit, cotton shirt with a silk frock, made to order in Pakistan"
-    }
-  ],
-  "subcategory": "ready-to-wear",
-  "addedOn": "2026-08-22T14:55:00.000+05:00",
-  "image": "https://ik.imagekit.io/lpdlhr/DSC_5986.JPG.jpg"
+  }
 }
