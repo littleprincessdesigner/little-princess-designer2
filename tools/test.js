@@ -699,6 +699,60 @@ check("…and the same for the search listing",
   [saleSettings.seo.title, saleSettings.seo.description],
   ["SALE title", model.sale.seo.description]);
 
+/* --- the Sale page -------------------------------------------------------
+ *
+ * Built out of the same markup shape as a shop page on purpose — [data-subsect]
+ * with a [data-grid] inside, size chips, the price slider — because that is
+ * what site/app.js's initShop() keys off. Get the shape right and the filters,
+ * Load more and the price repainting all work here with no JavaScript of their
+ * own. These checks are what keep that shape from drifting.
+ */
+
+const saleHtml = render.renderSale(model, "https://example.test");
+
+checkTrue("the page carries the filter markup app.js drives",
+  saleHtml.includes("data-subsect") && saleHtml.includes("data-grid") &&
+  saleHtml.includes("data-size-chip") && saleHtml.includes("data-fmax") &&
+  saleHtml.includes("data-loadwrap") && saleHtml.includes("data-noresults"));
+check("one section per category that has something reduced, in tab order",
+  (saleHtml.match(/<h3 id="sale-([a-z]+)"/g) || []).join(),
+  '<h3 id="sale-girls",<h3 id="sale-boys"');
+checkTrue("a jump button per section, so the categories are reachable on a phone",
+  saleHtml.includes('<a href="#sale-girls">') && saleHtml.includes('<a href="#sale-boys">'));
+checkTrue("the cards show only the reduced sizes",
+  saleHtml.includes('data-sizes="0–3 years"') && saleHtml.includes('data-sizes="4–6 years"') &&
+  !saleHtml.includes('data-sizes="0–3 years|4–6 years|7–9 years"'));
+checkTrue("…each wearing the Sale tag",
+  (saleHtml.match(/data-badge="Sale"/g) || []).length === 2);
+checkTrue("the page is indexable and canonical to itself",
+  !saleHtml.includes('name="robots" content="noindex"') &&
+  saleHtml.includes('<link rel="canonical" href="https://example.test/sale/">'));
+checkTrue("…and says what it is to a search engine",
+  saleHtml.includes('"@type":"CollectionPage"') && saleHtml.includes('"@type":"BreadcrumbList"'));
+checkTrue("no inline <script> here either",
+  scriptTags(saleHtml).every(t => t.includes(" src=") || t.includes('type="application/ld+json"')));
+
+/* the nav entry appears only while there is something to see */
+
+checkTrue("the Sale tab sits between Ready to wear and Contact us",
+  saleHtml.indexOf('href="/ready/"') < saleHtml.indexOf('href="/sale/"') &&
+  saleHtml.indexOf('href="/sale/"') < saleHtml.indexOf('href="/contact/"'));
+
+/* nothing on sale: the page still builds, and the tab goes away */
+
+const noSale = Object.assign({}, model, { saleCategories: [], stats: model.stats });
+const emptyHtml = render.renderSale(noSale, "https://example.test");
+checkTrue("with nothing reduced the page says so in one line",
+  emptyHtml.includes('class="lp-empty"') && emptyHtml.includes(card.esc(model.sale.empty)));
+checkTrue("…with a way back into the collection",
+  emptyHtml.includes('href="/girls/"'));
+checkTrue("…and no sections, no filters and no jump row to work with",
+  !emptyHtml.includes("data-subsect") && !emptyHtml.includes("data-size-chip") &&
+  !emptyHtml.includes("lp-salenav"));
+checkTrue("…and no Sale tab in the header, on any page",
+  !emptyHtml.includes('href="/sale/"') &&
+  !render.renderProduct(noSale, byName["Own words"], "https://example.test").includes('href="/sale/"'));
+
 /* --- the home carousel --------------------------------------------------- */
 
 // chooseCarousel() reads Site Settings, which the fixture deliberately does not

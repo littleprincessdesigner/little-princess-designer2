@@ -15,7 +15,7 @@ const images = require("./images");
  * round. Everything else about rendering stays in this file, which is Node-only.
  */
 const card = require("./card");
-const { esc, safeHref, money, frame, IMG_SIZES, productCard, svg, ICON, waLink } = card;
+const { esc, safeHref, money, frame, IMG_SIZES, productCard, svg, ICON, waLink, saleCopy } = card;
 
 /** Minimal inline formatting for CMS prose: **bold** only. */
 const inline = s => esc(s).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
@@ -166,13 +166,20 @@ ${jsonLd ? '<script type="application/ld+json">' + jsonLdScript(jsonLd) + "</scr
 <body>`;
 }
 
-function header(s, activeTab) {
+/**
+ * `hasSale` is passed in rather than read off a global because the Sale tab is
+ * only honest while something is actually reduced — a tab leading to "nothing
+ * is on sale right now" is a dead end in the one row of links every page
+ * carries. page() works it out from the model and hands it down.
+ */
+function header(s, activeTab, hasSale) {
   const nav = [
     { key: "home", label: "Home", href: "/" },
     { key: "girls", label: "Girls", href: "/girls/" },
     { key: "boys", label: "Boys", href: "/boys/" },
     { key: "babies", label: "Babies", href: "/babies/" },
     { key: "ready", label: "Ready to wear", href: "/ready/" },
+    ...(hasSale ? [{ key: "sale", label: "Sale", href: "/sale/" }] : []),
     { key: "contact", label: "Contact us", href: "/contact/" }
   ];
   return `<header class="lp-header">
@@ -264,7 +271,7 @@ function page(model, { tab, title, description, canonical, jsonLd, body, image, 
       share: shareImage(image, siteUrl || "")
     }),
     '<div class="lp-app" data-tab="' + esc(tab) + '">',
-    header(s, tab),
+    header(s, tab, ((model.saleCategories || []).length > 0)),
     body,
     footer(s, model.categories),
     floatingWa(s),
@@ -546,6 +553,152 @@ ${sections}
   });
 }
 
+/* --- sale --------------------------------------------------------------- */
+
+/**
+ * Every reduced piece in one place, grouped by category. Deliberately the same
+ * markup shape as renderShop — [data-subsect] / [data-grid] / [data-size-chip] /
+ * [data-fmax] — because that is what site/app.js's initShop() keys off, so the
+ * filter panel, Load more and the size-to-price repainting all work here
+ * without a line of JavaScript of their own. Each card is drawn from a copy of
+ * its product holding only the reduced sizes (card.saleCopy), so the dropdown
+ * offers what the page is advertising.
+ */
+function renderSale(model, siteUrl) {
+  const sale = model.sale;
+  const groups = model.saleCategories || [];
+
+  // Nothing reduced: one friendly line and a way back into the collection.
+  // No filter panel, no jump row and no sections — controls with nothing to
+  // control read as a broken page rather than an empty one.
+  if (!groups.length) {
+    const emptyBody = `<main class="lp-main lp-main--shop">
+<nav class="lp-crumb" aria-label="Breadcrumb">
+<ol>
+<li><a href="/">Home</a></li>
+<li aria-hidden="true">›</li>
+<li aria-current="page">${esc(sale.h1)}</li>
+</ol>
+</nav>
+<div class="lp-eyebrow lp-shop-eyebrow">${esc(sale.eyebrow)}</div>
+<h1 class="lp-shop-h1">${esc(sale.h1)}</h1>
+<p class="lp-empty">${esc(sale.empty)}</p>
+<a class="lp-back" href="/girls/">Browse the collection →</a>
+</main>`;
+    return saleShell(model, siteUrl, emptyBody);
+  }
+
+  const jumps = `<nav class="lp-salenav" aria-label="Jump to a category">
+${groups.map(g => '<a href="#sale-' + esc(g.key) + '">' + esc(g.label) + "</a>").join("\n")}
+</nav>`;
+
+  const sections = groups.map(g => `<section class="lp-subsect lp-salesect" data-subsect data-step="${LOAD_STEP}" data-visible="${INITIAL_VISIBLE}">
+<h3 id="sale-${esc(g.key)}">${esc(g.label)}</h3>
+<div class="lp-grid" data-grid${g.products.length > INITIAL_VISIBLE ? " data-preload" : ""}>
+${g.products.map(p => productCard(model, saleCopy(p))).join("\n")}
+</div>
+<div class="lp-loadwrap" data-loadwrap${g.products.length > INITIAL_VISIBLE ? "" : " hidden"}>
+<button type="button" class="lp-load" data-load aria-label="${esc("Load more " + g.label.toLowerCase() + " pieces on sale")}">
+<span>Load more</span>
+<span class="lp-load-badge">${svg(ICON.chevRight, { size: 18, stroke: "var(--tone)", width: 2.4 })}</span>
+</button>
+</div>
+<p class="lp-empty" data-noresults hidden>No reduced pieces in this category match your filters. Try a wider price range.</p>
+</section>`).join("\n");
+
+  const body = `<main class="lp-main lp-main--shop">
+<nav class="lp-crumb" aria-label="Breadcrumb">
+<ol>
+<li><a href="/">Home</a></li>
+<li aria-hidden="true">›</li>
+<li aria-current="page">${esc(sale.h1)}</li>
+</ol>
+</nav>
+<div class="lp-eyebrow lp-shop-eyebrow">${esc(sale.eyebrow)}</div>
+<h1 class="lp-shop-h1">${esc(sale.h1)}</h1>
+${paragraphs(sale.blurb).map(p => '<p class="lp-shop-blurb">' + esc(p) + "</p>").join("\n")}
+
+<div class="lp-toolbar">
+<button type="button" class="lp-filterbtn" data-filter-open aria-expanded="false" aria-controls="lp-filters">
+${svg(ICON.filters, { size: 18, width: 2 })}
+Filters</button>
+</div>
+
+<div class="lp-scrim" data-scrim data-open="0"></div>
+<aside class="lp-panel" id="lp-filters" data-panel data-open="0" aria-label="Filters">
+<div class="lp-panel-head">
+<div class="lp-panel-title">Filters</div>
+<button type="button" class="lp-panel-x" data-filter-close aria-label="Close filters">×</button>
+</div>
+<div>
+<div class="lp-eyebrow">Size</div>
+<div class="lp-chips">
+${model.sizes.map(sz =>
+  '<button type="button" class="lp-chip" data-size-chip="' + esc(sz) + '" aria-pressed="false">' + esc(sz) + "</button>"
+).join("\n")}
+</div>
+</div>
+<div>
+<div class="lp-eyebrow">Maximum price</div>
+<input class="lp-range" id="lp-fmax" type="range" min="3000" max="100000" step="1000" value="100000"
+  data-fmax aria-label="Maximum price in Pakistani rupees">
+<div class="lp-range-row">
+<span class="lp-range-min">PKR 3,000</span>
+<span class="lp-range-max" data-fmax-out>${money(100000)}</span>
+</div>
+</div>
+<div class="lp-panel-foot">
+<button type="button" class="lp-btn-ghost" data-filter-reset>Reset</button>
+<button type="button" class="lp-btn-solid" data-filter-close>Show results</button>
+</div>
+</aside>
+
+${jumps}
+${sections}
+</main>`;
+
+  return saleShell(model, siteUrl, body);
+}
+
+/**
+ * The chrome and search-engine data both /sale/ bodies share. Split out so the
+ * empty page and the full one cannot drift apart on their title, canonical or
+ * structured data — the empty state is the version nobody looks at.
+ */
+function saleShell(model, siteUrl, body) {
+  const sale = model.sale;
+  return page(model, {
+    // No per-tab palette: "sale" matches none of the four category keys, so
+    // the berry defaults on .lp-app apply — the same colour the Sale tag uses.
+    tab: "sale",
+    siteUrl,
+    title: sale.seo.title,
+    description: sale.seo.description,
+    canonical: siteUrl + "/sale/",
+    // Falls through to the built-in share card: the page is a mixture of
+    // pieces, and picking one of them as the preview would misrepresent it.
+    image: null,
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: sale.h1,
+        description: sale.seo.description,
+        url: siteUrl + "/sale/"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: siteUrl + "/" },
+          { "@type": "ListItem", position: 2, name: sale.h1, item: siteUrl + "/sale/" }
+        ]
+      }
+    ],
+    body
+  });
+}
+
 /* --- product ------------------------------------------------------------ */
 
 function renderProduct(model, p, siteUrl) {
@@ -778,4 +931,4 @@ ${links.map(l =>
   });
 }
 
-module.exports = { renderHome, renderShop, renderProduct, renderContact, render404, money, esc };
+module.exports = { renderHome, renderShop, renderSale, renderProduct, renderContact, render404, money, esc };
