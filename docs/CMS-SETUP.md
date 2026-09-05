@@ -167,7 +167,9 @@ directly to change them.
 
 Every product page has a **Size Chart** button next to Order on WhatsApp. It
 opens whatever address is in **Site settings → Product defaults → Size chart
-link**.
+link** — except on the **Accessory Collection** (Girls and Boys alike), which
+never shows the button, since those pieces are one size and have no chart to
+show.
 
 The PDF lives on ImageKit, not in this repository, for the same two reasons the
 photos do. To replace the chart:
@@ -186,6 +188,8 @@ Two things worth knowing:
   paste never leaves a button that goes nowhere.
 - **A sold-out piece keeps its Size Chart button** even though it loses the
   order button — someone who cannot buy that piece may still be sizing another.
+- **The Accessory Collection never gets the button**, on Girls or Boys, no
+  matter what is pasted into Size chart link — those pieces are one size.
 
 After pasting a new address, open it once in a browser to check the PDF
 displays rather than downloading. Nothing else on this site serves a non-image
