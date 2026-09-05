@@ -1,30 +1,60 @@
 {
-  "badge": "",
   "name": "Luxury Sequin Gown",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.28%20PM%20(1).jpeg",
+      "url": "",
+      "alt": "Luxury Sequin Gown – handmade girls outfit, sequin gown throughout, with a long train, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.29%20PM.jpeg",
+      "url": "",
+      "alt": "Luxury Sequin Gown – handmade girls outfit, sequin gown throughout, with a long train, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.28%20PM%20(2).jpeg",
+      "url": "",
+      "alt": "Luxury Sequin Gown – handmade girls outfit, sequin gown throughout, with a long train, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.28%20PM.jpeg",
+      "url": "",
+      "alt": "Luxury Sequin Gown – handmade girls outfit, sequin gown throughout, with a long train, made to order in Pakistan"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.28%20PM%20(1).jpeg",
+  "subcategory": "girls-ball-gowns",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-28T00:13:00.000+05:00",
   "sizes": [
     {
-      "available": true,
       "size": "0–3 years",
-      "price": 16000
+      "price": 16000,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "4–6 years",
-      "price": 18000
+      "price": 18000,
+      "salePrice": 14800,
+      "available": true
     },
     {
-      "available": true,
       "size": "7–9 years",
-      "price": 20000
+      "price": 20000,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "10–12 years",
-      "price": 23000
+      "price": 23000,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": false,
+  "accessoryName": "",
   "accessoryPrice": 1500,
   "description": "A luxury sequin gown in navy blue, with sheer net on the shoulders and a pearl design at the neckline.",
   "description2": "The skirt is full and flows into a long train, made entirely of sparkling sequin fabric.",
@@ -33,26 +63,5 @@
     "occasion": "",
     "fit": "Sequin body with net shoulders and a full, flowing train",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.28%20PM%20(1).jpeg",
-      "alt": "Luxury Sequin Gown – handmade girls outfit, sequin gown throughout, with a long train, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.29%20PM.jpeg",
-      "alt": "Luxury Sequin Gown – handmade girls outfit, sequin gown throughout, with a long train, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.28%20PM%20(2).jpeg",
-      "alt": "Luxury Sequin Gown – handmade girls outfit, sequin gown throughout, with a long train, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.28%20PM.jpeg",
-      "alt": "Luxury Sequin Gown – handmade girls outfit, sequin gown throughout, with a long train, made to order in Pakistan"
-    }
-  ],
-  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.28%20PM%20(1).jpeg",
-  "subcategory": "girls-ball-gowns",
-  "addedOn": "2026-08-28T00:13:00.000+05:00"
+  }
 }
