@@ -261,6 +261,23 @@ should tap the button once after it deploys and confirm the star box opens.
 
 ## Recent history
 
+- **2026-09-05** — every product page has a **Size Chart** button next to Order
+  on WhatsApp, opening the address in the new **Size chart link** setting
+  (Product defaults) in a new tab. Berry outline pill, not another solid one —
+  same reasoning as the review button below. A blank or unsafe address renders
+  no button at all rather than an inert one; a sold-out piece keeps the chart
+  after losing its order button. The two pills share a `flex-wrap` row and stack
+  by themselves at 390px and 360px with no media query (measured: 225+154+12px
+  against a 362px and 332px column, `scrollWidth === innerWidth` at both).
+  Eight new assertions in `tools/test.js` (207 total), each seen to fail against
+  a deliberately broken tree first — one of them was rewritten after that check
+  caught it passing while the button sat outside the row, because `[\s\S]*?`
+  walks straight through a closing `</div>`.
+  **⚠ The shipped `sizeChartUrl` is a PLACEHOLDER** — an existing ImageKit photo
+  (`1000053523.jpg`), not the real chart. The owner is pasting the real PDF
+  address themselves; until then the button opens a dress photo. The PDF is
+  deliberately NOT committed to this repo (see `docs/CMS-SETUP.md` §"The size
+  chart PDF"). Serving a non-image file from ImageKit is unverified from here.
 - **2026-09-05** — the contact page's "Suggestions & complaints" box now sends
   people to Google reviews instead of WhatsApp. Retitled "Reviews & feedback"
   (a box headed "complaints" pointing at a public listing invites public

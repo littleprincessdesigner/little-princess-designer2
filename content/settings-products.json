@@ -13,5 +13,6 @@
   "accessoryPriceDefault": 95,
   "accessoryLabel": "Add matching accessory",
   "accessoryNote": "This costs extra charges.",
-  "deliveryNote": "Delivery charges are not included in this total."
+  "deliveryNote": "Delivery charges are not included in this total.",
+  "sizeChartUrl": "https://ik.imagekit.io/lpdlhr/1000053523.jpg"
 }
