@@ -1,75 +1,88 @@
 {
-  "badge": "",
   "name": "Multi Shade Ruffle Gown",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190303_Instagram.jpg.jpeg",
+      "url": "",
+      "alt": "Multi Shade Ruffle Gown – handmade girls outfit, silk body with a layered, multi shade net skirt, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190309_Instagram.jpg.jpeg",
+      "url": "",
+      "alt": "Multi Shade Ruffle Gown – handmade girls outfit, silk body with a layered, multi shade net skirt, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190242_Instagram.jpg.jpeg",
+      "url": "",
+      "alt": "Multi Shade Ruffle Gown – handmade girls outfit, silk body with a layered, multi shade net skirt, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190230_Instagram.jpg.jpeg",
+      "url": "",
+      "alt": "Multi Shade Ruffle Gown – handmade girls outfit, silk body with a layered, multi shade net skirt, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190319_Instagram.jpg.jpeg",
+      "url": "",
+      "alt": "Multi Shade Ruffle Gown – handmade girls outfit, silk body with a layered, multi shade net skirt, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190249_Instagram.jpg.jpeg",
+      "url": "",
+      "alt": "Multi Shade Ruffle Gown – handmade girls outfit, silk body with a layered, multi shade net skirt, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190333_Instagram.jpg.jpeg",
+      "url": "",
+      "alt": "Multi Shade Ruffle Gown – handmade girls outfit, silk body with a layered, multi shade net skirt, made to order in Pakistan"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190303_Instagram.jpg.jpeg",
+  "subcategory": "girls-ball-gowns",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-07-06T12:00:00.000Z",
   "sizes": [
     {
       "size": "0–3 years",
       "price": 18000,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "4–6 years",
       "price": 21000,
+      "salePrice": 15000,
       "available": true
     },
     {
       "size": "7–9 years",
       "price": 24000,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "10–12 years",
       "price": 27000,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "13–16 years",
       "price": 31000,
+      "salePrice": null,
       "available": true
     }
   ],
   "showAccessory": false,
-  "description2": "The skirt is made of layered net ruffles that shift from soft pink to deep pink at the hem, giving it a full, dramatic ball-gown shape. It can be customized in any color and shade.",
+  "accessoryName": "",
   "accessoryPrice": 1500,
+  "description": "A multi shade ruffle gown in silk, with a fitted body finished in delicate floral beading.",
+  "description2": "The skirt is made of layered net ruffles that shift from soft pink to deep pink at the hem, giving it a full, dramatic ball-gown shape. It can be customized in any color and shade.",
   "specs": {
     "fabric": "Silk body with a layered, multi shade net skirt",
     "occasion": "",
     "fit": "Fitted silk body with a full, ruffled net skirt",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190303_Instagram.jpg.jpeg",
-      "alt": "Multi Shade Ruffle Gown – handmade girls outfit, silk body with a layered, multi shade net skirt, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190309_Instagram.jpg.jpeg",
-      "alt": "Multi Shade Ruffle Gown – handmade girls outfit, silk body with a layered, multi shade net skirt, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190242_Instagram.jpg.jpeg",
-      "alt": "Multi Shade Ruffle Gown – handmade girls outfit, silk body with a layered, multi shade net skirt, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190230_Instagram.jpg.jpeg",
-      "alt": "Multi Shade Ruffle Gown – handmade girls outfit, silk body with a layered, multi shade net skirt, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190319_Instagram.jpg.jpeg",
-      "alt": "Multi Shade Ruffle Gown – handmade girls outfit, silk body with a layered, multi shade net skirt, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190249_Instagram.jpg.jpeg",
-      "alt": "Multi Shade Ruffle Gown – handmade girls outfit, silk body with a layered, multi shade net skirt, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190333_Instagram.jpg.jpeg",
-      "alt": "Multi Shade Ruffle Gown – handmade girls outfit, silk body with a layered, multi shade net skirt, made to order in Pakistan"
-    }
-  ],
-  "description": "A multi shade ruffle gown in silk, with a fitted body finished in delicate floral beading.",
-  "subcategory": "girls-ball-gowns",
-  "addedOn": "2026-07-06T12:00:00.000Z",
-  "image": "https://ik.imagekit.io/lpdlhr/Screenshot_20260819_190303_Instagram.jpg.jpeg"
+  }
 }
