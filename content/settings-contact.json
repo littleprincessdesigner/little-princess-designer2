@@ -9,13 +9,8 @@
   "googleReview": "https://g.page/r/Ca0qFdqc1RfsEAE/review",
   "contact": {
     "heading": "How to place an order",
+    "intro": "Ordering handmade kidswear from Little Princess Designer takes three steps and one WhatsApp conversation. Made-to-order pieces are cut to your child's measurements; ready-to-wear pieces ship the same day.",
     "stepsEyebrow": "Three steps to your order",
-    "feedback": {
-      "eyebrow": "Reviews & feedback",
-      "heading": "Tell us how we did",
-      "body": "If a fitting was wrong, a delivery was late, or you have an idea for us — tell us on Google. We read every review ourselves and reply to each one.",
-      "button": "Leave a Google review"
-    },
     "steps": [
       {
         "title": "Confirm on WhatsApp",
@@ -31,7 +26,25 @@
       }
     ],
     "faqHeading": "Frequently asked questions",
-    "intro": "Ordering handmade kidswear from Little Princess Designer takes three steps and one WhatsApp conversation. Made-to-order pieces are cut to your child's measurements; ready-to-wear pieces ship the same day.",
+    "faq": [
+      {
+        "question": "How long does a made-to-order dress take?",
+        "answer": "Around three weeks from the day the 25% advance is paid. You will be updated via WhatsApp."
+      },
+      {
+        "question": "Do you offer ready-to-wear options?",
+        "answer": "Yes. Our Ready to wear rail is already stitched in standard sizes, made to the same standard quality, lower price and dispatched as soon as you place the order."
+      },
+      {
+        "question": "What sizes are available?",
+        "answer": "Ranges from 0–3 years up to 13–16 years, and the price shown updates with the size you pick. Made-to-order pieces are cut to your child's body, waist and length measurements."
+      },
+      {
+        "question": "Do you ship outside Lahore and Pakistan?",
+        "answer": "We ship nationwide across Pakistan and internationally as well. Delivery is charged separately from the prices shown. We will quote the courier charges according to your city or district."
+      }
+    ],
+    "socialHeading": "Contact us",
     "social": {
       "instagram": {
         "description": "Follow @littleprincessdesigner for new arrivals",
@@ -58,25 +71,12 @@
         "button": "Email us"
       }
     },
-    "socialHeading": "Contact us",
-    "faq": [
-      {
-        "question": "How long does a made-to-order dress take?",
-        "answer": "Around three weeks from the day the 25% advance is paid. You will be updated via WhatsApp."
-      },
-      {
-        "question": "Do you offer ready-to-wear options?",
-        "answer": "Yes. Our Ready to wear rail is already stitched in standard sizes, made to the same standard quality, lower price and dispatched as soon as you place the order."
-      },
-      {
-        "question": "What sizes are available?",
-        "answer": "Ranges from 0–3 years up to 13–16 years, and the price shown updates with the size you pick. Made-to-order pieces are cut to your child's body, waist and length measurements."
-      },
-      {
-        "question": "Do you ship outside Lahore and Pakistan?",
-        "answer": "We ship nationwide across Pakistan and internationally as well. Delivery is charged separately from the prices shown. We will quote the courier charges according to your city or district."
-      }
-    ],
+    "feedback": {
+      "eyebrow": "Reviews & feedback",
+      "heading": "Tell us how we did",
+      "body": "Happy with your order? We’d love to hear about it! Please take a moment to leave us a quick Google review.\nAs a growing business, we rely on feedback from amazing customers like you. Thank you so much for your support!",
+      "button": "Leave a Google review"
+    },
     "seo": {
       "title": "Contact Us & How to Order | Little Princess Designer, Pakistan",
       "description": "How to order handmade kidswear from Little Princess Designer: confirm on WhatsApp, pay 25% advance, and we make it to your measurements. FAQs, sizes and delivery."
