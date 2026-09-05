@@ -502,6 +502,7 @@ collections:
           - { label: "Facebook link", name: facebook, widget: string }
           - { label: "TikTok link", name: tiktok, widget: string }
           - { label: "Google Business link", name: google, widget: string, required: false, hint: "The link customers use to find you and leave a review on Google (from your Google Business Profile)." }
+          - { label: "Google review link", name: googleReview, widget: string, required: false, hint: "Optional. The direct write-a-review link from your Google Business Profile (Ask for reviews, then copy the link — it looks like https://g.page/r/.../review). It opens the star box straight away. Leave blank and the contact page's review button uses the Google Business link above instead." }
 
           - label: "Contact page"
             name: contact
@@ -583,8 +584,7 @@ collections:
                   - { label: "Eyebrow", name: eyebrow, widget: string }
                   - { label: "Heading", name: heading, widget: string }
                   - { label: "Body", name: body, widget: text }
-                  - { label: "Button label", name: button, widget: string }
-                  - { label: "Pre-filled message", name: prefill, widget: string, hint: "What WhatsApp opens with when someone taps the button." }
+                  - { label: "Button label", name: button, widget: string, hint: "The button opens your Google review link — see Google review link near the top of this page." }
               - label: "Search engine listing"
                 name: seo
                 widget: object

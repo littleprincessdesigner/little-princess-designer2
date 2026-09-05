@@ -10,3 +10,9 @@ node_modules/
 # Local-only: SEO audit output and impeccable tool config, not part of the site
 .impeccable/
 littleprincessdesigner.pk-audit/
+
+# Claude Code: settings.json is shared and checked in; the local file holds
+# one machine's own approvals (absolute Windows paths, one-off commands) and
+# the lock file is transient.
+.claude/settings.local.json
+.claude/scheduled_tasks.lock

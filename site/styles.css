@@ -926,11 +926,15 @@ carousel-3d:active{cursor:grabbing}
   color:var(--ink-900);margin:0 0 10px;
 }
 .lp-feedback p{font:var(--type-body);color:var(--berry-800);margin:0;max-width:52ch}
+/* Brand berry, not WhatsApp green: this button opens Google reviews, and the
+   green-plus-speech-bubble pairing everywhere else on the site means WhatsApp.
+   The other #25D366 buttons (floating button, product pages) are still real
+   WhatsApp links and keep it. */
 .lp-feedback-btn{
   flex:0 0 auto;display:inline-flex;align-items:center;gap:12px;
   font:var(--weight-black) 1.0625rem/1 var(--font-ui);color:var(--paper-000);
-  background:#25D366;border:2px solid #128C4B;
-  border-radius:var(--radius-pill);padding:17px 30px;box-shadow:0 2px 0 #128C4B;
+  background:var(--berry-700);border:2px solid var(--berry-900);
+  border-radius:var(--radius-pill);padding:17px 30px;box-shadow:0 2px 0 var(--berry-900);
 }
 .lp-feedback-btn:hover{filter:brightness(1.06);color:var(--paper-000)}
 
@@ -1062,6 +1066,20 @@ carousel-3d:active{cursor:grabbing}
   .lp-social-t{font-size:0.7rem;letter-spacing:.03em}
   .lp-social p{display:none}
   .lp-social-pill{padding:0.5rem 0.3rem;font-size:0.68rem;width:100%}
+
+  /* Feedback box — the first phone rules it has ever had. The base rule is a
+     wrapping flex row with 2rem of padding and a fixed-width pill, which
+     measures 222px against a panel content box of 248px at 360px, 232px at
+     344px and 208px at 320px: it stops fitting somewhere around 340px and from
+     there eats into the panel's own padding. Rather than tune the label to the
+     narrowest phone, the button goes full width on its own row, which holds
+     ~3px of slack at every width from 390px down to 320px and gives a far
+     bigger tap target than a 222px pill. Measured in Chrome's device emulation
+     at 390/360/344/320 CSS px; see docs/PITFALLS.md entry 7 for what that does
+     and does not prove. */
+  .lp-feedback{padding:1.35rem 1.1rem;gap:1rem}
+  .lp-feedback h3{font-size:1.9rem}
+  .lp-feedback-btn{width:100%;justify-content:center;padding:15px 18px;font-size:0.9375rem}
 
   /* Footer: condensed, logo on its own centred row */
   .lp-footgrid{

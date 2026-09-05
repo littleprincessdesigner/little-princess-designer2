@@ -182,11 +182,31 @@ email, the Instagram, Facebook and TikTok links, and all the wording on the
 contact page (ordering steps, FAQs, the social cards, the feedback block).
 
 The WhatsApp number is used by every WhatsApp button on the site — the floating
-button, the product pages, the contact page. Changing it here changes all of
-them.
+button, the product pages, and the WhatsApp card on the contact page. Changing
+it here changes all of them.
 
 Enter it as digits only, with the country code and no `+` or spaces:
 `923217152723`.
+
+### The two Google links
+
+There are two, and they do different jobs:
+
+- **Google Business link** — where the **Google card** on the contact page
+  sends people. It opens your business listing, so they can read your reviews,
+  see the map and find your hours.
+- **Google review link** — where the **"Leave a Google review" button** at the
+  bottom of the contact page sends people. It opens the star-rating box
+  straight away, with nothing in between.
+
+To find the review link: open your Google Business Profile (search your own
+business name while signed in as the owner, or use the Google Maps app), choose
+**Ask for reviews**, and copy the link it gives you. It looks like
+`https://g.page/r/…/review`.
+
+If you ever leave the review link blank, the button quietly falls back to the
+Google Business link above it — people still reach your profile, they just have
+one more tap to make before they can leave a review.
 
 ---
 
