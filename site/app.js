@@ -548,20 +548,46 @@
     var gallery = $("[data-gallery]", detail);
     if (!gallery) return;
     var index = 0;
+    // The slide a click is animating toward while `scrollTo({behavior:"smooth"})`
+    // is still mid-flight; null means the gallery is sitting still. Without
+    // this, updateArrows() would read `index` (already the destination) the
+    // instant a click fires, show the correct arrows for a heartbeat, and
+    // then the scroll listener below would recompute `index` from where the
+    // gallery physically still is — the slide it's animating away from — and
+    // flip the arrows back until the animation caught up. Net effect: the
+    // arrow blinked on-off-on on every single click.
+    var pending = null;
+    var pendingTimer = 0;
     var prev = $("[data-gal-prev]", detail);
     var next = $("[data-gal-next]", detail);
 
     /* Hide whichever arrow would go nowhere: no "previous" on the first
-       photo, no "next" on the last one. */
+       photo, no "next" on the last one. While a click is still animating,
+       judge that against `pending` (where the gallery is headed) rather than
+       `index` (where it physically still is) — see the comment on `pending`
+       above for why the plain `index` reading flickers. */
     function updateArrows() {
       var count = gallery.children.length;
-      if (prev) prev.hidden = index <= 0;
-      if (next) next.hidden = index >= count - 1;
+      var at = pending === null ? index : pending;
+      if (prev) prev.hidden = at <= 0;
+      if (next) next.hidden = at >= count - 1;
     }
 
     function go(delta) {
       var slides = Array.prototype.slice.call(gallery.children);
-      index = Math.max(0, Math.min(slides.length - 1, index + delta));
+      // Step from wherever a click is already heading, not from `index`,
+      // so two quick clicks page two photos instead of the second one
+      // landing back on the slide the first click was still animating to.
+      var from = pending === null ? index : pending;
+      index = Math.max(0, Math.min(slides.length - 1, from + delta));
+      pending = index;
+      // Backstop: if the smooth scroll gets interrupted (another click, the
+      // user grabbing the gallery mid-animation) and never actually reaches
+      // `pending`, the scroll listener's own clear-on-arrival below never
+      // fires either — so without this timer `pending` could get stuck set
+      // and the arrows would freeze wherever that scroll left off.
+      clearTimeout(pendingTimer);
+      pendingTimer = setTimeout(function () { pending = null; updateArrows(); }, 700);
       var el = slides[index];
       if (el) gallery.scrollTo({ left: el.offsetLeft - gallery.offsetLeft, behavior: "smooth" });
       updateArrows();
@@ -578,6 +604,14 @@
       for (var i = 0; i < slides.length; i++) {
         var left = slides[i].offsetLeft - gallery.offsetLeft;
         if (mid >= left && mid < left + slides[i].offsetWidth) { index = i; break; }
+      }
+      // The animation from a click has physically arrived: stop treating
+      // `pending` as still in flight, so updateArrows() goes back to reading
+      // `index` directly (this also covers a swipe that happens to land
+      // exactly on the slide a click was already headed for).
+      if (pending !== null && index === pending) {
+        clearTimeout(pendingTimer);
+        pending = null;
       }
       updateArrows();
     }), { passive: true });

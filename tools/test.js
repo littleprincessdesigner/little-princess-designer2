@@ -317,6 +317,44 @@ checkTrue("a piece with no tag gets no empty pill on either view",
   !card.productCard(model, byName["Own words"]).includes("lp-badge") &&
   !card.productDetail(byName["Own words"], model.settings, "https://example.test").includes("lp-badge"));
 
+/* --- the gallery paging arrows --------------------------------------------
+ *
+ * card.js leaves the two arrow buttons out of the markup entirely when a
+ * piece has only one photo — there is nothing to page to, and app.js
+ * null-checks both anyway, so a lone photo just gets no arrows. Nothing in
+ * the fixture catalogue has exactly one photo (Photos has two; everything
+ * else has zero and gets three placeholder frames), so this builds a
+ * one-photo product inline from Photos to reach that branch.
+ */
+
+const onePhoto = Object.assign({}, byName["Photos"], { images: [byName["Photos"].images[0]] });
+
+checkTrue("a piece with more than one photo gets both paging arrows",
+  card.productDetail(byName["Photos"], model.settings, "https://example.test").includes("data-gal-prev") &&
+  card.productDetail(byName["Photos"], model.settings, "https://example.test").includes("data-gal-next"));
+checkTrue("a piece with one photo gets neither — there is nothing to page to",
+  !card.productDetail(onePhoto, model.settings, "https://example.test").includes("data-gal-prev") &&
+  !card.productDetail(onePhoto, model.settings, "https://example.test").includes("data-gal-next"));
+
+/* --- the gallery arrows honour `hidden` ------------------------------------
+ *
+ * This is the fourth instance of the same trap this stylesheet keeps hitting:
+ * a rule that sets `display` on an element outranks the browser's own built-in
+ * [hidden]{display:none}, so `hidden` stops doing anything unless the
+ * stylesheet says `[hidden]{display:none}` for that element by name. See
+ * .lp-navarrow, .lp-searchbtn/.lp-search and .lp-loadwrap in site/styles.css
+ * for the earlier three. Nothing in the build renders the gallery in a real
+ * browser to notice the rule being silently dropped — app.js would keep
+ * setting `hidden` on the arrow that has nowhere to go, and it would just sit
+ * there on screen anyway, clickable. This is a plain regex over the
+ * stylesheet text because that is all Node can check.
+ */
+
+const stylesCss = require("fs").readFileSync(path.join(__dirname, "..", "site", "styles.css"), "utf8");
+
+checkTrue("the gallery arrows honour `hidden` — a bare display: rule would outrank it",
+  /\.lp-arrow\[hidden\]\s*\{\s*display\s*:\s*none/.test(stylesCss));
+
 /* the copy of a product a Sale-page card is drawn from */
 
 const saleCardProduct = card.saleCopy(byName["On sale"]);
