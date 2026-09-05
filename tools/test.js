@@ -355,6 +355,37 @@ const stylesCss = require("fs").readFileSync(path.join(__dirname, "..", "site", 
 checkTrue("the gallery arrows honour `hidden` — a bare display: rule would outrank it",
   /\.lp-arrow\[hidden\]\s*\{\s*display\s*:\s*none/.test(stylesCss));
 
+/* --- the contact page's feedback button points at Google, not WhatsApp -----
+ *
+ * That button used to be a wa.me link in WhatsApp green, and every other green
+ * button on the site still is one — so the two easy regressions are the href
+ * drifting back to `waLink(...)` and the green being restored along with it.
+ * Neither would fail anything else: the page still builds, the link still
+ * works, it just quietly stops going to Google reviews.
+ *
+ * Rendered from the REAL content directory rather than the fixture, because
+ * the address is owner-editable (`googleReview`, falling back to `google`) and
+ * a fixture would only prove the fallback expression, never that the shipped
+ * settings actually resolve to a Google address. `quiet: true` suppresses the
+ * catalogue warnings the build prints; they are checked against the fixture
+ * above.
+ */
+
+const liveModel = load({ dir: path.join(__dirname, "..", "content"), quiet: true });
+const contactHtml = render.renderContact(liveModel, "https://example.test");
+const feedbackBtn = (contactHtml.match(/<a class="lp-feedback-btn"[^>]*>/) || [""])[0];
+
+checkTrue("the contact feedback button goes to Google, not WhatsApp",
+  /href="https:\/\/(g\.page|share\.google|search\.google|www\.google\.com|maps\.app\.goo\.gl)\//.test(feedbackBtn) &&
+  !/wa\.me|api\.whatsapp/.test(feedbackBtn));
+checkTrue("…and it is a real address, not safeHref's inert '#' fallback",
+  feedbackBtn.includes('href="http') && !feedbackBtn.includes('href="#"'));
+checkTrue("…and it is not styled as a WhatsApp button",
+  !/\.lp-feedback-btn\s*\{[^}]*#25D366/.test(stylesCss));
+checkTrue("…and it stays inside the panel on a phone — full width, not a fixed pill",
+  /\.lp-feedback-btn\s*\{[^}]*width\s*:\s*100%/.test(
+    (stylesCss.match(/@media\s*\(max-width:768px\)[\s\S]*/) || [""])[0]));
+
 /* the copy of a product a Sale-page card is drawn from */
 
 const saleCardProduct = card.saleCopy(byName["On sale"]);

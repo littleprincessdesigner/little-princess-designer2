@@ -6,15 +6,15 @@
   "facebook": "https://www.facebook.com/LittlePrincessDesigner/",
   "tiktok": "https://www.tiktok.com/@littleprincessdesigner",
   "google": "https://share.google/RuMkheJ03vZxCvLc9",
+  "googleReview": "https://g.page/r/Ca0qFdqc1RfsEAE/review",
   "contact": {
     "heading": "How to place an order",
     "stepsEyebrow": "Three steps to your order",
     "feedback": {
-      "eyebrow": "Suggestions & complaints",
+      "eyebrow": "Reviews & feedback",
       "heading": "Tell us how we did",
-      "body": "If a fitting was wrong, a delivery was late, or you have an idea for us — message us. We read every one ourselves and reply the same day.",
-      "button": "Send it on WhatsApp",
-      "prefill": "Hello Little Princess Designer, I have feedback for you:"
+      "body": "If a fitting was wrong, a delivery was late, or you have an idea for us — tell us on Google. We read every review ourselves and reply to each one.",
+      "button": "Leave a Google review"
     },
     "steps": [
       {

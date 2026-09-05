@@ -809,6 +809,17 @@ function renderContact(model, siteUrl) {
     { key: "email", label: "Email", icon: ICON.email, href: "mailto:" + s.email, aria: "Email Little Princess Designer" }
   ];
 
+  // Where the feedback box's button goes. `googleReview` is the owner's direct
+  // write-a-review link (g.page/r/.../review), which opens the star box itself
+  // rather than the profile page. It can only be copied out of the Google
+  // Business Profile while signed in as the owner, so if it is ever cleared in
+  // the CMS the button falls back to the Google Business link the "Google" card
+  // above already uses — that lands on the profile, where "Write a review" is
+  // one tap further on. The card deliberately keeps using `s.google` either
+  // way: reading reviews and finding the shop is a different job from writing
+  // one.
+  const reviewHref = s.googleReview || s.google;
+
   const body = `<main class="lp-main lp-main--contact">
 <h1 class="lp-contact-h1">${esc(c.heading)}</h1>
 <p class="lp-contact-intro">${esc(c.intro)}</p>
@@ -856,9 +867,7 @@ ${svg(card.icon, { size: 28, stroke: "var(--berry-800)", width: 1.5 })}
 <h3>${esc(c.feedback.heading)}</h3>
 <p>${esc(c.feedback.body)}</p>
 </div>
-<a class="lp-feedback-btn" target="_blank" rel="noopener" href="${safeHref(waLink(s.whatsappNumber, c.feedback.prefill))}">
-${svg(ICON.waOutline, { size: 22, stroke: "#ffffff", width: 1.8 })}
-${esc(c.feedback.button)}</a>
+<a class="lp-feedback-btn" target="_blank" rel="noopener" href="${safeHref(reviewHref)}">${esc(c.feedback.button)}</a>
 </div>
 </main>`;
 

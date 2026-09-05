@@ -247,8 +247,33 @@ without a code change. **Not yet verified live** — this was written and
 tested locally; confirm the contact page shows the new card and the link
 works once it deploys.
 
+**2026-09-05** — a second Google link joined it: `googleReview`
+(`https://g.page/r/Ca0qFdqc1RfsEAE/review`), the owner's direct write-a-review
+link, supplied by the owner because it can only be copied out of the Google
+Business Profile while signed in as the owner — `www.google.com` is behind the
+proxy block, so no session can resolve it from the `share.google` short link.
+It drives the contact page's feedback button only; the "Google" social card
+still uses `google`, since browsing a profile and writing a review are
+different jobs. `renderContact` falls back to `google` if `googleReview` is
+ever cleared in the CMS, so the button can degrade but not break. **The review
+link itself is unverified from here** for the same proxy reason — the owner
+should tap the button once after it deploys and confirm the star box opens.
+
 ## Recent history
 
+- **2026-09-05** — the contact page's "Suggestions & complaints" box now sends
+  people to Google reviews instead of WhatsApp. Retitled "Reviews & feedback"
+  (a box headed "complaints" pointing at a public listing invites public
+  complaints), body copy rewritten, button relabelled "Leave a Google review"
+  and recoloured from WhatsApp green to brand berry — green plus a speech
+  bubble means WhatsApp everywhere else on this site. Text only, no icon (the
+  owner asked for the star to come out). The dead `prefill` field was removed
+  from both the JSON and `config.yml`. Added the first `@media (max-width:768px)`
+  rules `.lp-feedback` has ever had: the fixed-width pill measures 222px against
+  a 208px panel content box at 320px, so it goes full width instead — measured,
+  not estimated. Four new assertions in `tools/test.js`, each seen to fail
+  against a deliberately broken tree first. `npm test` (199), `npm run check`
+  and `npm run build` green.
 - **2026-09-01** — expanded the Google Merchant Center feed (`tools/feed.js`)
   from a handful of columns to Google's full product feed template,
   column-for-column. Fills in gender, age_group, material, color, pattern,
