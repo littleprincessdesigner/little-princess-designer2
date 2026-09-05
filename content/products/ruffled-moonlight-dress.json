@@ -1,72 +1,83 @@
 {
-  "badge": "",
   "name": "Ruffled Moonlight Dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641156.jpg.jpeg",
+      "url": "",
+      "alt": "Ruffled Moonlight Dress – handmade girls outfit, moonlight fabric with a pleated structure, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641167.jpg.jpeg",
+      "url": "",
+      "alt": "Ruffled Moonlight Dress – handmade girls outfit, moonlight fabric with a pleated structure, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641157.jpg.jpeg",
+      "url": "",
+      "alt": "Ruffled Moonlight Dress – handmade girls outfit, moonlight fabric with a pleated structure, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641166.jpg.jpeg",
+      "url": "",
+      "alt": "Ruffled Moonlight Dress – handmade girls outfit, moonlight fabric with a pleated structure, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641168.jpg.jpeg",
+      "url": "",
+      "alt": "Ruffled Moonlight Dress – handmade girls outfit, moonlight fabric with a pleated structure, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1000641158.jpg.jpeg",
+      "url": "",
+      "alt": "Ruffled Moonlight Dress – handmade girls outfit, moonlight fabric with a pleated structure, made to order in Pakistan"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1000641156.jpg.jpeg",
+  "subcategory": "girls-luxury-dresses",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-03T12:00:00.000Z",
   "sizes": [
     {
       "size": "0–3 years",
       "price": 16500,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "4–6 years",
       "price": 18500,
+      "salePrice": 14000,
       "available": true
     },
     {
       "size": "7–9 years",
       "price": 20500,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "10–12 years",
       "price": 22500,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "13–16 years",
       "price": 24500,
+      "salePrice": null,
       "available": true
     }
   ],
   "showAccessory": false,
-  "description2": "The skirt is made of pleated moonlight fabric, giving it a full, structured shape that flares out beautifully.",
+  "accessoryName": "",
   "accessoryPrice": 1500,
+  "description": "A ruffled moonlight dress with a soft pink body and an oversized bow at the shoulder.",
+  "description2": "The skirt is made of pleated moonlight fabric, giving it a full, structured shape that flares out beautifully.",
   "specs": {
     "fabric": "Moonlight fabric with a pleated structure",
     "occasion": "",
     "fit": "Fitted body with an oversized bow and a full, pleated skirt",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641156.jpg.jpeg",
-      "alt": "Ruffled Moonlight Dress – handmade girls outfit, moonlight fabric with a pleated structure, made to order in Pakistan"
-    },
-    {
-      "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641167.jpg.jpeg",
-      "alt": "Ruffled Moonlight Dress – handmade girls outfit, moonlight fabric with a pleated structure, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641157.jpg.jpeg",
-      "alt": "Ruffled Moonlight Dress – handmade girls outfit, moonlight fabric with a pleated structure, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641166.jpg.jpeg",
-      "alt": "Ruffled Moonlight Dress – handmade girls outfit, moonlight fabric with a pleated structure, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641168.jpg.jpeg",
-      "alt": "Ruffled Moonlight Dress – handmade girls outfit, moonlight fabric with a pleated structure, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1000641158.jpg.jpeg",
-      "alt": "Ruffled Moonlight Dress – handmade girls outfit, moonlight fabric with a pleated structure, made to order in Pakistan"
-    }
-  ],
-  "description": "A ruffled moonlight dress with a soft pink body and an oversized bow at the shoulder.",
-  "subcategory": "girls-luxury-dresses",
-  "addedOn": "2026-08-03T12:00:00.000Z",
-  "image": "https://ik.imagekit.io/lpdlhr/1000641156.jpg.jpeg"
+  }
 }
