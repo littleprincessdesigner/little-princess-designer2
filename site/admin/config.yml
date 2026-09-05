@@ -612,6 +612,11 @@ collections:
           - { label: "Accessory checkbox label", name: accessoryLabel, widget: string }
           - { label: "Accessory note", name: accessoryNote, widget: string }
           - { label: "Delivery note", name: deliveryNote, widget: string, hint: "The small print under the total on a product page." }
+          - label: "Size chart link"
+            name: sizeChartUrl
+            widget: string
+            required: false
+            hint: "Web address of the size chart PDF, opened by the Size Chart button on every product page. Upload the PDF to ImageKit the same way you upload photos, copy its address and paste it here. Leave this blank and the button disappears from every product page."
 
           - label: "Default product wording"
             name: productDefaults

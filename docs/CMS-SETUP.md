@@ -163,6 +163,35 @@ stay as files in `site/assets/`. They are part of the page design, not
 catalogue content, so they are not editable in the admin — replace the files
 directly to change them.
 
+### The size chart PDF
+
+Every product page has a **Size Chart** button next to Order on WhatsApp. It
+opens whatever address is in **Site settings → Product defaults → Size chart
+link**.
+
+The PDF lives on ImageKit, not in this repository, for the same two reasons the
+photos do. To replace the chart:
+
+1. Upload the new PDF to ImageKit, exactly as you would a photo.
+2. Copy its address.
+3. Paste it into **Size chart link** and save.
+
+Because the new PDF gets its own address, customers see the new chart
+immediately — there is no cached old copy to wait out.
+
+Two things worth knowing:
+
+- **Leaving the box empty removes the button** from every product page. That is
+  deliberate: it is how the chart is switched off, and it means a half-finished
+  paste never leaves a button that goes nowhere.
+- **A sold-out piece keeps its Size Chart button** even though it loses the
+  order button — someone who cannot buy that piece may still be sizing another.
+
+After pasting a new address, open it once in a browser to check the PDF
+displays rather than downloading. Nothing else on this site serves a non-image
+file from ImageKit, so this is the one step that has not been proven in
+advance.
+
 ---
 
 ## 6. Optional: let someone else edit

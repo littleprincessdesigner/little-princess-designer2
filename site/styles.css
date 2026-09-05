@@ -826,6 +826,35 @@ carousel-3d:active{cursor:grabbing}
 }
 .lp-wa--off:hover{filter:none}
 
+/* The order button and the size chart, side by side. flex-wrap does the
+   narrow-screen work on its own, so there is no media query here.
+
+   Measured in Chrome, not estimated: the pills are 225–244px and 154–163px
+   wide plus the 12px gap, and the column they sit in is 530px at 1440,
+   451px at 502, 362px at 390 and 332px at 360. So they share a line down to
+   about 400px of column width and stack below it — at 390 and 360 they are
+   two rows, both flush to the same left edge, and scrollWidth still equals
+   innerWidth. Neither pill is stretched to full width on a phone: that would
+   mean restyling the existing order button, which this change has no reason
+   to touch. */
+.lp-detail-actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3)}
+/* .lp-wa carries align-self:flex-start from its old life as a direct child of
+   the .lp-detail-col column. Inside this row that means "top", which would
+   leave it hanging off a taller sibling. */
+.lp-detail-actions .lp-wa{align-self:auto}
+
+/* Brand berry outline, not another solid pill: the green above is the thing
+   we want pressed, and solid #25D366 means WhatsApp everywhere on this site.
+   Same padding and font as .lp-wa so the two pills are the same height.
+   berry-800 on white is 9.6:1, berry-700 border on white 6.5:1. */
+.lp-sizechart{
+  display:inline-flex;align-items:center;gap:10px;
+  font:var(--weight-black) 1rem/1 var(--font-ui);color:var(--berry-800);
+  background:var(--paper-000);border:2px solid var(--berry-700);
+  border-radius:var(--radius-pill);padding:15px 26px;box-shadow:0 2px 0 var(--berry-700);
+}
+.lp-sizechart:hover{background:var(--berry-100);color:var(--berry-900)}
+
 /* --- 14. Contact ------------------------------------------------------ */
 
 .lp-contact-h1{

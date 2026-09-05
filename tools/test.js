@@ -648,6 +648,59 @@ const soldOutHtml = card.productDetail(
 checkTrue("a sold-out piece offers no order button",
   !soldOutHtml.includes("data-wa-order") && soldOutHtml.includes("Currently unavailable"));
 
+/* --- the size chart, beside the order button -----------------------------
+ *
+ * The address is a settings field the owner pastes, so the two states that
+ * matter are the ones nothing else on the site would notice going wrong: a
+ * blank field, and a junk paste. Both must render NO button. safeHref turns
+ * anything outside its scheme allowlist into "#", and a pill labelled "Size
+ * Chart" that goes nowhere is worse than no pill — it reads as available.
+ */
+
+const chartLink = "https://ik.imagekit.io/lpdlhr/size-chart.pdf";
+const withChart = url =>
+  card.productDetail(detailProduct, Object.assign({}, model.settings, { sizeChartUrl: url }),
+    "https://example.test");
+
+checkTrue("the size chart button opens the pasted address in a new tab",
+  withChart(chartLink).includes(
+    '<a class="lp-sizechart" target="_blank" rel="noopener" href="' + chartLink + '">'));
+// Matched on the CONTENTS of the row, not on "wrapper … order … chart" in
+// document order: `[\s\S]*?` walks straight through the closing </div>, so a
+// chart moved out of the row entirely still satisfies that. Neither button
+// contains a nested div, so the first </div> after the wrapper is its own.
+const actionsRow = (withChart(chartLink)
+  .match(/<div class="lp-detail-actions">([\s\S]*?)<\/div>/) || ["", ""])[1];
+checkTrue("…inside the same row as the order button, order button first",
+  actionsRow.includes("data-wa-order") && actionsRow.includes("lp-sizechart") &&
+  actionsRow.indexOf("data-wa-order") < actionsRow.indexOf("lp-sizechart"));
+checkTrue("a blank size chart link renders no button at all — that is how it is switched off",
+  !withChart("").includes("lp-sizechart") && !withChart(undefined).includes("lp-sizechart"));
+checkTrue("…and neither does an address safeHref will not allow, rather than an inert '#'",
+  !withChart("javascript:alert(1)").includes("lp-sizechart"));
+
+// The chart outlives the order button: someone who cannot buy this piece today
+// may still be sizing up another one.
+checkTrue("a sold-out piece keeps the size chart even though it loses the order button",
+  (() => {
+    const html = card.productDetail(Object.assign({}, detailProduct, { badge: "Sold out" }),
+      Object.assign({}, model.settings, { sizeChartUrl: chartLink }));
+    return html.includes("Currently unavailable") && html.includes("lp-sizechart");
+  })());
+
+// Rendered from the REAL content directory, for the same reason the contact
+// button is: a fixture would only prove the expression, never that the address
+// actually shipped in content/settings-products.json resolves to anything.
+const liveChartBtn = (card.productDetail(detailProduct, liveModel.settings, "https://example.test")
+  .match(/<a class="lp-sizechart"[^>]*>/) || [""])[0];
+checkTrue("the shipped size chart link is a real address, not safeHref's inert '#'",
+  liveChartBtn.includes('href="http') && !liveChartBtn.includes('href="#"'));
+
+checkTrue("the two buttons share a row that wraps instead of overflowing a phone",
+  /\.lp-detail-actions\s*\{[^}]*flex-wrap\s*:\s*wrap/.test(stylesCss));
+checkTrue("…and the size chart is not styled as a WhatsApp button",
+  /\.lp-sizechart\s*\{/.test(stylesCss) && !/\.lp-sizechart\s*\{[^}]*#25D366/.test(stylesCss));
+
 /* the matching accessory can be switched off per piece */
 
 // Matched on the tick-box's own class and note id, not on "data-accessory":
