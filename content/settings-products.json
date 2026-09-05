@@ -1,4 +1,9 @@
 {
+  "accessoryPriceDefault": 95,
+  "accessoryLabel": "Add matching accessory",
+  "accessoryNote": "This costs extra charges.",
+  "deliveryNote": "Delivery charges are not included in this total.",
+  "sizeChartUrl": "https://ik.imagekit.io/lpdlhr/Size_Charts_lpd.pdf",
   "productDefaults": {
     "description": "Handmade to order in our own studio in Lahore, cut to your child's measurements and finished by hand.",
     "description2": "Message us with the size and the colors you would like and we will send photos as the piece is made.",
@@ -9,10 +14,5 @@
       "fit": "Cut to your measurements.",
       "care": "Gentle hand wash, dry in shade."
     }
-  },
-  "accessoryPriceDefault": 95,
-  "accessoryLabel": "Add matching accessory",
-  "accessoryNote": "This costs extra charges.",
-  "deliveryNote": "Delivery charges are not included in this total.",
-  "sizeChartUrl": "https://ik.imagekit.io/lpdlhr/1000053523.jpg"
+  }
 }
