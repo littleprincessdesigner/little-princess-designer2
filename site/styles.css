@@ -760,6 +760,13 @@ carousel-3d:active{cursor:grabbing}
   box-shadow:var(--shadow-sm);cursor:pointer;
   display:flex;align-items:center;justify-content:center;
 }
+/* Fourth time this exact trap has bitten this stylesheet — see .lp-navarrow,
+   .lp-searchbtn/.lp-search and .lp-loadwrap above, and .lp-price-was below.
+   app.js already works out which arrow has nowhere to go and sets `hidden`
+   on it, but `display:flex` above outranks the browser's own
+   [hidden]{display:none}, so without this line both arrows sat on screen on
+   the first and last photo, clickable with nowhere to go. */
+.lp-arrow[hidden]{display:none}
 .lp-arrow:hover{background:var(--paper-000)}
 .lp-arrow--prev{left:10px}
 .lp-arrow--next{right:10px}
