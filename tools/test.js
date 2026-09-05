@@ -696,6 +696,17 @@ const liveChartBtn = (card.productDetail(detailProduct, liveModel.settings, "htt
 checkTrue("the shipped size chart link is a real address, not safeHref's inert '#'",
   liveChartBtn.includes('href="http') && !liveChartBtn.includes('href="#"'));
 
+// Accessory Collection pieces are one-size (the subcategory's own
+// defaultSpecs.fit says so), so the size chart button has nothing to add there
+// — for both Girls and Boys — regardless of the site-wide size chart link.
+const liveByName = Object.fromEntries(liveModel.products.map(p => [p.name, p]));
+checkTrue("the Accessory Collection hides the size chart button — Girls",
+  !card.productDetail(liveByName["Butterfly Princess Tiara"], liveModel.settings, "https://example.test")
+    .includes("lp-sizechart"));
+checkTrue("…and Boys",
+  !card.productDetail(liveByName["Prince Cape"], liveModel.settings, "https://example.test")
+    .includes("lp-sizechart"));
+
 checkTrue("the two buttons share a row that wraps instead of overflowing a phone",
   /\.lp-detail-actions\s*\{[^}]*flex-wrap\s*:\s*wrap/.test(stylesCss));
 checkTrue("…and the size chart is not styled as a WhatsApp button",

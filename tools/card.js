@@ -502,7 +502,12 @@ Order on WhatsApp</a>`;
   // A sold-out piece still gets this. orderCta above becomes the grey inert
   // span, but the chart is a sibling of it, so it stays live — someone who
   // cannot buy this piece today may still be sizing up a different one.
-  const chartHref = safeHref(s.sizeChartUrl);
+  //
+  // Accessory Collection pieces (Girls and Boys alike) are one-size — the
+  // subcategory's own defaultSpecs.fit says so — so there is no size to look
+  // up and the button is dropped for that subcategory regardless of the
+  // site-wide link.
+  const chartHref = p.subcategoryName === "Accessory Collection" ? "#" : safeHref(s.sizeChartUrl);
   const sizeChart = chartHref === "#"
     ? ""
     : `<a class="lp-sizechart" target="_blank" rel="noopener" href="${chartHref}">
