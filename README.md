@@ -20,10 +20,15 @@ Read it, then read exactly what your task needs:
    explain things in plain words (they are not a developer), and only open a
    pull request when asked — but once one is open, turn on auto-merge without
    being asked twice.
-2. **`handoff.md`** — the state of play from previous sessions: what is live,
+2. **`docs/PITFALLS.md`** — the mistakes this project keeps repeating, and the
+   rule for each. Not the state of the project and not the map of the code —
+   only the traps, every one of them something that actually went wrong here.
+   Skim its table, read the entries that touch your task, and use its
+   "before you say you are done" checklist at the end.
+3. **`handoff.md`** — the state of play from previous sessions: what is live,
    what is unverified, what is waiting on the owner. It is dated; trust it over
    your assumptions, but not over what the code says today.
-3. **The "Where to go for a given job" table below** — go straight to the two or
+4. **The "Where to go for a given job" table below** — go straight to the two or
    three files that matter. You should not need to read the whole tree.
 
 Then work on the branch the session names, and run `npm test` and
@@ -132,6 +137,7 @@ handoff.md          ← state of play from previous sessions
 | Add a **test** | `tools/test.js`, with fixtures in `tools/fixtures/` |
 | Understand **what the owner sees** | `docs/ADMIN-GUIDE.md` — written for them, in their language |
 | Understand the **CMS and sign-in setup** | `docs/CMS-SETUP.md` |
+| Avoid a **trap this project has already hit** | `docs/PITFALLS.md` — read the entries touching your task before you start |
 
 Two shapes worth knowing before you read any of it:
 
@@ -244,6 +250,7 @@ peach for babies, gold for ready to wear.
 | File | What it answers |
 |---|---|
 | `CLAUDE.md` | How the owner wants to be talked to, and the pull-request policy |
+| `docs/PITFALLS.md` | The mistakes this project keeps repeating — the trap, the rule, and the guard for each. Read before starting; add to it when you find a new one |
 | `handoff.md` | What is live, what is waiting on the owner, what has never been verified, and which approaches are already known to fail |
 | `docs/ADMIN-GUIDE.md` | How the owner uses the admin — the same tasks, in their language |
 | `docs/CMS-SETUP.md` | The one-time CMS sign-in (GitHub + Netlify/Cloudflare) and ImageKit setup |
