@@ -1,0 +1,44 @@
+{
+  "name": "Aqiqah Baby Set",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-11%20at%208.23.51%20PM.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-11%20at%208.23.51%20PM%20(1).jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-11%20at%208.23.51%20PM%20(2).jpeg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-09-11%20at%208.23.51%20PM.jpeg",
+  "subcategory": "babies-baby-sets",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-09-11T21:40",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 4550,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": false,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "A newborn girl set made from soft cotton, especially customized for aqiqah occasions. It can be customized with any name and color.",
+  "description2": "1) Wrapping Sheet 2) Romper 3) Cap",
+  "specs": {
+    "fabric": "",
+    "occasion": "Aqiqah of one week old baby",
+    "fit": "",
+    "care": ""
+  }
+}
