@@ -1,30 +1,65 @@
 {
-  "badge": "",
   "name": "Luxury Butter Yellow Silk Gown",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.03%20PM%20(1).jpeg",
+      "url": "",
+      "alt": "Luxury Butter Yellow Silk Gown – handmade girls outfit, silk gown throughout, with a long train, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.03%20PM.jpeg",
+      "url": "",
+      "alt": "Luxury Butter Yellow Silk Gown – handmade girls outfit, silk gown throughout, with a long train, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.01%20PM.jpeg",
+      "url": "",
+      "alt": "Luxury Butter Yellow Silk Gown – handmade girls outfit, silk gown throughout, with a long train, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.04%20PM%20(1).jpeg",
+      "url": "",
+      "alt": "Luxury Butter Yellow Silk Gown – handmade girls outfit, silk gown throughout, with a long train, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.04%20PM.jpeg",
+      "url": "",
+      "alt": "Luxury Butter Yellow Silk Gown – handmade girls outfit, silk gown throughout, with a long train, made to order in Pakistan"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.03%20PM%20(1).jpeg",
+  "subcategory": "girls-ball-gowns",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-28T00:09:00.000+05:00",
   "sizes": [
     {
-      "available": true,
       "size": "0–3 years",
-      "price": 16500
+      "price": 18500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "4–6 years",
-      "price": 18500
+      "price": 20500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "7–9 years",
-      "price": 20500
+      "price": 23000,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "10–12 years",
-      "price": 23000
+      "price": 25000,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": false,
+  "accessoryName": "",
   "accessoryPrice": 1500,
   "description": "A luxury silk gown in butter yellow, with an off-shoulder body finished with pearl shoulder straps.",
   "description2": "The skirt is made of flowing silk with a long train for a dramatic, elegant shape.",
@@ -33,30 +68,5 @@
     "occasion": "",
     "fit": "Off-shoulder silk body with pearl straps and a flowing train",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.03%20PM%20(1).jpeg",
-      "alt": "Luxury Butter Yellow Silk Gown – handmade girls outfit, silk gown throughout, with a long train, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.03%20PM.jpeg",
-      "alt": "Luxury Butter Yellow Silk Gown – handmade girls outfit, silk gown throughout, with a long train, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.01%20PM.jpeg",
-      "alt": "Luxury Butter Yellow Silk Gown – handmade girls outfit, silk gown throughout, with a long train, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.04%20PM%20(1).jpeg",
-      "alt": "Luxury Butter Yellow Silk Gown – handmade girls outfit, silk gown throughout, with a long train, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.04%20PM.jpeg",
-      "alt": "Luxury Butter Yellow Silk Gown – handmade girls outfit, silk gown throughout, with a long train, made to order in Pakistan"
-    }
-  ],
-  "image": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-27%20at%208.49.03%20PM%20(1).jpeg",
-  "subcategory": "girls-ball-gowns",
-  "addedOn": "2026-08-28T00:09:00.000+05:00"
+  }
 }
