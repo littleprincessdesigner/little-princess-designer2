@@ -50,25 +50,25 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 25000,
+      "price": 26000,
       "salePrice": null,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 28000,
+      "price": 29000,
       "salePrice": null,
       "available": true
     },
     {
       "size": "7–9 years",
-      "price": 32000,
+      "price": 33000,
       "salePrice": null,
       "available": true
     },
     {
       "size": "10–12 years",
-      "price": 39000,
+      "price": 40000,
       "salePrice": null,
       "available": true
     }
