@@ -1,50 +1,62 @@
 {
-  "badge": "",
   "name": "Dark Fairytale Ballgown",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress.jpg?updatedAt=1786649143651",
+      "url": "",
+      "alt": "Dark Fairytale Ballgown – handmade girls outfit, silk with gold beaded trim, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(1).jpg?updatedAt=1786649143772",
+      "url": "",
+      "alt": "Dark Fairytale Ballgown – handmade girls outfit, silk with gold beaded trim, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(2).jpg?updatedAt=1786649144016",
+      "url": "",
+      "alt": "Dark Fairytale Ballgown – handmade girls outfit, silk with gold beaded trim, made to order in Pakistan"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress.jpg?updatedAt=1786649143651",
+  "subcategory": "girls-ball-gowns",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-01T12:00:00.000Z",
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 25000,
+      "price": 26000,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 28000,
+      "price": 29000,
+      "salePrice": null,
       "available": true
     },
     {
-      "available": true,
       "size": "7–9 years",
-      "price": 32000
+      "price": 32000,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "10–12 years",
+      "price": 35000,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": false,
-  "description2": "A train flows from the back, covered in gold floral details, over a voluminous layered skirt.",
+  "accessoryName": "",
   "accessoryPrice": 1500,
+  "description": "A dark fairytale ballgown in deep burgundy satin, with off-shoulder puffed sleeves finished with fabric roses and a gold beaded trim across the body.",
+  "description2": "A train flows from the back, covered in gold floral details, over a voluminous layered skirt.",
   "specs": {
     "fabric": "Silk with gold beaded trim",
     "occasion": "",
     "fit": "Off-shoulder silk body with a voluminous skirt and train",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress.jpg?updatedAt=1786649143651",
-      "alt": "Dark Fairytale Ballgown – handmade girls outfit, silk with gold beaded trim, made to order in Pakistan"
-    },
-    {
-      "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(1).jpg?updatedAt=1786649143772",
-      "alt": "Dark Fairytale Ballgown – handmade girls outfit, silk with gold beaded trim, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress%20(2).jpg?updatedAt=1786649144016",
-      "alt": "Dark Fairytale Ballgown – handmade girls outfit, silk with gold beaded trim, made to order in Pakistan"
-    }
-  ],
-  "description": "A dark fairytale ballgown in deep burgundy satin, with off-shoulder puffed sleeves finished with fabric roses and a gold beaded trim across the body.",
-  "subcategory": "girls-ball-gowns",
-  "addedOn": "2026-08-01T12:00:00.000Z",
-  "image": "https://ik.imagekit.io/lpdlhr/red%20and%20gold%20dress.jpg?updatedAt=1786649143651"
+  }
 }
