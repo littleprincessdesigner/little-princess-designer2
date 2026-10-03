@@ -1,30 +1,55 @@
 {
-  "badge": "",
   "name": "Pastel Silk and Organza Gown",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1786025586557.jpg",
+      "url": "",
+      "alt": "Pastel Silk and Organza Gown – handmade girls outfit, organza and silk gown with a beaded body, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1786025590003.jpg",
+      "url": "",
+      "alt": "Pastel Silk and Organza Gown – handmade girls outfit, organza and silk gown with a beaded body, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1786025642565.jpg",
+      "url": "",
+      "alt": "Pastel Silk and Organza Gown – handmade girls outfit, organza and silk gown with a beaded body, made to order in Pakistan"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1786025586557.jpg",
+  "subcategory": "girls-ball-gowns",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-08-19T01:54:00.000+05:00",
   "sizes": [
     {
-      "available": true,
       "size": "0–3 years",
-      "price": 28000
+      "price": 29000,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "4–6 years",
-      "price": 30000
+      "price": 31000,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "7–9 years",
-      "price": 32000
+      "price": 34000,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "10–12 years",
-      "price": 35000
+      "price": 37000,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": false,
+  "accessoryName": "",
   "accessoryPrice": 1500,
   "description": "A pastel silk and organza gown with a beaded pastel body and sheer organza wing details at the waist.",
   "description2": "The skirt is made of silk with flowers in pink and blue shades scattered across the bottom, fading from pink at the top to blue at the hem.",
@@ -33,22 +58,5 @@
     "occasion": "",
     "fit": "Fitted beaded body with a full, flowing silk skirt",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1786025586557.jpg",
-      "alt": "Pastel Silk and Organza Gown – handmade girls outfit, organza and silk gown with a beaded body, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1786025590003.jpg",
-      "alt": "Pastel Silk and Organza Gown – handmade girls outfit, organza and silk gown with a beaded body, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/1786025642565.jpg",
-      "alt": "Pastel Silk and Organza Gown – handmade girls outfit, organza and silk gown with a beaded body, made to order in Pakistan"
-    }
-  ],
-  "image": "https://ik.imagekit.io/lpdlhr/1786025586557.jpg",
-  "subcategory": "girls-ball-gowns",
-  "addedOn": "2026-08-19T01:54:00.000+05:00"
+  }
 }
