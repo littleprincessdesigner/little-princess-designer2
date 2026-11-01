@@ -1,27 +1,40 @@
 {
-  "badge": "",
   "name": "Bright Unicorn Tutu Dress",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/unicorn%20tutu%20dress.jpg",
+      "url": "",
+      "alt": "Bright Unicorn Tutu Dress – handmade girls outfit, crochet body and net skirt, made to order in Pakistan"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/unicorn%20tutu%20dress.jpg",
+  "subcategory": "girls-tutu-dresses",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-07-25T12:00:00.000Z",
   "sizes": [
     {
-      "available": true,
       "size": "0–3 years",
-      "price": 7500
+      "price": 9500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "4–6 years",
-      "price": 8500
+      "price": 10500,
+      "salePrice": null,
+      "available": true
     },
     {
-      "available": true,
       "size": "7–9 years",
-      "price": 9500
+      "price": 11500,
+      "salePrice": null,
+      "available": true
     }
   ],
   "showAccessory": true,
-  "accessoryPrice": 450,
   "accessoryName": "Unicorn Hairband (PKR 450)",
+  "accessoryPrice": 450,
   "description": "A bright unicorn tutu dress with a white crochet body decorated with three pastel flowers and playful unicorn eyelashes.",
   "description2": "The tutu skirt is made of soft pastel net in peach, purple and yellow, giving it a full, bouncy look.",
   "specs": {
@@ -29,15 +42,5 @@
     "occasion": "",
     "fit": "Relaxed crochet body with a full net tutu skirt",
     "care": ""
-  },
-  "images": [
-    {
-      "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/unicorn%20tutu%20dress.jpg",
-      "alt": "Bright Unicorn Tutu Dress – handmade girls outfit, crochet body and net skirt, made to order in Pakistan"
-    }
-  ],
-  "subcategory": "girls-tutu-dresses",
-  "addedOn": "2026-07-25T12:00:00.000Z",
-  "image": "https://ik.imagekit.io/lpdlhr/unicorn%20tutu%20dress.jpg"
+  }
 }
