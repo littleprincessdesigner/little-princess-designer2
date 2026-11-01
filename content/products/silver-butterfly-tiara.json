@@ -1,0 +1,39 @@
+{
+  "name": "Silver Butterfly Tiara",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/IMG-20261101-WA0042.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_6165.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/IMG-20261101-WA0042.jpg.jpeg",
+  "subcategory": "girls-accessory",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-11-01T16:02",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 2200,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": false,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "A beautiful princess tiara crafted with silver butterflies that stand tall for a royal look. The base is woven with delicate sliver wire, decorated with shiny white pearls and beads, and sparkling crysals.",
+  "description2": "It is lightweight and sits comfortably on the head to make your little girl feel like royalty. This crown can be customized in any color combination to match her dress.",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
