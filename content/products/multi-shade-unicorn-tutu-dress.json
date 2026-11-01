@@ -1,5 +1,5 @@
 {
-  "name": "Multi-shade Unicorn Tutu Dress",
+  "name": "Multi shade Unicorn Tutu Dress",
   "images": [
     {
       "upload": "https://ik.imagekit.io/lpdlhr/WhatsApp%20Image%202026-08-30%20at%207.48.25%20PM%20(2).jpg",
@@ -15,19 +15,19 @@
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 7500,
+      "price": 9500,
       "salePrice": null,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 8500,
+      "price": 10500,
       "salePrice": null,
       "available": true
     },
     {
       "size": "7–9 years",
-      "price": 9500,
+      "price": 11500,
       "salePrice": null,
       "available": true
     }
