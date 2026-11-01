@@ -1,0 +1,39 @@
+{
+  "name": "Vintage Black Birdcage Fascinator",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_6180.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_6191.png",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/DSC_6180.jpg.jpeg",
+  "subcategory": "girls-accessory",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-11-01T15:49",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 1350,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": false,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "An elegant vintage-style party hairpiece designed with a soft base topped with a delicate fabric flower, and light feathers. It is finished with a classic, wide-net birdcage veil that falls gently over the face for a royal look.",
+  "description2": "It is lightweight, easy to clip into the hair, and holds securely for long events. This hairpiece can be customized in any color to perfectly match your dress.",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
