@@ -1,0 +1,50 @@
+{
+  "name": "Baby Shark Mom and Daughter Set",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_6132.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_6140.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/DSC_6146.jpg.jpeg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/DSC_6132.jpg.jpeg",
+  "subcategory": "girls-luxury-dresses",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-11-01T16:09",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 35500,
+      "salePrice": null,
+      "available": true
+    },
+    {
+      "size": "4–6 years",
+      "price": 37500,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": false,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "A baby shark set in a kids' favorite theme with a matching Mommy dress. A pale blue silk body in a diamond pattern and flutter sleeves and long trail.",
+  "description2": "The price for the mommy dress is fixed (22,500 Rs). The total price includes both the baby and mommy dresses.",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
