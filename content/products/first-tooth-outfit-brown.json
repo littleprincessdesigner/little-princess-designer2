@@ -1,0 +1,34 @@
+{
+  "name": "First Tooth Outfit (Brown)",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/1793198720896.jpg%20(1).jpeg",
+      "url": "",
+      "alt": ""
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/1793198720896.jpg%20(1).jpeg",
+  "subcategory": "boys-collection",
+  "visible": true,
+  "badge": "",
+  "addedOn": "2026-11-01T16:06",
+  "sizes": [
+    {
+      "size": "0–3 years",
+      "price": 2800,
+      "salePrice": null,
+      "available": true
+    }
+  ],
+  "showAccessory": false,
+  "accessoryName": "",
+  "accessoryPrice": 1500,
+  "description": "A first tooth boy outfit with a cotton shirt marking the milestone, paired with brown silk pants.",
+  "description2": "It can be customized with any name.",
+  "specs": {
+    "fabric": "",
+    "occasion": "",
+    "fit": "",
+    "care": ""
+  }
+}
