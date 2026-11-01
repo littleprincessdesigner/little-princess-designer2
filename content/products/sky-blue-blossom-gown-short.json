@@ -1,51 +1,56 @@
 {
-  "badge": "",
   "name": "Sky Blue Blossom Gown Short",
+  "images": [
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/sky%20blue%20dress.jpg?updatedAt=1786650315337",
+      "url": "",
+      "alt": "Sky Blue Blossom Gown Short – handmade girls outfit, organza with hand-placed pearls and 3D floral petals, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/sky%20blue%20lil%20dress.jpg?updatedAt=1786650315545",
+      "url": "",
+      "alt": "Sky Blue Blossom Gown Short – handmade girls outfit, organza with hand-placed pearls and 3D floral petals, made to order in Pakistan"
+    },
+    {
+      "upload": "https://ik.imagekit.io/lpdlhr/jfjfjdf.jpg?updatedAt=1786650315345",
+      "url": "",
+      "alt": "Sky Blue Blossom Gown Short – handmade girls outfit, organza with hand-placed pearls and 3D floral petals, made to order in Pakistan"
+    }
+  ],
+  "image": "https://ik.imagekit.io/lpdlhr/sky%20blue%20dress.jpg?updatedAt=1786650315337",
+  "subcategory": "girls-luxury-dresses",
   "visible": true,
+  "badge": "",
+  "addedOn": "2026-07-31T12:00:00.000Z",
   "sizes": [
     {
       "size": "0–3 years",
-      "price": 15500,
+      "price": 16500,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "4–6 years",
-      "price": 17500,
+      "price": 18500,
+      "salePrice": null,
       "available": true
     },
     {
       "size": "7–9 years",
-      "price": 21500,
+      "price": 22500,
+      "salePrice": null,
       "available": true
     }
   ],
   "showAccessory": true,
-  "description2": "Detailed to perfection, the airy organza flare is bordered with hand-placed pastel flower petals with pearl centers. ",
+  "accessoryName": "Fascinator (PKR 1100)",
   "accessoryPrice": 1100,
+  "description": "A dreamy sky-blue party gown designed with an off-the-shoulder neckline, delicate pearl straps, and an embellished pearl body. The waistline is accented with soft pastel 3D flowers and a flared organza skirt.",
+  "description2": "Detailed to perfection, the airy organza flare is bordered with hand-placed pastel flower petals with pearl centers.",
   "specs": {
     "fabric": "Organza with hand-placed pearls and 3D floral petals",
     "occasion": "",
     "fit": "Fitted off-shoulder bodice with pearl straps and a flared organza skirt",
     "care": ""
-  },
-  "images": [
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/sky%20blue%20dress.jpg?updatedAt=1786650315337",
-      "alt": "Sky Blue Blossom Gown Short – handmade girls outfit, organza with hand-placed pearls and 3D floral petals, made to order in Pakistan"
-    },
-    {
-      "url": "",
-      "upload": "https://ik.imagekit.io/lpdlhr/sky%20blue%20lil%20dress.jpg?updatedAt=1786650315545",
-      "alt": "Sky Blue Blossom Gown Short – handmade girls outfit, organza with hand-placed pearls and 3D floral petals, made to order in Pakistan"
-    },
-    {
-      "upload": "https://ik.imagekit.io/lpdlhr/jfjfjdf.jpg?updatedAt=1786650315345",
-      "alt": "Sky Blue Blossom Gown Short – handmade girls outfit, organza with hand-placed pearls and 3D floral petals, made to order in Pakistan"
-    }
-  ],
-  "image": "https://ik.imagekit.io/lpdlhr/sky%20blue%20dress.jpg?updatedAt=1786650315337",
-  "description": "A dreamy sky-blue party gown designed with an off-the-shoulder neckline, delicate pearl straps, and an embellished pearl body. The waistline is accented with soft pastel 3D flowers and a flared organza skirt.",
-  "accessoryName": "Fascinator (PKR 1100)",
-  "subcategory": "girls-luxury-dresses",
-  "addedOn": "2026-07-31T12:00:00.000Z"
+  }
 }
